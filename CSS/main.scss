@@ -1,0 +1,22 @@
+@import "./variables";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color__background);
+  color: var(--color__text);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding-top: var(--header-height);
+  min-height: 100vh;
+}
+
+main {
+  position: relative;
+  min-height: calc(100vh - var(--header-height));
+}
