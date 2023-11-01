@@ -1,0 +1,15 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+  
+    height: var(--header-height);
+    width: 100%;
+
+    background-color: var(--color__header--background);
+    color: var(--color__header--text);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
