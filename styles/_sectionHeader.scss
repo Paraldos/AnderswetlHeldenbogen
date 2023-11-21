@@ -1,0 +1,28 @@
+.section-header {
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  font-weight: 400;
+
+  background-color: var(--color__heading--background);
+  color: var(--color__heading--text);
+
+  margin-bottom: 10px;
+
+  display: flex;
+  align-items: center;
+
+  p {
+    padding: 0 10px;
+    width: 100%;
+    height: fit-content;
+  }
+
+  button {
+    color: white;
+    font-size: 1.2rem;
+    border: 0;
+    min-height: 35px;
+    min-width: 35px;
+    background-color: transparent;
+  }
+}
