@@ -1,0 +1,122 @@
+{
+  "bildung": {
+    "name": "Bildung",
+    "category": "geistig",
+    "value": 0,
+    "description": "Bildung beschreibt dein Buchwissen, also z.B. wie gut du dich mit Astrologie, Heraldik, Geschichte, Magietheorie und Theologie auskennst."
+  },
+  "fassung": {
+    "name": "Fassung",
+    "category": "geistig",
+    "value": 0,
+    "description": "Fassung ist die Fähigkeit ruhig und besonnen zu bleiben, auch wenn du z.B. beleidigt oder herausgefordert wirst. Außerdem wird die Fertigkeit genutzt, um mentale Angriffe und Zauber abzuwehren."
+  },
+  "handwerk": {
+    "name": "Handwerk",
+    "category": "geistig",
+    "value": 0,
+    "description": "Handwerk erlaubt dir Gegenstände herzustellen, reparieren oder ihre Qualität zu beurteilen."
+  },
+  "medizin": {
+    "name": "Medizin",
+    "category": "geistig",
+    "value": 0,
+    "description": "Mit Medizin kannst du Krankheiten, Gifte und Wunden behandeln. Außerdem kannst du die Fertigkeit nutzen, um z.B. eine Leiche zu untersuchen."
+  },
+  "wahrnehmung": {
+    "name": "Wahrnehmung",
+    "category": "geistig",
+    "value": 0,
+    "description": "Wahrnehmung bestimmt, wie scharf deine Sinne sind und wie aufmerksam du deine Umwelt im Blick hast. Das kannst du z.B. nutzen, um eine Falle zu entdecken, einen versteckten Safe zu finden oder einen Hinterhalt zu bemerken."
+  },
+  "zauberei": {
+    "name": "Zauberei",
+    "category": "geistig",
+    "value": 0,
+    "description": "Mit dieser Fertigkeit kannst du Zauber wirken. Sie ist also nur wichtig, wen du zaubern kannst."
+  },
+  "diebstahl": {
+    "name": "Diebstahl",
+    "category": "koerperlich",
+    "value": 0,
+    "description": "Diebstahl umfasst alle typischen Diebesfähigkeiten, wie z.B. Schlösser knacken, Fallen entschärfen, Taschendiebstahl oder beim Glücksspiel betrügen."
+  },
+  "fahren": {
+    "name": "Fahren",
+    "category": "koerperlich",
+    "value": 0,
+    "description": "Mit Fahren legst du fest, wie gut du dich mit Fahrzeugen auskennst und wie gut du sie lenken und pflegen kannst (z.B. Schiffe oder Kutschen)."
+  },
+  "fitness": {
+    "name": "Fitness",
+    "category": "koerperlich",
+    "value": 0,
+    "description": "Fitness beschreibt, wie gut dein Charakter in Form ist, und wie er mit körperlichen Herausforderungen, wie z.B. laufen, klettern, reiten oder schwimmen, zurechtkommt."
+  },
+  "heimlichkeit": {
+    "name": "Heimlichkeit",
+    "category": "koerperlich",
+    "value": 0,
+    "description": "Heimlichkeit kommt zum Einsatz, wen du dich unbemerkt bewegen oder etwas verstecken möchtest."
+  },
+  "kaempfen": {
+    "name": "Kämpfen",
+    "category": "koerperlich",
+    "value": 0,
+    "description": "Kämpfen bestimmt, wie gut du dich gegen Angriff aller Art wehren kannst und wie gut du im bewaffneten und unbewaffneten Nahkampf austeilen kannst."
+  },
+  "schiessen": {
+    "name": "Schießen",
+    "category": "koerperlich",
+    "value": 0,
+    "description": "Schießen bestimmt wie gut du mit Fernkampfwaffen, wie z.B. Bögen oder Wurfäxten, attackieren kannst."
+  },
+  "ueberleben": {
+    "name": "Überleben",
+    "category": "koerperlich",
+    "value": 0,
+    "description": "Überleben zeigt, wie gut du in der Wildnis zurechtkommst. Du kannst dich damit z.B. orientieren, das Wetter einschätzen, Jagen oder Spuren lesen."
+  },
+  "empathie": {
+    "name": "Empathie",
+    "category": "sozial",
+    "value": 0,
+    "description": "Mit Empathie kannst du andere Lebewesen einschätzen und damit z.B. erkennen, ob sie lügen oder wie sie sich gerade fühlen."
+  },
+  "etikette": {
+    "name": "Etikette",
+    "category": "sozial",
+    "value": 0,
+    "description": "Mit Etikette kannst du dich in gehobener Gesellschaft bewegen, politische Situationen beurteilen und Kontakt zu einflussreichen Leuten aufnehmen."
+  },
+  "gassenwissen": {
+    "name": "Gassenwissen",
+    "category": "sozial",
+    "value": 0,
+    "description": "Gassenwissen zeigt, wie gut du dich auf der Straße zurechtfindest, und ob du Kontakt mit Größen der Unterwelt aufnehmen kannst."
+  },
+  "provozieren": {
+    "name": "Provozieren",
+    "category": "sozial",
+    "value": 0,
+    "description": "Provozieren erlaubt dir andere negativ zu beeinflussen, indem du sie z.B. einschüchterst, beleidigst oder herausforderst."
+  },
+  "ueberreden": {
+    "name": "Überreden",
+    "category": "sozial",
+    "value": 0,
+    "description": "Mit überreden kannst du andere mit freundlichen Worten beeinflussen und sie z.B. von deiner Meinung überzeugen."
+  },
+  "tierkunde": {
+    "name": "Tierkunde",
+    "category": "sozial",
+    "value": 0,
+    "description": "Tierkunde zeigt, wie gut du mit Tieren umgehen kannst. Das kannst du z.B. gebrauchen, wenn du ein Tier abrichten, beruhigen oder seine Laune einschätzen möchtest."
+  },
+  "unterhalten": {
+    "name": "Unterhalten",
+    "category": "sozial",
+    "value": 0,
+    "description": "Unterhalten ist die Fähigkeit andere zu begeistern, indem du z.B. singst, ein Instrument spielst oder tanzt."
+  }
+}

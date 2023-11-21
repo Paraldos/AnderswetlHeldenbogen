@@ -1,0 +1,26 @@
+{
+  "name": {
+    "name": "Name",
+    "value": ""
+  },
+  "titel": {
+    "name": "Titel",
+    "value": ""
+  },
+  "herkunft": {
+    "name": "Herkunft",
+    "value": ""
+  },
+  "alter": {
+    "name": "Alter",
+    "value": ""
+  },
+  "hautfarbe": {
+    "name": "Hautfarbe",
+    "value": ""
+  },
+  "haarfarbe": {
+    "name": "Haarfarbe",
+    "value": ""
+  }
+}

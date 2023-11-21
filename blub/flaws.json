@@ -1,0 +1,86 @@
+{
+  "alt": {
+    "name": "Alt",
+    "description": "Du wirst langsam alt, und das macht sich bemerkbar. Du kannst deine körperlichen Fertigkeiten nach der Generierung nicht mehr steigern."
+  },
+  "analphabet": {
+    "name": "Analphabet",
+    "description": "Du kannst nicht lesen oder schreiben. Etwas unterzeichnen und simple Schilder deuten kriegst du noch hin, alles andere ist aber schon zu viel."
+  },
+  "artefaktgebunden": {
+    "name": "Artefaktgebunden",
+    "description": "Voraussetzung: Magie\nDeine Zauberkraft ist an einen bestimmten Gegentand gebunden (z.B. der Ring deines Vaters oder dein Zauberstab). Hast du dieses Artefakt nicht bei dir, kosten alle Zauber 1 AP extra.\nGeht dein Artefakt verloren oder wird es zerstört, kannst du es im Laufe eines Monats durch ein neues ersetzen."
+  },
+  "aussenseiter": {
+    "name": "Außenseiter",
+    "description": "Du hast einen schlechten Ruf oder gehörst zu einer weithin gehassten Minderheit. Die meisten Leute wollen nichts mit dir zu tun haben und begegnen dir mit Angst oder Abscheu."
+  },
+  "dunklesGeheimnis": {
+    "name": "Dunkles Geheimnis",
+    "description": "Du hast ein dunkles Geheimnis. Sollte es enthüllt werden, wird es deinen Ruf und dein Leben ruinieren.\n\nBeispiel: Du bist das Kind eines verräterischen Adligen oder hast einen Pakt mit einem Dämon eingegangen."
+  },
+  "einarmig": {
+    "name": "Einarmig",
+    "description": "Du hast einen Arm verloren oder kannst ihn nichtmehr benutzen. Das heißt, du kannst nur ein Item in der Hand halten, kannst keine zweihändigen Werkzeuge benutzen und erleidest -2, wen du etwas tust, das zwei Hände erfordert."
+  },
+  "feind": {
+    "name": "Feind",
+    "description": "Du hast einen mächtigen Feind (z.B. einen einflussreichen Adligen oder eine Gilde). Dieser Feind wird alles tun, um dein Leben zu ruinieren oder dich sogar zu töten."
+  },
+  "gesucht": {
+    "name": "Gesucht",
+    "description": "Du wirst in einem großen Teil der zivilisierten Welt wegen schwerer Verbrechen gesucht. Solltest du jemals geschnappt werden, musst du mit einer schweren Strafe rechnen."
+  },
+  "haesslich": {
+    "name": "Hässlich",
+    "description": "Du bist hässlich wie die Nacht finster. Das andere Geschlecht meidet dich und du erleidest -2 auf die meisten freundlichen sozialen Proben."
+  },
+  "kind": {
+    "name": "Kind",
+    "description": "Du bist zwischen 8 und 12 Jahren oder siehst zumindest so aus. Die meisten Leute nehmen dich nicht ernst, du kannst Stärke und Zähigkeit auf maximal 2 steigern und es ist auffällig, wen du dich allein an gefährlichen Orten herumtreibst."
+  },
+  "kodex": {
+    "name": "Kodex",
+    "description": "Bestimm einen Kodex, der dich im Abenteuer Alltag einschränkt (wie z.B. Ritterliches verhalten oder Pazifismus). Du kannst diese Regeln nur unter extremen Umständen brechen."
+  },
+  "kraenklich": {
+    "name": "Kränklich",
+    "description": "Du erleidest -2 wen du versuchst Erschöpfung, Giften oder Krankheiten zu widerstehen."
+  },
+  "lahm": {
+    "name": "Lahm",
+    "description": "Dein Tempo sinkt um 2 und du erleidest -4 bei allen Proben, bei denen es darum geht, schnell zu laufen."
+  },
+  "pech": {
+    "name": "Pech",
+    "description": "Du hast nur 2 anstelle der üblichen 3 SP pro Spielabend."
+  },
+  "phobie": {
+    "name": "Phobie",
+    "description": "Definiere etwas, das häufig vorkommt, vor dem du aber furchtbare Angst hast (z.B. enge Räume, Hunde, Spinnen oder Wasser). Du erleidest -2 auf alle Proben, wen du mit deiner Phobie konfrontiert wirst."
+  },
+  "schlechte_augen": {
+    "name": "Schlechte Augen",
+    "description": "Du hast nur ein Auge oder bist halb blind. Du hast zwar gelernt diesen Nachteil mit anderen Sinnen auszugleichen, erleidest aber trotzdem -2 auf alle Proben, die mit Sicht auf Distanz zu tun haben."
+  },
+  "sucht": {
+    "name": "Sucht",
+    "description": "Du hast eine unkontrollierte sucht (z.B. Drogen oder Glücksspiel). Du kannst keine AP regenerieren, wen du deiner Sucht nicht wenigstens einmal pro Woche nachgibst."
+  },
+  "stigma": {
+    "name": "Stigma",
+    "description": "Etwas an dir ist scheinbar unnatürlich (z.B. Grüne Haare, Katenaugen oder Schuppenhaut), weshalb die meisten Leute dir mit Argwohn begegnen. Du erleidest -2 auf die meisten freundlichen sozialen Proben."
+  },
+  "stumm": {
+    "name": "Stumm",
+    "description": "Du kannst nicht sprechen."
+  },
+  "taub": {
+    "name": "Taub",
+    "description": "Du hast dein Gehör verloren. Du kannst zwar Lippenlesen (du musst andere also sehen, um sie zu verstehen), scheiterst aber automatisch bei allen Proben die gehör erfordern."
+  },
+  "zwei_linke_haende": {
+    "name": "Zwei linke Hände",
+    "description": "Du stehst auf Kriegsfuß mit Maschinen. Einige sagen sogar, Werkzeuge gehen kaputt, wen du nur in ihrer Nähe stehst. Du erleidest -2 bei allen Proben, wen du mit etwas umgehen willst, das komplizierter ist als ein Hammer oder ein Bogen."
+  }
+}
