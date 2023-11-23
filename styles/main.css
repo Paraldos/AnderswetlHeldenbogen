@@ -87,7 +87,7 @@ header {
   background-color: var(--color__heading--background);
   color: var(--color__heading--text);
 }
-.section-header__button {
+.section-header__edit-btn {
   border: 0;
   height: var(--height);
   width: var(--height);

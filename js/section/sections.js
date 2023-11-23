@@ -1,11 +1,35 @@
 export default class Section {
-  constructor(name) {
-    this.template = `
-        <div class="section-header">
-            <h1>Section Header</h1>
-            <button class="section-header__button">
-            <i class="fa-solid fa-wrench"></i>
-            </button>
-        </div>`;
+  constructor(title) {
+    this.main = document.querySelector("main");
+    this.section = this.createSection(title);
+    this.editBtn = this.section.querySelector(".section-header__edit-btn");
+  }
+
+  toggleEditBtn() {
+    this.editBtn.classList.toggle("on");
+    return this.editBtn.classList.contains("on");
+  }
+
+  createSection(title) {
+    let section = document.createElement("section");
+    let id = this.transformeTitleIntoId(title);
+    section.innerHTML = `
+    <div class="section-header">
+      <h1>${title}</h1>
+      <button class="section-header__edit-btn">
+        <i class="fa-solid fa-wrench"></i>
+      </button>
+    </div>
+    <ul class="${id}__content"></ul>`;
+    this.main.appendChild(section);
+    return section;
+  }
+
+  transformeTitleIntoId(string) {
+    let value = string.toLowerCase();
+    value = value.replace(/ä/g, "ae");
+    value = value.replace(/ö/g, "oe");
+    value = value.replace(/ü/g, "ue");
+    return value;
   }
 }

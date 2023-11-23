@@ -1,26 +1,19 @@
-import AttributeJSON from "../../blub/attribute.json" assert { type: "json" };
+import Section from "../section/sections.js";
+import DB from "./db.js";
 import Attribut from "./attribut.js";
 
 export default class Attribute {
   constructor() {
-    this.db = [
-      new Attribut("Stärke", 1),
-      new Attribut("Geschick", 1),
-      new Attribut("Zähigkeit", 1),
-      new Attribut("Klugheit", 1),
-      new Attribut("Charisma", 1),
-      new Attribut("Weisheit", 1),
-    ];
-    this.section = document.querySelector(".attribute");
-    this.editButton = this.section.querySelector(".section-header__button");
+    this.section = new Section("Attribute");
+    this.db = new DB();
+    this.list = this.db.map((dbElement) => new Attribut(dbElement.name, 1));
     this.addEditButtonEventListener();
   }
 
   addEditButtonEventListener() {
-    this.editButton.addEventListener("click", () => {
-      this.editButton.classList.toggle("on");
-      const btnsVisible = this.editButton.classList.contains("on");
-      this.db.forEach((element) => element.toggleButtonVisibility(btnsVisible));
+    this.section.editBtn.addEventListener("click", () => {
+      const btnIsOn = this.section.toggleEditBtn();
+      this.list.forEach((element) => element.toggleButtonVisibility(btnIsOn));
     });
   }
 }

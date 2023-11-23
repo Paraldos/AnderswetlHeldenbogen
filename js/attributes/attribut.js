@@ -6,19 +6,35 @@ export default class Attribut {
 
     this.container = document.querySelector(".attribute__content");
     this.attribut = this.createAttribute();
-    this.btns = this.attribut.querySelectorAll(`.attribut__btn`);
+    this.text = this.attribut.querySelector(".attribut__text");
+    this.btns = this.attribut.querySelectorAll(".attribut__btn");
     this.plusBtn = this.attribut.querySelector(".attribut__plus");
     this.minusBtn = this.attribut.querySelector(".attribut__minus");
 
-    this.addBtnEventListener();
+    this.updateValue();
+    this.addPlusBtnEventListener();
+    this.addMinusBtnEventListener();
   }
 
-  addBtnEventListener() {
+  updateValue() {
+    this.text.innerHTML = `${this.name}: ${this.value}`;
+  }
+
+  addPlusBtnEventListener() {
     this.plusBtn.addEventListener("click", () => {
-      console.log("plus");
+      if (this.value < 5) {
+        this.value += 1;
+        this.updateValue();
+      }
     });
+  }
+
+  addMinusBtnEventListener() {
     this.minusBtn.addEventListener("click", () => {
-      console.log("minus");
+      if (this.value > 1) {
+        this.value -= 1;
+        this.updateValue();
+      }
     });
   }
 
@@ -31,18 +47,18 @@ export default class Attribut {
   }
 
   createAttribute() {
-    const htmlElement = document.createElement("li");
-    htmlElement.classList.add("attribut");
-    htmlElement.innerHTML = `
-      <p>${this.name}: ${this.value}</p>
-      <button class="attribut__btn attribut__minus">
+    const newElement = document.createElement("li");
+    newElement.classList.add("attribut");
+    newElement.innerHTML = `
+      <p class="attribut__text">???</p>
+      <button class="attribut__btn attribut__minus invisible">
         <i class="fa-solid fa-minus"></i>
       </button>
-      <button class="attribut__btn attribut__plus">
+      <button class="attribut__btn attribut__plus invisible">
         <i class="fa-solid fa-plus"></i>
       </button>`;
-    this.container.appendChild(htmlElement);
-    return htmlElement;
+    this.container.appendChild(newElement);
+    return newElement;
   }
 
   transformeNameIntoId(string) {
