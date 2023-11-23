@@ -3,7 +3,6 @@ import Attribut from "./attribut.js";
 
 export default class Attribute {
   constructor() {
-    // variables
     this.db = [
       new Attribut("Stärke", 1),
       new Attribut("Geschick", 1),
@@ -13,14 +12,15 @@ export default class Attribute {
       new Attribut("Weisheit", 1),
     ];
     this.section = document.querySelector(".attribute");
-    this.sectionHeader = document.querySelector(".attribute__section-header");
-
-    this.addSectionHeaderEventListener();
+    this.editButton = this.section.querySelector(".section-header__button");
+    this.addEditButtonEventListener();
   }
 
-  addSectionHeaderEventListener() {
-    this.sectionHeader.addEventListener("click", () => {
-      console.log("Click!");
+  addEditButtonEventListener() {
+    this.editButton.addEventListener("click", () => {
+      this.editButton.classList.toggle("on");
+      const btnsVisible = this.editButton.classList.contains("on");
+      this.db.forEach((element) => element.toggleButtonVisibility(btnsVisible));
     });
   }
 }

@@ -3,17 +3,46 @@ export default class Attribut {
     this.name = name;
     this.value = value;
     this.id = this.transformeNameIntoId(name);
-    // html
+
     this.container = document.querySelector(".attribute__content");
-    this.template = document.querySelector(".template__attribut");
-    this.createHtmlElement();
+    this.attribut = this.createAttribute();
+    this.btns = this.attribut.querySelectorAll(`.attribut__btn`);
+    this.plusBtn = this.attribut.querySelector(".attribut__plus");
+    this.minusBtn = this.attribut.querySelector(".attribut__minus");
+
+    this.addBtnEventListener();
   }
 
-  createHtmlElement() {
-    const clone = this.template.content.cloneNode(true).querySelector("li");
-    clone.classList.add(`attribute__${this.id}`);
-    clone.querySelector("p").innerText = `${this.name}: ${this.value}`;
-    this.container.appendChild(clone);
+  addBtnEventListener() {
+    this.plusBtn.addEventListener("click", () => {
+      console.log("plus");
+    });
+    this.minusBtn.addEventListener("click", () => {
+      console.log("minus");
+    });
+  }
+
+  toggleButtonVisibility(btnsVisible) {
+    this.btns.forEach((btn) => {
+      btnsVisible
+        ? btn.classList.remove("invisible")
+        : btn.classList.add("invisible");
+    });
+  }
+
+  createAttribute() {
+    const htmlElement = document.createElement("li");
+    htmlElement.classList.add("attribut");
+    htmlElement.innerHTML = `
+      <p>${this.name}: ${this.value}</p>
+      <button class="attribut__btn attribut__minus">
+        <i class="fa-solid fa-minus"></i>
+      </button>
+      <button class="attribut__btn attribut__plus">
+        <i class="fa-solid fa-plus"></i>
+      </button>`;
+    this.container.appendChild(htmlElement);
+    return htmlElement;
   }
 
   transformeNameIntoId(string) {

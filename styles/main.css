@@ -46,11 +46,12 @@ header {
   grid-template-columns: repeat(3, 1fr);
   gap: 10px 20px;
 }
-.attribute__attribut {
+
+.attribut {
   display: flex;
   gap: 10px;
 }
-.attribute p {
+.attribut p {
   width: 100%;
 }
 
@@ -104,6 +105,10 @@ button {
 }
 button:hover {
   background-color: var(--color__button-background--hover);
+}
+
+.invisible {
+  display: none;
 }
 
 *,
