@@ -3,10 +3,17 @@ export default class Attribut {
     this.name = name;
     this.value = value;
     this.id = this.transformeNameIntoId(name);
+    // html
+    this.container = document.querySelector(".attribute__content");
+    this.template = document.querySelector(".template__attribut");
+    this.createHtmlElement();
+  }
 
-    this.htmlElement = document.querySelector(`.attribute__${this.id}`);
-
-    this.updateHtml();
+  createHtmlElement() {
+    const clone = this.template.content.cloneNode(true).querySelector("li");
+    clone.classList.add(`attribute__${this.id}`);
+    clone.querySelector("p").innerText = `${this.name}: ${this.value}`;
+    this.container.appendChild(clone);
   }
 
   transformeNameIntoId(string) {
@@ -15,9 +22,5 @@ export default class Attribut {
     value = value.replace(/ö/g, "oe");
     value = value.replace(/ü/g, "ue");
     return value;
-  }
-
-  updateHtml() {
-    this.htmlElement.innerText = `${this.name}: ${this.value}`;
   }
 }

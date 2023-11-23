@@ -14,8 +14,14 @@
   <body>
     <header>Anderswelt Heldenbogen</header>
     <main>
+      <!-- ################################ grundlagen -->
       <section class="grundlagen">
-        <h1>Grundlagen</h1>
+        <div class="section-header">
+          <h1>Grundlagen</h1>
+          <button class="section-header__button">
+            <i class="fa-solid fa-wrench"></i>
+          </button>
+        </div>
         <ul>
           <li class="grundlagen__name">Name:</li>
           <li class="grundlagen__kampagne">Kampagne:</li>
@@ -28,28 +34,26 @@
           <li class="grundlagen__sonstiges">Sonstiges:</li>
         </ul>
       </section>
+
+      <!-- ################################ attribute -->
       <section class="attribute">
-        <div class="section-header attribute__section-header">
-          <p>Attribute</p>
-          <button><i class="fa-solid fa-wrench"></i></button>
+        <div class="section-header">
+          <h1>Attribute</h1>
+          <button class="section-header__button">
+            <i class="fa-solid fa-wrench"></i>
+          </button>
         </div>
-        <ul>
-          <ul>
-            <h3>Körperlich</h3>
-            <li class="attribute__staerke">Stärke: 1</li>
-            <li class="attribute__geschick">Geschick: 1</li>
-            <li class="attribute__zaehigkeit">Zähigkeit: 1</li>
-          </ul>
-          <ul>
-            <h3>Geistig</h3>
-            <li class="attribute__klugheit">Klugheit: 1</li>
-            <li class="attribute__charisma">Charisma: 1</li>
-            <li class="attribute__weisheit">Weisheit: 1</li>
-          </ul>
-        </ul>
+        <ul class="attribute__content"></ul>
       </section>
+
+      <!-- ################################ fertigkeiten -->
       <section class="fertigkeiten">
-        <h1>Fertigkeiten</h1>
+        <div class="section-header">
+          <h1>Fertigkeiten</h1>
+          <button class="section-header__button">
+            <i class="fa-solid fa-wrench"></i>
+          </button>
+        </div>
         <ul>
           <ul class="fertigkeiten--geistig">
             <li><h2>Geistig</h2></li>
@@ -82,11 +86,25 @@
           </ul>
         </ul>
       </section>
+
+      <!-- ################################ talente -->
       <section class="talente">
-        <h1>Talente</h1>
+        <div class="section-header">
+          <h1>Talente</h1>
+          <button class="section-header__button">
+            <i class="fa-solid fa-wrench"></i>
+          </button>
+        </div>
       </section>
+
+      <!-- ################################ merkmale -->
       <section class="merkmale">
-        <h1>Merkmale</h1>
+        <div class="section-header">
+          <h1>Merkmale</h1>
+          <button class="section-header__button">
+            <i class="fa-solid fa-wrench"></i>
+          </button>
+        </div>
         <ul>
           <li>AP</li>
           <li>EP</li>
@@ -96,9 +114,25 @@
           <li>Tempo</li>
         </ul>
       </section>
+
+      <!-- ################################ ausrüstung -->
       <section class="ausruestung">
-        <h1>Ausrüstung</h1>
+        <div class="section-header">
+          <h1>Ausrüstung</h1>
+          <button class="section-header__button">
+            <i class="fa-solid fa-wrench"></i>
+          </button>
+        </div>
       </section>
     </main>
+
+    <!-- ################################ templates -->
+    <template class="template__attribut">
+      <li class="attribute__attribut">
+        <p>Attribut</p>
+        <button><i class="fa-solid fa-minus"></i></button>
+        <button><i class="fa-solid fa-plus"></i></button>
+      </li>
+    </template>
   </body>
 </html>

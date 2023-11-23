@@ -15,7 +15,6 @@ export default class Attribute {
     this.section = document.querySelector(".attribute");
     this.sectionHeader = document.querySelector(".attribute__section-header");
 
-    // functions
     this.addSectionHeaderEventListener();
   }
 
