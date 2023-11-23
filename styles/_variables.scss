@@ -13,7 +13,10 @@
   --color__header--text: var(--color__white);
   --color__heading--background: var(--color__brown--dark);
   --color__heading--text: var(--color__white);
-  --color__button: var(--color__black);
+  // button
+  --color__button-background: var(--color__brown--dark);
+  --color__button-background--hover: var(--color__brown--middle);
+  --color__button-text: var(--color__white);
 
   /* sizes */
   --header-height: 100px;

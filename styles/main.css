@@ -12,7 +12,9 @@
   --color__header--text: var(--color__white);
   --color__heading--background: var(--color__brown--dark);
   --color__heading--text: var(--color__white);
-  --color__button: var(--color__black);
+  --color__button-background: var(--color__brown--dark);
+  --color__button-background--hover: var(--color__brown--middle);
+  --color__button-text: var(--color__white);
   /* sizes */
   --header-height: 100px;
   --footer-height: 100px;
@@ -39,13 +41,17 @@ header {
   grid-template-columns: repeat(3, 1fr);
 }
 
-.attribute ul {
-  list-style: none;
+.attribute__content {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px 20px;
 }
-.attribute ul ul {
-  grid-template-columns: repeat(4, 1fr);
+.attribute__attribut {
+  display: flex;
+  gap: 10px;
+}
+.attribute p {
+  width: 100%;
 }
 
 .fertigkeiten ul {
@@ -72,28 +78,32 @@ header {
 }
 
 .section-header {
-  font-size: 1.3rem;
-  text-transform: uppercase;
-  font-weight: 400;
-  background-color: var(--color__heading--background);
-  color: var(--color__heading--text);
+  --height: 40px;
+  height: 40px;
   margin-bottom: 10px;
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color__heading--background);
+  color: var(--color__heading--text);
 }
-.section-header p {
-  padding: 0 10px;
-  width: 100%;
-  height: -moz-fit-content;
-  height: fit-content;
-}
-.section-header button {
-  color: white;
-  font-size: 1.2rem;
+.section-header__button {
   border: 0;
-  min-height: 35px;
-  min-width: 35px;
+  height: var(--height);
+  width: var(--height);
   background-color: transparent;
+}
+
+button {
+  line-height: 0;
+  height: 100%;
+  aspect-ratio: 1/1;
+  border: none;
+  border-radius: 0;
+  color: var(--color__button-text);
+  background-color: var(--color__button-background);
+}
+button:hover {
+  background-color: var(--color__button-background--hover);
 }
 
 *,
@@ -102,6 +112,7 @@ header {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-size: 20px;
 }
 
 body {
@@ -138,15 +149,9 @@ h2 {
 }
 
 h1 {
-  margin-bottom: 10px;
   font-size: 1.3rem;
 }
 
 h2 {
   font-size: 1.1rem;
-}
-
-h3 {
-  font-size: 1rem;
-  font-weight: 700;
 }/*# sourceMappingURL=main.css.map */
