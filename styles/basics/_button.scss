@@ -2,11 +2,11 @@ button {
   border: none;
   border-radius: 0;
   color: var(--color__button-text);
-  background-color: var(--color__button-background);
-  padding: 3px;
+  background-color: transparent;
+  transition: transform 0.3s;
 
   &:hover {
-    background-color: var(--color__button-background--hover);
+    color: var(--color__button-text--hover);
   }
 }
 

@@ -1,21 +1,19 @@
 :root {
-  /* colors general */
+  --color__white: #f0f0f0;
+  --color__black: #101010;
   --color__brown--dark: #554b2d;
   --color__brown--middle: #837345;
   --color__brown--light: #dad1b8;
-  --color__black: #101010;
-  --color__white: #f0f0f0;
-  /* colors detail */
-  --color__background: var(--color__white);
-  --color__text: var(--color__black);
-  --color__header--background: var(--color__black);
-  --color__header--text: var(--color__white);
-  --color__heading--background: var(--color__brown--dark);
-  --color__heading--text: var(--color__white);
-  --color__button-background: var(--color__brown--dark);
-  --color__button-background--hover: var(--color__brown--middle);
-  --color__button-text: var(--color__white);
-  /* sizes */
+  --color__one: #f6cd26;
+  --color__two: #ac6b26;
+  --color__three: #393939;
+  --color__four: #202020;
+  --color__background: var(--color__three);
+  --color__text: var(--color__one);
+  --color__heading--text: var(--color__one);
+  --color__heading--border: var(--color__one);
+  --color__button-text: var(--color__one);
+  --color__button-text--hover: var(--color__two);
   --section-header-height: 40px;
   --line-height-default: 8px;
 }
@@ -24,11 +22,11 @@ button {
   border: none;
   border-radius: 0;
   color: var(--color__button-text);
-  background-color: var(--color__button-background);
-  padding: 3px;
+  background-color: transparent;
+  transition: transform 0.3s;
 }
 button:hover {
-  background-color: var(--color__button-background--hover);
+  color: var(--color__button-text--hover);
 }
 
 .invisible {
@@ -41,12 +39,12 @@ button:hover {
   margin-top: 30px;
 }
 .section__header {
-  height: var(--section-header-height);
+  height: calc(var(--section-header-height) + 2px);
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
-  background-color: var(--color__heading--background);
   color: var(--color__heading--text);
+  border-bottom: 2px solid var(--color__heading--border);
 }
 .section__edit-btn {
   line-height: 0;
@@ -75,7 +73,6 @@ button:hover {
   aspect-ratio: unset;
   width: 100%;
   line-height: normal;
-  padding-left: 10px;
   text-align: left;
 }
 .attribut__btn {
@@ -138,7 +135,7 @@ h1,
 h2 {
   background-color: var(--color__heading--background);
   color: var(--color__heading--text);
-  padding: 2px 10px;
+  padding: 2px;
 }
 
 h1 {

@@ -4,12 +4,12 @@
   margin-top: 30px;
 
   &__header {
-    height: var(--section-header-height);
+    height: calc(var(--section-header-height) + 2px);
     margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
-    background-color: var(--color__heading--background);
     color: var(--color__heading--text);
+    border-bottom: 2px solid var(--color__heading--border);
   }
 
   &__edit-btn {

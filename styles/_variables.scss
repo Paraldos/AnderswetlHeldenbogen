@@ -1,24 +1,28 @@
 :root {
-  /* colors general */
+  // ============================== color general
+  --color__white: #f0f0f0;
+  --color__black: #101010;
+
   --color__brown--dark: #554b2d;
   --color__brown--middle: #837345;
   --color__brown--light: #dad1b8;
-  --color__black: #101010;
-  --color__white: #f0f0f0;
 
-  /* colors detail */
-  --color__background: var(--color__white);
-  --color__text: var(--color__black);
-  --color__header--background: var(--color__black);
-  --color__header--text: var(--color__white);
-  --color__heading--background: var(--color__brown--dark);
-  --color__heading--text: var(--color__white);
-  // button
-  --color__button-background: var(--color__brown--dark);
-  --color__button-background--hover: var(--color__brown--middle);
-  --color__button-text: var(--color__white);
+  --color__one: #f6cd26;
+  --color__two: #ac6b26;
+  --color__three: #393939;
+  --color__four: #202020;
 
-  /* sizes */
+  // ============================== color details
+  --color__background: var(--color__three);
+  --color__text: var(--color__one);
+
+  --color__heading--text: var(--color__one);
+  --color__heading--border: var(--color__one);
+
+  --color__button-text: var(--color__one);
+  --color__button-text--hover: var(--color__two);
+
+  // ============================== sizes
   --section-header-height: 40px;
   --line-height-default: 8px;
 }
