@@ -75,6 +75,12 @@ button:hover {
   aspect-ratio: unset;
   width: 100%;
   line-height: normal;
+  padding-left: 10px;
+  text-align: left;
+}
+.attribut__btn {
+  height: 100%;
+  aspect-ratio: 1/1;
 }
 
 .fertigkeiten ul {
