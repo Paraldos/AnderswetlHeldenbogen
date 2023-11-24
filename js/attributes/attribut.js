@@ -6,25 +6,25 @@ export default class Attribut {
 
     this.container = document.querySelector(".attribute__content");
     this.attribut = this.createAttribute();
-    this.text = this.attribut.querySelector(".attribut__text");
+    this.main = this.attribut.querySelector(".attribut__main");
     this.btns = this.attribut.querySelectorAll(".attribut__btn");
     this.plusBtn = this.attribut.querySelector(".attribut__plus");
     this.minusBtn = this.attribut.querySelector(".attribut__minus");
 
-    this.updateValue();
+    this.updateHtml();
     this.addPlusBtnEventListener();
     this.addMinusBtnEventListener();
   }
 
-  updateValue() {
-    this.text.innerHTML = `${this.name}: ${this.value}`;
+  updateHtml() {
+    this.main.innerHTML = `${this.name}: ${this.value}`;
   }
 
   addPlusBtnEventListener() {
     this.plusBtn.addEventListener("click", () => {
       if (this.value < 5) {
         this.value += 1;
-        this.updateValue();
+        this.updateHtml();
       }
     });
   }
@@ -33,7 +33,7 @@ export default class Attribut {
     this.minusBtn.addEventListener("click", () => {
       if (this.value > 1) {
         this.value -= 1;
-        this.updateValue();
+        this.updateHtml();
       }
     });
   }
@@ -50,7 +50,7 @@ export default class Attribut {
     const newElement = document.createElement("li");
     newElement.classList.add("attribut");
     newElement.innerHTML = `
-      <p class="attribut__text">???</p>
+      <button class="attribut__main">???</button>
       <button class="attribut__btn attribut__minus invisible">
         <i class="fa-solid fa-minus"></i>
       </button>

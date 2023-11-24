@@ -16,23 +16,43 @@
   --color__button-background--hover: var(--color__brown--middle);
   --color__button-text: var(--color__white);
   /* sizes */
-  --header-height: 100px;
-  --footer-height: 100px;
-  /* Lineheight */
+  --section-header-height: 40px;
   --line-height-default: 8px;
 }
 
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: var(--header-height);
-  width: 100%;
-  background-color: var(--color__header--background);
-  color: var(--color__header--text);
+button {
+  border: none;
+  border-radius: 0;
+  color: var(--color__button-text);
+  background-color: var(--color__button-background);
+  padding: 3px;
+}
+button:hover {
+  background-color: var(--color__button-background--hover);
+}
+
+.invisible {
+  display: none;
+}
+
+.section {
+  max-width: 970px;
+  margin: auto;
+  margin-top: 30px;
+}
+.section__header {
+  height: var(--section-header-height);
+  margin-bottom: 10px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color__heading--background);
+  color: var(--color__heading--text);
+}
+.section__edit-btn {
+  line-height: 0;
+  height: var(--section-header-height);
+  width: var(--section-header-height);
+  background-color: transparent;
 }
 
 .grundlagen ul {
@@ -51,8 +71,10 @@ header {
   display: flex;
   gap: 10px;
 }
-.attribut p {
+.attribut__main {
+  aspect-ratio: unset;
   width: 100%;
+  line-height: normal;
 }
 
 .fertigkeiten ul {
@@ -78,39 +100,6 @@ header {
   grid-template-columns: repeat(3, 1fr);
 }
 
-.section-header {
-  --height: 40px;
-  height: 40px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  background-color: var(--color__heading--background);
-  color: var(--color__heading--text);
-}
-.section-header__edit-btn {
-  border: 0;
-  height: var(--height);
-  width: var(--height);
-  background-color: transparent;
-}
-
-button {
-  line-height: 0;
-  height: 100%;
-  aspect-ratio: 1/1;
-  border: none;
-  border-radius: 0;
-  color: var(--color__button-text);
-  background-color: var(--color__button-background);
-}
-button:hover {
-  background-color: var(--color__button-background--hover);
-}
-
-.invisible {
-  display: none;
-}
-
 *,
 *::before,
 *::after {
@@ -124,19 +113,12 @@ body {
   background-color: var(--color__background);
   color: var(--color__text);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  padding-top: var(--header-height);
   min-height: 100vh;
 }
 
 main {
   position: relative;
   min-height: calc(100vh - var(--header-height));
-}
-
-section {
-  max-width: 970px;
-  margin: auto;
-  margin-top: 30px;
 }
 
 h1,

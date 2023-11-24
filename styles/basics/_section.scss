@@ -1,0 +1,21 @@
+.section {
+  max-width: 970px;
+  margin: auto;
+  margin-top: 30px;
+
+  &__header {
+    height: var(--section-header-height);
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color__heading--background);
+    color: var(--color__heading--text);
+  }
+
+  &__edit-btn {
+    line-height: 0;
+    height: var(--section-header-height);
+    width: var(--section-header-height);
+    background-color: transparent;
+  }
+}

@@ -2,7 +2,7 @@ export default class Section {
   constructor(title) {
     this.main = document.querySelector("main");
     this.section = this.createSection(title);
-    this.editBtn = this.section.querySelector(".section-header__edit-btn");
+    this.editBtn = this.section.querySelector(".section__edit-btn");
   }
 
   toggleEditBtn() {
@@ -12,11 +12,12 @@ export default class Section {
 
   createSection(title) {
     let section = document.createElement("section");
+    section.classList.add("section");
     let id = this.transformeTitleIntoId(title);
     section.innerHTML = `
-    <div class="section-header">
+    <div class="section__header">
       <h1>${title}</h1>
-      <button class="section-header__edit-btn">
+      <button class="section__edit-btn">
         <i class="fa-solid fa-wrench"></i>
       </button>
     </div>

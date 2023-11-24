@@ -1,11 +1,9 @@
 button {
-  line-height: 0;
-  height: 100%;
-  aspect-ratio: 1/1;
   border: none;
   border-radius: 0;
   color: var(--color__button-text);
   background-color: var(--color__button-background);
+  padding: 3px;
 
   &:hover {
     background-color: var(--color__button-background--hover);

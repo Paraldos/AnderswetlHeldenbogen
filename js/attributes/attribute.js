@@ -1,5 +1,5 @@
-import Section from "../section/sections.js";
 import DB from "./db.js";
+import Section from "../section/sections.js";
 import Attribut from "./attribut.js";
 
 export default class Attribute {

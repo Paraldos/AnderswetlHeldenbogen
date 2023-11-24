@@ -10,7 +10,9 @@
   display: flex;
   gap: 10px;
 
-  p {
+  &__main {
+    aspect-ratio: unset;
     width: 100%;
+    line-height: normal;
   }
 }
