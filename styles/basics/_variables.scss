@@ -22,7 +22,13 @@
   --color__button-text: var(--color__one);
   --color__button-text--hover: var(--color__two);
 
+  --color__modal-background: var(--color__three);
+  --color__modal-x-btn: var(--color__one);
+  --color__modal-text: var(--color__three);
+  --color__modal-text--hover: var(--color__two);
+
   // ============================== sizes
   --section-header-height: 40px;
   --line-height-default: 8px;
+  --modal-box-padding: 15px;
 }

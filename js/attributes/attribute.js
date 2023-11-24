@@ -6,7 +6,7 @@ export default class Attribute {
   constructor() {
     this.section = new Section("Attribute");
     this.db = new DB();
-    this.list = this.db.map((dbElement) => new Attribut(dbElement.name, 1));
+    this.list = this.db.map((dbElement) => new Attribut(dbElement));
     this.addEditButtonEventListener();
   }
 

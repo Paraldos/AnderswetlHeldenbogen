@@ -1,5 +1,6 @@
 // basics
-@import "./variables";
+@import "./basics/variables";
+@import "./basics/mixins";
 @import "./basics/button";
 @import "./basics/section";
 // specific
@@ -7,6 +8,7 @@
 @import "./attribute/attribute";
 @import "./fertigkeiten";
 @import "./merkmale";
+@import "./modal/modal";
 
 *,
 *::before,
@@ -34,6 +36,7 @@ h2,
 h3 {
   text-transform: uppercase;
   font-weight: 400;
+  margin-bottom: 10px;
 }
 
 h1,
