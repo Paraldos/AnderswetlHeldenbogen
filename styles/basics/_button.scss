@@ -8,6 +8,10 @@ button {
   &:hover {
     color: var(--color__button-text--hover);
   }
+
+  &:focus-visible {
+    outline: none;
+  }
 }
 
 .invisible {

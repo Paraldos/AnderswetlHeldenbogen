@@ -8,6 +8,13 @@ export default class Modal {
 
     this.addXBtnListener();
     this.addBackgroundListener();
+    this.addEscListener();
+  }
+
+  addEscListener() {
+    document.addEventListener("keydown", (event) => {
+      if (event.code === "Escape") this.modal.remove();
+    });
   }
 
   addBackgroundListener() {

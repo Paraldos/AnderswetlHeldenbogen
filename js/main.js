@@ -1,3 +1,3 @@
-import Attribute from "./attributes/attribute.js";
+import Attribute from "./attribute/attribute.js";
 
 new Attribute();

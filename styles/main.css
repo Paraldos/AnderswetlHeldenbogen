@@ -33,6 +33,9 @@ button {
 button:hover {
   color: var(--color__button-text--hover);
 }
+button:focus-visible {
+  outline: none;
+}
 
 .invisible {
   display: none;
