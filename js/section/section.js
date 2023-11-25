@@ -2,6 +2,7 @@ export default class Section {
   constructor(title) {
     this.main = document.querySelector("main");
     this.section = this.createSection(title);
+    this.contentContainer = this.section.querySelector(".section__content");
     this.editBtn = this.section.querySelector(".section__edit-btn");
   }
 
@@ -21,7 +22,7 @@ export default class Section {
         <i class="fa-solid fa-wrench"></i>
       </button>
     </div>
-    <ul class="${id}__content"></ul>`;
+    <ul class="${id}__content section__content"></ul>`;
     this.main.appendChild(section);
     return section;
   }
