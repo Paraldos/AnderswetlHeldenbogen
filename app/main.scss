@@ -1,10 +1,8 @@
-// basics
-@import "./basics/basics";
-@import "./basics/variables";
-@import "./basics/mixins";
-@import "./basics/button";
+@import "./variables";
+@import "./mixins";
+@import "./basics";
+@import "./button/button";
 @import "./section/section";
-// specific
 @import "./grundlagen/grundlagen";
 @import "./attribute/attribute";
 @import "./fertigkeiten/fertigkeiten";

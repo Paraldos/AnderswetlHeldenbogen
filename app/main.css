@@ -1,3 +1,29 @@
+:root {
+  --color__white: #f0f0f0;
+  --color__black: #101010;
+  --color__brown--dark: #554b2d;
+  --color__brown--middle: #837345;
+  --color__brown--light: #dad1b8;
+  --color__one: #f6cd26;
+  --color__two: #ac6b26;
+  --color__three: #393939;
+  --color__four: #202020;
+  --color__background: var(--color__three);
+  --color__text: var(--color__one);
+  --color__heading--text: var(--color__one);
+  --color__heading--border: var(--color__one);
+  --color__button-text: var(--color__one);
+  --color__button-text--hover: var(--color__two);
+  --color__modal-background: var(--color__three);
+  --color__modal-x-btn: var(--color__one);
+  --color__modal-text: var(--color__three);
+  --color__modal-text--hover: var(--color__two);
+  --color__input-border: var(--color__one);
+  --section-header-height: 40px;
+  --line-height-default: 8px;
+  --modal-box-padding: 15px;
+}
+
 *,
 *::before,
 *::after {
@@ -40,32 +66,6 @@ h1 {
 
 h2 {
   font-size: 1.1rem;
-}
-
-:root {
-  --color__white: #f0f0f0;
-  --color__black: #101010;
-  --color__brown--dark: #554b2d;
-  --color__brown--middle: #837345;
-  --color__brown--light: #dad1b8;
-  --color__one: #f6cd26;
-  --color__two: #ac6b26;
-  --color__three: #393939;
-  --color__four: #202020;
-  --color__background: var(--color__three);
-  --color__text: var(--color__one);
-  --color__heading--text: var(--color__one);
-  --color__heading--border: var(--color__one);
-  --color__button-text: var(--color__one);
-  --color__button-text--hover: var(--color__two);
-  --color__modal-background: var(--color__three);
-  --color__modal-x-btn: var(--color__one);
-  --color__modal-text: var(--color__three);
-  --color__modal-text--hover: var(--color__two);
-  --color__input-border: var(--color__one);
-  --section-header-height: 40px;
-  --line-height-default: 8px;
-  --modal-box-padding: 15px;
 }
 
 button {
