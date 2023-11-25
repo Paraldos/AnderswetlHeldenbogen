@@ -3,24 +3,20 @@
     "name": "Name",
     "value": ""
   },
-  "titel": {
-    "name": "Titel",
+  "konzept": {
+    "name": "Konzept",
     "value": ""
   },
-  "herkunft": {
-    "name": "Herkunft",
+  "motive": {
+    "name": "Motive",
     "value": ""
   },
-  "alter": {
-    "name": "Alter",
+  "rasse": {
+    "name": "Rasse",
     "value": ""
   },
-  "hautfarbe": {
-    "name": "Hautfarbe",
-    "value": ""
-  },
-  "haarfarbe": {
-    "name": "Haarfarbe",
+  "beschreibung": {
+    "name": "Beschreibung",
     "value": ""
   }
 }

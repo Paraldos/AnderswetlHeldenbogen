@@ -2,8 +2,13 @@ export default class Section {
   constructor(title) {
     this.main = document.querySelector("main");
     this.section = this.createSection(title);
+    this.text = this.section.querySelector(".section__text");
     this.contentContainer = this.section.querySelector(".section__content");
     this.editBtn = this.section.querySelector(".section__edit-btn");
+  }
+
+  updateHeader(text) {
+    this.text.innerText = text;
   }
 
   toggleEditBtn() {
@@ -17,7 +22,7 @@ export default class Section {
     let id = this.transformeTitleIntoId(title);
     section.innerHTML = `
     <div class="section__header">
-      <h1>${title}</h1>
+      <h1 class="section__text">${title}</h1>
       <button class="section__edit-btn">
         <i class="fa-solid fa-wrench"></i>
       </button>

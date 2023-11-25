@@ -6,7 +6,9 @@ export default class Grundlagen {
   constructor() {
     this.section = new Section("Grundlagen");
     this.nameElement = new BasicElement(this.section, "name");
-    this.nameElement = new BasicElement(this.section, "titel");
-    this.nameElement = new BasicElement(this.section, "herkunft");
+    this.nameElement = new BasicElement(this.section, "konzept");
+    this.nameElement = new BasicElement(this.section, "motive");
+    // rasse
+    // beschreibung
   }
 }

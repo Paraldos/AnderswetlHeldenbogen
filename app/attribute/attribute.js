@@ -17,9 +17,26 @@ export default class Attribute {
     return attribute;
   }
 
+  getAttributeSum() {
+    let sum = 0;
+    for (let key in db.attribute) {
+      sum += db.attribute[key].value;
+    }
+    return sum;
+  }
+
+  updateSectionHeader() {
+    if (this.section.editBtn.classList.contains("on")) {
+      this.section.updateHeader(`Attribute (${this.getAttributeSum()})`);
+    } else {
+      this.section.updateHeader("Attribute");
+    }
+  }
+
   addEditButtonListener() {
     this.section.editBtn.addEventListener("click", () => {
       const btnIsOn = this.section.toggleEditBtn();
+      this.updateSectionHeader();
       this.attribute.forEach((element) =>
         element.toggleButtonVisibility(btnIsOn)
       );
