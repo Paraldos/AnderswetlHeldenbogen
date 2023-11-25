@@ -12,13 +12,12 @@ export default class VolkElement {
 
   createElement() {
     let element = document.createElement("div");
-    element.classList.add("volk-element");
+    element.classList.add("volk-element", "grundlagen__element");
     element.innerHTML = `
-      <p>${this.dbEntry.name}:</p>
-      <button class="volk-element__btn">${
-        this.dbEntry.value ? this.dbEntry.value : "Wähle..."
-      }</button>
-    `;
+    <label>${this.dbEntry.name}:</label>
+    <button class="volk-element__btn">${
+      this.dbEntry.value ? this.dbEntry.value : "Wähle..."
+    }</button>`;
     this.section.contentContainer.appendChild(element);
     return element;
   }
@@ -46,7 +45,6 @@ export default class VolkElement {
 
   updateModalDescription(modal, txt) {
     let description = modal.content.querySelector(".volk-element__description");
-    console.log(db.voelker.elf.description);
     description.innerText = `${txt}`;
   }
 

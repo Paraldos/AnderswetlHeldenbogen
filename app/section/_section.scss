@@ -13,9 +13,16 @@
   }
 
   &__edit-btn {
+    box-shadow: none;
     line-height: 0;
     height: var(--section-header-height);
     width: var(--section-header-height);
     background-color: transparent;
+    border: none;
+    transition: color 0.2s;
+
+    &:hover {
+      color: var(--color__btn-text--hover);
+    }
   }
 }

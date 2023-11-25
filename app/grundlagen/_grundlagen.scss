@@ -2,34 +2,32 @@
   &__content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 5px 20px;
+    gap: 7px 20px;
   }
 
-  &__basic-element {
-    form {
-      width: 100%;
-      @include display-flex-center;
-      gap: 0 20px;
-    }
+  &__element {
+    display: flex;
+    flex-direction: column;
 
-    input {
-      background-color: transparent;
-      border: none;
-      border-bottom: 1px solid var(--color__input-border);
+    label {
       width: 100%;
-
-      &:focus {
-        outline: none;
-      }
+      font-size: 0.6rem;
+      margin-bottom: 2px;
     }
   }
 }
 
-.volk-element {
-  @include display-flex-center;
-  gap: 0 20px;
+.beschreibung-element {
+  grid-column-start: 1;
+  grid-column-end: 3;
 
-  button {
+  textarea {
+    height: 70px;
+  }
+}
+
+.volk-element {
+  &__btn {
     text-align: left;
     height: 100%;
     width: 100%;
@@ -38,18 +36,6 @@
   }
 
   &__select {
-    padding: 5px;
-    width: 100%;
     margin-bottom: 20px;
-    outline: none;
-
-    background-color: var(--color__select-background);
-    color: var(--color__select-text);
-    border: 1px solid var(--color__select-text);
-    border-radius: 0;
-
-    option {
-      background-color: var(--color__select-background);
-    }
   }
 }

@@ -12,13 +12,13 @@
   --color__text: var(--color__one);
   --color__heading--text: var(--color__one);
   --color__heading--border: var(--color__one);
-  --color__button-text: var(--color__one);
-  --color__button-text--hover: var(--color__two);
+  --color__btn-background: var(--color__four);
+  --color__btn-text: var(--color__one);
+  --color__btn-text--hover: var(--color__two);
   --color__modal-background: var(--color__three);
   --color__modal-x-btn: var(--color__one);
   --color__modal-text: var(--color__three);
   --color__modal-text--hover: var(--color__two);
-  --color__input-border: var(--color__one);
   --color__select-background: var(--color__four);
   --color__select-text: var(--color__one);
   --section-header-height: 40px;
@@ -70,18 +70,40 @@ h2 {
   font-size: 1.1rem;
 }
 
-button {
-  border: none;
-  border-radius: 0;
-  color: var(--color__button-text);
-  background-color: transparent;
-  transition: transform 0.3s;
-}
-button:hover {
-  color: var(--color__button-text--hover);
-}
-button:focus-visible {
+button,
+textarea,
+input,
+select {
+  width: 100%;
+  padding: 5px 10px;
+  background-color: var(--color__btn-background);
+  color: var(--color__btn-text);
+  border: 1px solid transparent;
+  box-shadow: rgba(0, 0, 0, 0.2) 1.95px 1.95px 2.6px;
   outline: none;
+  transition: border-color 0.2s;
+}
+button:hover,
+textarea:hover,
+input:hover,
+select:hover {
+  border-color: var(--color__btn-text);
+}
+button:focus,
+textarea:focus,
+input:focus,
+select:focus {
+  outline: none;
+}
+button:focus-visible,
+textarea:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: none;
+}
+
+option {
+  background-color: var(--color__select-background);
 }
 
 .invisible {
@@ -102,41 +124,42 @@ button:focus-visible {
   border-bottom: 2px solid var(--color__heading--border);
 }
 .section__edit-btn {
+  box-shadow: none;
   line-height: 0;
   height: var(--section-header-height);
   width: var(--section-header-height);
   background-color: transparent;
+  border: none;
+  transition: color 0.2s;
+}
+.section__edit-btn:hover {
+  color: var(--color__btn-text--hover);
 }
 
 .grundlagen__content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 5px 20px;
+  gap: 7px 20px;
 }
-.grundlagen__basic-element form {
-  width: 100%;
+.grundlagen__element {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0 20px;
+  flex-direction: column;
 }
-.grundlagen__basic-element input {
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid var(--color__input-border);
+.grundlagen__element label {
   width: 100%;
-}
-.grundlagen__basic-element input:focus {
-  outline: none;
+  font-size: 0.6rem;
+  margin-bottom: 2px;
 }
 
-.volk-element {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0 20px;
+.beschreibung-element {
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
-.volk-element button {
+.beschreibung-element textarea {
+  height: 70px;
+}
+
+.volk-element__btn {
   text-align: left;
   height: 100%;
   width: 100%;
@@ -144,17 +167,7 @@ button:focus-visible {
   align-items: end;
 }
 .volk-element__select {
-  padding: 5px;
-  width: 100%;
   margin-bottom: 20px;
-  outline: none;
-  background-color: var(--color__select-background);
-  color: var(--color__select-text);
-  border: 1px solid var(--color__select-text);
-  border-radius: 0;
-}
-.volk-element__select option {
-  background-color: var(--color__select-background);
 }
 
 .attribute__content {
@@ -174,8 +187,18 @@ button:focus-visible {
   text-align: left;
 }
 .attribut__btn {
+  width: -moz-fit-content;
+  width: fit-content;
   height: 100%;
   aspect-ratio: 1/1;
+  padding: 0;
+}
+.attribut__btn i {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .merkmale ul {

@@ -5,28 +5,23 @@ export default class BasicElement {
     this.section = section;
     this.dbEntry = db.grundlagen[key];
     this.element = this.createElement();
-    this.nameInput = this.element.querySelector(".grundlagen__input");
-    this.addChangeValueEvent();
+    this.nameInput = this.element.querySelector(".basic-element__input");
+    this.addInputEvent();
   }
 
   createElement() {
     let element = document.createElement("div");
-    element.classList.add(
-      "grundlagen__basic-element",
-      `grundlagen__${db.nameToId(this.dbEntry.name)}`
-    );
+    element.classList.add("basic-element", "grundlagen__element");
     element.innerHTML = `
-    <form>
-      <label>${this.dbEntry.name}:</label>
-      <input type="text" class="grundlagen__input" value="${this.dbEntry.value}">
-    </form>
-    `;
+    <label>${this.dbEntry.name}:</label>
+    <input type="text" class="basic-element__input" value="${this.dbEntry.value}">`;
     this.section.contentContainer.appendChild(element);
     return element;
   }
 
-  addChangeValueEvent() {
+  addInputEvent() {
     this.nameInput.addEventListener("input", () => {
+      console.log(this.nameInput.value);
       this.dbEntry.value = this.nameInput.value;
     });
   }
