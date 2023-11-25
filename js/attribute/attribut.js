@@ -21,7 +21,7 @@ export default class Attribut {
   }
 
   createHtml() {
-    const newElement = document.createElement("li");
+    const newElement = document.createElement("div");
     newElement.classList.add("attribut");
     newElement.innerHTML = `
       <button class="attribut__main">???</button>

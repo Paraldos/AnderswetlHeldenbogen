@@ -22,7 +22,7 @@ export default class Section {
         <i class="fa-solid fa-wrench"></i>
       </button>
     </div>
-    <ul class="${id}__content section__content"></ul>`;
+    <div class="${id}__content section__content"></div>`;
     this.main.appendChild(section);
     return section;
   }
