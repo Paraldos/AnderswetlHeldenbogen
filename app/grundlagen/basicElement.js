@@ -10,19 +10,19 @@ export default class BasicElement {
   }
 
   createElement() {
-    let name = document.createElement("div");
-    name.classList.add(
+    let element = document.createElement("div");
+    element.classList.add(
       "grundlagen__basic-element",
       `grundlagen__${db.nameToId(this.dbEntry.name)}`
     );
-    name.innerHTML = `
+    element.innerHTML = `
     <form>
       <label>${this.dbEntry.name}:</label>
       <input type="text" class="grundlagen__input" value="${this.dbEntry.value}">
     </form>
     `;
-    this.section.contentContainer.appendChild(name);
-    return name;
+    this.section.contentContainer.appendChild(element);
+    return element;
   }
 
   addChangeValueEvent() {

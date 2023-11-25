@@ -19,6 +19,8 @@
   --color__modal-text: var(--color__three);
   --color__modal-text--hover: var(--color__two);
   --color__input-border: var(--color__one);
+  --color__select-background: var(--color__four);
+  --color__select-text: var(--color__one);
   --section-header-height: 40px;
   --line-height-default: 8px;
   --modal-box-padding: 15px;
@@ -126,6 +128,33 @@ button:focus-visible {
 }
 .grundlagen__basic-element input:focus {
   outline: none;
+}
+
+.volk-element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 20px;
+}
+.volk-element button {
+  text-align: left;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: end;
+}
+.volk-element__select {
+  padding: 5px;
+  width: 100%;
+  margin-bottom: 20px;
+  outline: none;
+  background-color: var(--color__select-background);
+  color: var(--color__select-text);
+  border: 1px solid var(--color__select-text);
+  border-radius: 0;
+}
+.volk-element__select option {
+  background-color: var(--color__select-background);
 }
 
 .attribute__content {
