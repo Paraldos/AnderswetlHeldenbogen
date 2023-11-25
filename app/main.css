@@ -1,3 +1,47 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+}
+
+body {
+  background-color: var(--color__background);
+  color: var(--color__text);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+}
+
+main {
+  position: relative;
+  min-height: calc(100vh - var(--header-height));
+}
+
+h1,
+h2,
+h3 {
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+h1,
+h2 {
+  background-color: var(--color__heading--background);
+  color: var(--color__heading--text);
+  padding: 2px;
+}
+
+h1 {
+  font-size: 1.3rem;
+}
+
+h2 {
+  font-size: 1.1rem;
+}
+
 :root {
   --color__white: #f0f0f0;
   --color__black: #101010;
@@ -18,6 +62,7 @@
   --color__modal-x-btn: var(--color__one);
   --color__modal-text: var(--color__three);
   --color__modal-text--hover: var(--color__two);
+  --color__input-border: var(--color__one);
   --section-header-height: 40px;
   --line-height-default: 8px;
   --modal-box-padding: 15px;
@@ -61,6 +106,28 @@ button:focus-visible {
   background-color: transparent;
 }
 
+.grundlagen__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px 20px;
+}
+.grundlagen__basic-element form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 20px;
+}
+.grundlagen__basic-element input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color__input-border);
+  width: 100%;
+}
+.grundlagen__basic-element input:focus {
+  outline: none;
+}
+
 .attribute__content {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -80,23 +147,6 @@ button:focus-visible {
 .attribut__btn {
   height: 100%;
   aspect-ratio: 1/1;
-}
-
-.fertigkeiten ul {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  -moz-column-gap: 15px;
-       column-gap: 15px;
-}
-.fertigkeiten ul ul {
-  grid-template-columns: repeat(1, 1fr);
-}
-.fertigkeiten ul ul li {
-  padding: 0 10px;
-}
-.fertigkeiten ul ul li:first-child {
-  padding: 0;
 }
 
 .merkmale ul {
@@ -147,48 +197,4 @@ button:focus-visible {
 .modal__x-btn:hover {
   transform: scale(1.15);
   color: var(--color__modal-text--hover);
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-size: 20px;
-}
-
-body {
-  background-color: var(--color__background);
-  color: var(--color__text);
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  min-height: 100vh;
-}
-
-main {
-  position: relative;
-  min-height: calc(100vh - var(--header-height));
-}
-
-h1,
-h2,
-h3 {
-  text-transform: uppercase;
-  font-weight: 400;
-  margin-bottom: 10px;
-}
-
-h1,
-h2 {
-  background-color: var(--color__heading--background);
-  color: var(--color__heading--text);
-  padding: 2px;
-}
-
-h1 {
-  font-size: 1.3rem;
-}
-
-h2 {
-  font-size: 1.1rem;
 }/*# sourceMappingURL=main.css.map */
