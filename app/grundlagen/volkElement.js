@@ -39,13 +39,17 @@ export default class VolkElement {
       </select>
       <div class="volk-element__description"></div>
       `;
+      this.updateModalDescription(modal);
       this.addSelectEvent(modal);
     });
   }
 
-  updateModalDescription(modal, txt) {
+  updateModalDescription(modal) {
+    let txt = this.dbEntry.value
+      ? db.voelker[this.dbEntry.value].description
+      : "";
     let description = modal.content.querySelector(".volk-element__description");
-    description.innerText = `${txt}`;
+    description.innerText = txt;
   }
 
   addSelectEvent(modal) {
@@ -53,10 +57,7 @@ export default class VolkElement {
     select.addEventListener("change", (e) => {
       let value = e.target.value;
       this.dbEntry.value = value;
-      this.updateModalDescription(
-        modal,
-        value ? db.voelker[value].description : ""
-      );
+      this.updateModalDescription(modal);
       this.updateBtnText();
     });
   }
@@ -64,8 +65,17 @@ export default class VolkElement {
   createSelectOptions() {
     let options = "";
     for (let key in db.voelker) {
-      options += `<option value="${key}">${db.voelker[key].name}</option>`;
+      options += `
+      <option 
+        value="${key}"
+        ${this.dbEntry.value === key ? "selected" : ""}>
+        ${db.voelker[key].name}
+      </option>`;
     }
     return options;
+  }
+
+  toggleEditBtn(on) {
+    this.btn.disabled = on;
   }
 }

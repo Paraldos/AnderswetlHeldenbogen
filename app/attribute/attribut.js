@@ -65,7 +65,7 @@ export default class Attribut {
   }
 
   /* Helper */
-  toggleButtonVisibility(btnsVisible) {
+  toggleEditBtn(btnsVisible) {
     this.btns.forEach((btn) => {
       btnsVisible
         ? btn.classList.remove("invisible")

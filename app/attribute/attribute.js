@@ -37,9 +37,7 @@ export default class Attribute {
     this.section.editBtn.addEventListener("click", () => {
       const btnIsOn = this.section.toggleEditBtn();
       this.updateSectionHeader();
-      this.attribute.forEach((element) =>
-        element.toggleButtonVisibility(btnIsOn)
-      );
+      this.attribute.forEach((el) => el.toggleEditBtn(btnIsOn));
     });
   }
 }

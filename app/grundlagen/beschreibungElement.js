@@ -24,4 +24,8 @@ export default class Beschreibungelement {
       this.dbEntry.value = this.txt.value;
     });
   }
+
+  toggleEditBtn(on) {
+    this.txt.disabled = on;
+  }
 }

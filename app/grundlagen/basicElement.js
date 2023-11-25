@@ -25,4 +25,8 @@ export default class BasicElement {
       this.dbEntry.value = this.nameInput.value;
     });
   }
+
+  toggleEditBtn(on) {
+    this.nameInput.disabled = on;
+  }
 }

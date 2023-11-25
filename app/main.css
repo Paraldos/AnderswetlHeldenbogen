@@ -14,7 +14,7 @@
   --color__heading--border: var(--color__one);
   --color__btn-background: var(--color__four);
   --color__btn-text: var(--color__one);
-  --color__btn-text--hover: var(--color__two);
+  --color__btn--hover: var(--color__two);
   --color__modal-background: var(--color__three);
   --color__modal-x-btn: var(--color__one);
   --color__modal-text: var(--color__three);
@@ -74,6 +74,7 @@ button,
 textarea,
 input,
 select {
+  --transition-time: 0.2s;
   width: 100%;
   padding: 5px 10px;
   background-color: var(--color__btn-background);
@@ -81,23 +82,29 @@ select {
   border: 1px solid transparent;
   box-shadow: rgba(0, 0, 0, 0.2) 1.95px 1.95px 2.6px;
   outline: none;
-  transition: border-color 0.2s;
+  transition-property: border-color padding;
+  transition-duration: var(--transition-time);
 }
-button:hover,
-textarea:hover,
-input:hover,
-select:hover {
+button:hover:enabled,
+textarea:hover:enabled,
+input:hover:enabled,
+select:hover:enabled {
   border-color: var(--color__btn-text);
 }
-button:focus,
-textarea:focus,
-input:focus,
-select:focus {
-  outline: none;
+button:disabled,
+textarea:disabled,
+input:disabled,
+select:disabled {
+  padding-left: 0;
+  background-color: transparent;
+  box-shadow: none;
 }
-button:focus-visible,
+button:focus, button:focus-visible,
+textarea:focus,
 textarea:focus-visible,
+input:focus,
 input:focus-visible,
+select:focus,
 select:focus-visible {
   outline: none;
 }
@@ -133,7 +140,7 @@ option {
   transition: color 0.2s;
 }
 .section__edit-btn:hover {
-  color: var(--color__btn-text--hover);
+  color: var(--color__btn--hover);
 }
 
 .grundlagen__content {
@@ -154,9 +161,6 @@ option {
 .beschreibung-element {
   grid-column-start: 1;
   grid-column-end: 3;
-}
-.beschreibung-element textarea {
-  height: 70px;
 }
 
 .volk-element__btn {
@@ -248,5 +252,4 @@ option {
 }
 .modal__x-btn:hover {
   transform: scale(1.15);
-  color: var(--color__modal-text--hover);
 }/*# sourceMappingURL=main.css.map */
