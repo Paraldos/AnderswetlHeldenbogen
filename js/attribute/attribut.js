@@ -1,30 +1,27 @@
 import Modal from "../modal/modal.js";
+import db from "../db/db.js";
 
 export default class Attribut {
-  constructor(dbElement) {
-    this.name = dbElement.name;
-    this.value = 1;
-    this.id = this.transformeNameIntoId(dbElement.name);
-    this.description = dbElement.description;
-
+  constructor(key) {
+    this.dbEntry = db.attribute[key];
     this.container = document.querySelector(".attribute__content");
-    this.attribut = this.createHtml();
-    this.main = this.attribut.querySelector(".attribut__main");
-    this.btns = this.attribut.querySelectorAll(".attribut__btn");
-    this.plusBtn = this.attribut.querySelector(".attribut__plus");
-    this.minusBtn = this.attribut.querySelector(".attribut__minus");
+    this.element = this.createElement();
+    this.mainValue = this.element.querySelector(".attribut__main-value");
+    this.btns = this.element.querySelectorAll(".attribut__btn");
+    this.plusBtn = this.element.querySelector(".attribut__plus");
+    this.minusBtn = this.element.querySelector(".attribut__minus");
 
-    this.updateHtml();
+    this.updateElement();
     this.addMainListener();
     this.addPlusListener();
     this.addMinusListener();
   }
 
-  createHtml() {
+  createElement() {
     const newElement = document.createElement("div");
     newElement.classList.add("attribut");
     newElement.innerHTML = `
-      <button class="attribut__main">???</button>
+      <button class="attribut__main-value">???</button>
       <button class="attribut__btn attribut__minus invisible">
         <i class="fa-solid fa-minus"></i>
       </button>
@@ -35,34 +32,34 @@ export default class Attribut {
     return newElement;
   }
 
-  updateHtml() {
-    this.main.innerHTML = `${this.name}: ${this.value}`;
+  updateElement() {
+    this.mainValue.innerHTML = `${this.dbEntry.name}: ${this.dbEntry.value}`;
   }
 
   addMainListener() {
-    this.main.addEventListener("click", () => {
+    this.mainValue.addEventListener("click", () => {
       let modal = new Modal();
       modal.content.innerHTML = `
-      <h1>${this.name}</h1>
-      <p>${this.description}</p>
+      <h1>${this.dbEntry.name}</h1>
+      <p>${this.dbEntry.description}</p>
       `;
     });
   }
 
   addPlusListener() {
     this.plusBtn.addEventListener("click", () => {
-      if (this.value < 5) {
-        this.value += 1;
-        this.updateHtml();
+      if (this.dbEntry.value < 5) {
+        this.dbEntry.value += 1;
+        this.updateElement();
       }
     });
   }
 
   addMinusListener() {
     this.minusBtn.addEventListener("click", () => {
-      if (this.value > 1) {
-        this.value -= 1;
-        this.updateHtml();
+      if (this.dbEntry.value > 1) {
+        this.dbEntry.value -= 1;
+        this.updateElement();
       }
     });
   }

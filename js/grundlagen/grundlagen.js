@@ -1,9 +1,12 @@
 import Section from "../section/section.js";
-import NameElement from "./nameElement.js";
+import BasicElement from "./basicElement.js";
+import db from "../db/db.js";
 
 export default class Grundlagen {
   constructor() {
     this.section = new Section("Grundlagen");
-    this.nameElement = new NameElement(this.section);
+    console.log(db.grundlagen);
+    this.nameElement = new BasicElement(this.section, "name");
+    this.nameElement = new BasicElement(this.section, "titel");
   }
 }

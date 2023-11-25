@@ -1,19 +1,20 @@
 import Section from "../section/section.js";
 import Attribut from "./attribut.js";
+import db from "../db/db.js";
 
 export default class Attribute {
-  constructor(db) {
-    this.db = db;
+  constructor() {
     this.section = new Section("Attribute");
-    this.attribute = [];
-    this.fillAttributeArray();
+    this.attribute = this.fillAttributeArray();
     this.addEditButtonListener();
   }
 
   fillAttributeArray() {
-    for (let key in this.db.attribute) {
-      this.attribute.push(new Attribut(this.db.attribute[key]));
+    let attribute = [];
+    for (let key in db.attribute) {
+      attribute.push(new Attribut(key));
     }
+    return attribute;
   }
 
   addEditButtonListener() {

@@ -61,12 +61,6 @@ button:focus-visible {
   background-color: transparent;
 }
 
-.grundlagen ul {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
 .attribute__content {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -77,7 +71,7 @@ button:focus-visible {
   display: flex;
   gap: 10px;
 }
-.attribut__main {
+.attribut__main-value {
   aspect-ratio: unset;
   width: 100%;
   line-height: normal;
