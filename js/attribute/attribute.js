@@ -1,16 +1,22 @@
-import DB from "./db.js";
 import Section from "../section/section.js";
 import Attribut from "./attribut.js";
 
 export default class Attribute {
-  constructor() {
-    this.db = new DB();
+  constructor(db) {
+    this.db = db;
     this.section = new Section("Attribute");
-    this.attribute = this.db.map((dbElement) => new Attribut(dbElement));
-    this.addEditButtonEventListener();
+    this.attribute = [];
+    this.fillAttributeArray();
+    this.addEditButtonListener();
   }
 
-  addEditButtonEventListener() {
+  fillAttributeArray() {
+    for (let key in this.db.attribute) {
+      this.attribute.push(new Attribut(this.db.attribute[key]));
+    }
+  }
+
+  addEditButtonListener() {
     this.section.editBtn.addEventListener("click", () => {
       const btnIsOn = this.section.toggleEditBtn();
       this.attribute.forEach((element) =>
