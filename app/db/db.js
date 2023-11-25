@@ -1,12 +1,14 @@
 import attribute from "./attribute.json" assert { type: "json" };
 import grundlagen from "./grundlagen.json" assert { type: "json" };
 import voelker from "./voelker.json" assert { type: "json" };
+import fertigkeiten from "./fertigkeiten.json" assert { type: "json" };
 
 class DB {
   constructor() {
     this.grundlagen = grundlagen;
     this.attribute = attribute;
     this.voelker = voelker;
+    this.fertigkeiten = fertigkeiten;
   }
 
   nameToId(string) {

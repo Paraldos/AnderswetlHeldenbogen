@@ -1,2 +1,39 @@
 .fertigkeiten {
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px 40px;
+  }
+
+  &__container {
+    height: fit-content;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px 40px;
+  }
+}
+
+.fertigkeit {
+  display: flex;
+  gap: 10px;
+
+  &__text {
+    aspect-ratio: unset;
+    width: 100%;
+    line-height: normal;
+    text-align: left;
+  }
+
+  &__btn {
+    width: fit-content;
+    height: 100%;
+    aspect-ratio: 1/1;
+    padding: 0;
+
+    i {
+      width: 100%;
+      height: 100%;
+      @include display-flex-center;
+    }
+  }
 }
