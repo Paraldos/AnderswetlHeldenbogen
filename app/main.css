@@ -33,6 +33,29 @@
   --zIndex__modal: 1000 ;
 }
 
+.overflow-hidden {
+  overflow: hidden;
+  padding-right: 20px;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--color__scrollbar-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color__scrollbar-thumb);
+  border-radius: 30px;
+  border: 5px solid var(--color__scrollbar-background);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color__scrollbar-thumb--hover);
+}
+
 *,
 *::before,
 *::after {
@@ -48,10 +71,6 @@ body {
   color: var(--color__text);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
-}
-
-.overflow-hidden {
-  overflow: hidden;
 }
 
 main {
@@ -85,24 +104,6 @@ h2 {
 
 .invisible {
   display: none !important;
-}
-
-::-webkit-scrollbar {
-  width: 20px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: var(--color__scrollbar-background);
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--color__scrollbar-thumb);
-  border-radius: 30px;
-  border: 5px solid var(--color__scrollbar-background);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: var(--color__scrollbar-thumb--hover);
 }
 
 button,
@@ -257,7 +258,7 @@ nav {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: var(--height__nav);
   z-index: var(--zIndex__navbar);
   background-color: var(--color__nav-background);
