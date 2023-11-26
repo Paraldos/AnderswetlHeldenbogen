@@ -1,36 +1,33 @@
 import Modal from "../modal/modal.js";
 import db from "../db/db.js";
 
-export default class Talent {
-  constructor(key, index, btnVisiblity) {
-    this.talentIndex = index;
+export default class DBTalent {
+  constructor(key, modal) {
     this.dbEntry = db.talente[key];
-    this.initialBtnVisibility = btnVisiblity;
-    this.container = document.querySelector(".talente__content");
+    this.modal = modal;
+    this.container = this.modal.content.querySelector(
+      `.talente__${this.dbEntry.type}`
+    );
     this.element = this.createElement();
     this.mainBtn = this.element.querySelector(".talent__main-btn");
-    this.minusBtn = this.element.querySelector(".talent__minus-btn");
+    this.plusBtn = this.element.querySelector(".talent__plus-btn");
     this.addMainBtnListener();
+    /*
     this.addMinusBtnListener();
+    */
   }
 
   createElement() {
-    let container = document.querySelector(`.talente__${this.dbEntry.type}`);
     let newElement = document.createElement("div");
-    newElement.classList.add(
-      "talent",
-      `talent__${db.nameToId(this.dbEntry.name)}`
-    );
+    newElement.classList.add("talent");
     newElement.innerHTML = `
       <button class="talent__main-btn">
         ${this.dbEntry.name}
       </button>
-      <button class="talent__minus-btn 
-      ${this.initialBtnVisibility ? "" : "invisible"}
-      symbol-btn">
-        <i class="fa-solid fa-minus"></i>
+      <button class="talent__plus-btn symbol-btn">
+        <i class="fa-solid fa-plus"></i>
       </button>`;
-    container.appendChild(newElement);
+    this.container.appendChild(newElement);
     return newElement;
   }
 

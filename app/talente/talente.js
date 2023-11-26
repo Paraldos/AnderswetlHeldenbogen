@@ -1,8 +1,8 @@
-import Modal from "../modal/modal.js";
 import Section from "../section/section.js";
 import db from "../db/db.js";
-import Talent from "./talent.js";
+import HeroTalent from "./heroTalent.js";
 import TalenteTypeContainer from "./TalenteTypeContainer.js";
+import AddTalenteModal from "./addTalentModal.js";
 
 export default class Talente {
   constructor() {
@@ -30,7 +30,11 @@ export default class Talente {
     let arr = [];
     this.talente = db.heroTalente.forEach((el, index) => {
       arr.push(
-        new Talent(el.key, index, this.section.editBtn.classList.contains("on"))
+        new HeroTalent(
+          el.key,
+          index,
+          this.section.editBtn.classList.contains("on")
+        )
       );
     });
     return arr;
@@ -46,7 +50,7 @@ export default class Talente {
   }
 
   addPlusBtnListener() {
-    this.section.plusBtn.addEventListener("click", () => new TalenteModal());
+    this.section.plusBtn.addEventListener("click", () => new AddTalenteModal());
   }
 
   addEditBtnListener() {
@@ -67,39 +71,5 @@ export default class Talente {
 
   getTalentSum() {
     return db.heroTalente.length;
-  }
-}
-
-class TalenteModal {
-  constructor() {
-    this.modal = this.addModal();
-    this.modalContentn = this.modal.content;
-    this.typeContainer = [
-      new TalenteTypeContainer("Allgemein", this.modalContentn),
-      new TalenteTypeContainer("Kampf", this.modalContentn),
-      new TalenteTypeContainer("Manöver", this.modalContentn),
-      new TalenteTypeContainer("Übernatürlich", this.modalContentn),
-      new TalenteTypeContainer("Zauber", this.modalContentn),
-    ];
-    this.addTalente();
-  }
-
-  addModal() {
-    let modal = new Modal();
-    modal.content.innerHTML = `<h2>Talente</h2>`;
-    return modal;
-  }
-
-  addTalente() {
-    for (let key in db.talente) {
-      let container = this.modalContentn.querySelector(
-        `.talente__${db.talente[key].type}`
-      );
-      let newElement = document.createElement("div");
-      newElement.innerHTML = `
-      <button>${db.talente[key].name}</button>
-      `;
-      container.appendChild(newElement);
-    }
   }
 }

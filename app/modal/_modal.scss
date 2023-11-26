@@ -3,6 +3,11 @@
   position: fixed;
   inset: 0;
 
+  h2 {
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--color__text);
+  }
+
   &__background {
     position: fixed;
     inset: 0;
