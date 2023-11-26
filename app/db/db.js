@@ -14,7 +14,7 @@ class DB {
     this.heroTalente = [
       { key: "magie" },
       { key: "katzenaugen" },
-      { key: "unbeugsam" },
+      { key: "eisenmagen" },
     ];
   }
 

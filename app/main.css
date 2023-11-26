@@ -68,6 +68,10 @@ h2 {
   font-size: 1.1rem;
 }
 
+.invisible {
+  display: none !important;
+}
+
 button,
 textarea,
 input,
@@ -131,10 +135,6 @@ option {
   align-items: center;
 }
 
-.invisible {
-  display: none;
-}
-
 .modal {
   display: flex;
   justify-content: center;
@@ -153,14 +153,13 @@ option {
 .modal__box {
   background-color: var(--color__modal-background);
   width: 100%;
-  height: -moz-fit-content;
-  height: fit-content;
   max-width: 500px;
-  max-height: 700px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 .modal__content {
-  margin: 0 15px 30px 15px;
+  padding: 0 15px 30px 15px;
+  max-height: 650px;
+  overflow: auto;
 }
 .modal__x-btn {
   display: flex;
@@ -193,7 +192,10 @@ option {
   color: var(--color__heading--text);
   border-bottom: 2px solid var(--color__heading--border);
 }
-.section__edit-btn {
+.section__header h1 {
+  width: 100%;
+}
+.section__plus-btn, .section__edit-btn {
   box-shadow: none;
   line-height: 0;
   height: var(--section-header-height);
@@ -202,7 +204,7 @@ option {
   border: none;
   transition: color 0.2s;
 }
-.section__edit-btn:hover {
+.section__plus-btn:hover, .section__edit-btn:hover {
   color: var(--color__btn--hover);
 }
 
@@ -262,12 +264,33 @@ option {
 }
 
 .talente__content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.talente__container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 10px 40px;
+}
+.talente__container h3 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  margin: 0;
+  margin-left: 5px;
 }
 
 .talent {
   display: flex;
   gap: 10px;
+}
+
+.modal h3 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+.modal .talente__container {
+  grid-template-columns: 1fr;
+  gap: 10px 10px;
+  margin-top: 30px;
 }/*# sourceMappingURL=main.css.map */

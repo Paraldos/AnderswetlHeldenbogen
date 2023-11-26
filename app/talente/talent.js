@@ -4,7 +4,6 @@ import db from "../db/db.js";
 export default class Talent {
   constructor(key, index, btnVisiblity) {
     this.talentIndex = index;
-    this.heroEntry = db.heroTalente[index];
     this.dbEntry = db.talente[key];
     this.initialBtnVisibility = btnVisiblity;
     this.container = document.querySelector(".talente__content");
@@ -15,26 +14,23 @@ export default class Talent {
     this.addMinusBtnListener();
   }
 
-  emptyContainer() {
-    this.container.innerHTML = "";
-  }
-
   createElement() {
+    let container = document.querySelector(`.talente__${this.dbEntry.type}`);
     let newElement = document.createElement("div");
     newElement.classList.add(
       "talent",
       `talent__${db.nameToId(this.dbEntry.name)}`
     );
     newElement.innerHTML = `
-    <button class="talent__main-btn">
-      ${this.dbEntry.name}
-    </button>
-    <button class="talent__minus-btn ${
-      this.initialBtnVisibility ? "" : "invisible"
-    } symbol-btn">
-      <i class="fa-solid fa-minus"></i>
-    </button>`;
-    this.container.appendChild(newElement);
+      <button class="talent__main-btn">
+        ${this.dbEntry.name}
+      </button>
+      <button class="talent__minus-btn 
+      ${this.initialBtnVisibility ? "" : "invisible"}
+      symbol-btn">
+        <i class="fa-solid fa-minus"></i>
+      </button>`;
+    container.appendChild(newElement);
     return newElement;
   }
 

@@ -10,8 +10,13 @@
     justify-content: space-between;
     color: var(--color__heading--text);
     border-bottom: 2px solid var(--color__heading--border);
+
+    h1 {
+      width: 100%;
+    }
   }
 
+  &__plus-btn,
   &__edit-btn {
     box-shadow: none;
     line-height: 0;

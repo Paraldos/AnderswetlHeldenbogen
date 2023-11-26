@@ -1,12 +1,38 @@
 .talente {
   &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px 40px;
+
+    h3 {
+      grid-column-start: 1;
+      grid-column-end: 4;
+      margin: 0;
+      margin-left: 5px;
+    }
   }
 }
 
 .talent {
   display: flex;
   gap: 10px;
+}
+
+.modal {
+  h3 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+
+  .talente__container {
+    grid-template-columns: 1fr;
+    gap: 10px 10px;
+    margin-top: 30px;
+  }
 }
