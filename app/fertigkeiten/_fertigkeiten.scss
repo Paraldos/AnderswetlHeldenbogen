@@ -17,13 +17,6 @@
   display: flex;
   gap: 10px;
 
-  &__text {
-    aspect-ratio: unset;
-    width: 100%;
-    line-height: normal;
-    text-align: left;
-  }
-
   &__btn {
     width: fit-content;
     height: 100%;

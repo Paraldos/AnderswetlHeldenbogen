@@ -5,12 +5,12 @@ export default class Fertigkeit {
   constructor(key) {
     this.dbEntry = db.fertigkeiten[key];
     this.element = this.createElement();
-    this.text = this.element.querySelector(".fertigkeit__text");
+    this.mainBtn = this.element.querySelector(".fertigkeit__main-btn");
     this.btns = this.element.querySelectorAll(".fertigkeit__btn");
     this.plusBtn = this.element.querySelector(".fertigkeit__plus");
     this.minusBtn = this.element.querySelector(".fertigkeit__minus");
     this.updateElement();
-    this.addTextListener();
+    this.addMainBtnListener();
     this.addPlusListener();
     this.addMinusListener();
   }
@@ -22,7 +22,7 @@ export default class Fertigkeit {
     const newElement = document.createElement("div");
     newElement.classList.add("fertigkeit");
     newElement.innerHTML = `
-      <button class="fertigkeit__text">???</button>
+      <button class="fertigkeit__main-btn">???</button>
       <button class="fertigkeit__btn fertigkeit__minus invisible">
         <i class="fa-solid fa-minus"></i>
       </button>
@@ -34,18 +34,15 @@ export default class Fertigkeit {
   }
 
   updateElement() {
-    this.text.innerHTML = `${this.dbEntry.name}: ${this.dbEntry.value}`;
+    this.mainBtn.innerHTML = `${this.dbEntry.name}: ${this.dbEntry.value}`;
     document.dispatchEvent(new Event("updateFertigkeitenHeader"));
   }
 
-  addTextListener() {
-    this.text.addEventListener("click", () => {
-      let modal = new Modal();
-      modal.content.innerHTML = `
-      <h1>${this.dbEntry.name}</h1>
-      <p>${this.dbEntry.description}</p>
-      `;
-    });
+  addMainBtnListener() {
+    this.mainBtn.addEventListener(
+      "click",
+      () => new FertigkeitModal(this.dbEntry)
+    );
   }
 
   addPlusListener() {
@@ -72,5 +69,30 @@ export default class Fertigkeit {
         ? btn.classList.remove("invisible")
         : btn.classList.add("invisible");
     });
+  }
+}
+
+class FertigkeitModal {
+  constructor(dbEntry) {
+    this.dbEntry = dbEntry;
+    this.addModal();
+  }
+
+  addModal() {
+    let modal = new Modal();
+    modal.content.innerHTML = `
+    <h2>${this.dbEntry.name}</h2>`;
+    this.addComment(modal);
+    this.addTalentDescription(modal);
+  }
+
+  addTalentDescription(modal) {
+    let newElement = document.createElement("p");
+    newElement.innerText = this.dbEntry.description;
+    modal.content.appendChild(newElement);
+  }
+
+  addComment(modal) {
+    console.log();
   }
 }

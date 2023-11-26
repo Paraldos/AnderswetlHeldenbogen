@@ -80,6 +80,7 @@ select {
   border: 1px solid transparent;
   box-shadow: rgba(0, 0, 0, 0.2) 1.95px 1.95px 2.6px;
   outline: none;
+  text-align: left;
   transition-property: border-color padding;
   transition-duration: var(--transition-time);
 }
@@ -206,13 +207,6 @@ option {
   grid-column-end: 3;
 }
 
-.volk-element__btn {
-  text-align: left;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: end;
-}
 .volk-element__select {
   margin-bottom: 20px;
 }
@@ -226,12 +220,6 @@ option {
 .attribut {
   display: flex;
   gap: 10px;
-}
-.attribut__text {
-  aspect-ratio: unset;
-  width: 100%;
-  line-height: normal;
-  text-align: left;
 }
 .attribut__btn {
   width: -moz-fit-content;
@@ -264,12 +252,6 @@ option {
 .fertigkeit {
   display: flex;
   gap: 10px;
-}
-.fertigkeit__text {
-  aspect-ratio: unset;
-  width: 100%;
-  line-height: normal;
-  text-align: left;
 }
 .fertigkeit__btn {
   width: -moz-fit-content;

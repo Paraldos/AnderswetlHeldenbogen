@@ -6,13 +6,13 @@ export default class Attribut {
     this.dbEntry = db.attribute[key];
     this.container = document.querySelector(".attribute__content");
     this.element = this.createElement();
-    this.text = this.element.querySelector(".attribut__text");
+    this.mainBtn = this.element.querySelector(".attribut__main-btn");
     this.btns = this.element.querySelectorAll(".attribut__btn");
-    this.plusBtn = this.element.querySelector(".attribut__plus");
-    this.minusBtn = this.element.querySelector(".attribut__minus");
+    this.plusBtn = this.element.querySelector(".attribut__plus-btn");
+    this.minusBtn = this.element.querySelector(".attribut__minus-btn");
 
     this.updateElement();
-    this.addTextListener();
+    this.addMainBtnListener();
     this.addPlusListener();
     this.addMinusListener();
   }
@@ -21,11 +21,11 @@ export default class Attribut {
     const newElement = document.createElement("div");
     newElement.classList.add("attribut");
     newElement.innerHTML = `
-      <button class="attribut__text">???</button>
-      <button class="attribut__btn attribut__minus invisible">
+      <button class="attribut__main-btn">???</button>
+      <button class="attribut__btn attribut__minus-btn invisible">
         <i class="fa-solid fa-minus"></i>
       </button>
-      <button class="attribut__btn attribut__plus invisible">
+      <button class="attribut__btn attribut__plus-btn invisible">
         <i class="fa-solid fa-plus"></i>
       </button>`;
     this.container.appendChild(newElement);
@@ -33,18 +33,15 @@ export default class Attribut {
   }
 
   updateElement() {
-    this.text.innerHTML = `${this.dbEntry.name}: ${this.dbEntry.value}`;
+    this.mainBtn.innerHTML = `${this.dbEntry.name}: ${this.dbEntry.value}`;
     document.dispatchEvent(new Event("updateAttributeHeader"));
   }
 
-  addTextListener() {
-    this.text.addEventListener("click", () => {
-      let modal = new Modal();
-      modal.content.innerHTML = `
-      <h1>${this.dbEntry.name}</h1>
-      <p>${this.dbEntry.description}</p>
-      `;
-    });
+  addMainBtnListener() {
+    this.mainBtn.addEventListener(
+      "click",
+      () => new AttributModal(this.dbEntry)
+    );
   }
 
   addPlusListener() {
@@ -71,5 +68,25 @@ export default class Attribut {
         ? btn.classList.remove("invisible")
         : btn.classList.add("invisible");
     });
+  }
+}
+
+class AttributModal {
+  constructor(dbEntry) {
+    this.dbEntry = dbEntry;
+    this.addModal();
+  }
+
+  addModal() {
+    let modal = new Modal();
+    modal.content.innerHTML = `
+    <h2>${this.dbEntry.name}</h2>`;
+    this.addTalentDescription(modal);
+  }
+
+  addTalentDescription(modal) {
+    let newElement = document.createElement("p");
+    newElement.innerText = this.dbEntry.description;
+    modal.content.appendChild(newElement);
   }
 }
