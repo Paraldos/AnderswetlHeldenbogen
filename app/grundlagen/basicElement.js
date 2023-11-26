@@ -14,19 +14,18 @@ export default class BasicElement {
     element.classList.add("basic-element", "grundlagen__element");
     element.innerHTML = `
     <label>${this.dbEntry.name}:</label>
-    <input type="text" class="basic-element__input" value="${this.dbEntry.value}">`;
+    <input type="text" class="basic-element__input" value="${this.dbEntry.value}" disabled>`;
     this.section.contentContainer.appendChild(element);
     return element;
   }
 
   addInputEvent() {
     this.nameInput.addEventListener("input", () => {
-      console.log(this.nameInput.value);
       this.dbEntry.value = this.nameInput.value;
     });
   }
 
   toggleEditBtn(on) {
-    this.nameInput.disabled = on;
+    this.nameInput.disabled = !on;
   }
 }

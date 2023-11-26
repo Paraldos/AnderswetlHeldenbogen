@@ -16,7 +16,7 @@ export default class VolkElement {
     element.classList.add("volk-element", "grundlagen__element");
     element.innerHTML = `
     <label>${this.dbEntry.name}:</label>
-    <button class="volk-element__main-btn">${
+    <button class="volk-element__main-btn" disabled>${
       this.dbEntry.value ? this.dbEntry.value : "..."
     }</button>`;
     this.section.contentContainer.appendChild(element);
@@ -39,7 +39,7 @@ export default class VolkElement {
   }
 
   toggleEditBtn(on) {
-    this.mainBtn.disabled = on;
+    this.mainBtn.disabled = !on;
   }
 }
 

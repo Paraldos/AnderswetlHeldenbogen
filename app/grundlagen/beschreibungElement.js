@@ -14,7 +14,7 @@ export default class Beschreibungelement {
     element.classList.add("beschreibung-element", "grundlagen__element");
     element.innerHTML = `
     <label>${this.dbEntry.name}:</label>
-    <textarea class="beschreibung-element__text">${this.dbEntry.value}</textarea>`;
+    <textarea class="beschreibung-element__text" disabled>${this.dbEntry.value}</textarea>`;
     this.section.contentContainer.appendChild(element);
     return element;
   }
@@ -26,6 +26,6 @@ export default class Beschreibungelement {
   }
 
   toggleEditBtn(on) {
-    this.txt.disabled = on;
+    this.txt.disabled = !on;
   }
 }

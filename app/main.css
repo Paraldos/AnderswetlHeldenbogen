@@ -108,6 +108,10 @@ select:focus-visible {
   outline: none;
 }
 
+select {
+  margin-bottom: 20px;
+}
+
 option {
   background-color: var(--color__select-background);
 }
@@ -205,10 +209,6 @@ option {
 .beschreibung-element {
   grid-column-start: 1;
   grid-column-end: 3;
-}
-
-.volk-element__select {
-  margin-bottom: 20px;
 }
 
 .attribute__content {
