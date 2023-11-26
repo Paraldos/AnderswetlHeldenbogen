@@ -1,9 +1,11 @@
 @import "./variables";
 @import "./mixins";
 @import "./basics";
+@import "./modal/modal";
 @import "./section/section";
+// sections
 @import "./grundlagen/grundlagen";
 @import "./attribute/attribute";
 @import "./fertigkeiten/fertigkeiten";
 @import "./merkmale/merkmale";
-@import "./modal/modal";
+@import "./talente/talente";

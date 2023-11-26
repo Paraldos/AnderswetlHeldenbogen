@@ -17,9 +17,12 @@
     height: fit-content;
     max-width: 500px;
     max-height: 700px;
-    padding: var(--modal-box-padding);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
       rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  }
+
+  &__content {
+    margin: 0 15px 30px 15px;
   }
 
   &__x-btn {
@@ -27,7 +30,7 @@
     width: 50px;
     height: 50px;
     border-bottom-left-radius: 20px;
-    margin: calc(var(--modal-box-padding) * -1);
+    margin: 0;
 
     margin-left: auto;
     transition: transform 0.2s;
@@ -39,7 +42,6 @@
 
     &:hover {
       transform: scale(1.15);
-      color: var(--color__modal-text--hover);
     }
   }
 }

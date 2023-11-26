@@ -2,6 +2,7 @@ import attribute from "./attribute.json" assert { type: "json" };
 import grundlagen from "./grundlagen.json" assert { type: "json" };
 import voelker from "./voelker.json" assert { type: "json" };
 import fertigkeiten from "./fertigkeiten.json" assert { type: "json" };
+import talente from "./talente.json" assert { type: "json" };
 
 class DB {
   constructor() {
@@ -9,6 +10,8 @@ class DB {
     this.attribute = attribute;
     this.voelker = voelker;
     this.fertigkeiten = fertigkeiten;
+    this.talente = talente;
+    this.heroTalente = [{ key: "magie" }];
   }
 
   nameToId(string) {
