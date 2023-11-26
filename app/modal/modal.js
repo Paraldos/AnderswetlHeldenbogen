@@ -1,3 +1,5 @@
+let modals = [];
+
 export default class Modal {
   constructor() {
     this.body = document.body;
@@ -9,23 +11,31 @@ export default class Modal {
     this.addXBtnListener();
     this.addBackgroundListener();
     this.addEscListener();
+    modals.push(this.modal);
+  }
+
+  destroyModal() {
+    if (modals.length < 1) return;
+    modals[modals.length - 1].remove();
+    modals.pop();
   }
 
   addEscListener() {
-    document.addEventListener("keydown", (event) => {
-      if (event.code === "Escape") this.modal.remove();
+    this.modal.addEventListener("keyup", (event) => {
+      if (event.key != "Escape") return;
+      this.destroyModal();
     });
   }
 
   addBackgroundListener() {
     this.background.addEventListener("click", () => {
-      this.modal.remove();
+      this.destroyModal();
     });
   }
 
   addXBtnListener() {
     this.xBtn.addEventListener("click", () => {
-      this.modal.remove();
+      this.destroyModal();
     });
   }
 
