@@ -2,7 +2,7 @@ import Section from "../section/section.js";
 import db from "../db/db.js";
 import HeroTalent from "./heroTalent.js";
 import TalenteTypeContainer from "./TalenteTypeContainer.js";
-import AddTalenteModal from "./addTalentModal.js";
+import TalenteModal from "./talenteModal.js";
 
 export default class Talente {
   constructor() {
@@ -50,7 +50,7 @@ export default class Talente {
   }
 
   addPlusBtnListener() {
-    this.section.plusBtn.addEventListener("click", () => new AddTalenteModal());
+    this.section.plusBtn.addEventListener("click", () => new TalenteModal());
   }
 
   addEditBtnListener() {

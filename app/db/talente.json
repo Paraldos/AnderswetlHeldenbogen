@@ -3,7 +3,6 @@
     "name": "Eidetisches Gedächtnis",
     "type": "allgemein",
     "comment": null,
-    "unique": null,
     "max_level": null,
     "description": "Du hast ein perfektes Gedächtnis. Du erhältst +4 wen du versuchst dich an etwas zu erinnern, die Zeit zu schätzen oder dich zu orientieren. Außerdem kannst du 3x schneller lesen als üblich."
   },
@@ -11,7 +10,6 @@
     "name": "Eisenmagen",
     "type": "allgemein",
     "comment": null,
-    "unique": null,
     "max_level": null,
     "description": "Du erhältst +4 wen du versuchst einer Krankheit oder einem Gift zu widerstehen. Außerdem kannst du viele Dinge Essen, die andere als ungenießbar betrachten."
   },
@@ -19,7 +17,6 @@
     "name": "Fachgebiet",
     "type": "allgemein",
     "comment": true,
-    "unique": true,
     "max_level": 5,
     "description": "Für jede Stufe darfst du ein Handwerkliches oder Wissenschaftliches Fachgebiet (z.B. Mathematik, Okkultismus, Schmieden oder Theologie). Du erhältst +2 auf alle Proben, die mit deinem Fachgebiet zu tun haben."
   },
@@ -27,7 +24,6 @@
     "name": "Geländekunde",
     "type": "allgemein",
     "comment": true,
-    "unique": true,
     "max_level": 5,
     "description": "Wähle für jede Stufe einen Geländetyp (z.B. Arktis, Dschungel, Tundra oder Wüste). Du erhältst +2 wen es darum geht im gewählten Gebiet zu überleben (z.B. Jagen, Gefahren entdecken, das Wetter einschätzen, Widerstand gegen Durst, Hunger, Hitze oder Kälte)."
   },
@@ -35,7 +31,6 @@
     "name": "Gefährte",
     "type": "allgemein",
     "comment": true,
-    "unique": null,
     "max_level": null,
     "description": "Du hast einen treuen Gefährten, der dir loyal zur Seite steht, wie z.B. einen Knappen, Leibwächter oder Jagdhund. Sein Level ist dein bestes Attribut + deine beste Fertigkeit +1."
   },
@@ -43,7 +38,6 @@
     "name": "Glück",
     "type": "allgemein",
     "comment": null,
-    "unique": null,
     "max_level": null,
     "description": "Du hast mehr Leben als eine ganze Wagenladung Katzen. Du hast 4 anstelle der üblichen 3 SP pro Spielabend."
   },
@@ -51,7 +45,6 @@
     "name": "Gutaussehend",
     "type": "allgemein",
     "comment": null,
-    "unique": null,
     "max_level": null,
     "description": "Du siehst außerordentlich gut aus, oder hast eine sehr beeindruckende Ausstrahlung. Dadurch erhältst du +2 auf dazu passende soziale Proben."
   },
@@ -59,7 +52,6 @@
     "name": "Herausragender Sinn",
     "type": "allgemein",
     "comment": true,
-    "unique": true,
     "max_level": 5,
     "description": "Für jede Stufe darfst du einen Sinn wählen (z.B. Geruch oder Sicht). Du erhältst +2 auf alle Wahrnehmungsproben, die mit den so gewählten Sinnen zu tun haben."
   },
@@ -67,7 +59,6 @@
     "name": "Hüne",
     "type": "allgemein",
     "comment": null,
-    "unique": null,
     "max_level": null,
     "description": "Du bist deutlich größer und massiger als die meisten. Deine maximalen LP steigen um 2 und du erhältst +2 wen du versuchst jemanden einzuschüchtern."
   },
@@ -75,7 +66,7 @@
     "name": "Kontakte",
     "type": "allgemein",
     "comment": true,
-    "unique": true,
+
     "max_level": 5,
     "description": "Wähle für jede Stufe eine Gruppe wie z.B. Adlige oder Diebe. Du bist hervorragend in diesen Gruppen vernetzt und kannst jederzeit Informationen abgreifen oder um einen kleinen Gefallen bitten."
   },
@@ -83,7 +74,7 @@
     "name": "Sprache",
     "type": "allgemein",
     "comment": true,
-    "unique": true,
+
     "max_level": 5,
     "description": "Für jede Stufe eignest du dir zwei neue Sprachen an, die du lesen, sprechen und schreiben kannst."
   },
@@ -91,7 +82,7 @@
     "name": "Status",
     "type": "allgemein",
     "comment": true,
-    "unique": true,
+
     "max_level": 3,
     "description": "Wähle eine soziale Elite, zu der du gehörst (z.B. Adel oder Priester). Dank deinem Status genießt du Ansehen und Respekt und du hast, wen es passt, sogar einen offiziellen Rang.\nKannst du deinen Status gelten machen, kannst du mit einer Sonderbehandlung rechnen und erhältst +2 auf die meisten sozialen Proben.\n\n1 = Lokale Größe\n2 = Landesweit bekannt\n3 = Weltberühmt\n\nHinweis: Es gibt immer auch Leute, die deine Gruppe nicht leiden können und dich mit Abscheu oder sogar hass behandeln."
   },
@@ -99,7 +90,7 @@
     "name": "Veranlagung",
     "type": "allgemein",
     "comment": null,
-    "unique": null,
+
     "max_level": null,
     "description": "Wähle ein Attribut. Du erhältst +1 in dem Attribut und kannst es im Verlauf des Spiels auf maximal 6 anstelle der üblichen 5 Punkte steigern."
   },
@@ -107,7 +98,7 @@
     "name": "Beidhändig",
     "type": "kampf",
     "comment": null,
-    "unique": null,
+
     "max_level": null,
     "description": "Du kannst zwei Waffen gleichzeitig benutzen, wen eine davon leicht ist (d.h. du darfst den Bonus von beiden Waffen zu deinen Attacken addieren)."
   },
@@ -115,7 +106,7 @@
     "name": "Blutrausch",
     "type": "kampf",
     "comment": null,
-    "unique": null,
+
     "max_level": null,
     "description": "Nachdem du einen Gegner getötet oder K.O. geschlagen hast, kannst du sofort noch eine Attacke durchführen."
   },
@@ -123,7 +114,7 @@
     "name": "Finesse",
     "type": "kampf",
     "comment": null,
-    "unique": null,
+
     "max_level": null,
     "description": "Du hast gelernt dich im Kampf auf Beweglichkeit und Tempo zu verlassen.\nHast du keine Waffe oder eine Waffe mit der Anmerkung Fines, darfst du deine Attacken mit Geschick anstelle von Stärke würfeln.\nAußerdem darfst du deine Paraden mit Weisheit anstelle von Zähigkeit würfeln."
   },
@@ -131,7 +122,7 @@
     "name": "Kampfkunst",
     "type": "kampf",
     "comment": null,
-    "unique": null,
+
     "max_level": null,
     "description": "Du eignest dir eine waffenlose Kampfkunst wie z.B. Boxen oder Kung-Fu an. Dadurch erhältst du +2 auf Paraden ohne Rüstung oder Schild und +2 auf Attacken ohne Waffe."
   },
@@ -139,7 +130,7 @@
     "name": "Kampfsinn",
     "type": "kampf",
     "comment": null,
-    "unique": null,
+
     "max_level": null,
     "description": "Du kannst dich auf zwei Paraden pro Runde konzentrieren. Du erleidest also erst ab der 3ten Parade einen Malus."
   },
@@ -147,7 +138,7 @@
     "name": "Kernschuss",
     "type": "kampf",
     "comment": null,
-    "unique": null,
+
     "max_level": null,
     "description": "Für normale Schützen ist es schwierig einen Gegner zu treffen, der in einen Nahkampf verwickelt ist. Du hast das aber schon so oft gemacht, dass du keinen Malus mehr erleidest.\n\nHinweis: Kernschuss wirkt nicht, wenn du selbst im Nahkampf bist."
   },
@@ -155,7 +146,7 @@
     "name": "Ausweichen",
     "type": "manoever",
     "comment": null,
-    "unique": null,
+
     "max_level": null,
     "description": "Typ: Nah- und Fernkampf\nKosten: Parade & 1 AP\nBeschreibung: Du machst einen 2m Satz zur Seite, wodurch du +2 auf deine Parade erhältst."
   },
@@ -163,7 +154,7 @@
     "name": "Ausfall",
     "type": "manoever",
     "comment": null,
-    "unique": null,
+
     "max_level": null,
     "description": "Typ: Nahkampf\nKosten: Aktion\nBeschreibung: Du legst all deine Macht in deinen nächsten Angriff. Dadurch erhältst du +3 auf deine Attacke.\nAllerdings erleidest du auch -2 auf deine nächste Parade (verfällt nach einer Runde)."
   },
@@ -171,7 +162,7 @@
     "name": "Binden",
     "type": "manoever",
     "comment": null,
-    "unique": null,
+
     "max_level": null,
     "description": "Typ: Nahkampf\nKosten: Aktion & 1 AP oder Parade & 1 AP\nBeschreibung: Du bringst deinen Gegner aus dem Gleichgewicht, indem du z.B. seine Deckung unterwanderst.\nWürfel eine normale Attacke oder Parade. Erzielst du mehr Erfolge als dein Gegner, erleidet er für eine Runde -2 auf alle Proben."
   },
@@ -179,7 +170,7 @@
     "name": "Blattschuss",
     "type": "manoever",
     "comment": null,
-    "unique": null,
+
     "max_level": null,
     "description": "Typ: Fernkampf\nKosten: Aktion & 1 AP\nBeschreibung: Du konzentrierst deine Attacke auf eine Schwachstelle des Gegners (z.B. den Hals oder ein Gelenk). Dadurch erleide es -2 auf seine Parade."
   },
@@ -187,7 +178,7 @@
     "name": "Entwaffnen",
     "type": "manoever",
     "comment": null,
-    "unique": null,
+
     "max_level": null,
     "description": "Typ: Nahkampf\nKosten: Aktion & 1 AP oder Parade & 1 AP\nBeschreibung: Würfel eine normale Attacke oder Parade. Hast du mehr erfolge als der Gegner, entreißt du ihm seine Waffe und schleuderst sie einige Meter davon.\nHast du eine Hand frei, kannst du die Waffe an dich reißen, anstelle sie davon zu schleudern."
   },
@@ -195,7 +186,7 @@
     "name": "Finte",
     "type": "manoever",
     "comment": null,
-    "unique": null,
+
     "max_level": null,
     "description": "Typ: Nahkampf\nKosten: Aktion & 1 AP\nBeschreibung: Du verwirrst deinen Gegner z.B. mit einer Scheinattacke oder einer Ladung Sand in die Augen. Dadurch erleidet er -2 auf seine Parade."
   },
@@ -203,7 +194,7 @@
     "name": "Kampfrausch",
     "type": "manoever",
     "comment": null,
-    "unique": null,
+
     "max_level": null,
     "description": "Typ: Nah- und Fernkampf\nKosten: Aktion & 1 AP\nBeschreibung: Du darfst zwei Attacken -2 ausführen. Dabei kannst du frei wählen, ob beide Attacken dasselbe oder zwei verschiedene Ziele treffen."
   },
@@ -211,7 +202,7 @@
     "name": "Kommandos",
     "type": "manoever",
     "comment": null,
-    "unique": null,
+
     "max_level": null,
     "description": "Kosten: Aktion & 1 AP\nBeschreibung: Du verschaffst dir einen Überblick über die Situation, und koordinierst deine Verbündeten mit ein paar befehlen. Dadurch erhalten diese +2 auf ihre nächste Kampfrobe (verfällt nach einer Runde)."
   },
@@ -219,7 +210,7 @@
     "name": "Konter",
     "type": "manoever",
     "comment": null,
-    "unique": null,
+
     "max_level": null,
     "description": "Typ: Nahkampf\nKosten: Parade & 1 AP\nBeschreibung: Würfel eine normale Parade. Erzielst du mehr Erfolge als der Gegner, verursachst du den Überschuss als Schaden."
   },
@@ -227,7 +218,7 @@
     "name": "Rundumschlag",
     "type": "manoever",
     "comment": null,
-    "unique": null,
+
     "max_level": null,
     "description": "Typ: Nahkampf\nKosten: Aktion & 1 AP\nBeschreibung: Würfel eine Attacke -2. Alle Gegner in Nahkampfreichweite werden getroffen (und dürfen sich mit einer eigenen Parade wehren)."
   },
@@ -235,7 +226,7 @@
     "name": "Sturmangriff",
     "type": "manoever",
     "comment": null,
-    "unique": null,
+
     "max_level": null,
     "description": "Typ: Nahkampf\nKosten: 2 Aktionen & 1 AP\nBeschreibung: Beweg dich nach den üblichen Regeln. Kannst du dabei wenigstens 4 Meter in gerader Linie auf einen Gegner zustürmen, darfst du gegen diesen Gegner eine Attacke +2 rollen."
   },
@@ -243,7 +234,7 @@
     "name": "Zielen",
     "type": "manoever",
     "comment": null,
-    "unique": null,
+
     "max_level": null,
     "description": "Typ: Fernkampf\nKosten: Aktion\nBeschreibung: Du hältst inne und nimmst dir Zeit zu Zielen. Dadurch erhältst du +2 auf deine Attacke und darfst die Reichweite deiner Waffe verdoppeln.\nAllerdings erleidest du auch -2 auf deine nächste Parade (verfällt nach einer Runde)."
   },
@@ -251,7 +242,7 @@
     "name": "Entrückung",
     "type": "uebernatuerlich",
     "comment": null,
-    "unique": null,
+
     "max_level": null,
     "description": "Voraussetzung: Magie (Glaube)\nMeditierst du für 10 Minuten und investierst 1 AP, kannst du dich in einen Zustand der Entrückung versetzen. Du erhältst für den Rest des Tages +1 auf gottgefälligen Taten, aber -1 auf alles andere."
   },
@@ -259,7 +250,7 @@
     "name": "Katzenaugen",
     "type": "uebernatuerlich",
     "comment": null,
-    "unique": null,
+
     "max_level": null,
     "description": "Du hast Augen wie eine Katze. Solang wenigstens ein bisschen licht vorhanden ist, kannst du normal sehen."
   },
@@ -267,7 +258,7 @@
     "name": "Magie",
     "type": "uebernatuerlich",
     "comment": true,
-    "unique": true,
+
     "max_level": null,
     "description": "Du erlangst die Fähigkeit Zauber zu erlernen und zu benutzen. Wähle eine der folgenden Traditionen und einen Zauber, mit dem du deine magische Laufbahn beginnst.\n\n- Angeboren: Du hast angeborene Magie, die durch Emotionen und pure Willenskraft gelenkt wird.\n- Natur: Du ziehst deine Kraft aus der urtümlichen Wildnis der Natur.\n- Glaube: Du beziehst magische Kraft von einem Gott, Dämon oder ähnlich mächtigen Entität.\n- Wissen: Du betrachtest Magie als eine Wissenschaft oder Kunstform, die man studieren und kontrollieren kann.\n\nHinweis: Einige Zauberkünstler, wie z.B. Priester, sind hoch angesehen und sollten auf kurz oder lang das Talent Status kaufen."
   },
@@ -275,7 +266,7 @@
     "name": "Unbeugsam",
     "type": "uebernatuerlich",
     "comment": null,
-    "unique": null,
+
     "max_level": null,
     "description": "Du hast einen eisernen Willen und erhältst +4, wen du versuchst mentale Angriffe abzuwehren."
   },
@@ -283,7 +274,7 @@
     "name": "Unsterblich",
     "type": "uebernatuerlich",
     "comment": null,
-    "unique": null,
+
     "max_level": 2,
     "description": "Ob du es nun als Fluch oder Segen betrachtest, aber du alterst nicht. Sofern du nicht mit Gewalt getötet wirst, lebst du ewig.\nMit Stufe 2 kann auch der Tod dich nichtmehr aufhalten. Wirst du getötet, kommst du nach einigen Stunden mit 1 LP wieder zu dir."
   },
@@ -291,7 +282,7 @@
     "name": "Verhüllte Aura",
     "type": "uebernatuerlich",
     "comment": null,
-    "unique": null,
+
     "max_level": null,
     "description": "Voraussetzung: Magie\nAus irgendeinem Grund ist deine Magie nicht wahrzunehmen. Talente und Fähigkeiten die Magie oder magische Fähigkeiten aufspüren, funktionieren bei dir nicht."
   },
@@ -299,7 +290,7 @@
     "name": "Bannen",
     "type": "zauber",
     "comment": null,
-    "unique": null,
+
     "max_level": null,
     "description": "Kosten: Aktion & 1 AP\nReichweite: 12 Meter\nWirkungsdauer: Sofort\nProbe: Zauberprobe vs. Zauberprobe\nBeschreibung: Bannen beendet die Wirkung eines fremden Zaubers. Er hört einfach auf zu wirken.\n\nHinweis: Es ist möglich magische Phänomene und Artefakte zu bannen. Dafür brauchst du aber spezielle Zutaten und ein Ritual.\nFür einen simples Artefakt bedeutet das ein paar Stunden Vorbereitung, bei mächtigen Artefakten kann es Tage, Wochen oder sogar Monate dauern.\n\nExorzismus\nKosten: Aktion & 2 AP\nReichweite: 12 Meter\nWirkungsdauer: Sofort\nProbe: Zauberprobe vs. Weisheit + Fassung\nBeschreibung: Exorzismus verbannt beschworene magische Wesenheiten, wie z.B. Dämonen, Geister oder Elementare. Sie verschwinden einfach oder kehren in die Dimension zurück, aus der sie stammen.\n\nHinweis: Kreaturen, die an die Welt gebunden sind (z.B. durch eine Aufgabe oder einen Gegenstand), werden nur temporär gebannt. Sie tauchen nach 24 Stunden wieder an ihrem Anker auf."
   }

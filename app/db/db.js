@@ -25,6 +25,10 @@ class DB {
     value = value.replace(/ü/g, "ue");
     return value;
   }
+
+  heroTalenteContains(key) {
+    return this.heroTalente.find((el) => el.key == key);
+  }
 }
 
 let db = new DB();

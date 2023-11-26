@@ -1,5 +1,13 @@
 let modals = [];
 
+document.addEventListener("keydown", (e) => {
+  if (e.key != "Escape") return;
+  if (modals.length < 1) return;
+  modals[modals.length - 1].dispatchEvent(
+    new Event("escape", { bubbles: true })
+  );
+});
+
 export default class Modal {
   constructor() {
     this.body = document.body;
@@ -7,24 +15,20 @@ export default class Modal {
     this.xBtn = this.modal.querySelector(".modal__x-btn");
     this.background = this.modal.querySelector(".modal__background");
     this.content = this.modal.querySelector(".modal__content");
+    modals.push(this.modal);
 
     this.addXBtnListener();
     this.addBackgroundListener();
     this.addEscListener();
-    modals.push(this.modal);
   }
 
   destroyModal() {
-    if (modals.length < 1) return;
-    modals[modals.length - 1].remove();
-    modals.pop();
+    let modal = modals.pop();
+    modal.remove();
   }
 
   addEscListener() {
-    this.modal.addEventListener("keyup", (event) => {
-      if (event.key != "Escape") return;
-      this.destroyModal();
-    });
+    this.modal.addEventListener("escape", () => this.destroyModal());
   }
 
   addBackgroundListener() {

@@ -1,8 +1,9 @@
-import Modal from "../modal/modal.js";
 import db from "../db/db.js";
+import DBTalentModal from "./dbTalentModal.js";
 
 export default class DBTalent {
   constructor(key, modal) {
+    this.key = key;
     this.dbEntry = db.talente[key];
     this.modal = modal;
     this.container = this.modal.content.querySelector(
@@ -12,9 +13,7 @@ export default class DBTalent {
     this.mainBtn = this.element.querySelector(".talent__main-btn");
     this.plusBtn = this.element.querySelector(".talent__plus-btn");
     this.addMainBtnListener();
-    /*
-    this.addMinusBtnListener();
-    */
+    this.addPlusBtnListener();
   }
 
   createElement() {
@@ -32,12 +31,15 @@ export default class DBTalent {
   }
 
   addMainBtnListener() {
-    this.mainBtn.addEventListener("click", () => new TalentModal(this.dbEntry));
+    this.mainBtn.addEventListener(
+      "click",
+      () => new DBTalentModal(this.dbEntry)
+    );
   }
 
-  addMinusBtnListener() {
-    this.minusBtn.addEventListener("click", () => {
-      db.heroTalente.splice(this.talentIndex, 1);
+  addPlusBtnListener() {
+    this.plusBtn.addEventListener("click", () => {
+      db.heroTalente.push({ key: this.key });
       document.dispatchEvent(new Event("resetTalents"));
     });
   }
@@ -46,30 +48,5 @@ export default class DBTalent {
     btnsVisible
       ? this.minusBtn.classList.remove("invisible")
       : this.minusBtn.classList.add("invisible");
-  }
-}
-
-class TalentModal {
-  constructor(dbEntry) {
-    this.dbEntry = dbEntry;
-    this.addModal();
-  }
-
-  addModal() {
-    let modal = new Modal();
-    modal.content.innerHTML = `
-    <h2>${this.dbEntry.name}</h2>`;
-    this.addComment(modal);
-    this.addTalentDescription(modal);
-  }
-
-  addTalentDescription(modal) {
-    let newElement = document.createElement("p");
-    newElement.innerText = this.dbEntry.description;
-    modal.content.appendChild(newElement);
-  }
-
-  addComment(modal) {
-    console.log();
   }
 }
