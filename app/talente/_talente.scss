@@ -5,3 +5,21 @@
     gap: 10px 40px;
   }
 }
+
+.talent {
+  display: flex;
+  gap: 10px;
+
+  &__minus-btn {
+    width: fit-content;
+    height: 100%;
+    aspect-ratio: 1/1;
+    padding: 0;
+  }
+
+  i {
+    width: 100%;
+    height: 100%;
+    @include display-flex-center;
+  }
+}

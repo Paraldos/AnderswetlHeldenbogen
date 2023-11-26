@@ -8,6 +8,7 @@ export default class Talent {
     this.container = document.querySelector(".talente__content");
     this.element = this.createElement();
     this.mainBtn = this.element.querySelector(".talent__main-btn");
+    this.minusBtn = this.element.querySelector(".talent__minus-btn");
     this.addMainBtnListener();
   }
 
@@ -18,7 +19,7 @@ export default class Talent {
     <button class="talent__main-btn">
       ${this.dbEntry.name}
     </button>
-    <button class="talent__minus-btn">
+    <button class="talent__minus-btn invisible">
       <i class="fa-solid fa-minus"></i>
     </button>`;
     this.container.appendChild(newElement);
@@ -27,6 +28,12 @@ export default class Talent {
 
   addMainBtnListener() {
     this.mainBtn.addEventListener("click", () => new TalentModal(this.dbEntry));
+  }
+
+  toggleEditBtn(btnsVisible) {
+    btnsVisible
+      ? this.minusBtn.classList.remove("invisible")
+      : this.minusBtn.classList.add("invisible");
   }
 }
 
