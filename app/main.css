@@ -10,6 +10,8 @@
   --color__four: #202020;
   --color__background: var(--color__three);
   --color__text: var(--color__one);
+  --color__scrollbar-thumb: var(--color__one);
+  --color__scrollbar-background: var(--color__four);
   --color__heading--text: var(--color__one);
   --color__heading--border: var(--color__one);
   --color__btn-background: var(--color__four);
@@ -31,6 +33,7 @@
   margin: 0;
   padding: 0;
   font-size: 20px;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -70,6 +73,24 @@ h2 {
 
 .invisible {
   display: none !important;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--color__scrollbar-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color__scrollbar-thumb);
+  border-radius: 30px;
+  border: 5px solid var(--color__scrollbar-background);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color_accent);
 }
 
 button,
@@ -158,6 +179,8 @@ option {
 }
 .modal__content {
   padding: 0 15px 30px 15px;
+  height: -moz-fit-content;
+  height: fit-content;
   max-height: 650px;
   overflow: auto;
 }
