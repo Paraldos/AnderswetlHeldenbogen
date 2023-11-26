@@ -20,10 +20,16 @@ export default class Modal {
     this.addXBtnListener();
     this.addBackgroundListener();
     this.addEscListener();
+    this.addOverflow();
+  }
+
+  addOverflow() {
+    this.body.classList.add("overflow-hidden");
   }
 
   destroyModal() {
     let modal = modals.pop();
+    if (modals.length <= 0) this.body.classList.remove("overflow-hidden");
     modal.remove();
   }
 

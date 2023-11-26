@@ -2,6 +2,7 @@
   @include display-flex-center;
   position: fixed;
   inset: 0;
+  z-index: var(--zIndex__modal);
 
   h2 {
     padding-bottom: 10px;
