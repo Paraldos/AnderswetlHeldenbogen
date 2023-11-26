@@ -2,24 +2,36 @@ import Modal from "../modal/modal.js";
 import db from "../db/db.js";
 
 export default class Talent {
-  constructor(key, index) {
+  constructor(key, index, btnVisiblity) {
+    this.talentIndex = index;
     this.heroEntry = db.heroTalente[index];
     this.dbEntry = db.talente[key];
+    this.initialBtnVisibility = btnVisiblity;
     this.container = document.querySelector(".talente__content");
     this.element = this.createElement();
     this.mainBtn = this.element.querySelector(".talent__main-btn");
     this.minusBtn = this.element.querySelector(".talent__minus-btn");
     this.addMainBtnListener();
+    this.addMinusBtnListener();
+  }
+
+  emptyContainer() {
+    this.container.innerHTML = "";
   }
 
   createElement() {
     let newElement = document.createElement("div");
-    newElement.classList.add("talent");
+    newElement.classList.add(
+      "talent",
+      `talent__${db.nameToId(this.dbEntry.name)}`
+    );
     newElement.innerHTML = `
     <button class="talent__main-btn">
       ${this.dbEntry.name}
     </button>
-    <button class="talent__minus-btn invisible symbol-btn">
+    <button class="talent__minus-btn ${
+      this.initialBtnVisibility ? "" : "invisible"
+    } symbol-btn">
       <i class="fa-solid fa-minus"></i>
     </button>`;
     this.container.appendChild(newElement);
@@ -28,6 +40,13 @@ export default class Talent {
 
   addMainBtnListener() {
     this.mainBtn.addEventListener("click", () => new TalentModal(this.dbEntry));
+  }
+
+  addMinusBtnListener() {
+    this.minusBtn.addEventListener("click", () => {
+      db.heroTalente.splice(this.talentIndex, 1);
+      document.dispatchEvent(new Event("resetTalents"));
+    });
   }
 
   toggleEditBtn(btnsVisible) {

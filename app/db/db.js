@@ -11,7 +11,11 @@ class DB {
     this.voelker = voelker;
     this.fertigkeiten = fertigkeiten;
     this.talente = talente;
-    this.heroTalente = [{ key: "magie" }];
+    this.heroTalente = [
+      { key: "magie" },
+      { key: "katzenaugen" },
+      { key: "unbeugsam" },
+    ];
   }
 
   nameToId(string) {
