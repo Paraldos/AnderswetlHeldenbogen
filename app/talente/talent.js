@@ -15,7 +15,12 @@ export default class Talent {
     let newElement = document.createElement("div");
     newElement.classList.add("talent");
     newElement.innerHTML = `
-    <button class="talent__main-btn">${this.dbEntry.name}</button>`;
+    <button class="talent__main-btn">
+      ${this.dbEntry.name}
+    </button>
+    <button class="talent__minus-btn">
+      <i class="fa-solid fa-minus"></i>
+    </button>`;
     this.container.appendChild(newElement);
     return newElement;
   }

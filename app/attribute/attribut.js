@@ -7,7 +7,6 @@ export default class Attribut {
     this.container = document.querySelector(".attribute__content");
     this.element = this.createElement();
     this.mainBtn = this.element.querySelector(".attribut__main-btn");
-    this.btns = this.element.querySelectorAll(".attribut__btn");
     this.plusBtn = this.element.querySelector(".attribut__plus-btn");
     this.minusBtn = this.element.querySelector(".attribut__minus-btn");
 
@@ -22,10 +21,10 @@ export default class Attribut {
     newElement.classList.add("attribut");
     newElement.innerHTML = `
       <button class="attribut__main-btn">???</button>
-      <button class="attribut__btn attribut__minus-btn invisible">
+      <button class="attribut__minus-btn invisible">
         <i class="fa-solid fa-minus"></i>
       </button>
-      <button class="attribut__btn attribut__plus-btn invisible">
+      <button class="attribut__plus-btn invisible">
         <i class="fa-solid fa-plus"></i>
       </button>`;
     this.container.appendChild(newElement);
@@ -63,11 +62,12 @@ export default class Attribut {
   }
 
   toggleEditBtn(btnsVisible) {
-    this.btns.forEach((btn) => {
-      btnsVisible
-        ? btn.classList.remove("invisible")
-        : btn.classList.add("invisible");
-    });
+    btnsVisible
+      ? this.plusBtn.classList.remove("invisible")
+      : this.plusBtn.classList.add("invisible");
+    btnsVisible
+      ? this.minusBtn.classList.remove("invisible")
+      : this.minusBtn.classList.add("invisible");
   }
 }
 

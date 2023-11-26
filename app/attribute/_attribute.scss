@@ -10,7 +10,8 @@
   display: flex;
   gap: 10px;
 
-  &__btn {
+  &__plus-btn,
+  &__minus-btn {
     width: fit-content;
     height: 100%;
     aspect-ratio: 1/1;

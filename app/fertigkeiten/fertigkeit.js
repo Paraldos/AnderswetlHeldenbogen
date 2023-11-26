@@ -6,9 +6,8 @@ export default class Fertigkeit {
     this.dbEntry = db.fertigkeiten[key];
     this.element = this.createElement();
     this.mainBtn = this.element.querySelector(".fertigkeit__main-btn");
-    this.btns = this.element.querySelectorAll(".fertigkeit__btn");
-    this.plusBtn = this.element.querySelector(".fertigkeit__plus");
-    this.minusBtn = this.element.querySelector(".fertigkeit__minus");
+    this.plusBtn = this.element.querySelector(".fertigkeit__plus-btn");
+    this.minusBtn = this.element.querySelector(".fertigkeit__minus-btn");
     this.updateElement();
     this.addMainBtnListener();
     this.addPlusListener();
@@ -23,10 +22,10 @@ export default class Fertigkeit {
     newElement.classList.add("fertigkeit");
     newElement.innerHTML = `
       <button class="fertigkeit__main-btn">???</button>
-      <button class="fertigkeit__btn fertigkeit__minus invisible">
+      <button class="fertigkeit__minus-btn invisible">
         <i class="fa-solid fa-minus"></i>
       </button>
-      <button class="fertigkeit__btn fertigkeit__plus invisible">
+      <button class="fertigkeit__plus-btn invisible">
         <i class="fa-solid fa-plus"></i>
       </button>`;
     container.appendChild(newElement);
@@ -64,11 +63,12 @@ export default class Fertigkeit {
   }
 
   toggleEditBtn(btnsVisible) {
-    this.btns.forEach((btn) => {
-      btnsVisible
-        ? btn.classList.remove("invisible")
-        : btn.classList.add("invisible");
-    });
+    btnsVisible
+      ? this.plusBtn.classList.remove("invisible")
+      : this.plusBtn.classList.add("invisible");
+    btnsVisible
+      ? this.minusBtn.classList.remove("invisible")
+      : this.minusBtn.classList.add("invisible");
   }
 }
 
