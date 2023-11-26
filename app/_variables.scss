@@ -20,6 +20,7 @@
   --color__heading--border: var(--color__one);
 
   --color__btn-background: var(--color__four);
+  --color__btn-background--disabled: rgba(0, 0, 0, 0.2);
   --color__btn-text: var(--color__one);
   --color__btn--hover: var(--color__two);
 
@@ -27,9 +28,6 @@
   --color__modal-x-btn: var(--color__one);
   --color__modal-text: var(--color__three);
   --color__modal-text--hover: var(--color__two);
-
-  --color__select-background: var(--color__four);
-  --color__select-text: var(--color__one);
 
   // ============================== sizes
   --section-header-height: 40px;

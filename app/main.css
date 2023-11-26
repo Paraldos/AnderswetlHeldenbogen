@@ -13,14 +13,13 @@
   --color__heading--text: var(--color__one);
   --color__heading--border: var(--color__one);
   --color__btn-background: var(--color__four);
+  --color__btn-background--disabled: rgba(0, 0, 0, 0.2);
   --color__btn-text: var(--color__one);
   --color__btn--hover: var(--color__two);
   --color__modal-background: var(--color__three);
   --color__modal-x-btn: var(--color__one);
   --color__modal-text: var(--color__three);
   --color__modal-text--hover: var(--color__two);
-  --color__select-background: var(--color__four);
-  --color__select-text: var(--color__one);
   --section-header-height: 40px;
   --line-height-default: 8px;
   --modal-box-padding: 15px;
@@ -96,7 +95,7 @@ textarea:disabled,
 input:disabled,
 select:disabled {
   padding-left: 0;
-  background-color: transparent;
+  background-color: var(--color__btn-background--disabled);
   box-shadow: none;
 }
 button:focus, button:focus-visible,
