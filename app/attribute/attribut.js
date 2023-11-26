@@ -21,10 +21,10 @@ export default class Attribut {
     newElement.classList.add("attribut");
     newElement.innerHTML = `
       <button class="attribut__main-btn">???</button>
-      <button class="attribut__minus-btn invisible">
+      <button class="attribut__minus-btn invisible symbol-btn">
         <i class="fa-solid fa-minus"></i>
       </button>
-      <button class="attribut__plus-btn invisible">
+      <button class="attribut__plus-btn invisible symbol-btn">
         <i class="fa-solid fa-plus"></i>
       </button>`;
     this.container.appendChild(newElement);

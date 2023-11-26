@@ -22,10 +22,10 @@ export default class Fertigkeit {
     newElement.classList.add("fertigkeit");
     newElement.innerHTML = `
       <button class="fertigkeit__main-btn">???</button>
-      <button class="fertigkeit__minus-btn invisible">
+      <button class="fertigkeit__minus-btn invisible symbol-btn">
         <i class="fa-solid fa-minus"></i>
       </button>
-      <button class="fertigkeit__plus-btn invisible">
+      <button class="fertigkeit__plus-btn invisible symbol-btn">
         <i class="fa-solid fa-plus"></i>
       </button>`;
     container.appendChild(newElement);

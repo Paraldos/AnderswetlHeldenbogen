@@ -116,6 +116,21 @@ option {
   background-color: var(--color__select-background);
 }
 
+.symbol-btn {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 100%;
+  aspect-ratio: 1/1;
+  padding: 0;
+}
+.symbol-btn i {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .invisible {
   display: none;
 }
@@ -221,20 +236,6 @@ option {
   display: flex;
   gap: 10px;
 }
-.attribut__plus-btn, .attribut__minus-btn {
-  width: -moz-fit-content;
-  width: fit-content;
-  height: 100%;
-  aspect-ratio: 1/1;
-  padding: 0;
-}
-.attribut__plus-btn i, .attribut__minus-btn i {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .fertigkeiten__content {
   display: grid;
@@ -253,20 +254,6 @@ option {
   display: flex;
   gap: 10px;
 }
-.fertigkeit__plus-btn, .fertigkeit__minus-btn {
-  width: -moz-fit-content;
-  width: fit-content;
-  height: 100%;
-  aspect-ratio: 1/1;
-  padding: 0;
-}
-.fertigkeit__plus-btn i, .fertigkeit__minus-btn i {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .merkmale ul {
   list-style: none;
@@ -283,18 +270,4 @@ option {
 .talent {
   display: flex;
   gap: 10px;
-}
-.talent__minus-btn {
-  width: -moz-fit-content;
-  width: fit-content;
-  height: 100%;
-  aspect-ratio: 1/1;
-  padding: 0;
-}
-.talent i {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }/*# sourceMappingURL=main.css.map */

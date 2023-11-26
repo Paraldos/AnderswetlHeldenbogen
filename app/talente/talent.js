@@ -19,7 +19,7 @@ export default class Talent {
     <button class="talent__main-btn">
       ${this.dbEntry.name}
     </button>
-    <button class="talent__minus-btn invisible">
+    <button class="talent__minus-btn invisible symbol-btn">
       <i class="fa-solid fa-minus"></i>
     </button>`;
     this.container.appendChild(newElement);
