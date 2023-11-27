@@ -4,18 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Anderswelt Heldenbogen</title>
-    <link rel="stylesheet" href="/app/main.css" />
+    <link rel="stylesheet" href="/main.css" />
     <script
       src="https://kit.fontawesome.com/12bc7dd6b9.js"
       crossorigin="anonymous"
     ></script>
-    <script defer type="module" src="./app/main.js"></script>
+    <script defer type="module" src="./main.js"></script>
   </head>
   <body>
     <main></main>
-    <nav>
-      <button><i class="fa-solid fa-users"></i></i></button>
-      <button><i class="fa-solid fa-book"></i></i></button>
+    <nav class="nav">
+      <div class="nav__menu nav__helden-menu">
+        <div class="nav__menu-container">
+          <button>Neuer Held</button>
+        </div>
+      </div>
+      <div class="nav__buttons">
+        <button class="nav__helden-btn"><i class="fa-solid fa-users"></i></i></button>
+        <button><i class="fa-solid fa-book"></i></i></button>
+      </div>
     </footer>
   </body>
 </html>

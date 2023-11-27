@@ -38,11 +38,12 @@
   --color__nav-text--hover: var(--color__two);
 
   // ============================== sizes
+  --section-max-widht: 970px;
   --section-header-height: 40px;
   --line-height-default: 8px;
   --height__nav: 100px;
 
   // ============================== z-index
-  --zIndex__navbar: 500
-  --zIndex__modal: 1000
+  --zIndex__navbar: 500;
+  --zIndex__modal: 1000;
 }
