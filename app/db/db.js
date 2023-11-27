@@ -6,6 +6,7 @@ import talente from "./talente.json" assert { type: "json" };
 
 class DB {
   constructor() {
+    this.characterNumber = 0;
     this.grundlagen = grundlagen;
     this.attribute = attribute;
     this.voelker = voelker;
@@ -16,6 +17,14 @@ class DB {
       { key: "katzenaugen" },
       { key: "eisenmagen" },
     ];
+  }
+
+  load(number) {
+    localStorage.getItem("andersweltHeldenbogenNumbers");
+  }
+
+  save() {
+    localStorage.setItem("");
   }
 
   nameToId(string) {
