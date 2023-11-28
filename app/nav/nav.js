@@ -1,13 +1,13 @@
 export default class Nav {
   constructor() {
-    this.heldenBtn = document.querySelector(".nav__helden-btn");
-    this.heldenMenu = document.querySelector(".nav__helden-menu");
+    this.heldenBtn = document.querySelector(".nav__hero-btn");
+    this.heldenMenu = document.querySelector(".hero-menu");
     this.addHeldenBtnListener();
   }
 
   addHeldenBtnListener() {
     this.heldenBtn.addEventListener("click", () => {
-      this.heldenMenu.classList.toggle("nav__helden-menu--active");
+      this.heldenMenu.classList.toggle("hero-menu--active");
     });
   }
 }
