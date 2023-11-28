@@ -7,7 +7,7 @@
   border-top: 4px solid var(--color__nav-text);
   background-color: var(--color__nav-menu-background);
   transition-property: bottom;
-  transition-duration: 0.2s;
+  transition-duration: 0.4s;
 
   &__container {
     @include display-flex-center;
