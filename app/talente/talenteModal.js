@@ -38,7 +38,7 @@ export default class TalenteModal {
   fillTalenteArray() {
     let arr = [];
     for (let key in db.talente) {
-      if (db.heroTalenteContains(key)) continue;
+      if (db.searchHeldenTalente(key)) continue;
       let talent = new DBTalent(key, this.modal);
       arr.push(talent);
     }

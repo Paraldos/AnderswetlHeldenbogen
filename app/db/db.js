@@ -1,30 +1,60 @@
 import attribute from "./attribute.json" assert { type: "json" };
-import grundlagen from "./grundlagen.json" assert { type: "json" };
 import voelker from "./voelker.json" assert { type: "json" };
 import fertigkeiten from "./fertigkeiten.json" assert { type: "json" };
 import talente from "./talente.json" assert { type: "json" };
 
 class DB {
   constructor() {
-    this.characterNumber = 0;
-    this.grundlagen = grundlagen;
+    this.heroList = [];
+    this.updateHeroList();
+    this.setBasics();
+    this.saveHero();
+  }
+
+  setBasics() {
+    this.grundlagen = {
+      infos: {
+        name: { title: "Name" },
+        volk: { title: "Volk" },
+        konzept: { title: "Konzept" },
+        motive: { title: "Motive" },
+        beschreibung: { title: "Beschreibung" },
+      },
+      values: {
+        name: "",
+        volk: "",
+        konzept: "",
+        motive: "",
+        beschreibung: "",
+      },
+    };
+
+    // infos
     this.attribute = attribute;
-    this.voelker = voelker;
     this.fertigkeiten = fertigkeiten;
+    this.heroTalente = [];
+    // valus
+    this.voelker = voelker;
     this.talente = talente;
-    this.heroTalente = [
-      { key: "magie" },
-      { key: "katzenaugen" },
-      { key: "eisenmagen" },
-    ];
   }
 
-  load(number) {
-    localStorage.getItem("andersweltHeldenbogenNumbers");
+  updateHeroList() {
+    this.heroList = JSON.parse(localStorage.getItem("andersweltHeroList"));
   }
 
-  save() {
-    localStorage.setItem("");
+  newHero() {
+    this.setBasics();
+    this.saveHero();
+    this.updateHeroList();
+  }
+
+  loadHero(hero) {
+    this.setBasics();
+  }
+
+  saveHero() {
+    console.log(this.grundlagen);
+    // localStorage.setItem("andersweltHeroList");
   }
 
   nameToId(string) {
@@ -35,7 +65,7 @@ class DB {
     return value;
   }
 
-  heroTalenteContains(key) {
+  searchHeldenTalente(key) {
     return this.heroTalente.find((el) => el.key == key);
   }
 }

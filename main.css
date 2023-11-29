@@ -307,16 +307,25 @@ option {
   max-width: 300px;
   margin: auto;
 }
+.hero-menu__hero-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  border-top: 2px solid var(--color__nav-text);
+  margin-top: 10px;
+  padding-top: 10px;
+}
 .hero-menu__btn {
+  text-align: center;
+}
+.hero-menu__hero-btn {
   text-align: center;
 }
 .hero-menu--active {
   bottom: 0%;
-}
-.hero-menu hr {
-  width: 100%;
-  margin: 10px;
-  border-color: var(--color__nav-text);
 }
 
 .grundlagen__content {

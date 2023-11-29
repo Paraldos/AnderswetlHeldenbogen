@@ -18,17 +18,25 @@
     margin: auto;
   }
 
+  &__hero-container {
+    @include display-flex-center;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    border-top: 2px solid var(--color__nav-text);
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+
   &__btn {
+    text-align: center;
+  }
+
+  &__hero-btn {
     text-align: center;
   }
 
   &--active {
     bottom: 0%;
-  }
-
-  hr {
-    width: 100%;
-    margin: 10px;
-    border-color: var(--color__nav-text);
   }
 }
