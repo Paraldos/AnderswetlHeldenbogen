@@ -28,6 +28,23 @@ class DB {
         beschreibung: "",
       },
     };
+    this.attribute = {
+      infos: {
+        staerke,
+        geschick,
+        zaehigkeit,
+        charisma,
+        klugheit,
+        weisheit,
+      },
+      values: {
+        name: "",
+        volk: "",
+        konzept: "",
+        motive: "",
+        beschreibung: "",
+      },
+    };
 
     // infos
     this.attribute = attribute;
