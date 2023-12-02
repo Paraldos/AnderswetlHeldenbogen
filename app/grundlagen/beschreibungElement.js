@@ -1,9 +1,9 @@
 import db from "../db/db.js";
+import hero from "../hero/hero.js";
 
-export default class Beschreibungelement {
+export default class BeschreibungElement {
   constructor(section) {
     this.section = section;
-    this.dbEntry = db.grundlagen.beschreibung;
     this.element = this.createElement();
     this.txt = this.element.querySelector(".beschreibung-element__text");
     this.addTextEvent();
@@ -13,15 +13,15 @@ export default class Beschreibungelement {
     let element = document.createElement("div");
     element.classList.add("beschreibung-element", "grundlagen__element");
     element.innerHTML = `
-    <label>${this.dbEntry.name}:</label>
-    <textarea class="beschreibung-element__text" disabled>${this.dbEntry.value}</textarea>`;
+      <label>${db.grundlagen.beschreibung.name}:</label>
+      <textarea class="beschreibung-element__text" disabled>${hero.grundlagen.beschreibung}</textarea>`;
     this.section.contentContainer.appendChild(element);
     return element;
   }
 
   addTextEvent() {
     this.txt.addEventListener("input", () => {
-      this.dbEntry.value = this.txt.value;
+      hero.grundlagen.beschreibung = this.txt.value;
     });
   }
 

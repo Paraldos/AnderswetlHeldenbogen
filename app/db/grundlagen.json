@@ -1,0 +1,22 @@
+{
+  "name": {
+    "name": "Name",
+    "value": ""
+  },
+  "volk": {
+    "name": "Volk",
+    "value": ""
+  },
+  "konzept": {
+    "name": "Konzept",
+    "value": ""
+  },
+  "motive": {
+    "name": "Motive",
+    "value": ""
+  },
+  "beschreibung": {
+    "name": "Beschreibung",
+    "value": ""
+  }
+}

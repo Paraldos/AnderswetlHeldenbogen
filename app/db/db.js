@@ -1,3 +1,4 @@
+import grundlagen from "./grundlagen.json" assert { type: "json" };
 import attribute from "./attribute.json" assert { type: "json" };
 import voelker from "./voelker.json" assert { type: "json" };
 import fertigkeiten from "./fertigkeiten.json" assert { type: "json" };
@@ -5,73 +6,11 @@ import talente from "./talente.json" assert { type: "json" };
 
 class DB {
   constructor() {
-    this.heroList = [];
-    this.updateHeroList();
-    this.setBasics();
-    this.saveHero();
-  }
-
-  setBasics() {
-    this.grundlagen = {
-      infos: {
-        name: { title: "Name" },
-        volk: { title: "Volk" },
-        konzept: { title: "Konzept" },
-        motive: { title: "Motive" },
-        beschreibung: { title: "Beschreibung" },
-      },
-      values: {
-        name: "",
-        volk: "",
-        konzept: "",
-        motive: "",
-        beschreibung: "",
-      },
-    };
-    this.attribute = {
-      infos: {
-        staerke,
-        geschick,
-        zaehigkeit,
-        charisma,
-        klugheit,
-        weisheit,
-      },
-      values: {
-        name: "",
-        volk: "",
-        konzept: "",
-        motive: "",
-        beschreibung: "",
-      },
-    };
-
-    // infos
+    this.grundlagen = grundlagen;
     this.attribute = attribute;
     this.fertigkeiten = fertigkeiten;
-    this.heroTalente = [];
-    // valus
     this.voelker = voelker;
     this.talente = talente;
-  }
-
-  updateHeroList() {
-    this.heroList = JSON.parse(localStorage.getItem("andersweltHeroList"));
-  }
-
-  newHero() {
-    this.setBasics();
-    this.saveHero();
-    this.updateHeroList();
-  }
-
-  loadHero(hero) {
-    this.setBasics();
-  }
-
-  saveHero() {
-    console.log(this.grundlagen);
-    // localStorage.setItem("andersweltHeroList");
   }
 
   nameToId(string) {
@@ -82,7 +21,7 @@ class DB {
     return value;
   }
 
-  searchHeldenTalente(key) {
+  searchHeldenTalente(id) {
     return this.heroTalente.find((el) => el.key == key);
   }
 }

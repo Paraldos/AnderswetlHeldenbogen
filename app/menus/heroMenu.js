@@ -1,4 +1,4 @@
-import db from "../db/db.js";
+import DB from "../db/db.js";
 
 export default class HeroMenu {
   constructor() {
@@ -10,18 +10,11 @@ export default class HeroMenu {
 
   addNewHeroBtnListener() {
     this.newHeroBtn.addEventListener("click", () => {
-      db.newHero();
       this.updateHeroContainer();
     });
   }
 
   updateHeroContainer() {
     this.heroContainer.innerHTML = "";
-    db.heroList.forEach((el) => {
-      let newElement = document.createElement("button");
-      newElement.classList.add("hero-menu__hero-btn");
-      newElement.innerText = "Blub";
-      this.heroContainer.appendChild(newElement);
-    });
   }
 }
