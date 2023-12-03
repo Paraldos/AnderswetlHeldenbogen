@@ -8,6 +8,7 @@ export default class NavMenu {
   addHeldenBtnListener() {
     this.heldenBtn.addEventListener("click", () => {
       this.heldenMenu.classList.toggle("hero-menu--active");
+      document.dispatchEvent(new Event("resetHeroMenu"));
     });
   }
 }

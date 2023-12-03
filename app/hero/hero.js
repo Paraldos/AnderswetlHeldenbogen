@@ -2,31 +2,55 @@ import db from "../db/db.js";
 
 class Hero {
   constructor() {
-    this.heroIndex = null;
     this.arrayOfHeros = [];
+    this.heroIndex = null;
     this.grundlagen = {};
     this.attribute = {};
     this.fertigkeiten = {};
 
-    this.updateHeroIndex();
-    this.updateArrayOfHeros();
+    this.getArrayOfHeros();
+    this.getHeroIndex();
     this.getStartHero();
   }
 
-  getStartHero() {
-    this.heroIndex != null ? this.loadHero(this.heroIndex) : this.newHero();
+  setHeroIndex(index = false) {
+    if (index) this.heroIndex = index;
+    if (this.heroIndex < 0) localStorage.removeItem("andersweltHeroIndex");
+    else localStorage.setItem("andersweltHeroIndex", this.heroIndex);
   }
 
-  updateHeroIndex() {
+  setArrayOfHeros(array = null) {
+    if (array) this.arrayOfHeros = array;
+    localStorage.setItem(
+      "andersweltArrayOfHeros",
+      JSON.stringify(this.arrayOfHeros)
+    );
+  }
+
+  getHeroIndex() {
     this.heroIndex = localStorage.getItem("andersweltHeroIndex")
       ? Number(localStorage.getItem("andersweltHeroIndex"))
       : null;
+    if (this.heroIndex == null) return;
+    if (this.heroIndex > this.arrayOfHeros.length - 1) {
+      this.heroIndex = this.arrayOfHeros.length - 1;
+    }
+    if (this.heroIndex < 0) this.heroIndex = null;
   }
 
-  updateArrayOfHeros() {
+  getArrayOfHeros() {
     this.arrayOfHeros = localStorage.getItem("andersweltArrayOfHeros")
       ? JSON.parse(localStorage.getItem("andersweltArrayOfHeros"))
       : [];
+  }
+
+  getStartHero() {
+    if (this.heroIndex === null && this.arrayOfHeros.length) {
+      this.setHeroIndex(0);
+    }
+    if (this.heroIndex !== null) {
+      this.loadHero(this.heroIndex);
+    }
   }
 
   resetHero() {
@@ -50,11 +74,12 @@ class Hero {
     this.heroIndex = this.arrayOfHeros.length;
     this.resetHero();
     this.saveHero();
-    this.updateArrayOfHeros();
+    this.getArrayOfHeros();
   }
 
   loadHero(index) {
     this.heroIndex = index;
+    this.setHeroIndex();
     this.resetHero();
     this.grundlagen = this.arrayOfHeros[index].grundlagen;
     this.attribute = this.arrayOfHeros[index].attribute;
@@ -68,30 +93,17 @@ class Hero {
       fertigkeiten: this.fertigkeiten,
     };
     this.arrayOfHeros[this.heroIndex] = hero;
-    localStorage.setItem("andersweltHeroIndex", this.heroIndex);
-    localStorage.setItem(
-      "andersweltArrayOfHeros",
-      JSON.stringify(this.arrayOfHeros)
-    );
-    document.dispatchEvent(new Event("resetHeroMenu"));
+    this.setHeroIndex();
+    this.setArrayOfHeros();
   }
 
   removeHero(index) {
+    // array
     this.arrayOfHeros.splice(index, 1);
-    localStorage.setItem(
-      "andersweltArrayOfHeros",
-      JSON.stringify(this.arrayOfHeros)
-    );
-    if (index == this.heroIndex) {
-      this.heroIndex = this.arrayOfHeros.length - 1;
-      localStorage.setItem("andersweltHeroIndex", this.heroIndex);
-    }
-
-    this.updateHeroIndex();
-    this.updateArrayOfHeros();
+    this.setArrayOfHeros();
+    this.getHeroIndex();
+    // reset
     this.getStartHero();
-    document.dispatchEvent(new Event("resetHeroMenu"));
-    document.dispatchEvent(new Event("resetMain"));
   }
 }
 

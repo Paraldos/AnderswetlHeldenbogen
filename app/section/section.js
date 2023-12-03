@@ -1,6 +1,6 @@
 export default class Section {
   constructor(title, plusBtn = false) {
-    this.main = document.querySelector("main");
+    this.main = document.querySelector(".main");
     this.section = this.createSection(title, plusBtn);
     this.text = this.section.querySelector(".section__text");
     this.editBtn = this.section.querySelector(".section__edit-btn");

@@ -23,6 +23,7 @@ export default class DeleteHeroModal {
     let yesBtn = modal.content.querySelector(".delete-hero-modal__yes-btn");
     yesBtn.addEventListener("click", () => {
       hero.removeHero(this.index);
+      document.dispatchEvent(new Event("resetAll"));
       modal.destroyModal();
     });
 

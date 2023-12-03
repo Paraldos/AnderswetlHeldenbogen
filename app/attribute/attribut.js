@@ -1,8 +1,10 @@
 import Modal from "../modal/modal.js";
 import db from "../db/db.js";
+import hero from "../hero/hero.js";
 
 export default class Attribut {
   constructor(key) {
+    this.key = key;
     this.dbEntry = db.attribute[key];
     this.container = document.querySelector(".attribute__content");
     this.element = this.createElement();
@@ -12,7 +14,7 @@ export default class Attribut {
 
     this.updateElement();
     this.addMainBtnListener();
-    this.addPlusListener();
+    this.addPlusBtnListener();
     this.addMinusListener();
   }
 
@@ -32,7 +34,9 @@ export default class Attribut {
   }
 
   updateElement() {
-    this.mainBtn.innerHTML = `${this.dbEntry.name}: ${this.dbEntry.value}`;
+    const value =
+      hero.attribute[this.key].value + hero.attribute[this.key].bonus;
+    this.mainBtn.innerHTML = `${this.dbEntry.name}: ${value}`;
     document.dispatchEvent(new Event("updateAttributeHeader"));
   }
 
@@ -43,10 +47,11 @@ export default class Attribut {
     );
   }
 
-  addPlusListener() {
+  addPlusBtnListener() {
     this.plusBtn.addEventListener("click", () => {
-      if (this.dbEntry.value < 5) {
-        this.dbEntry.value += 1;
+      if (hero.attribute[this.key].value < 5) {
+        hero.attribute[this.key].value += 1;
+        hero.saveHero();
         this.updateElement();
       }
     });
@@ -54,8 +59,9 @@ export default class Attribut {
 
   addMinusListener() {
     this.minusBtn.addEventListener("click", () => {
-      if (this.dbEntry.value > 1) {
-        this.dbEntry.value -= 1;
+      if (hero.attribute[this.key].value > 1) {
+        hero.attribute[this.key].value -= 1;
+        hero.saveHero();
         this.updateElement();
       }
     });

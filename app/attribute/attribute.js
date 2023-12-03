@@ -1,5 +1,6 @@
-import Section from "../section/section.js";
 import db from "../db/db.js";
+import hero from "../hero/hero.js";
+import Section from "../section/section.js";
 import Attribut from "./attribut.js";
 
 export default class Attribute {
@@ -8,12 +9,6 @@ export default class Attribute {
     this.attribute = this.fillAttributeArray();
     this.addEditButtonListener();
     this.addUpdateSectionHeader();
-  }
-
-  addUpdateSectionHeader() {
-    document.addEventListener("updateAttributeHeader", () =>
-      this.updateSectionHeader()
-    );
   }
 
   fillAttributeArray() {
@@ -32,6 +27,12 @@ export default class Attribute {
     });
   }
 
+  addUpdateSectionHeader() {
+    document.addEventListener("updateAttributeHeader", () =>
+      this.updateSectionHeader()
+    );
+  }
+
   updateSectionHeader() {
     if (this.section.editBtn.classList.contains("on")) {
       this.section.updateHeader(`Attribute (${this.getAttributeSum()})`);
@@ -42,8 +43,8 @@ export default class Attribute {
 
   getAttributeSum() {
     let sum = 0;
-    for (let key in db.attribute) {
-      sum += db.attribute[key].value;
+    for (let key in hero.attribute) {
+      sum += hero.attribute[key].value;
     }
     return sum;
   }

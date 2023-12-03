@@ -1,0 +1,14 @@
+.main {
+  @include display-flex-center;
+  flex-direction: column;
+  position: relative;
+  min-height: calc(100vh - var(--height__nav));
+  margin-bottom: calc(var(--height__nav) + 40px);
+
+  &__new-hero-btn {
+    height: 60px;
+    max-width: 300px;
+    text-align: center;
+    margin: auto;
+  }
+}
