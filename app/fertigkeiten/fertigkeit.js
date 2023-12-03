@@ -1,8 +1,10 @@
-import Modal from "../modal/modal.js";
 import db from "../db/db.js";
+import hero from "../hero/hero.js";
+import Modal from "../modal/modal.js";
 
 export default class Fertigkeit {
   constructor(key) {
+    this.key = key;
     this.dbEntry = db.fertigkeiten[key];
     this.element = this.createElement();
     this.mainBtn = this.element.querySelector(".fertigkeit__main-btn");
@@ -16,7 +18,7 @@ export default class Fertigkeit {
 
   createElement() {
     let container = document.querySelector(
-      `.fertigkeiten__${this.dbEntry.category}`
+      `.fertigkeiten__${this.dbEntry.type}`
     );
     const newElement = document.createElement("div");
     newElement.classList.add("fertigkeit");
@@ -33,7 +35,9 @@ export default class Fertigkeit {
   }
 
   updateElement() {
-    this.mainBtn.innerHTML = `${this.dbEntry.name}: ${this.dbEntry.value}`;
+    this.mainBtn.innerHTML = `${this.dbEntry.name}: ${
+      hero.fertigkeiten[this.key].value + hero.fertigkeiten[this.key].bonus
+    }`;
     document.dispatchEvent(new Event("updateFertigkeitenHeader"));
   }
 
@@ -46,8 +50,9 @@ export default class Fertigkeit {
 
   addPlusListener() {
     this.plusBtn.addEventListener("click", () => {
-      if (this.dbEntry.value < 5) {
-        this.dbEntry.value += 1;
+      if (hero.fertigkeiten[this.key].value < 5) {
+        hero.fertigkeiten[this.key].value += 1;
+        hero.saveHero();
         this.updateElement();
       }
     });
@@ -55,8 +60,9 @@ export default class Fertigkeit {
 
   addMinusListener() {
     this.minusBtn.addEventListener("click", () => {
-      if (this.dbEntry.value > 0) {
-        this.dbEntry.value -= 1;
+      if (hero.fertigkeiten[this.key].value > 0) {
+        hero.fertigkeiten[this.key].value -= 1;
+        hero.saveHero();
         this.updateElement();
       }
     });

@@ -22,7 +22,6 @@ select {
   }
 
   &:disabled {
-    padding-left: 0;
     background-color: var(--color__btn-background--disabled);
     box-shadow: none;
   }

@@ -21,7 +21,7 @@ export default class Main {
     if (hero.heroIndex !== null) {
       new Grundlagen();
       new Attribute();
-      // new Fertigkeiten();
+      new Fertigkeiten();
       // new Talente();
     } else {
       this.main.innerHTML = `<button class="main__new-hero-btn">Neuer Held</button>`;

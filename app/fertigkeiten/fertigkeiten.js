@@ -1,18 +1,24 @@
-import Section from "../section/section.js";
 import db from "../db/db.js";
+import hero from "../hero/hero.js";
+import Section from "../section/section.js";
 import Fertigkeit from "./fertigkeit.js";
 
 export default class Fertigkeiten {
   constructor() {
     this.section = new Section("Fertigkeiten");
-    this.container = document.querySelector(".fertigkeiten__content");
-    this.container.innerHTML = `
-    <div class="fertigkeiten__container fertigkeiten__geistig"><h2>Geistig</h2></div>
-    <div class="fertigkeiten__container fertigkeiten__koerperlich"><h2>Körperlich</h2></div>
-    <div class="fertigkeiten__container fertigkeiten__sozial"><h2>Sozial</h2></div>`;
+    this.container = this.createContainer();
     this.fertigkeiten = this.fillFertigkeitenArray();
     this.addEditButtonListener();
     this.addUpdateSectionHeader();
+  }
+
+  createContainer() {
+    let container = document.querySelector(".fertigkeiten__content");
+    container.innerHTML = `
+    <div class="fertigkeiten__container fertigkeiten__geistig"><h2>Geistig</h2></div>
+    <div class="fertigkeiten__container fertigkeiten__koerperlich"><h2>Körperlich</h2></div>
+    <div class="fertigkeiten__container fertigkeiten__sozial"><h2>Sozial</h2></div>`;
+    return container;
   }
 
   fillFertigkeitenArray() {
@@ -48,7 +54,7 @@ export default class Fertigkeiten {
   getFertigkeitenSum() {
     let sum = 0;
     for (let key in db.fertigkeiten) {
-      sum += db.fertigkeiten[key].value;
+      sum += hero.fertigkeiten[key].value;
     }
     return sum;
   }
