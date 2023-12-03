@@ -159,6 +159,12 @@ select:focus-visible {
   outline: none;
 }
 
+label {
+  width: 100%;
+  font-size: 0.6rem;
+  margin-bottom: 3px;
+}
+
 select {
   margin-bottom: 20px;
 }
@@ -330,6 +336,9 @@ option {
   margin-top: 10px;
   padding-top: 10px;
 }
+.hero-menu__new-hero {
+  padding: 20px;
+}
 .hero-menu__hero-btn {
   width: 100%;
   display: flex;
@@ -367,11 +376,6 @@ option {
 .grundlagen__element {
   display: flex;
   flex-direction: column;
-}
-.grundlagen__element label {
-  width: 100%;
-  font-size: 0.6rem;
-  margin-bottom: 2px;
 }
 
 .beschreibung-element {
@@ -444,4 +448,8 @@ option {
   grid-template-columns: 1fr;
   gap: 10px 10px;
   margin-top: 10px;
+}
+
+.modal__textfield {
+  margin-bottom: 10px;
 }/*# sourceMappingURL=index.css.map */

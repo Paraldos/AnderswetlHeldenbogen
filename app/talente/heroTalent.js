@@ -1,6 +1,6 @@
 import db from "../db/db.js";
 import hero from "../hero/hero.js";
-import HeroTalentModal from "./heroTalenteModal.js";
+import HeroTalentModal from "./heroTalentModal.js";
 
 export default class HeroTalent {
   constructor(id, index, btnVisiblity) {
@@ -18,10 +18,11 @@ export default class HeroTalent {
     let newElement = document.createElement("div");
     newElement.classList.add("talent");
     let name = this.dbEntry.name;
+    let comment = hero.talente[this.index].comment ? "*" : "";
     let level =
       this.dbEntry.max_level > 1 ? `(${hero.talente[this.index].level})` : "";
     newElement.innerHTML = `
-      <button class="talent__main-btn">${name} ${level}</button>
+      <button class="talent__main-btn">${name}${comment} ${level}</button>
       <button class="talent__minus-btn 
       ${btnVisiblity ? "" : "invisible"}
       symbol-btn">
