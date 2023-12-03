@@ -11,11 +11,25 @@ export default class HeroMenu {
 
   addNewHeroBtnListener() {
     this.newHeroBtn.addEventListener("click", () => {
+      hero.newHero();
       this.updateHeroContainer();
     });
   }
 
   updateHeroContainer() {
     this.heroContainer.innerHTML = "";
+    hero.arrayOfHeros.forEach((hero, index) => this.createHeroBtn(hero, index));
+  }
+
+  createHeroBtn(el, index) {
+    let newBtn = document.createElement("button");
+    newBtn.classList.add("hero-menu__btn");
+    newBtn.innerText =
+      el.grundlagen.name != "" ? el.grundlagen.name : "Namenloser Held";
+    this.heroContainer.appendChild(newBtn);
+
+    newBtn.addEventListener("click", () => {
+      hero.loadHero(index);
+    });
   }
 }

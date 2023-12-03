@@ -2,24 +2,34 @@ import db from "../db/db.js";
 
 class Hero {
   constructor() {
-    this.heroIndex = localStorage.getItem("andersweltHeroIndex")
-      ? Number(localStorage.getItem("andersweltHeroIndex"))
-      : null;
-    this.arrayOfHeros = localStorage.getItem("andersweltArrayOfHeros")
-      ? JSON.parse(localStorage.getItem("andersweltArrayOfHeros"))
-      : [];
+    this.heroIndex = null;
+    this.arrayOfHeros = [];
     this.grundlagen = {};
     this.attribute = {};
     this.fertigkeiten = {};
 
-    if (this.heroIndex != null) {
-      this.loadHero();
-    } else {
-      this.newHero();
-    }
+    this.updateHeroIndex();
+    this.updateArrayOfHeros();
+    this.getStartHero();
   }
 
-  newHero() {
+  getStartHero() {
+    this.heroIndex != null ? this.loadHero(this.heroIndex) : this.newHero();
+  }
+
+  updateHeroIndex() {
+    this.heroIndex = localStorage.getItem("andersweltHeroIndex")
+      ? Number(localStorage.getItem("andersweltHeroIndex"))
+      : null;
+  }
+
+  updateArrayOfHeros() {
+    this.arrayOfHeros = localStorage.getItem("andersweltArrayOfHeros")
+      ? JSON.parse(localStorage.getItem("andersweltArrayOfHeros"))
+      : [];
+  }
+
+  resetHero() {
     this.grundlagen = {};
     for (let el in db.grundlagen) {
       this.grundlagen[el] = "";
@@ -34,9 +44,21 @@ class Hero {
     for (let el in db.fertigkeiten) {
       this.fertigkeiten[el] = { value: 0, bonus: 0 };
     }
+  }
 
+  newHero() {
     this.heroIndex = this.arrayOfHeros.length;
+    this.resetHero();
     this.saveHero();
+    this.updateArrayOfHeros();
+  }
+
+  loadHero(index) {
+    this.heroIndex = index;
+    this.resetHero();
+    this.grundlagen = this.arrayOfHeros[index].grundlagen;
+    this.attribute = this.arrayOfHeros[index].attribute;
+    this.fertigkeiten = this.arrayOfHeros[index].fertigkeiten;
   }
 
   saveHero() {
@@ -51,13 +73,6 @@ class Hero {
       "andersweltArrayOfHeros",
       JSON.stringify(this.arrayOfHeros)
     );
-  }
-
-  loadHero() {
-    console.log(this.arrayOfHeros);
-    this.grundlagen = this.arrayOfHeros[this.heroIndex].grundlagen;
-    this.attribute = this.arrayOfHeros[this.heroIndex].attribute;
-    this.fertigkeiten = this.arrayOfHeros[this.heroIndex].fertigkeiten;
   }
 }
 

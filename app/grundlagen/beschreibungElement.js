@@ -22,6 +22,7 @@ export default class BeschreibungElement {
   addTextEvent() {
     this.txt.addEventListener("input", () => {
       hero.grundlagen.beschreibung = this.txt.value;
+      hero.saveHero();
     });
   }
 
