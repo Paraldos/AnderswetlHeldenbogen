@@ -73,7 +73,6 @@ body {
   background-color: var(--color__background);
   color: var(--color__text);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  min-height: 100vh;
 }
 
 h1,
@@ -109,7 +108,8 @@ h2 {
   align-items: center;
   flex-direction: column;
   position: relative;
-  min-height: calc(100vh - var(--height__nav));
+  height: -moz-fit-content;
+  height: fit-content;
   margin-bottom: calc(var(--height__nav) + 40px);
 }
 .main__new-hero-btn {

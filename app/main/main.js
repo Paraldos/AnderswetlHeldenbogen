@@ -22,7 +22,7 @@ export default class Main {
       new Grundlagen();
       new Attribute();
       new Fertigkeiten();
-      // new Talente();
+      new Talente();
     } else {
       this.main.innerHTML = `<button class="main__new-hero-btn">Neuer Held</button>`;
       let newHeroBtn = this.main.querySelector(".main__new-hero-btn");
