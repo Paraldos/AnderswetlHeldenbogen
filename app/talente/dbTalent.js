@@ -1,4 +1,5 @@
 import db from "../db/db.js";
+import hero from "../hero/hero.js";
 import DBTalentModal from "./dbTalentModal.js";
 
 export default class DBTalent {
@@ -39,7 +40,8 @@ export default class DBTalent {
 
   addPlusBtnListener() {
     this.plusBtn.addEventListener("click", () => {
-      db.heroTalente.push({ key: this.key });
+      hero.talente.push({ id: this.key, comment: "", level: 1 });
+      hero.saveHero();
       document.dispatchEvent(new Event("resetTalents"));
     });
   }

@@ -1,5 +1,6 @@
-import Section from "../section/section.js";
 import db from "../db/db.js";
+import hero from "../hero/hero.js";
+import Section from "../section/section.js";
 import HeroTalent from "./heroTalent.js";
 import TalenteTypeContainer from "./TalenteTypeContainer.js";
 import TalenteModal from "./talenteModal.js";
@@ -27,17 +28,17 @@ export default class Talente {
   }
 
   fillTalenteArray() {
-    let arr = [];
-    this.talente = db.heroTalente.forEach((el, index) => {
-      arr.push(
+    let talente = [];
+    this.talente = hero.talente.forEach((el, index) => {
+      talente.push(
         new HeroTalent(
-          el.key,
+          el.id,
           index,
           this.section.editBtn.classList.contains("on")
         )
       );
     });
-    return arr;
+    return talente;
   }
 
   addResetListener() {
@@ -70,6 +71,6 @@ export default class Talente {
   }
 
   getTalentSum() {
-    return db.heroTalente.length;
+    return hero.talente.length;
   }
 }

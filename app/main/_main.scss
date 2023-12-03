@@ -2,6 +2,7 @@
   @include display-flex-center;
   flex-direction: column;
   position: relative;
+  min-height: calc(100vh - var(--height__nav) - 40px);
   height: fit-content;
   margin-bottom: calc(var(--height__nav) + 40px);
 

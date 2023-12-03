@@ -1,5 +1,6 @@
-import Modal from "../modal/modal.js";
 import db from "../db/db.js";
+import hero from "../hero/hero.js";
+import Modal from "../modal/modal.js";
 import TalenteTypeContainer from "./TalenteTypeContainer.js";
 import DBTalent from "./dbTalent.js";
 
@@ -38,7 +39,9 @@ export default class TalenteModal {
   fillTalenteArray() {
     let arr = [];
     for (let key in db.talente) {
-      if (db.searchHeldenTalente(key)) continue;
+      let heroHasTalent = hero.talente.find((el) => el.id === key);
+
+      if (heroHasTalent) continue;
       let talent = new DBTalent(key, this.modal);
       arr.push(talent);
     }

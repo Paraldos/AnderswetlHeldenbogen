@@ -1,8 +1,9 @@
 import Modal from "../modal/modal.js";
 
 export default class HeroTalentModal {
-  constructor(dbEntry) {
+  constructor(dbEntry, index) {
     this.dbEntry = dbEntry;
+    this.index = index;
     this.addModal();
   }
 

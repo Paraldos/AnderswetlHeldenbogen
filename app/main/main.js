@@ -19,10 +19,10 @@ export default class Main {
   resetMain() {
     this.main.innerHTML = "";
     if (hero.heroIndex !== null) {
+      new Talente();
       new Grundlagen();
       new Attribute();
       new Fertigkeiten();
-      new Talente();
     } else {
       this.main.innerHTML = `<button class="main__new-hero-btn">Neuer Held</button>`;
       let newHeroBtn = this.main.querySelector(".main__new-hero-btn");
