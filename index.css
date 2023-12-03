@@ -176,7 +176,6 @@ option {
 .symbol-btn {
   width: -moz-fit-content;
   width: fit-content;
-  height: 100%;
   aspect-ratio: 1/1;
   padding: 0;
 }
@@ -418,6 +417,9 @@ option {
   grid-template-columns: repeat(3, 1fr);
 }
 
+.talente__volkstalent-btn {
+  display: none;
+}
 .talente__content {
   display: flex;
   flex-direction: column;
@@ -438,6 +440,10 @@ option {
 .talent {
   display: flex;
   gap: 10px;
+}
+.talent__main-btn {
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .modal h3 {

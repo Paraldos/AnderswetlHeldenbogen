@@ -89,7 +89,10 @@ class Hero {
     this.attribute = this.arrayOfHeros[index].attribute;
     this.fertigkeiten = this.arrayOfHeros[index].fertigkeiten;
     this.talente = this.arrayOfHeros[index].talente;
+    this.resetTalente();
   }
+
+  resetTalente() {}
 
   saveHero() {
     let hero = {
@@ -110,6 +113,31 @@ class Hero {
     this.getHeroIndex();
     // reset
     this.getStartHero();
+  }
+
+  findTalent(id) {
+    return hero.talente.find((el) => el.id === id);
+  }
+
+  updateVolksTalente() {
+    let dbEntry = db.voelker[hero.grundlagen.volk];
+    // remove old
+    hero.talente = hero.talente.filter((el) => !el.volksTalent);
+    // get new
+    let volksTalente = dbEntry.talente ? dbEntry.talente.split("\n") : [];
+    // add new
+    volksTalente.forEach((id) => {
+      if (this.findTalent(id)) {
+        hero.findTalent(id).volksTalent = true;
+      } else {
+        hero.talente.push({
+          id: id,
+          comment: "",
+          level: 1,
+          volksTalent: true,
+        });
+      }
+    });
   }
 }
 

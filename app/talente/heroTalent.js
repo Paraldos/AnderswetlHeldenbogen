@@ -10,23 +10,33 @@ export default class HeroTalent {
     this.element = this.createElement(btnVisiblity);
     this.mainBtn = this.element.querySelector(".talent__main-btn");
     this.minusBtn = this.element.querySelector(".talent__minus-btn");
+    this.plusBtn = this.element.querySelector(".talent__plus-btn");
+    this.btns = this.element.querySelectorAll(".symbol-btn");
     this.addMainBtnListener();
     this.addMinusBtnListener();
+    this.addPlusBtnListener();
+    this.updateBtns();
   }
 
   createElement(btnVisiblity) {
-    let newElement = document.createElement("div");
-    newElement.classList.add("talent");
     let name = this.dbEntry.name;
     let comment = hero.talente[this.index].comment ? "*" : "";
     let level =
       this.dbEntry.max_level > 1 ? `(${hero.talente[this.index].level})` : "";
+
+    let newElement = document.createElement("div");
+    newElement.classList.add("talent");
     newElement.innerHTML = `
       <button class="talent__main-btn">${name}${comment} ${level}</button>
       <button class="talent__minus-btn 
       ${btnVisiblity ? "" : "invisible"}
       symbol-btn">
         <i class="fa-solid fa-minus"></i>
+      </button>
+      <button class="talent__plus-btn 
+      ${btnVisiblity ? "" : "invisible"}
+      symbol-btn">
+        <i class="fa-solid fa-plus"></i>
       </button>`;
     this.container.appendChild(newElement);
     return newElement;
@@ -41,15 +51,49 @@ export default class HeroTalent {
 
   addMinusBtnListener() {
     this.minusBtn.addEventListener("click", () => {
-      hero.talente.splice(this.index, 1);
+      hero.talente[this.index].level -= 1;
+      if (hero.talente[this.index].level <= 0) {
+        hero.talente.splice(this.index, 1);
+      }
       hero.saveHero();
+      this.updateBtns();
       document.dispatchEvent(new Event("resetTalents"));
     });
   }
 
+  addPlusBtnListener() {
+    this.plusBtn.addEventListener("click", () => {
+      hero.talente[this.index].level += 1;
+      hero.saveHero();
+      this.updateBtns();
+      document.dispatchEvent(new Event("resetTalents"));
+    });
+  }
+
+  updateBtns() {
+    // plus
+    this.plusBtn.removeAttribute("disabled");
+    if (this.dbEntry.max_level <= 1) {
+      this.plusBtn.classList.add("invisible");
+    }
+    if (hero.talente[this.index].level >= this.dbEntry.max_level) {
+      this.plusBtn.setAttribute("disabled", true);
+    }
+    // minus
+    this.minusBtn.removeAttribute("disabled");
+    if (hero.talente[this.index].volksTalent) {
+      this.minusBtn.setAttribute("disabled", true);
+    }
+  }
+
   toggleEditBtn(btnsVisible) {
-    btnsVisible
-      ? this.minusBtn.classList.remove("invisible")
-      : this.minusBtn.classList.add("invisible");
+    if (btnsVisible) {
+      this.minusBtn.classList.remove("invisible");
+      this.plusBtn.classList.remove("invisible");
+      this.updateBtns();
+    } else {
+      this.minusBtn.classList.add("invisible");
+      this.plusBtn.classList.add("invisible");
+    }
   }
 }

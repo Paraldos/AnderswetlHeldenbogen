@@ -3,8 +3,8 @@ import hero from "../hero/hero.js";
 import Modal from "../modal/modal.js";
 
 export default class VolkModal {
-  constructor(dbEntry) {
-    this.dbEntry = dbEntry;
+  constructor() {
+    this.dbEntry = db.voelker[hero.grundlagen.volk];
     this.modal = this.addModal();
     this.updateModalDescription(this.modal);
     this.addSelectEvent(this.modal);
@@ -35,21 +35,21 @@ export default class VolkModal {
   }
 
   updateModalDescription(modal) {
-    let txt = hero.grundlagen.volk
-      ? db.voelker[hero.grundlagen.volk].description
-      : "";
+    let txt = hero.grundlagen.volk ? this.dbEntry.description : "";
     let description = modal.content.querySelector(".modal__description");
     description.innerText = txt;
   }
 
   addSelectEvent(modal) {
     let select = modal.content.querySelector(".modal__select");
-    select.addEventListener("change", (e) => {
-      let value = e.target.value;
-      hero.grundlagen.volk = value;
+    select.addEventListener("change", (event) => {
+      hero.grundlagen.volk = event.target.value;
+      this.dbEntry = db.voelker[hero.grundlagen.volk];
+      hero.updateVolksTalente();
       hero.saveHero();
       this.updateModalDescription(modal);
       document.dispatchEvent(new Event("updateMainBtn"));
+      document.dispatchEvent(new Event("resetTalents"));
     });
   }
 }

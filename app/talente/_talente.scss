@@ -1,4 +1,8 @@
 .talente {
+  &__volkstalent-btn {
+    display: none;
+  }
+
   &__content {
     display: flex;
     flex-direction: column;
@@ -22,6 +26,11 @@
 .talent {
   display: flex;
   gap: 10px;
+
+  &__main-btn {
+    white-space: nowrap;
+    overflow: hidden;
+  }
 }
 
 .modal {

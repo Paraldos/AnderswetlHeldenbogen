@@ -23,10 +23,7 @@ export default class VolkElement {
   }
 
   addEventListeners() {
-    this.mainBtn.addEventListener(
-      "click",
-      () => new VolkModal(this.dbEntry, hero.grundlagen.volk)
-    );
+    this.mainBtn.addEventListener("click", () => new VolkModal());
     document.addEventListener("updateMainBtn", () => this.updateMainBtn());
   }
 
