@@ -28,15 +28,36 @@
     padding-top: 10px;
   }
 
-  &__btn {
-    text-align: center;
-  }
-
   &__hero-btn {
-    text-align: center;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+
+    &--active {
+      border-color: var(--color__btn--focuse);
+    }
+
+    &--load {
+      width: 100%;
+    }
+
+    &--delete {
+      width: fit-content;
+      aspect-ratio: 1/1;
+    }
   }
 
   &--active {
     bottom: 0%;
+  }
+}
+
+.delete-hero-modal {
+  margin-top: 20px;
+
+  &__btns {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
   }
 }

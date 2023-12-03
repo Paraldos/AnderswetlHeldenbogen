@@ -73,6 +73,25 @@ class Hero {
       "andersweltArrayOfHeros",
       JSON.stringify(this.arrayOfHeros)
     );
+    document.dispatchEvent(new Event("resetHeroMenu"));
+  }
+
+  removeHero(index) {
+    this.arrayOfHeros.splice(index, 1);
+    localStorage.setItem(
+      "andersweltArrayOfHeros",
+      JSON.stringify(this.arrayOfHeros)
+    );
+    if (index == this.heroIndex) {
+      this.heroIndex = this.arrayOfHeros.length - 1;
+      localStorage.setItem("andersweltHeroIndex", this.heroIndex);
+    }
+
+    this.updateHeroIndex();
+    this.updateArrayOfHeros();
+    this.getStartHero();
+    document.dispatchEvent(new Event("resetHeroMenu"));
+    document.dispatchEvent(new Event("resetMain"));
   }
 }
 

@@ -19,6 +19,7 @@
   --color__btn-background--disabled: rgba(0, 0, 0, 0.2);
   --color__btn-text: var(--color__one);
   --color__btn--hover: var(--color__two);
+  --color__btn--focuse: var(--color__two);
   --color__modal-background: var(--color__three);
   --color__modal-x-btn: var(--color__one);
   --color__modal-text: var(--color__three);
@@ -318,14 +319,33 @@ option {
   margin-top: 10px;
   padding-top: 10px;
 }
-.hero-menu__btn {
-  text-align: center;
-}
 .hero-menu__hero-btn {
-  text-align: center;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+}
+.hero-menu__hero-btn--active {
+  border-color: var(--color__btn--focuse);
+}
+.hero-menu__hero-btn--load {
+  width: 100%;
+}
+.hero-menu__hero-btn--delete {
+  width: -moz-fit-content;
+  width: fit-content;
+  aspect-ratio: 1/1;
 }
 .hero-menu--active {
   bottom: 0%;
+}
+
+.delete-hero-modal {
+  margin-top: 20px;
+}
+.delete-hero-modal__btns {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
 }
 
 .grundlagen__content {

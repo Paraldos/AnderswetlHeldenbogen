@@ -1,4 +1,4 @@
-export default class Nav {
+export default class NavMenu {
   constructor() {
     this.heldenBtn = document.querySelector(".nav__hero-btn");
     this.heldenMenu = document.querySelector(".hero-menu");
