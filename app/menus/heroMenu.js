@@ -1,4 +1,5 @@
 import DB from "../db/db.js";
+import hero from "../hero/hero.js";
 
 export default class HeroMenu {
   constructor() {
