@@ -1,5 +1,6 @@
 import db from "../db/db.js";
 import hero from "../hero/hero.js";
+import talentController from "../hero/talentController.js";
 import DBTalentModal from "./dbTalentModal.js";
 
 export default class DBTalent {
@@ -39,7 +40,9 @@ export default class DBTalent {
   }
 
   addPlusBtnListener() {
-    this.plusBtn.addEventListener("click", () => hero.addTalent(this.id));
+    this.plusBtn.addEventListener("click", () =>
+      talentController.addTalent(this.id)
+    );
   }
 
   toggleEditBtn(btnsVisible) {

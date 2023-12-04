@@ -1,5 +1,6 @@
 import db from "../db/db.js";
 import hero from "../hero/hero.js";
+import talentController from "../hero/talentController.js";
 import HeroTalentModal from "./heroTalentModal.js";
 
 export default class HeroTalent {
@@ -52,13 +53,13 @@ export default class HeroTalent {
 
   addMinusBtnListener() {
     this.minusBtn.addEventListener("click", () => {
-      hero.decreaseTalent(this.index);
+      talentController.decreaseTalent(this.index);
     });
   }
 
   addPlusBtnListener() {
     this.plusBtn.addEventListener("click", () => {
-      hero.increaseTalent(this.index);
+      talentController.increaseTalent(this.index);
     });
   }
 
