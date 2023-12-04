@@ -7,12 +7,14 @@ class VeranlagungController {
 
   getVeranlagung() {
     let talent = talentController.findTalent("veranlagung");
-    return talent.selected;
+    if (talent) return talent.selected;
+    else return false;
   }
 
   getVeranlagungName() {
     let talent = talentController.findTalent("veranlagung");
-    return db.attribute[talent.selected].name;
+    if (talent.selected) return db.attribute[talent.selected].name;
+    else return false;
   }
 
   getVeranlagungLimits() {

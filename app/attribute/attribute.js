@@ -9,6 +9,15 @@ export default class Attribute {
     this.attribute = this.fillAttributeArray();
     this.addEditButtonListener();
     this.addUpdateSectionHeader();
+    this.addResetListener();
+  }
+
+  addResetListener() {
+    document.addEventListener("resetAttribute", () => {
+      this.attribute.forEach((el) => {
+        el.updateElement();
+      });
+    });
   }
 
   fillAttributeArray() {

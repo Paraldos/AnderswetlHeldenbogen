@@ -27,10 +27,14 @@ export default class HeroTalent {
     let asterisk = hero.talente[this.index].comment ? "*" : "";
     let level =
       this.dbEntry.max_level > 1 ? ` (${hero.talente[this.index].level})` : "";
-    let veranlagung =
-      this.dbEntry.name == "Veranlagung"
-        ? ` (${veranlagungController.getVeranlagungName()})`
-        : "";
+    let veranlagung = "";
+    if (
+      this.dbEntry.name == "Veranlagung" &&
+      veranlagungController.getVeranlagungName()
+    ) {
+      veranlagung = ` (${veranlagungController.getVeranlagungName()})`;
+    }
+
     let txt = `${name}${asterisk}${level}${veranlagung}`;
 
     let newElement = document.createElement("div");

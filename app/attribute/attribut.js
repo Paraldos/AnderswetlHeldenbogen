@@ -1,6 +1,7 @@
 import Modal from "../modal/modal.js";
 import db from "../db/db.js";
 import hero from "../hero/hero.js";
+import veranlagungController from "../hero/veranlagungController.js";
 
 export default class Attribut {
   constructor(key) {
@@ -34,8 +35,8 @@ export default class Attribut {
   }
 
   updateElement() {
-    const value =
-      hero.attribute[this.key].value + hero.attribute[this.key].bonus;
+    let value = hero.attribute[this.key].value;
+    if (veranlagungController.getVeranlagung() == this.key) value += 1;
     this.mainBtn.innerHTML = `${this.dbEntry.name}: ${value}`;
     document.dispatchEvent(new Event("updateAttributeHeader"));
   }

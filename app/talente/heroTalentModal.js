@@ -23,7 +23,7 @@ export default class HeroTalentModal {
 
   addSelector() {
     let newSelect = document.createElement("select");
-    newSelect.innerHTML = `<option>...</option>`;
+    newSelect.innerHTML = `<option value="">...</option>`;
     this.modal.content.appendChild(newSelect);
     this.addSelectorOptions(newSelect);
     this.addSelectorListener(newSelect);
@@ -43,6 +43,8 @@ export default class HeroTalentModal {
   addSelectorListener(newSelect) {
     newSelect.addEventListener("change", (event) => {
       veranlagungController.setVeranlagung(event.target.value);
+      document.dispatchEvent(new Event("resetTalents"));
+      document.dispatchEvent(new Event("resetAttribute"));
     });
   }
 
@@ -60,8 +62,8 @@ export default class HeroTalentModal {
 
     comment.addEventListener("input", (event) => {
       hero.talente[this.index].comment = comment.value;
-      document.dispatchEvent(new Event("resetTalents"));
       hero.saveHero();
+      document.dispatchEvent(new Event("resetTalents"));
     });
   }
 

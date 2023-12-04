@@ -20,6 +20,7 @@ class VolkController {
 
   addVolkstalente() {
     let dbEntry = db.voelker[hero.grundlagen.volk];
+    if (!dbEntry) return;
     let volkstalente = dbEntry.talente ? dbEntry.talente.split("\n") : [];
     volkstalente.forEach((id) => {
       if (talentController.findTalent(id))
