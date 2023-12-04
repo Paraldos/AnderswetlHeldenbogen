@@ -1,6 +1,7 @@
 import db from "../db/db.js";
 import hero from "../hero/hero.js";
 import talentController from "../hero/talentController.js";
+import veranlagungController from "../hero/veranlagungController.js";
 import HeroTalentModal from "./heroTalentModal.js";
 
 export default class HeroTalent {
@@ -21,15 +22,21 @@ export default class HeroTalent {
   }
 
   createElement(btnVisiblity) {
+    // Text
     let name = this.dbEntry.name;
-    let comment = hero.talente[this.index].comment ? "*" : "";
+    let asterisk = hero.talente[this.index].comment ? "*" : "";
     let level =
-      this.dbEntry.max_level > 1 ? `(${hero.talente[this.index].level})` : "";
+      this.dbEntry.max_level > 1 ? ` (${hero.talente[this.index].level})` : "";
+    let veranlagung =
+      this.dbEntry.name == "Veranlagung"
+        ? ` (${veranlagungController.getVeranlagungName()})`
+        : "";
+    let txt = `${name}${asterisk}${level}${veranlagung}`;
 
     let newElement = document.createElement("div");
     newElement.classList.add("talent");
     newElement.innerHTML = `
-      <button class="talent__main-btn">${name}${comment} ${level}</button>
+      <button class="talent__main-btn">${txt}</button>
       <button class="talent__minus-btn 
       ${btnVisiblity ? "" : "invisible"}
       symbol-btn">

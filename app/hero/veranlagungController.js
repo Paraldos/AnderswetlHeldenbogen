@@ -5,6 +5,16 @@ import talentController from "./talentController.js";
 class VeranlagungController {
   constructor() {}
 
+  getVeranlagung() {
+    let talent = talentController.findTalent("veranlagung");
+    return talent.selected;
+  }
+
+  getVeranlagungName() {
+    let talent = talentController.findTalent("veranlagung");
+    return db.attribute[talent.selected].name;
+  }
+
   getVeranlagungLimits() {
     let volk = db.voelker[hero.grundlagen.volk];
     if (volk.limits) {
