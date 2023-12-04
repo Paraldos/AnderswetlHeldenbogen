@@ -3,9 +3,9 @@ import hero from "../hero/hero.js";
 import DBTalentModal from "./dbTalentModal.js";
 
 export default class DBTalent {
-  constructor(key, modal) {
-    this.key = key;
-    this.dbEntry = db.talente[key];
+  constructor(id, modal) {
+    this.id = id;
+    this.dbEntry = db.talente[id];
     this.modal = modal;
     this.container = this.modal.content.querySelector(
       `.talente__${this.dbEntry.type}`
@@ -39,11 +39,7 @@ export default class DBTalent {
   }
 
   addPlusBtnListener() {
-    this.plusBtn.addEventListener("click", () => {
-      hero.talente.push({ id: this.key, comment: "", level: 1 });
-      hero.saveHero();
-      document.dispatchEvent(new Event("resetTalents"));
-    });
+    this.plusBtn.addEventListener("click", () => hero.addTalent(this.id));
   }
 
   toggleEditBtn(btnsVisible) {

@@ -89,10 +89,7 @@ class Hero {
     this.attribute = this.arrayOfHeros[index].attribute;
     this.fertigkeiten = this.arrayOfHeros[index].fertigkeiten;
     this.talente = this.arrayOfHeros[index].talente;
-    this.resetTalente();
   }
-
-  resetTalente() {}
 
   saveHero() {
     let hero = {
@@ -115,28 +112,53 @@ class Hero {
     this.getStartHero();
   }
 
+  /* =============================================================== talente */
   findTalent(id) {
     return hero.talente.find((el) => el.id === id);
   }
 
+  addTalent(id, volkstalent = false) {
+    this.talente.push({
+      id: id,
+      comment: "",
+      level: 1,
+      volkstalent: volkstalent,
+    });
+    this.saveHero();
+    document.dispatchEvent(new Event("resetTalents"));
+  }
+
+  increaseTalent(index) {
+    if (this.talente[index].level >= 5) return;
+    this.talente[index].level += 1;
+    this.saveHero();
+    document.dispatchEvent(new Event("resetTalents"));
+  }
+
+  decreaseTalent(index) {
+    this.talente[index].level -= 1;
+    if (this.talente[index].level <= 0) {
+      this.talente.splice(index, 1);
+    }
+    this.saveHero();
+    document.dispatchEvent(new Event("resetTalents"));
+  }
+
   updateVolksTalente() {
+    this.removeVolkstalente();
+    this.addVolkstalente();
+  }
+
+  removeVolkstalente() {
+    hero.talente = hero.talente.filter((el) => !el.volkstalent);
+  }
+
+  addVolkstalente() {
     let dbEntry = db.voelker[hero.grundlagen.volk];
-    // remove old
-    hero.talente = hero.talente.filter((el) => !el.volksTalent);
-    // get new
-    let volksTalente = dbEntry.talente ? dbEntry.talente.split("\n") : [];
-    // add new
-    volksTalente.forEach((id) => {
-      if (this.findTalent(id)) {
-        hero.findTalent(id).volksTalent = true;
-      } else {
-        hero.talente.push({
-          id: id,
-          comment: "",
-          level: 1,
-          volksTalent: true,
-        });
-      }
+    let volkstalente = dbEntry.talente ? dbEntry.talente.split("\n") : [];
+    volkstalente.forEach((id) => {
+      if (this.findTalent(id)) hero.findTalent(id).volksTalent = true;
+      else this.addTalent(id, true);
     });
   }
 }

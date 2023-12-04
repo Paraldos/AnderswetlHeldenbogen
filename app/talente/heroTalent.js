@@ -4,6 +4,7 @@ import HeroTalentModal from "./heroTalentModal.js";
 
 export default class HeroTalent {
   constructor(id, index, btnVisiblity) {
+    this.id = id;
     this.index = index;
     this.dbEntry = db.talente[id];
     this.container = document.querySelector(`.talente__${this.dbEntry.type}`);
@@ -51,22 +52,13 @@ export default class HeroTalent {
 
   addMinusBtnListener() {
     this.minusBtn.addEventListener("click", () => {
-      hero.talente[this.index].level -= 1;
-      if (hero.talente[this.index].level <= 0) {
-        hero.talente.splice(this.index, 1);
-      }
-      hero.saveHero();
-      this.updateBtns();
-      document.dispatchEvent(new Event("resetTalents"));
+      hero.decreaseTalent(this.index);
     });
   }
 
   addPlusBtnListener() {
     this.plusBtn.addEventListener("click", () => {
-      hero.talente[this.index].level += 1;
-      hero.saveHero();
-      this.updateBtns();
-      document.dispatchEvent(new Event("resetTalents"));
+      hero.increaseTalent(this.index);
     });
   }
 
