@@ -1,6 +1,5 @@
-import db from "../db/db.js";
-import hero from "../hero/hero.js";
-import talentController from "../hero/talentController.js";
+import db from "../../data/db.js";
+import talentController from "../../data/talentController.js";
 import DBTalentModal from "./dbTalentModal.js";
 
 export default class DBTalent {

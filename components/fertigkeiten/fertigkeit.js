@@ -1,57 +1,57 @@
+import db from "../../data/db.js";
+import hero from "../../data/hero.js";
 import Modal from "../modal/modal.js";
-import db from "../db/db.js";
-import hero from "../hero/hero.js";
-import veranlagungController from "../hero/veranlagungController.js";
 
-export default class Attribut {
+export default class Fertigkeit {
   constructor(key) {
     this.key = key;
-    this.dbEntry = db.attribute[key];
-    this.container = document.querySelector(".attribute__content");
+    this.dbEntry = db.fertigkeiten[key];
     this.element = this.createElement();
-    this.mainBtn = this.element.querySelector(".attribut__main-btn");
-    this.plusBtn = this.element.querySelector(".attribut__plus-btn");
-    this.minusBtn = this.element.querySelector(".attribut__minus-btn");
-
+    this.mainBtn = this.element.querySelector(".fertigkeit__main-btn");
+    this.plusBtn = this.element.querySelector(".fertigkeit__plus-btn");
+    this.minusBtn = this.element.querySelector(".fertigkeit__minus-btn");
     this.updateElement();
     this.addMainBtnListener();
-    this.addPlusBtnListener();
+    this.addPlusListener();
     this.addMinusListener();
   }
 
   createElement() {
+    let container = document.querySelector(
+      `.fertigkeiten__${this.dbEntry.type}`
+    );
     const newElement = document.createElement("div");
-    newElement.classList.add("attribut");
+    newElement.classList.add("fertigkeit");
     newElement.innerHTML = `
-      <button class="attribut__main-btn">???</button>
-      <button class="attribut__minus-btn invisible symbol-btn">
+      <button class="fertigkeit__main-btn">???</button>
+      <button class="fertigkeit__minus-btn invisible symbol-btn">
         <i class="fa-solid fa-minus"></i>
       </button>
-      <button class="attribut__plus-btn invisible symbol-btn">
+      <button class="fertigkeit__plus-btn invisible symbol-btn">
         <i class="fa-solid fa-plus"></i>
       </button>`;
-    this.container.appendChild(newElement);
+    container.appendChild(newElement);
     return newElement;
   }
 
   updateElement() {
-    let value = hero.attribute[this.key].value;
-    if (veranlagungController.getVeranlagung() == this.key) value += 1;
-    this.mainBtn.innerHTML = `${this.dbEntry.name}: ${value}`;
-    document.dispatchEvent(new Event("updateAttributeHeader"));
+    this.mainBtn.innerHTML = `${this.dbEntry.name}: ${
+      hero.fertigkeiten[this.key].value
+    }`;
+    document.dispatchEvent(new Event("updateFertigkeitenHeader"));
   }
 
   addMainBtnListener() {
     this.mainBtn.addEventListener(
       "click",
-      () => new AttributModal(this.dbEntry)
+      () => new FertigkeitModal(this.dbEntry)
     );
   }
 
-  addPlusBtnListener() {
+  addPlusListener() {
     this.plusBtn.addEventListener("click", () => {
-      if (hero.attribute[this.key].value < 5) {
-        hero.attribute[this.key].value += 1;
+      if (hero.fertigkeiten[this.key].value < 5) {
+        hero.fertigkeiten[this.key].value += 1;
         hero.saveHero();
         this.updateElement();
       }
@@ -60,8 +60,8 @@ export default class Attribut {
 
   addMinusListener() {
     this.minusBtn.addEventListener("click", () => {
-      if (hero.attribute[this.key].value > 1) {
-        hero.attribute[this.key].value -= 1;
+      if (hero.fertigkeiten[this.key].value > 0) {
+        hero.fertigkeiten[this.key].value -= 1;
         hero.saveHero();
         this.updateElement();
       }
@@ -78,7 +78,7 @@ export default class Attribut {
   }
 }
 
-class AttributModal {
+class FertigkeitModal {
   constructor(dbEntry) {
     this.dbEntry = dbEntry;
     this.addModal();
@@ -88,6 +88,7 @@ class AttributModal {
     let modal = new Modal();
     modal.content.innerHTML = `
     <h2>${this.dbEntry.name}</h2>`;
+    this.addComment(modal);
     this.addTalentDescription(modal);
   }
 
@@ -95,5 +96,9 @@ class AttributModal {
     let newElement = document.createElement("p");
     newElement.innerText = this.dbEntry.description;
     modal.content.appendChild(newElement);
+  }
+
+  addComment(modal) {
+    console.log();
   }
 }

@@ -1,5 +1,5 @@
-import db from "../db/db.js";
-import hero from "../hero/hero.js";
+import db from "../../data/db.js";
+import hero from "../../data/hero.js";
 import NavMenu from "../menus/navMenu.js";
 import HeroMenu from "../menus/heroMenu.js";
 import Attribute from "../attribute/attribute.js";

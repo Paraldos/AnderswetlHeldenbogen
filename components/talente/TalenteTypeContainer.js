@@ -1,4 +1,4 @@
-import db from "../db/db.js";
+import db from "../../data/db.js";
 
 export default class TalenteTypeContainer {
   constructor(name, parentContainer) {

@@ -1,4 +1,4 @@
-import hero from "../hero/hero.js";
+import hero from "../../data/hero.js";
 import Modal from "../modal/modal.js";
 
 export default class DeleteHeroModal {

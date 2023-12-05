@@ -1,5 +1,5 @@
-import db from "../db/db.js";
-import talentController from "../hero/talentController.js";
+import db from "./db.js";
+import talentController from "./talentController.js";
 
 class Hero {
   constructor() {
@@ -64,12 +64,12 @@ class Hero {
 
     this.attribute = {};
     for (let el in db.attribute) {
-      this.attribute[el] = { value: 0, bonus: 0 };
+      this.attribute[el] = { value: 1 };
     }
 
     this.fertigkeiten = {};
     for (let el in db.fertigkeiten) {
-      this.fertigkeiten[el] = { value: 0, bonus: 0 };
+      this.fertigkeiten[el] = { value: 0 };
     }
 
     this.talente = [];

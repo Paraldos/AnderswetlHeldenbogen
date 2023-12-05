@@ -1,5 +1,4 @@
-import DB from "../db/db.js";
-import hero from "../hero/hero.js";
+import hero from "../../data/hero.js";
 import DeleteHeroModal from "./deleteHeroModal.js";
 
 export default class HeroMenu {

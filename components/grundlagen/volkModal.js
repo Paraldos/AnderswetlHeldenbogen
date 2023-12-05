@@ -1,7 +1,7 @@
-import db from "../db/db.js";
-import hero from "../hero/hero.js";
+import db from "../../data/db.js";
+import hero from "../../data/hero.js";
 import Modal from "../modal/modal.js";
-import volkController from "../hero/volkController.js";
+import volkController from "../../data/volkController.js";
 
 export default class VolkModal {
   constructor() {

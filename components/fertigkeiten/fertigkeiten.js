@@ -1,5 +1,5 @@
-import db from "../db/db.js";
-import hero from "../hero/hero.js";
+import db from "../../data/db.js";
+import hero from "../../data/hero.js";
 import Section from "../section/section.js";
 import Fertigkeit from "./fertigkeit.js";
 

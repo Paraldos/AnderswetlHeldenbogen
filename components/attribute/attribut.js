@@ -1,57 +1,57 @@
-import db from "../db/db.js";
-import hero from "../hero/hero.js";
+import db from "../../data/db.js";
+import hero from "../../data/hero.js";
+import veranlagungController from "../../data/veranlagungController.js";
 import Modal from "../modal/modal.js";
 
-export default class Fertigkeit {
+export default class Attribut {
   constructor(key) {
     this.key = key;
-    this.dbEntry = db.fertigkeiten[key];
+    this.dbEntry = db.attribute[key];
+    this.container = document.querySelector(".attribute__content");
     this.element = this.createElement();
-    this.mainBtn = this.element.querySelector(".fertigkeit__main-btn");
-    this.plusBtn = this.element.querySelector(".fertigkeit__plus-btn");
-    this.minusBtn = this.element.querySelector(".fertigkeit__minus-btn");
+    this.mainBtn = this.element.querySelector(".attribut__main-btn");
+    this.plusBtn = this.element.querySelector(".attribut__plus-btn");
+    this.minusBtn = this.element.querySelector(".attribut__minus-btn");
+
     this.updateElement();
     this.addMainBtnListener();
-    this.addPlusListener();
+    this.addPlusBtnListener();
     this.addMinusListener();
   }
 
   createElement() {
-    let container = document.querySelector(
-      `.fertigkeiten__${this.dbEntry.type}`
-    );
     const newElement = document.createElement("div");
-    newElement.classList.add("fertigkeit");
+    newElement.classList.add("attribut");
     newElement.innerHTML = `
-      <button class="fertigkeit__main-btn">???</button>
-      <button class="fertigkeit__minus-btn invisible symbol-btn">
+      <button class="attribut__main-btn">???</button>
+      <button class="attribut__minus-btn invisible symbol-btn">
         <i class="fa-solid fa-minus"></i>
       </button>
-      <button class="fertigkeit__plus-btn invisible symbol-btn">
+      <button class="attribut__plus-btn invisible symbol-btn">
         <i class="fa-solid fa-plus"></i>
       </button>`;
-    container.appendChild(newElement);
+    this.container.appendChild(newElement);
     return newElement;
   }
 
   updateElement() {
-    this.mainBtn.innerHTML = `${this.dbEntry.name}: ${
-      hero.fertigkeiten[this.key].value + hero.fertigkeiten[this.key].bonus
-    }`;
-    document.dispatchEvent(new Event("updateFertigkeitenHeader"));
+    let value = hero.attribute[this.key].value;
+    if (veranlagungController.getVeranlagung() == this.key) value += 1;
+    this.mainBtn.innerHTML = `${this.dbEntry.name}: ${value}`;
+    document.dispatchEvent(new Event("updateAttributeHeader"));
   }
 
   addMainBtnListener() {
     this.mainBtn.addEventListener(
       "click",
-      () => new FertigkeitModal(this.dbEntry)
+      () => new AttributModal(this.dbEntry)
     );
   }
 
-  addPlusListener() {
+  addPlusBtnListener() {
     this.plusBtn.addEventListener("click", () => {
-      if (hero.fertigkeiten[this.key].value < 5) {
-        hero.fertigkeiten[this.key].value += 1;
+      if (hero.attribute[this.key].value < 5) {
+        hero.attribute[this.key].value += 1;
         hero.saveHero();
         this.updateElement();
       }
@@ -60,8 +60,8 @@ export default class Fertigkeit {
 
   addMinusListener() {
     this.minusBtn.addEventListener("click", () => {
-      if (hero.fertigkeiten[this.key].value > 0) {
-        hero.fertigkeiten[this.key].value -= 1;
+      if (hero.attribute[this.key].value > 1) {
+        hero.attribute[this.key].value -= 1;
         hero.saveHero();
         this.updateElement();
       }
@@ -78,7 +78,7 @@ export default class Fertigkeit {
   }
 }
 
-class FertigkeitModal {
+class AttributModal {
   constructor(dbEntry) {
     this.dbEntry = dbEntry;
     this.addModal();
@@ -88,7 +88,6 @@ class FertigkeitModal {
     let modal = new Modal();
     modal.content.innerHTML = `
     <h2>${this.dbEntry.name}</h2>`;
-    this.addComment(modal);
     this.addTalentDescription(modal);
   }
 
@@ -96,9 +95,5 @@ class FertigkeitModal {
     let newElement = document.createElement("p");
     newElement.innerText = this.dbEntry.description;
     modal.content.appendChild(newElement);
-  }
-
-  addComment(modal) {
-    console.log();
   }
 }

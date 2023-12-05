@@ -1,5 +1,5 @@
 import hero from "./hero.js";
-import db from "../db/db.js";
+import db from "./db.js";
 import talentController from "./talentController.js";
 
 class VolkController {
