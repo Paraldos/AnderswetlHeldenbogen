@@ -1,4 +1,5 @@
 import db from "../../data/db.js";
+import DbSchwaecheModal from "./dbSchwaecheModal.js";
 
 export default class DbSchwaeche {
   constructor(id, modalContent) {
@@ -28,7 +29,7 @@ export default class DbSchwaeche {
 
   addMainBtnListener() {
     this.mainBtn.addEventListener("click", () => {
-      console.log("main");
+      new DbSchwaecheModal(this.dbEntry);
     });
   }
 

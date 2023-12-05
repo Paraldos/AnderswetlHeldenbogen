@@ -1,6 +1,5 @@
 .schwaechen-modal {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 10px;
 
   &__schwaeche {
@@ -11,5 +10,9 @@
   &__main-btn {
     white-space: nowrap;
     overflow: hidden;
+  }
+
+  &__plus-btn {
+    height: 100%;
   }
 }

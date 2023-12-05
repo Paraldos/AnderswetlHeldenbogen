@@ -133,15 +133,12 @@ option {
 }
 
 .symbol-btn {
-  width: -moz-fit-content;
-  width: fit-content;
+  height: 100%;
+  width: auto;
   aspect-ratio: 1/1;
   padding: 0;
 }
 .symbol-btn i {
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 1/1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -462,8 +459,7 @@ option {
 }
 
 .schwaechen-modal {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 10px;
 }
 .schwaechen-modal__schwaeche {
@@ -473,4 +469,7 @@ option {
 .schwaechen-modal__main-btn {
   white-space: nowrap;
   overflow: hidden;
+}
+.schwaechen-modal__plus-btn {
+  height: 100%;
 }/*# sourceMappingURL=index.css.map */
