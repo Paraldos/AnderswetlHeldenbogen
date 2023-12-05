@@ -1,3 +1,35 @@
+.navbar {
+  @include display-flex-center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: var(--height__nav);
+  z-index: var(--zIndex__navbar);
+
+  background-color: var(--color__nav-background);
+  border-top: 4px solid var(--color__nav-text);
+
+  &__btn {
+    @include display-flex-center;
+    height: 100%;
+    width: fit-content;
+    aspect-ratio: 1/1;
+    box-shadow: none;
+    border: none;
+    background-color: transparent;
+
+    i:before {
+      font-size: 1.6rem;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+      color: var(--color__nav-text--hover);
+    }
+  }
+}
+
 .hero-menu {
   position: fixed;
   width: 100%;

@@ -1,6 +1,6 @@
 import db from "../../data/db.js";
 import hero from "../../data/hero.js";
-import NavMenu from "../menus/navMenu.js";
+import Navbar from "../menus/navbar.js";
 import HeroMenu from "../menus/heroMenu.js";
 import Attribute from "../attribute/attribute.js";
 import Grundlagen from "../grundlagen/grundlagen.js";
@@ -10,7 +10,7 @@ import Talente from "../talente/talente.js";
 export default class Main {
   constructor() {
     this.main = document.querySelector("main");
-    new NavMenu();
+    new Navbar();
     new HeroMenu();
     this.resetMain();
     this.addResetListener();

@@ -1,17 +1,19 @@
-@import "./app/variables";
-@import "./app/mixins";
-@import "./app/scrollbar";
-@import "./app/basics";
-@import "./app/main/main";
-@import "./app/inputs";
-@import "./app/modal/modal";
-@import "./app/section/section";
-@import "./app/menus/nav";
-@import "./app/menus/heroMenu";
+// variables
+@import "./styles/variables";
+@import "./styles/mixins";
 
-// sections
-@import "./app/grundlagen/grundlagen";
-@import "./app/attribute/attribute";
-@import "./app/fertigkeiten/fertigkeiten";
-@import "./app/merkmale/merkmale";
-@import "./app/talente/talente";
+// basics
+@import "./styles/basics";
+@import "./styles/inputs";
+@import "./styles/scrollbar";
+
+// components
+@import "./components/attribute/attribute";
+@import "./components/fertigkeiten/fertigkeiten";
+@import "./components/grundlagen/grundlagen";
+@import "./components/main/main";
+@import "./components/menus/menus";
+@import "./components/merkmale/merkmale";
+@import "./components/modal/modal";
+@import "./components/section/section";
+@import "./components/talente/talente";

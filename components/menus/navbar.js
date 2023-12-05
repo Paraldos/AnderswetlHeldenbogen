@@ -1,6 +1,6 @@
-export default class NavMenu {
+export default class Navbar {
   constructor() {
-    this.heldenBtn = document.querySelector(".nav__hero-btn");
+    this.heldenBtn = document.querySelector(".navbar__hero-btn");
     this.heldenMenu = document.querySelector(".hero-menu");
     this.addHeldenBtnListener();
   }
