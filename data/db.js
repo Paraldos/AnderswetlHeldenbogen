@@ -3,14 +3,16 @@ import attribute from "./json/attribute.json" assert { type: "json" };
 import voelker from "./json/voelker.json" assert { type: "json" };
 import fertigkeiten from "./json/fertigkeiten.json" assert { type: "json" };
 import talente from "./json/talente.json" assert { type: "json" };
+import schwaechen from "./json/schwaechen.json" assert { type: "json" };
 
 class DB {
   constructor() {
     this.grundlagen = grundlagen;
+    this.voelker = voelker;
     this.attribute = attribute;
     this.fertigkeiten = fertigkeiten;
-    this.voelker = voelker;
     this.talente = talente;
+    this.schwaechen = schwaechen;
   }
 
   nameToId(string) {

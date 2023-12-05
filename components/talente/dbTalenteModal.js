@@ -4,7 +4,7 @@ import Modal from "../modal/modal.js";
 import TalenteTypeContainer from "./TalenteTypeContainer.js";
 import DBTalent from "./dbTalent.js";
 
-export default class TalenteModal {
+export default class DbTalenteModal {
   constructor() {
     this.modal = this.createModal();
     this.modalContentn = this.modal.content;

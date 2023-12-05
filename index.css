@@ -141,6 +141,7 @@ option {
 .symbol-btn i {
   width: 100%;
   height: 100%;
+  aspect-ratio: 1/1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -458,4 +459,18 @@ option {
 
 .modal__textfield {
   margin-bottom: 10px;
+}
+
+.schwaechen-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.schwaechen-modal__schwaeche {
+  display: flex;
+  gap: 10px;
+}
+.schwaechen-modal__main-btn {
+  white-space: nowrap;
+  overflow: hidden;
 }/*# sourceMappingURL=index.css.map */

@@ -1,5 +1,4 @@
 import db from "./db.js";
-import talentController from "./talentController.js";
 
 class Hero {
   constructor() {
@@ -73,6 +72,8 @@ class Hero {
     }
 
     this.talente = [];
+
+    this.schwaechen = [];
   }
 
   newHero() {
@@ -90,6 +91,7 @@ class Hero {
     this.attribute = this.arrayOfHeros[index].attribute;
     this.fertigkeiten = this.arrayOfHeros[index].fertigkeiten;
     this.talente = this.arrayOfHeros[index].talente;
+    this.schwaechen = this.arrayOfHeros[index].schwaechen;
   }
 
   saveHero() {
@@ -98,6 +100,7 @@ class Hero {
       attribute: this.attribute,
       fertigkeiten: this.fertigkeiten,
       talente: this.talente,
+      schwaechen: this.schwaechen,
     };
     this.arrayOfHeros[this.heroIndex] = hero;
     this.setHeroIndex();

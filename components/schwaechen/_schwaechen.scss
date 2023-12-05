@@ -1,0 +1,15 @@
+.schwaechen-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  &__schwaeche {
+    display: flex;
+    gap: 10px;
+  }
+
+  &__main-btn {
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}

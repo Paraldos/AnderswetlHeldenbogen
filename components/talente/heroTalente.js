@@ -3,9 +3,9 @@ import hero from "../../data/hero.js";
 import Section from "../section/section.js";
 import HeroTalent from "./heroTalent.js";
 import TalenteTypeContainer from "./TalenteTypeContainer.js";
-import TalenteModal from "./talenteModal.js";
+import DbTalenteModal from "./dbTalenteModal.js";
 
-export default class Talente {
+export default class HeroTalente {
   constructor() {
     this.section = new Section("Talente", true);
     this.container = document.querySelector(".talente__content");
@@ -51,7 +51,7 @@ export default class Talente {
   }
 
   addPlusBtnListener() {
-    this.section.plusBtn.addEventListener("click", () => new TalenteModal());
+    this.section.plusBtn.addEventListener("click", () => new DbTalenteModal());
   }
 
   addEditBtnListener() {
