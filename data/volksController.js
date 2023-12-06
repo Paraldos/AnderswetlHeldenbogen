@@ -7,8 +7,8 @@ export default class VolksController {
   }
 
   changeVolk(id) {
-    this.removeVolkstalente();
     this.hero.grundlagen.volk = id;
+    this.removeVolkstalente();
     this.addVolkstalente();
     this.hero.saveHero();
     document.dispatchEvent(new Event("updateMainBtn"));

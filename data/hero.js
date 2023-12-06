@@ -14,18 +14,10 @@ class Hero {
     console.log(this.arrayOfHeros[this.heroIndex]);
   }
 
-  setHeroIndex(index = false) {
-    if (index) this.heroIndex = index;
-    if (this.heroIndex < 0) localStorage.removeItem("andersweltHeroIndex");
-    else localStorage.setItem("andersweltHeroIndex", this.heroIndex);
-  }
-
-  setArrayOfHeros(array = null) {
-    if (array) this.arrayOfHeros = array;
-    localStorage.setItem(
-      "andersweltArrayOfHeros",
-      JSON.stringify(this.arrayOfHeros)
-    );
+  getArrayOfHeros() {
+    this.arrayOfHeros = localStorage.getItem("andersweltArrayOfHeros")
+      ? JSON.parse(localStorage.getItem("andersweltArrayOfHeros"))
+      : [];
   }
 
   getHeroIndex() {
@@ -39,12 +31,6 @@ class Hero {
     if (this.heroIndex < 0) this.heroIndex = null;
   }
 
-  getArrayOfHeros() {
-    this.arrayOfHeros = localStorage.getItem("andersweltArrayOfHeros")
-      ? JSON.parse(localStorage.getItem("andersweltArrayOfHeros"))
-      : [];
-  }
-
   getStartHero() {
     if (this.heroIndex === null && this.arrayOfHeros.length) {
       this.setHeroIndex(0);
@@ -52,6 +38,20 @@ class Hero {
     if (this.heroIndex !== null) {
       this.loadHero(this.heroIndex);
     }
+  }
+
+  setArrayOfHeros(array = null) {
+    if (array) this.arrayOfHeros = array;
+    localStorage.setItem(
+      "andersweltArrayOfHeros",
+      JSON.stringify(this.arrayOfHeros)
+    );
+  }
+
+  setHeroIndex(index = false) {
+    if (index) this.heroIndex = index;
+    if (this.heroIndex < 0) localStorage.removeItem("andersweltHeroIndex");
+    else localStorage.setItem("andersweltHeroIndex", this.heroIndex);
   }
 
   resetHero() {
