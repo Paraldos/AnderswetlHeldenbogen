@@ -1,12 +1,11 @@
 import db from "./db.js";
+import VolksController from "./volksController.js";
 
 class Hero {
   constructor() {
     this.arrayOfHeros = [];
     this.heroIndex = null;
-    this.grundlagen = {};
-    this.attribute = {};
-    this.fertigkeiten = {};
+    this.volksController = new VolksController(this);
 
     this.getArrayOfHeros();
     this.getHeroIndex();

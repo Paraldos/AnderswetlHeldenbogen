@@ -1,7 +1,6 @@
 import db from "../../data/db.js";
 import hero from "../../data/hero.js";
 import Modal from "../modal/modal.js";
-import volkController from "../../data/volkController.js";
 
 export default class VolkModal {
   constructor() {
@@ -38,7 +37,7 @@ export default class VolkModal {
   addSelectEvent(modal) {
     let select = modal.content.querySelector(".modal__select");
     select.addEventListener("change", (event) => {
-      volkController.changeVolk(event.target.value);
+      hero.volksController.changeVolk(event.target.value);
       this.dbEntry = db.voelker[hero.grundlagen.volk];
       this.updateModalDescription(modal);
     });

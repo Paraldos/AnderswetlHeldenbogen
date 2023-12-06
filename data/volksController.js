@@ -1,25 +1,26 @@
-import hero from "./hero.js";
 import db from "./db.js";
 import talentController from "./talentController.js";
 
-class VolkController {
-  constructor() {}
+export default class VolksController {
+  constructor(hero) {
+    this.hero = hero;
+  }
 
   changeVolk(id) {
     this.removeVolkstalente();
-    hero.grundlagen.volk = id;
+    this.hero.grundlagen.volk = id;
     this.addVolkstalente();
-    hero.saveHero();
+    this.hero.saveHero();
     document.dispatchEvent(new Event("updateMainBtn"));
     document.dispatchEvent(new Event("resetTalents"));
   }
 
   removeVolkstalente() {
-    hero.talente = hero.talente.filter((el) => !el.volkstalent);
+    this.hero.talente = this.hero.talente.filter((el) => !el.volkstalent);
   }
 
   addVolkstalente() {
-    let dbEntry = db.voelker[hero.grundlagen.volk];
+    let dbEntry = db.voelker[this.hero.grundlagen.volk];
     if (!dbEntry) return;
     let volkstalente = dbEntry.talente ? dbEntry.talente.split("\n") : [];
     volkstalente.forEach((id) => {
@@ -29,6 +30,3 @@ class VolkController {
     });
   }
 }
-
-let volkController = new VolkController();
-export default volkController;
