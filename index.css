@@ -472,4 +472,10 @@ option {
 }
 .schwaechen-modal__plus-btn {
   height: 100%;
+}
+
+.schwaechen__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px 40px;
 }/*# sourceMappingURL=index.css.map */

@@ -1,4 +1,5 @@
 import db from "../../data/db.js";
+import hero from "../../data/hero.js";
 import DbSchwaecheModal from "./dbSchwaecheModal.js";
 
 export default class DbSchwaeche {
@@ -35,7 +36,7 @@ export default class DbSchwaeche {
 
   addPlusBtnListener() {
     this.plusBtn.addEventListener("click", () => {
-      console.log("plus");
+      hero.schwaechenController.addSchwaeche(this.id);
     });
   }
 

@@ -21,33 +21,35 @@ export default class HeroTalent {
 
   createElement(btnVisiblity) {
     // Text
-    let name = this.dbEntry.name;
-    let asterisk = hero.talente[this.index].comment ? "*" : "";
-    let level =
-      this.dbEntry.max_level > 1 ? ` (${hero.talente[this.index].level})` : "";
-    let veranlagung = "";
+    let txt = this.dbEntry.name;
+    if (hero.talente[this.index].comment) {
+      txt += "*";
+    }
+    if (this.dbEntry.max_level > 1) {
+      txt += ` (${hero.talente[this.index].level})`;
+    }
     if (
       this.dbEntry.name == "Veranlagung" &&
       hero.veranlagungsController.getVeranlagungName()
     ) {
-      veranlagung = ` (${hero.veranlagungsController.getVeranlagungName()})`;
+      txt += ` (${hero.veranlagungsController.getVeranlagungName()})`;
     }
-
-    let txt = `${name}${asterisk}${level}${veranlagung}`;
 
     let newElement = document.createElement("div");
     newElement.classList.add("talent");
     newElement.innerHTML = `
       <button class="talent__main-btn">${txt}</button>
-      <button class="talent__minus-btn 
-      ${btnVisiblity ? "" : "invisible"}
-      symbol-btn">
-        <i class="fa-solid fa-minus"></i>
+      <button class="
+        talent__minus-btn 
+        ${btnVisiblity ? "" : "invisible"}
+        symbol-btn">
+          <i class="fa-solid fa-minus"></i>
       </button>
-      <button class="talent__plus-btn 
-      ${btnVisiblity ? "" : "invisible"}
-      symbol-btn">
-        <i class="fa-solid fa-plus"></i>
+      <button class="
+        talent__plus-btn 
+        ${btnVisiblity ? "" : "invisible"}
+        symbol-btn">
+          <i class="fa-solid fa-plus"></i>
       </button>`;
     this.container.appendChild(newElement);
     return newElement;
@@ -83,7 +85,7 @@ export default class HeroTalent {
     }
     // minus
     this.minusBtn.removeAttribute("disabled");
-    if (hero.talente[this.index].volksTalent) {
+    if (hero.talente[this.index].volkstalent) {
       this.minusBtn.setAttribute("disabled", true);
     }
   }

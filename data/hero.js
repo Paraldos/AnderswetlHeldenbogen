@@ -2,6 +2,7 @@ import db from "./db.js";
 import VolksController from "./volksController.js";
 import TalenteController from "./talenteController.js";
 import VeranlagungsController from "./veranlagungsController.js";
+import SchwaechenController from "./schwaechenController.js";
 
 class Hero {
   constructor() {
@@ -10,6 +11,7 @@ class Hero {
     this.volksController = new VolksController(this);
     this.talenteController = new TalenteController(this);
     this.veranlagungsController = new VeranlagungsController(this);
+    this.schwaechenController = new SchwaechenController(this);
 
     this.getArrayOfHeros();
     this.getHeroIndex();

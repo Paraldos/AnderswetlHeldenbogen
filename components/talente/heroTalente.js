@@ -29,7 +29,7 @@ export default class HeroTalente {
 
   fillTalenteArray() {
     let talente = [];
-    this.talente = hero.talente.forEach((el, index) => {
+    hero.talente.forEach((el, index) => {
       talente.push(
         new HeroTalent(
           el.id,

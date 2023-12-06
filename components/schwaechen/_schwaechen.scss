@@ -16,3 +16,9 @@
     height: 100%;
   }
 }
+
+.schwaechen__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px 40px;
+}
