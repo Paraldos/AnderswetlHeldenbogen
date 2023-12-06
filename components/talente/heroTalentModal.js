@@ -1,7 +1,5 @@
 import db from "../../data/db.js";
 import hero from "../../data/hero.js";
-import talentController from "../../data/talentController.js";
-import veranlagungController from "../../data/veranlagungController.js";
 import Modal from "../modal/modal.js";
 
 export default class HeroTalentModal {
@@ -30,8 +28,8 @@ export default class HeroTalentModal {
   }
 
   addSelectorOptions(newSelect) {
-    let talent = talentController.findTalent("veranlagung");
-    for (let attribut of veranlagungController.getVeranlagungLimits()) {
+    let talent = hero.talenteController.findTalent("veranlagung");
+    for (let attribut of hero.veranlagungsController.getVeranlagungLimits()) {
       let newOption = document.createElement("option");
       newOption.value = attribut;
       if (talent.selected == attribut) newOption.setAttribute("selected", true);
@@ -42,7 +40,7 @@ export default class HeroTalentModal {
 
   addSelectorListener(newSelect) {
     newSelect.addEventListener("change", (event) => {
-      veranlagungController.setVeranlagung(event.target.value);
+      hero.veranlagungsController.setVeranlagung(event.target.value);
       document.dispatchEvent(new Event("resetTalents"));
       document.dispatchEvent(new Event("resetAttribute"));
     });

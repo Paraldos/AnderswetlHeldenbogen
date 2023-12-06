@@ -1,7 +1,5 @@
 import db from "../../data/db.js";
 import hero from "../../data/hero.js";
-import talentController from "../../data/talentController.js";
-import veranlagungController from "../../data/veranlagungController.js";
 import HeroTalentModal from "./heroTalentModal.js";
 
 export default class HeroTalent {
@@ -30,9 +28,9 @@ export default class HeroTalent {
     let veranlagung = "";
     if (
       this.dbEntry.name == "Veranlagung" &&
-      veranlagungController.getVeranlagungName()
+      hero.veranlagungsController.getVeranlagungName()
     ) {
-      veranlagung = ` (${veranlagungController.getVeranlagungName()})`;
+      veranlagung = ` (${hero.veranlagungsController.getVeranlagungName()})`;
     }
 
     let txt = `${name}${asterisk}${level}${veranlagung}`;
@@ -64,13 +62,13 @@ export default class HeroTalent {
 
   addMinusBtnListener() {
     this.minusBtn.addEventListener("click", () => {
-      talentController.decreaseTalent(this.index);
+      hero.talenteController.decreaseTalent(this.index);
     });
   }
 
   addPlusBtnListener() {
     this.plusBtn.addEventListener("click", () => {
-      talentController.increaseTalent(this.index);
+      hero.talenteController.increaseTalent(this.index);
     });
   }
 

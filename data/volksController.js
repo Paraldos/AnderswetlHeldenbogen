@@ -1,5 +1,4 @@
 import db from "./db.js";
-import talentController from "./talentController.js";
 
 export default class VolksController {
   constructor(hero) {
@@ -24,9 +23,9 @@ export default class VolksController {
     if (!dbEntry) return;
     let volkstalente = dbEntry.talente ? dbEntry.talente.split("\n") : [];
     volkstalente.forEach((id) => {
-      if (talentController.findTalent(id))
-        talentController.findTalent(id).volkstalent = true;
-      else talentController.addTalent(id, true);
+      if (this.hero.talenteController.findTalent(id))
+        this.hero.talenteController.findTalent(id).volkstalent = true;
+      else this.hero.talenteController.addTalent(id, true);
     });
   }
 }

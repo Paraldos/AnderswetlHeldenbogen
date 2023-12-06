@@ -1,5 +1,5 @@
+import hero from "../../data/hero.js";
 import db from "../../data/db.js";
-import talentController from "../../data/talentController.js";
 import DBTalentModal from "./dbTalentModal.js";
 
 export default class DBTalent {
@@ -40,7 +40,7 @@ export default class DBTalent {
 
   addPlusBtnListener() {
     this.plusBtn.addEventListener("click", () =>
-      talentController.addTalent(this.id)
+      hero.talenteController.addTalent(this.id)
     );
   }
 
