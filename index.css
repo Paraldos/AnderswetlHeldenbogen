@@ -478,4 +478,13 @@ option {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 10px 40px;
+}
+
+.schwaeche {
+  display: flex;
+  gap: 10px;
+}
+.schwaeche__main-btn {
+  white-space: nowrap;
+  overflow: hidden;
 }/*# sourceMappingURL=index.css.map */

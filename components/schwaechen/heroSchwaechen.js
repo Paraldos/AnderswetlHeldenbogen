@@ -26,6 +26,7 @@ export default class HeroSchwaechen {
         )
       );
     });
+    return schwaechen;
   }
 
   addPlusBtnListener() {
@@ -37,6 +38,7 @@ export default class HeroSchwaechen {
   addEditBtnListener() {
     this.section.editBtn.addEventListener("click", () => {
       const btnIsOn = this.section.toggleEditBtn();
+      this.schwaechen.forEach((el) => el.toggleEditBtn(btnIsOn));
       this.updateSectionHeader();
     });
   }
