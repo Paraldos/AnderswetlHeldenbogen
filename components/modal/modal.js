@@ -12,15 +12,46 @@ export default class Modal {
   constructor() {
     this.body = document.body;
     this.modal = this.createModal();
+    this.box = this.modal.querySelector(".modal__box");
     this.xBtn = this.modal.querySelector(".modal__x-btn");
     this.background = this.modal.querySelector(".modal__background");
     this.content = this.modal.querySelector(".modal__content");
     modals.push(this.modal);
 
-    this.addXBtnListener();
+    setTimeout(() => {
+      this.modal.classList.add("modal__fade-in");
+    }, 50);
+
     this.addBackgroundListener();
+    this.addXBtnListener();
     this.addEscListener();
     this.addOverflow();
+  }
+
+  createModal() {
+    let modal = document.createElement("div");
+    modal.classList.add("modal");
+    modal.innerHTML = `
+    <div class="modal__background"></div>
+    <div class="modal__box">
+        <div class="modal__x-btn"><i class="fa-solid fa-x"></i></div>
+        <div class="modal__content"></div>
+    </div>
+    `;
+    this.body.appendChild(modal);
+    return modal;
+  }
+
+  addBackgroundListener() {
+    this.background.addEventListener("click", () => this.destroyModal());
+  }
+
+  addXBtnListener() {
+    this.xBtn.addEventListener("click", () => this.destroyModal());
+  }
+
+  addEscListener() {
+    this.modal.addEventListener("escape", () => this.destroyModal());
   }
 
   addOverflow() {
@@ -29,37 +60,10 @@ export default class Modal {
 
   destroyModal() {
     let modal = modals.pop();
-    if (modals.length <= 0) this.body.classList.remove("overflow-hidden");
-    modal.remove();
-  }
-
-  addEscListener() {
-    this.modal.addEventListener("escape", () => this.destroyModal());
-  }
-
-  addBackgroundListener() {
-    this.background.addEventListener("click", () => {
-      this.destroyModal();
-    });
-  }
-
-  addXBtnListener() {
-    this.xBtn.addEventListener("click", () => {
-      this.destroyModal();
-    });
-  }
-
-  createModal() {
-    let modal = document.createElement("div");
-    modal.classList.add("modal");
-    modal.innerHTML = `
-    <div class="modal__box">
-        <div class="modal__background"></div>
-        <div class="modal__x-btn"><i class="fa-solid fa-x"></i></div>
-        <div class="modal__content"></div>
-    </div>
-    `;
-    this.body.appendChild(modal);
-    return modal;
+    this.modal.classList.remove("modal__fade-in");
+    setTimeout(() => {
+      if (modals.length <= 0) this.body.classList.remove("overflow-hidden");
+      modal.remove();
+    }, 200);
   }
 }

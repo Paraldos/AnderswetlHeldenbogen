@@ -339,6 +339,7 @@ option {
   position: fixed;
   inset: 0;
   z-index: var(--zIndex__modal);
+  --animation-time: 0.2s;
 }
 .modal h2 {
   padding-bottom: 10px;
@@ -351,12 +352,16 @@ option {
   background-color: rgba(0, 0, 0, 0.4);
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
+  transition: opacity var(--animation-time);
+  opacity: 0;
 }
 .modal__box {
   background-color: var(--color__modal-background);
   width: 100%;
   max-width: 500px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  transition: transform var(--animation-time);
+  transform: translateX(100vh);
 }
 .modal__content {
   padding: 0 15px 30px 15px;
@@ -381,6 +386,13 @@ option {
 }
 .modal__x-btn:hover {
   transform: scale(1.15);
+}
+
+.modal__fade-in .modal__background {
+  opacity: 1;
+}
+.modal__fade-in .modal__box {
+  transform: translateX(0vh);
 }
 
 .section {

@@ -23,11 +23,11 @@ export default class Main {
   }
 
   fillMainWithHero() {
-    new HeroSchwaechen();
     new Grundlagen();
     new Attribute();
     new Fertigkeiten();
     new HeroTalente();
+    new HeroSchwaechen();
   }
 
   fillMainWithPlaceholder() {

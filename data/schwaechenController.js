@@ -10,6 +10,7 @@ export default class SchwaechenController {
   addSchwaeche(id, volksschwaeche = false) {
     this.hero.schwaechen.push({
       id: id,
+      comment: "",
       level: 1,
       volksschwaeche: volksschwaeche,
     });

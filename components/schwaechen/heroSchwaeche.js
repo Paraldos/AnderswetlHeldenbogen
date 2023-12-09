@@ -1,5 +1,6 @@
 import db from "../../data/db.js";
 import hero from "../../data/hero.js";
+import HeroSchwaechenModal from "./heroSchwaecheModal.js";
 
 export default class HeroSchwaeche {
   constructor(id, index, btnVisiblity, container) {
@@ -9,7 +10,9 @@ export default class HeroSchwaeche {
     this.dbEntry = db.schwaechen[id];
     this.container = container;
     this.element = this.createElement();
+    this.mainBtn = this.element.querySelector(".schwaeche__main-btn");
     this.minusBtn = this.element.querySelector(".schwaeche__minus-btn");
+    this.addMainBtnListener();
     this.addMinusBtnListener();
   }
 
@@ -27,6 +30,12 @@ export default class HeroSchwaeche {
       </button>`;
     this.container.appendChild(newElement);
     return newElement;
+  }
+
+  addMainBtnListener() {
+    this.mainBtn.addEventListener("click", () => {
+      new HeroSchwaechenModal(this.dbEntry, this.index);
+    });
   }
 
   addMinusBtnListener() {
