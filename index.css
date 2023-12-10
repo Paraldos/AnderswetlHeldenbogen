@@ -361,7 +361,7 @@ option {
   max-width: 500px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   transition: transform var(--animation-time);
-  transform: translateX(100vh);
+  transform: translateX(110vw);
 }
 .modal__content {
   padding: 0 15px 30px 15px;
@@ -392,7 +392,7 @@ option {
   opacity: 1;
 }
 .modal__fade-in .modal__box {
-  transform: translateX(0vh);
+  transform: translateX(0);
 }
 
 .section {

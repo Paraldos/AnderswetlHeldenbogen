@@ -8,11 +8,11 @@ export default class DbSchwaechenModal {
     this.modal = new Modal();
     this.modalContent = this.modal.content;
     this.modalContent.classList.add("schwaechen-modal");
-    this.resetModalContent();
+    this.initializeModalContent();
     this.addResetListener();
   }
 
-  resetModalContent() {
+  initializeModalContent() {
     this.modalContent.innerHTML = `<h2>Schwächen</h2>`;
     this.schwaechen = this.fillSchwaechenArray();
   }
@@ -22,7 +22,6 @@ export default class DbSchwaechenModal {
     for (let id in db.schwaechen) {
       let heroHasSchwaeche = hero.schwaechen.find((el) => el.id === id);
       if (heroHasSchwaeche) continue;
-
       let schwaeche = new DbSchwaeche(id, this.modalContent);
       arr.push(schwaeche);
     }
@@ -31,7 +30,7 @@ export default class DbSchwaechenModal {
 
   addResetListener() {
     document.addEventListener("resetSchwaechen", () => {
-      this.resetModalContent();
+      this.initializeModalContent();
     });
   }
 }

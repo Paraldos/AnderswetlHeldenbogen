@@ -29,7 +29,7 @@
       rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 
     transition: transform var(--animation-time);
-    transform: translateX(100vh);
+    transform: translateX(110vw);
   }
 
   &__content {
@@ -66,6 +66,6 @@
   }
 
   .modal__box {
-    transform: translateX(0vh);
+    transform: translateX(0);
   }
 }
