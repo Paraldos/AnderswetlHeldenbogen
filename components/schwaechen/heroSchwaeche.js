@@ -14,6 +14,7 @@ export default class HeroSchwaeche {
     this.minusBtn = this.element.querySelector(".schwaeche__minus-btn");
     this.addMainBtnListener();
     this.addMinusBtnListener();
+    this.updateBtns();
   }
 
   createElement() {
@@ -32,6 +33,13 @@ export default class HeroSchwaeche {
     return newElement;
   }
 
+  updateBtns() {
+    this.minusBtn.removeAttribute("disabled");
+    if (hero.schwaechen[this.index].volksschwaeche) {
+      this.minusBtn.setAttribute("disabled", true);
+    }
+  }
+
   addMainBtnListener() {
     this.mainBtn.addEventListener("click", () => {
       new HeroSchwaechenModal(this.dbEntry, this.index);
@@ -45,6 +53,7 @@ export default class HeroSchwaeche {
   }
 
   toggleEditBtn(btnsVisible) {
+    this.updateBtns();
     if (btnsVisible) {
       this.minusBtn.classList.remove("invisible");
     } else {
