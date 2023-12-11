@@ -1,4 +1,4 @@
-.schwaechen-modal {
+.flaws-modal {
   display: grid;
   gap: 10px;
 
@@ -17,13 +17,13 @@
   }
 }
 
-.schwaechen__content {
+.flaws__content {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 10px 40px;
 }
 
-.schwaeche {
+.flaw {
   display: flex;
   gap: 10px;
 

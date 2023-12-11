@@ -7,7 +7,7 @@ import DbTalenteModal from "./dbTalenteModal.js";
 
 export default class HeroTalente {
   constructor() {
-    this.section = new Section("Talente", true);
+    this.section = new Section("Talente", "talente", true);
     this.container = document.querySelector(".talente__content");
     this.typeContainer = [
       new TalenteTypeContainer("Allgemein", this.container),

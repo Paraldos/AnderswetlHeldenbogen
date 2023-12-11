@@ -5,7 +5,7 @@ import Attribut from "./attribut.js";
 
 export default class Attribute {
   constructor() {
-    this.section = new Section("Attribute");
+    this.section = new Section("Attribute", "attribute");
     this.attribute = this.fillAttributeArray();
     this.addEditButtonListener();
     this.addUpdateSectionHeader();

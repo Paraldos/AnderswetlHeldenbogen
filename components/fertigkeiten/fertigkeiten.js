@@ -5,7 +5,7 @@ import Fertigkeit from "./fertigkeit.js";
 
 export default class Fertigkeiten {
   constructor() {
-    this.section = new Section("Fertigkeiten");
+    this.section = new Section("Fertigkeiten", "fertigkeiten");
     this.container = this.createContainer();
     this.fertigkeiten = this.fillFertigkeitenArray();
     this.addEditButtonListener();

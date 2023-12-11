@@ -5,7 +5,7 @@ import BeschreibungElement from "./beschreibungElement.js";
 
 export default class Grundlagen {
   constructor() {
-    this.section = new Section("Grundlagen");
+    this.section = new Section("Grundlagen", "grundlagen");
     this.elements = [
       new BasicElement(this.section, "name"),
       new VolkElement(this.section),

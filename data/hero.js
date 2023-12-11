@@ -2,7 +2,7 @@ import db from "./db.js";
 import VolksController from "./volksController.js";
 import TalenteController from "./talenteController.js";
 import VeranlagungsController from "./veranlagungsController.js";
-import SchwaechenController from "./schwaechenController.js";
+import Flaws from "./flaws.js";
 
 class Hero {
   constructor() {
@@ -11,7 +11,7 @@ class Hero {
     this.volksController = new VolksController(this);
     this.talenteController = new TalenteController(this);
     this.veranlagungsController = new VeranlagungsController(this);
-    this.schwaechenController = new SchwaechenController(this);
+    this.flaws = new Flaws(this);
 
     this.getArrayOfHeros();
     this.getHeroIndex();
@@ -78,7 +78,7 @@ class Hero {
 
     this.talente = [];
 
-    this.schwaechen = [];
+    this.flaws.value = [];
   }
 
   newHero() {
@@ -96,7 +96,7 @@ class Hero {
     this.attribute = this.arrayOfHeros[index].attribute;
     this.fertigkeiten = this.arrayOfHeros[index].fertigkeiten;
     this.talente = this.arrayOfHeros[index].talente;
-    this.schwaechen = this.arrayOfHeros[index].schwaechen;
+    this.flaws.value = this.arrayOfHeros[index].flaws;
   }
 
   saveHero() {
@@ -105,7 +105,7 @@ class Hero {
       attribute: this.attribute,
       fertigkeiten: this.fertigkeiten,
       talente: this.talente,
-      schwaechen: this.schwaechen,
+      flaws: this.flaws.value,
     };
     this.arrayOfHeros[this.heroIndex] = hero;
     this.setHeroIndex();

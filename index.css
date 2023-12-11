@@ -470,33 +470,33 @@ option {
   margin-bottom: 10px;
 }
 
-.schwaechen-modal {
+.flaws-modal {
   display: grid;
   gap: 10px;
 }
-.schwaechen-modal__schwaeche {
+.flaws-modal__schwaeche {
   display: flex;
   gap: 10px;
 }
-.schwaechen-modal__main-btn {
+.flaws-modal__main-btn {
   white-space: nowrap;
   overflow: hidden;
 }
-.schwaechen-modal__plus-btn {
+.flaws-modal__plus-btn {
   height: 100%;
 }
 
-.schwaechen__content {
+.flaws__content {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 10px 40px;
 }
 
-.schwaeche {
+.flaw {
   display: flex;
   gap: 10px;
 }
-.schwaeche__main-btn {
+.flaw__main-btn {
   white-space: nowrap;
   overflow: hidden;
 }/*# sourceMappingURL=index.css.map */

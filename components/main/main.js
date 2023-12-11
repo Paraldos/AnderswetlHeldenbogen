@@ -4,7 +4,7 @@ import Attribute from "../attribute/attribute.js";
 import Grundlagen from "../grundlagen/grundlagen.js";
 import Fertigkeiten from "../fertigkeiten/fertigkeiten.js";
 import HeroTalente from "../talente/heroTalente.js";
-import HeroSchwaechen from "../schwaechen/heroSchwaechen.js";
+import FlawsSection from "../flaws/flawsSection.js";
 
 export default class Main {
   constructor() {
@@ -27,7 +27,7 @@ export default class Main {
     new Attribute();
     new Fertigkeiten();
     new HeroTalente();
-    new HeroSchwaechen();
+    new FlawsSection();
   }
 
   fillMainWithPlaceholder() {

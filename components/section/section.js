@@ -1,7 +1,7 @@
 export default class Section {
-  constructor(title, plusBtn = false) {
+  constructor(title, id, plusBtn = false) {
     this.main = document.querySelector(".main");
-    this.section = this.createSection(title, plusBtn);
+    this.section = this.createSection(title, id, plusBtn);
     this.text = this.section.querySelector(".section__text");
     this.editBtn = this.section.querySelector(".section__edit-btn");
     this.plusBtn = this.section.querySelector(".section__plus-btn");
@@ -17,10 +17,9 @@ export default class Section {
     return this.editBtn.classList.contains("on");
   }
 
-  createSection(title, plusBtn) {
+  createSection(title, id, plusBtn) {
     let section = document.createElement("section");
     section.classList.add("section");
-    let id = this.transformeTitleIntoId(title);
     section.innerHTML = `
     <div class="section__header">
       <h1 class="section__text">${title}</h1>
