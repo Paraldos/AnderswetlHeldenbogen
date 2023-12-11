@@ -4,7 +4,9 @@ export default class Flaws {
     this.value = [];
   }
 
-  getInnateFlaws() {}
+  removeInnateFlaws() {
+    this.value = this.value.filter((el) => !el.innate);
+  }
 
   getFlaw(id) {
     return this.value.find((el) => el.id === id);

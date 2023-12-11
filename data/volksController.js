@@ -11,8 +11,10 @@ export default class VolksController {
     this.dbEntry = db.voelker[this.hero.grundlagen.volk];
     this.removeVolkstalente();
     this.addVolkstalente();
-    this.removeVolksschwaechen();
-    this.addVolksschwaechen();
+
+    this.hero.flaws.removeInnateFlaws();
+    this.addInnateFlaws();
+
     this.hero.saveHero();
     document.dispatchEvent(new Event("updateMainBtn"));
     document.dispatchEvent(new Event("resetTalents"));
@@ -32,21 +34,18 @@ export default class VolksController {
     });
   }
 
-  removeVolksschwaechen() {
-    this.hero.schwaechen = this.hero.schwaechen.filter(
-      (el) => !el.volksschwaeche
-    );
+  getInnateFlaws() {
+    return this.dbEntry.schwaechen ? this.dbEntry.schwaechen.split("\n") : [];
   }
 
-  addVolksschwaechen() {
-    if (!this.dbEntry) return;
-    let schwaechen = this.dbEntry.schwaechen
-      ? this.dbEntry.schwaechen.split("\n")
-      : [];
-    schwaechen.forEach((id) => {
-      if (this.hero.schwaechenController.findSchwaeche(id))
-        this.hero.schwaechenController.findSchwaeche(id).volkstalent = true;
-      else this.hero.schwaechenController.addSchwaeche(id, true);
+  addInnateFlaws() {
+    const innateFlaws = this.getInnateFlaws();
+    innateFlaws.forEach((id) => {
+      if (this.hero.flaws.getFlaw(id)) {
+        this.hero.flaws.getFlaw(id).innate = true;
+      } else {
+        this.hero.flaws.addFlaw(id, true);
+      }
     });
   }
 }
