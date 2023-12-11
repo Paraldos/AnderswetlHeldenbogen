@@ -3,61 +3,52 @@ import hero from "../../data/hero.js";
 import HeroSchwaechenModal from "./heroSchwaecheModal.js";
 
 export default class HeroSchwaeche {
-  constructor(id, index, btnVisiblity, container) {
+  constructor(id, index, btnsVisiblity, container) {
     this.id = id;
     this.index = index;
-    this.btnVisiblity = btnVisiblity;
-    this.dbEntry = db.schwaechen[id];
     this.container = container;
+    this.dbEntry = db.schwaechen[id];
     this.element = this.createElement();
     this.mainBtn = this.element.querySelector(".schwaeche__main-btn");
     this.minusBtn = this.element.querySelector(".schwaeche__minus-btn");
-    this.addMainBtnListener();
-    this.addMinusBtnListener();
+    this.mainBtn.addEventListener("click", () => this.onMainBtnClick());
+    this.minusBtn.addEventListener("click", () => onMinusBtnClick());
     this.updateBtns();
+    this.toggleEditBtn(btnsVisiblity);
   }
 
   createElement() {
-    let txt = this.dbEntry.name;
     let newElement = document.createElement("div");
     newElement.classList.add("schwaeche");
     newElement.innerHTML = `
-      <button class="schwaeche__main-btn">${txt}</button>
-      <button class="
-        schwaeche__minus-btn 
-        ${this.btnVisiblity ? "" : "invisible"}
-        symbol-btn">
-          <i class="fa-solid fa-minus"></i>
+      <button class="schwaeche__main-btn">${this.dbEntry.name}</button>
+      <button class="schwaeche__minus-btn symbol-btn">
+        <i class="fa-solid fa-minus"></i>
       </button>`;
     this.container.appendChild(newElement);
     return newElement;
   }
 
   updateBtns() {
-    this.minusBtn.removeAttribute("disabled");
-    if (hero.schwaechen[this.index].volksschwaeche) {
-      this.minusBtn.setAttribute("disabled", true);
-    }
+    hero.schwaechen[this.index].volksschwaeche
+      ? this.minusBtn.setAttribute("disabled", true)
+      : this.minusBtn.removeAttribute("disabled");
   }
 
-  addMainBtnListener() {
-    this.mainBtn.addEventListener("click", () => {
-      new HeroSchwaechenModal(this.dbEntry, this.index);
-    });
+  onMainBtnClick() {
+    new HeroSchwaechenModal(this.dbEntry, this.index);
   }
 
-  addMinusBtnListener() {
-    this.minusBtn.addEventListener("click", () => {
-      hero.schwaechenController.decreaseSchwaeche(this.index);
-    });
+  onMinusBtnClick() {
+    hero.schwaechenController.decreaseSchwaeche(this.index);
   }
 
   toggleEditBtn(btnsVisible) {
-    this.updateBtns();
     if (btnsVisible) {
       this.minusBtn.classList.remove("invisible");
     } else {
       this.minusBtn.classList.add("invisible");
     }
+    this.updateBtns();
   }
 }
