@@ -2,7 +2,7 @@ import db from "../../data/db.js";
 import hero from "../../data/hero.js";
 import Section from "../section/section.js";
 import FlawModal from "./flawModal.js";
-import DbFlawsModal from "./dbFlawsModal.js";
+import FlawsModal from "./flawsModal.js";
 
 export default class FlawsSection {
   constructor() {
@@ -30,7 +30,7 @@ export default class FlawsSection {
   }
 
   onPlusBtnClick() {
-    new DbFlawsModal();
+    new FlawsModal();
   }
 
   onEditBtnClick() {
@@ -63,7 +63,7 @@ class SingleFlaw {
     this.id = id;
     this.index = index;
     this.container = document.querySelector(".flaws__content");
-    this.dbEntry = db.schwaechen[id];
+    this.dbEntry = db.flaws[id];
     this.element = this.createElement();
     this.mainBtn = this.element.querySelector(".flaw__main-btn");
     this.minusBtn = this.element.querySelector(".flaw__minus-btn");

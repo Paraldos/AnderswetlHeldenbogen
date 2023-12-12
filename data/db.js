@@ -3,7 +3,7 @@ import attribute from "./json/attribute.json" assert { type: "json" };
 import voelker from "./json/voelker.json" assert { type: "json" };
 import fertigkeiten from "./json/fertigkeiten.json" assert { type: "json" };
 import talente from "./json/talente.json" assert { type: "json" };
-import schwaechen from "./json/schwaechen.json" assert { type: "json" };
+import flaws from "./json/flaws.json" assert { type: "json" };
 
 class DB {
   // Test
@@ -13,7 +13,7 @@ class DB {
     this.attribute = attribute;
     this.fertigkeiten = fertigkeiten;
     this.talente = talente;
-    this.schwaechen = schwaechen;
+    this.flaws = flaws;
   }
 
   nameToId(string) {

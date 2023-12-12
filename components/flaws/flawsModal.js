@@ -3,7 +3,7 @@ import hero from "../../data/hero.js";
 import Modal from "../modal/modal.js";
 import FlawModal from "./flawModal.js";
 
-export default class DbFlawsModal {
+export default class FlawsModal {
   constructor() {
     this.modal = new Modal();
     this.modal.content.classList.add("flaws-modal");
@@ -17,14 +17,14 @@ export default class DbFlawsModal {
   }
 
   addFlaws() {
-    for (let id in db.schwaechen) {
+    for (let id in db.flaws) {
       if (hero.flaws.getFlaw(id)) continue;
       else new SingleFlaw(id, this.modal);
     }
   }
 
   addResetListener() {
-    document.addEventListener("resetSchwaechen", () => {
+    document.addEventListener("resetFlaws", () => {
       this.initModalContent();
     });
   }
@@ -34,7 +34,7 @@ class SingleFlaw {
   constructor(id, modal) {
     this.id = id;
     this.modal = modal;
-    this.dbEntry = db.schwaechen[id];
+    this.dbEntry = db.flaws[id];
     this.element = this.createElement();
     this.mainBtn = this.element.querySelector(".flaws-modal__main-btn");
     this.plusBtn = this.element.querySelector(".flaws-modal__plus-btn");
