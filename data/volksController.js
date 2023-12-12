@@ -9,8 +9,8 @@ export default class VolksController {
   changeVolk(id) {
     this.hero.grundlagen.volk = id;
     this.dbEntry = db.voelker[this.hero.grundlagen.volk];
-    this.removeVolkstalente();
-    this.addVolkstalente();
+    this.hero.talents.removeInnateTalents();
+    this.addInnateTalents();
 
     this.hero.flaws.removeInnateFlaws();
     this.addInnateFlaws();
@@ -20,22 +20,18 @@ export default class VolksController {
     document.dispatchEvent(new Event("resetTalents"));
   }
 
-  removeVolkstalente() {
-    this.hero.talente = this.hero.talente.filter((el) => !el.volkstalent);
-  }
-
-  addVolkstalente() {
+  addInnateTalents() {
     if (!this.dbEntry) return;
-    let talente = this.dbEntry.talente ? this.dbEntry.talente.split("\n") : [];
-    talente.forEach((id) => {
-      if (this.hero.talenteController.findTalent(id))
-        this.hero.talenteController.findTalent(id).volkstalent = true;
-      else this.hero.talenteController.addTalent(id, true);
+    let talents = this.dbEntry.talents ? this.dbEntry.talents.split("\n") : [];
+    talents.forEach((id) => {
+      if (this.hero.talents.findTalent(id))
+        this.hero.talents.findTalent(id).innate = true;
+      else this.hero.talents.addTalent(id, true);
     });
   }
 
   getInnateFlaws() {
-    return this.dbEntry.schwaechen ? this.dbEntry.schwaechen.split("\n") : [];
+    return this.dbEntry.flaws ? this.dbEntry.flaws.split("\n") : [];
   }
 
   addInnateFlaws() {

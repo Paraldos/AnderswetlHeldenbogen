@@ -32,14 +32,14 @@ export default class DbTalenteModal {
       new TalenteTypeContainer("Übernatürlich", this.modalContentn),
       new TalenteTypeContainer("Zauber", this.modalContentn),
     ];
-    this.talente = this.fillTalenteArray();
+    this.talents = this.fillTalenteArray();
     this.typeContainer.forEach((el) => el.updateVisbility());
   }
 
   fillTalenteArray() {
     let arr = [];
-    for (let key in db.talente) {
-      let heroHasTalent = hero.talente.find((el) => el.id === key);
+    for (let key in db.talents) {
+      let heroHasTalent = hero.talents.value.find((el) => el.id === key);
 
       if (heroHasTalent) continue;
       let talent = new DBTalent(key, this.modal);

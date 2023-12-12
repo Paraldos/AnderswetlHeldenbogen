@@ -1,35 +1,40 @@
-export default class TalenteController {
+export default class Talents {
   constructor(hero) {
     this.hero = hero;
+    this.value = [];
+  }
+
+  removeInnateTalents() {
+    this.value = this.value.filter((el) => !el.innate);
   }
 
   findTalent(id) {
-    return this.hero.talente.find((el) => el.id === id);
+    return this.value.find((el) => el.id === id);
   }
 
-  addTalent(id, volkstalent = false) {
-    this.hero.talente.push({
+  addTalent(id, innate = false) {
+    this.value.push({
       id: id,
       comment: "",
       level: 1,
       selected: "",
-      volkstalent: volkstalent,
+      innate: innate,
     });
     this.hero.saveHero();
     document.dispatchEvent(new Event("resetTalents"));
   }
 
   increaseTalent(index) {
-    if (this.hero.talente[index].level >= 5) return;
-    this.hero.talente[index].level += 1;
+    if (this.value[index].level >= 5) return;
+    this.value[index].level += 1;
     this.hero.saveHero();
     document.dispatchEvent(new Event("resetTalents"));
   }
 
   decreaseTalent(index) {
-    this.hero.talente[index].level -= 1;
-    if (this.hero.talente[index].level <= 0) {
-      this.hero.talente.splice(index, 1);
+    this.value[index].level -= 1;
+    if (this.value[index].level <= 0) {
+      this.value.splice(index, 1);
     }
     this.hero.saveHero();
     document.dispatchEvent(new Event("resetTalents"));

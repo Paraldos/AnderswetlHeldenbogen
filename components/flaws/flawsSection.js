@@ -47,13 +47,13 @@ export default class FlawsSection {
 
   updateSectionHeader() {
     if (this.section.editBtn.classList.contains("on")) {
-      this.section.updateHeader(`Schwächen (${this.getSchwaechenSum()})`);
+      this.section.updateHeader(`Schwächen (${this.getFlawsSum()})`);
     } else {
       this.section.updateHeader("Schwächen");
     }
   }
 
-  getSchwaechenSum() {
+  getFlawsSum() {
     return hero.flaws.value.length;
   }
 }

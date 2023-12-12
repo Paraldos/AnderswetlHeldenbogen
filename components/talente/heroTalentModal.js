@@ -28,7 +28,7 @@ export default class HeroTalentModal {
   }
 
   addSelectorOptions(newSelect) {
-    let talent = hero.talenteController.findTalent("veranlagung");
+    let talent = hero.talents.findTalent("veranlagung");
     for (let attribut of hero.veranlagungsController.getVeranlagungLimits()) {
       let newOption = document.createElement("option");
       newOption.value = attribut;
@@ -55,11 +55,11 @@ export default class HeroTalentModal {
   addComment() {
     let comment = document.createElement("textarea");
     comment.classList.add("modal__textfield");
-    comment.innerText = hero.talente[this.index].comment;
+    comment.innerText = hero.talents.value[this.index].comment;
     this.modal.content.appendChild(comment);
 
     comment.addEventListener("input", (event) => {
-      hero.talente[this.index].comment = comment.value;
+      hero.talents.value[this.index].comment = comment.value;
       hero.saveHero();
       document.dispatchEvent(new Event("resetTalents"));
     });

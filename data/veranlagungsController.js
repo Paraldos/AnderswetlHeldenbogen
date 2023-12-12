@@ -6,13 +6,13 @@ export default class VeranlagungsController {
   }
 
   getVeranlagung() {
-    let talent = this.hero.talenteController.findTalent("veranlagung");
+    let talent = this.hero.talents.findTalent("veranlagung");
     if (talent) return talent.selected;
     else return false;
   }
 
   getVeranlagungName() {
-    let talent = this.hero.talenteController.findTalent("veranlagung");
+    let talent = this.hero.talents.findTalent("veranlagung");
     if (talent.selected) return db.attribute[talent.selected].name;
     else return false;
   }
@@ -27,7 +27,7 @@ export default class VeranlagungsController {
   }
 
   setVeranlagung(id) {
-    let talent = this.hero.talenteController.findTalent("veranlagung");
+    let talent = this.hero.talents.findTalent("veranlagung");
     talent.selected = id;
     this.hero.saveHero();
   }

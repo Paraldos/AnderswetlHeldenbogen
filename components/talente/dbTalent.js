@@ -5,7 +5,7 @@ import DBTalentModal from "./dbTalentModal.js";
 export default class DBTalent {
   constructor(id, modal) {
     this.id = id;
-    this.dbEntry = db.talente[id];
+    this.dbEntry = db.talents[id];
     this.modal = modal;
     this.container = this.modal.content.querySelector(
       `.talente__${this.dbEntry.type}`
@@ -40,7 +40,7 @@ export default class DBTalent {
 
   addPlusBtnListener() {
     this.plusBtn.addEventListener("click", () =>
-      hero.talenteController.addTalent(this.id)
+      hero.talents.addTalent(this.id)
     );
   }
 

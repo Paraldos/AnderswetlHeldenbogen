@@ -1,6 +1,6 @@
 import db from "./db.js";
 import VolksController from "./volksController.js";
-import TalenteController from "./talenteController.js";
+import Talents from "./talents.js";
 import VeranlagungsController from "./veranlagungsController.js";
 import Flaws from "./flaws.js";
 
@@ -9,7 +9,7 @@ class Hero {
     this.arrayOfHeros = [];
     this.heroIndex = null;
     this.volksController = new VolksController(this);
-    this.talenteController = new TalenteController(this);
+    this.talents = new Talents(this);
     this.veranlagungsController = new VeranlagungsController(this);
     this.flaws = new Flaws(this);
 
@@ -76,7 +76,7 @@ class Hero {
       this.fertigkeiten[el] = { value: 0 };
     }
 
-    this.talente = [];
+    this.talents.value = [];
 
     this.flaws.value = [];
   }
@@ -95,7 +95,7 @@ class Hero {
     this.grundlagen = this.arrayOfHeros[index].grundlagen;
     this.attribute = this.arrayOfHeros[index].attribute;
     this.fertigkeiten = this.arrayOfHeros[index].fertigkeiten;
-    this.talente = this.arrayOfHeros[index].talente;
+    this.talents.value = this.arrayOfHeros[index].talents;
     this.flaws.value = this.arrayOfHeros[index].flaws;
   }
 
@@ -104,7 +104,7 @@ class Hero {
       grundlagen: this.grundlagen,
       attribute: this.attribute,
       fertigkeiten: this.fertigkeiten,
-      talente: this.talente,
+      talents: this.talents.value,
       flaws: this.flaws.value,
     };
     this.arrayOfHeros[this.heroIndex] = hero;
