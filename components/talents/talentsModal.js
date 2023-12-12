@@ -5,17 +5,13 @@ import TalentModal from "./talentModal.js";
 
 export default class TalentsModal {
   constructor() {
-    this.modal = this.createModal();
+    this.modal = this.initModal();
     this.modalContentn = this.modal.content;
     this.resetModal();
-    this.addResetListener();
-  }
-
-  addResetListener() {
     document.addEventListener("resetTalents", () => this.resetModal());
   }
 
-  createModal() {
+  initModal() {
     let modal = new Modal();
     modal.content.innerHTML = `<h2>Talente</h2>`;
     return modal;
