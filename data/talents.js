@@ -4,6 +4,10 @@ export default class Talents {
     this.value = [];
   }
 
+  getSum() {
+    return this.value.reduce((acc, el) => acc + el.level, 0);
+  }
+
   removeInnateTalents() {
     this.value = this.value.filter((el) => !el.innate);
   }

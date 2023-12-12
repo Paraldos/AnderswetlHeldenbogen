@@ -1,9 +1,10 @@
 import db from "../../data/db.js";
 import hero from "../../data/hero.js";
+//
 import Attribute from "../attribute/attribute.js";
 import Grundlagen from "../grundlagen/grundlagen.js";
 import Fertigkeiten from "../fertigkeiten/fertigkeiten.js";
-import TalentsSection from "../talente/talentsSection.js";
+import TalentsSection from "../talents/talentsSection.js";
 import FlawsSection from "../flaws/flawsSection.js";
 
 export default class Main {

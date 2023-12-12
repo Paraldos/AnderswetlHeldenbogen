@@ -427,24 +427,30 @@ option {
   transform: scale(1.4);
 }
 
-.talente__volkstalent-btn {
+.talents__volkstalent-btn {
   display: none;
 }
-.talente__content {
+.talents__content {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-.talente__container {
+.talents__container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 10px 40px;
 }
-.talente__container h3 {
+.talents__container h3 {
   grid-column-start: 1;
   grid-column-end: 4;
   margin: 0;
   margin-left: 5px;
+}
+
+.talents-modal__container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px 40px;
 }
 
 .talent {
