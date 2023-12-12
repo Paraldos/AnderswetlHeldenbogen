@@ -6,6 +6,7 @@ import talente from "./json/talente.json" assert { type: "json" };
 import schwaechen from "./json/schwaechen.json" assert { type: "json" };
 
 class DB {
+  // Test
   constructor() {
     this.grundlagen = grundlagen;
     this.voelker = voelker;
