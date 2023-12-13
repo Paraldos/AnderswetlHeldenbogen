@@ -1,5 +1,5 @@
 import grundlagen from "./json/grundlagen.json" assert { type: "json" };
-import attribute from "./json/attribute.json" assert { type: "json" };
+import attributs from "./json/attributs.json" assert { type: "json" };
 import voelker from "./json/voelker.json" assert { type: "json" };
 import fertigkeiten from "./json/fertigkeiten.json" assert { type: "json" };
 
@@ -11,7 +11,7 @@ class DB {
   constructor() {
     this.grundlagen = grundlagen;
     this.voelker = voelker;
-    this.attribute = attribute;
+    this.attributs = attributs;
     this.fertigkeiten = fertigkeiten;
     this.talents = talents;
     this.flaws = flaws;

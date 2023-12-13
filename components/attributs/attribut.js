@@ -5,8 +5,8 @@ import Modal from "../modal/modal.js";
 export default class Attribut {
   constructor(key) {
     this.key = key;
-    this.dbEntry = db.attribute[key];
-    this.container = document.querySelector(".attribute__content");
+    this.dbEntry = db.attributs[key];
+    this.container = document.querySelector(".attributs__content");
     this.element = this.createElement();
     this.mainBtn = this.element.querySelector(".attribut__main-btn");
     this.plusBtn = this.element.querySelector(".attribut__plus-btn");
@@ -34,12 +34,12 @@ export default class Attribut {
   }
 
   updateElement() {
-    let value = hero.attribute[this.key].value;
+    let value = hero.attributs[this.key].value;
     if (hero.veranlagungsController.getVeranlagung() === this.key) {
       value += 1;
     }
     this.mainBtn.innerHTML = `${this.dbEntry.name}: ${value}`;
-    document.dispatchEvent(new Event("updateAttributeHeader"));
+    document.dispatchEvent(new Event("updateAttributsHeader"));
   }
 
   addMainBtnListener() {
@@ -51,8 +51,8 @@ export default class Attribut {
 
   addPlusBtnListener() {
     this.plusBtn.addEventListener("click", () => {
-      if (hero.attribute[this.key].value < 5) {
-        hero.attribute[this.key].value += 1;
+      if (hero.attributs[this.key].value < 5) {
+        hero.attributs[this.key].value += 1;
         hero.saveHero();
         this.updateElement();
       }
@@ -61,8 +61,8 @@ export default class Attribut {
 
   addMinusListener() {
     this.minusBtn.addEventListener("click", () => {
-      if (hero.attribute[this.key].value > 1) {
-        hero.attribute[this.key].value -= 1;
+      if (hero.attributs[this.key].value > 1) {
+        hero.attributs[this.key].value -= 1;
         hero.saveHero();
         this.updateElement();
       }

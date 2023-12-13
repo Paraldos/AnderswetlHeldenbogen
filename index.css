@@ -167,7 +167,7 @@ option {
   background-color: var(--color__scrollbar-thumb--hover);
 }
 
-.attribute__content {
+.attributs__content {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px 40px;

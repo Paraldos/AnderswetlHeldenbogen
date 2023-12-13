@@ -66,9 +66,9 @@ class Hero {
       this.grundlagen[el] = "";
     }
 
-    this.attribute = {};
-    for (let el in db.attribute) {
-      this.attribute[el] = { value: 1 };
+    this.attributs = {};
+    for (let el in db.attributs) {
+      this.attributs[el] = { value: 1 };
     }
 
     this.fertigkeiten = {};
@@ -93,7 +93,7 @@ class Hero {
     this.setHeroIndex();
     this.resetHero();
     this.grundlagen = this.arrayOfHeros[index].grundlagen;
-    this.attribute = this.arrayOfHeros[index].attribute;
+    this.attributs = this.arrayOfHeros[index].attributs;
     this.fertigkeiten = this.arrayOfHeros[index].fertigkeiten;
     this.talents.value = this.arrayOfHeros[index].talents;
     this.flaws.value = this.arrayOfHeros[index].flaws;
@@ -102,7 +102,7 @@ class Hero {
   saveHero() {
     let hero = {
       grundlagen: this.grundlagen,
-      attribute: this.attribute,
+      attributs: this.attributs,
       fertigkeiten: this.fertigkeiten,
       talents: this.talents.value,
       flaws: this.flaws.value,
