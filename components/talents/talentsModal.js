@@ -75,11 +75,15 @@ class SingleTalent {
   }
 
   initTalent() {
+    let txt = `${this.dbEntry.name}`;
+    if (this.dbEntry.max_level > 1) {
+      txt += ` (1 bis ${this.dbEntry.max_level})`;
+    }
     let newElement = Object.assign(document.createElement("div"), {
       className: "talent",
       innerHTML: `
         <button class="talent__main-btn">
-          ${this.dbEntry.name}
+          ${txt}
         </button>
         <button class="talent__plus-btn symbol-btn">
           <i class="fa-solid fa-plus"></i>
