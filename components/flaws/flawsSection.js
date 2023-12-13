@@ -64,6 +64,7 @@ class SingleFlaw {
     this.index = index;
     this.container = document.querySelector(".flaws__content");
     this.dbEntry = db.flaws[id];
+    this.flaw = hero.flaws.value[this.index];
     this.element = this.createElement();
     this.mainBtn = this.element.querySelector(".flaw__main-btn");
     this.minusBtn = this.element.querySelector(".flaw__minus-btn");
@@ -74,10 +75,12 @@ class SingleFlaw {
   }
 
   createElement() {
+    const txt = `${this.dbEntry.name}${this.flaw.comment ? "*" : ""}`;
+
     let newElement = document.createElement("div");
     newElement.classList.add("flaw");
     newElement.innerHTML = `
-      <button class="flaw__main-btn">${this.dbEntry.name}</button>
+      <button class="flaw__main-btn">${txt}</button>
       <button class="flaw__minus-btn symbol-btn">
         <i class="fa-solid fa-minus"></i>
       </button>`;
@@ -86,7 +89,7 @@ class SingleFlaw {
   }
 
   updateBtns() {
-    hero.flaws.value[this.index].innate
+    this.flaw.innate
       ? this.minusBtn.setAttribute("disabled", true)
       : this.minusBtn.removeAttribute("disabled");
   }
