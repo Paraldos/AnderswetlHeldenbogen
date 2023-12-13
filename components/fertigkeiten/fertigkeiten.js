@@ -15,9 +15,9 @@ export default class Fertigkeiten {
   createContainer() {
     let container = document.querySelector(".fertigkeiten__content");
     container.innerHTML = `
-    <div class="fertigkeiten__container fertigkeiten__geistig"><h2>Geistig</h2></div>
-    <div class="fertigkeiten__container fertigkeiten__koerperlich"><h2>Körperlich</h2></div>
-    <div class="fertigkeiten__container fertigkeiten__sozial"><h2>Sozial</h2></div>`;
+    <div class="fertigkeiten__container fertigkeiten__geistig"><h3>Geistig</h3></div>
+    <div class="fertigkeiten__container fertigkeiten__koerperlich"><h3>Körperlich</h3></div>
+    <div class="fertigkeiten__container fertigkeiten__sozial"><h3>Sozial</h3></div>`;
     return container;
   }
 

@@ -190,6 +190,9 @@ option {
   grid-template-columns: 1fr;
   gap: 10px 40px;
 }
+.fertigkeiten__container h3 {
+  margin: 0;
+}
 
 .fertigkeit {
   display: flex;
