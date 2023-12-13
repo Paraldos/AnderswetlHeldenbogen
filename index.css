@@ -262,61 +262,6 @@ option {
   color: var(--color__nav-text--hover);
 }
 
-.hero-menu {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  bottom: -100%;
-  border-top: 4px solid var(--color__nav-text);
-  background-color: var(--color__nav-menu-background);
-  transition-property: bottom;
-  transition-duration: 0.4s;
-}
-.hero-menu__container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  max-width: 300px;
-  margin: auto;
-}
-.hero-menu__hero-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-  border-top: 2px solid var(--color__nav-text);
-  margin-top: 10px;
-  padding-top: 10px;
-}
-.hero-menu__new-hero {
-  padding: 20px;
-}
-.hero-menu__hero-btn {
-  width: 100%;
-  display: flex;
-  gap: 10px;
-}
-.hero-menu__hero-btn--active {
-  border-color: var(--color__btn--focuse);
-}
-.hero-menu__hero-btn--load {
-  width: 100%;
-}
-.hero-menu__hero-btn--delete {
-  width: -moz-fit-content;
-  width: fit-content;
-  aspect-ratio: 1/1;
-}
-.hero-menu--active {
-  bottom: 0%;
-}
-
 .delete-hero-modal {
   margin-top: 20px;
 }
@@ -324,6 +269,27 @@ option {
   margin-top: 20px;
   display: flex;
   gap: 20px;
+}
+
+.modal__new-hero-btn {
+  margin-top: 20px;
+  padding: 20px;
+}
+.modal hr {
+  margin: 10px 0;
+  border: 1px solid var(--color__nav-text);
+}
+.modal ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.modal li {
+  display: flex;
+  gap: 10px;
 }
 
 .merkmale ul {

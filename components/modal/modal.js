@@ -22,9 +22,9 @@ export default class Modal {
       this.modal.classList.add("modal__fade-in");
     }, 50);
 
-    this.addBackgroundListener();
-    this.addXBtnListener();
-    this.addEscListener();
+    this.background.addEventListener("click", () => this.destroyModal());
+    this.xBtn.addEventListener("click", () => this.destroyModal());
+    this.modal.addEventListener("escape", () => this.destroyModal());
     this.addOverflow();
   }
 
@@ -40,18 +40,6 @@ export default class Modal {
     `;
     this.body.appendChild(modal);
     return modal;
-  }
-
-  addBackgroundListener() {
-    this.background.addEventListener("click", () => this.destroyModal());
-  }
-
-  addXBtnListener() {
-    this.xBtn.addEventListener("click", () => this.destroyModal());
-  }
-
-  addEscListener() {
-    this.modal.addEventListener("escape", () => this.destroyModal());
   }
 
   addOverflow() {
