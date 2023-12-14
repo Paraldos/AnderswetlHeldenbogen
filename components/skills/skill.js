@@ -17,9 +17,7 @@ export default class Skill {
   }
 
   createElement() {
-    let container = document.querySelector(
-      `.skills__${this.dbEntry.type}`
-    );
+    let container = document.querySelector(`.skills__${this.dbEntry.type}`);
     const newElement = document.createElement("div");
     newElement.classList.add("skill");
     newElement.innerHTML = `
@@ -42,10 +40,7 @@ export default class Skill {
   }
 
   addMainBtnListener() {
-    this.mainBtn.addEventListener(
-      "click",
-      () => new SkillsModal(this.dbEntry)
-    );
+    this.mainBtn.addEventListener("click", () => new SkillsModal(this.dbEntry));
   }
 
   addPlusListener() {

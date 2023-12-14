@@ -6,7 +6,7 @@ import Grundlagen from "../grundlagen/grundlagen.js";
 import Skills from "../skills/skills.js";
 import TalentsSection from "../talents/talentsSection.js";
 import FlawsSection from "../flaws/flawsSection.js";
-import TraitsSection from "../traits/traitsSection.js";
+import StatesSection from "../states/traitsSection.js";
 
 export default class Main {
   constructor() {
@@ -25,7 +25,7 @@ export default class Main {
   }
 
   fillMainWithHero() {
-    new TraitsSection();
+    new StatesSection();
     new Grundlagen();
     new Attributs();
     new Skills();

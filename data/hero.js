@@ -79,6 +79,15 @@ class Hero {
     this.talents.value = [];
 
     this.flaws.value = [];
+
+    this.states = {
+      ap: 7,
+      lp: 7,
+      sp: 3,
+      ep: 0,
+      stufe: 1,
+      tempo: 7,
+    };
   }
 
   newHero() {
@@ -97,6 +106,7 @@ class Hero {
     this.skills = this.arrayOfHeros[index].skills;
     this.talents.value = this.arrayOfHeros[index].talents;
     this.flaws.value = this.arrayOfHeros[index].flaws;
+    this.states.value = this.arrayOfHeros[index].states;
   }
 
   saveHero() {
@@ -106,6 +116,7 @@ class Hero {
       skills: this.skills,
       talents: this.talents.value,
       flaws: this.flaws.value,
+      states: this.states,
     };
     this.arrayOfHeros[this.heroIndex] = hero;
     this.setHeroIndex();

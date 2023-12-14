@@ -1,0 +1,30 @@
+.states {
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  &__list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  &__list-item {
+    display: flex;
+    gap: 10px;
+  }
+
+  &__squares {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  &__main-btn {
+    max-width: 300px;
+  }
+}
