@@ -3,7 +3,7 @@ import hero from "../../data/hero.js";
 //
 import Attributs from "../attributs/attributs.js";
 import Grundlagen from "../grundlagen/grundlagen.js";
-import Fertigkeiten from "../fertigkeiten/fertigkeiten.js";
+import Skills from "../skills/skills.js";
 import TalentsSection from "../talents/talentsSection.js";
 import FlawsSection from "../flaws/flawsSection.js";
 import TraitsSection from "../traits/traitsSection.js";
@@ -28,7 +28,7 @@ export default class Main {
     new TraitsSection();
     new Grundlagen();
     new Attributs();
-    new Fertigkeiten();
+    new Skills();
     new TalentsSection();
     new FlawsSection();
   }

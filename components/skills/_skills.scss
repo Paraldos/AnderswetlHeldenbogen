@@ -1,4 +1,4 @@
-.fertigkeiten {
+.skills {
   &__content {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -17,7 +17,7 @@
   }
 }
 
-.fertigkeit {
+.skill {
   display: flex;
   gap: 10px;
 }
