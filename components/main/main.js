@@ -2,7 +2,7 @@ import db from "../../data/db.js";
 import hero from "../../data/hero.js";
 //
 import Attributs from "../attributs/attributs.js";
-import Grundlagen from "../grundlagen/grundlagen.js";
+import Grundlagen from "../basics/grundlagen.js";
 import Skills from "../skills/skills.js";
 import TalentsSection from "../talents/talentsSection.js";
 import FlawsSection from "../flaws/flawsSection.js";
