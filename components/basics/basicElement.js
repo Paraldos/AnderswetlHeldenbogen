@@ -1,6 +1,7 @@
 import db from "../../data/db.js";
 import hero from "../../data/hero.js";
 
+// TEst
 export default class BasicElement {
   constructor(section, key) {
     this.section = section;
