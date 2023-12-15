@@ -6,7 +6,7 @@ import Grundlagen from "../grundlagen/grundlagen.js";
 import Skills from "../skills/skills.js";
 import TalentsSection from "../talents/talentsSection.js";
 import FlawsSection from "../flaws/flawsSection.js";
-import StatesSection from "../states/traitsSection.js";
+import StatesSection from "../states/statesSection.js";
 
 export default class Main {
   constructor() {

@@ -81,9 +81,9 @@ class Hero {
     this.flaws.value = [];
 
     this.states = {
-      ap: 7,
-      lp: 7,
-      sp: 3,
+      ap: {max: 7, current: 5},
+      lp: {max: 7, current: 7},
+      sp: {max: 3, current: 3},
       ep: 0,
       stufe: 1,
       tempo: 7,
