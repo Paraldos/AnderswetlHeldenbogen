@@ -232,12 +232,6 @@ option {
   margin: auto;
 }
 
-.merkmale ul {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
 .modal {
   display: flex;
   justify-content: center;
@@ -420,7 +414,7 @@ option {
 .states__content {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 10px;
 }
 .states__list {
   list-style: none;

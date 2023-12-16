@@ -2,27 +2,27 @@
   "ap": {
     "name": "Ausdauerpunkte",
     "abbreviation": "AP",
-    "description": "AP verkörpern die geistigen und körperlichen Reserven, mit denen du besondere Fähigkeiten wie z.B. Manöver oder Zauber aktvierst.\nAP erholt sich schnell. Für 1 Stunde Rast erhältst du 2 AP zurück. Eine Nachtruhe füllt deinen Vorrat vollständig auf."
+    "description": "AP verkörpern die geistigen und körperlichen Reserven, mit denen du besondere Fähigkeiten wie z.B. Manöver oder Zauber aktvierst.\n\nAP erholt sich schnell. Für 1 Stunde Rast erhältst du 2 AP zurück. Eine Nachtruhe füllt deinen Vorrat vollständig auf."
   },
   "ep": {
     "name": "Erfahrungspunkte",
     "abbreviation": "EP",
-    "description": "EP sind die Währung, mit der du deine Werte verbessern kannst.\nGewöhnlich erhältst du 1 bis 2 Punkte, wen eine Aufgabe abgeschlossen oder ein mächtiger Gegner besiegt wurde.\nNimmst du dir eine Woche Zeit (trainieren, studieren, meditieren, etc.) und investierst 5 EP, kannst du eine Stufe aufsteigen und eine der folgenden Verbesserungen kaufen:\n- 2 Punkte auf Fertigkeiten\n- 2 Punkte auf max. AP oder max LP\n- Neues Talent\nJede 3te Stufe (3, 6, 9, 12, 15, etc.) darfst du außerdem ein Attribut um einen Punkt verbessern.\nOptional, Lehrer: Du benötigst eine Woche Training und einen passenden Lehrer, der vermutlich Geld oder eine Gegenleistung für seine Dienste verlangt."
+    "description": "EP sind die Währung, mit der du deine Werte verbessern kannst.\n\nGewöhnlich erhältst du 1 bis 2 Punkte, wen eine Aufgabe abgeschlossen oder ein mächtiger Gegner besiegt wurde.\n\nNimmst du dir eine Woche Zeit (trainieren, studieren, meditieren, etc.) und investierst 5 EP, kannst du eine Stufe aufsteigen und eine der folgenden Verbesserungen kaufen:\n\n- 2 Punkte auf Fertigkeiten\n\n- 2 Punkte auf max. AP oder max LP\n\n- Neues Talent\n\nJede 3te Stufe (3, 6, 9, 12, 15, etc.) darfst du außerdem ein Attribut um einen Punkt verbessern.\n\nOptional, Lehrer: Du benötigst eine Woche Training und einen passenden Lehrer, der vermutlich Geld oder eine Gegenleistung für seine Dienste verlangt."
   },
   "lp": {
     "name": "Lebenspunkte",
     "abbreviation": "LP",
-    "description": "LP bestimmen wie viel Schaden du einstecken kannst.\nSinken deine LP auf 0, gehst du KO zu Boden und kannst nicht mehr handeln. Sind alle Helden KO, entscheidend der Erzähler wie es weiter geht. Wen sie glück haben, werden die Helden nur ausgeraubt. Im schlimmsten Fall könnten sie aber auch umkommen.\nLP können durch Schlaf und Ruhe zurückgewonnen werden. Eine ruhige Nacht stellt 1 Punkt wieder her und eine ruhige Nacht mit medizinischer Versorgung 2 Punkte.\nHinweis, Erzähler: Handelt es sich um einen ernsten Kampf, gehen NPCs nicht KO, sondern sterben.\nHinweis, Erste Hilfe: Ist Schaden nicht älter als eine Stunde und wurde er noch nicht versorgt, kann er mit erster Hilfe behandelt werden. Das dauert 5 Minuten, erfordert eine Probe auf Klugheit + Medizin und heilt 1 LP für je 2 Erfolge."
+    "description": "LP bestimmen wie viel Schaden du einstecken kannst.\n\nSinken deine LP auf 0, gehst du KO zu Boden und kannst nicht mehr handeln. Sind alle Helden KO, entscheidend der Erzähler wie es weiter geht. Wen sie glück haben, werden die Helden nur ausgeraubt. Im schlimmsten Fall könnten sie aber auch umkommen.\n\nLP können durch Schlaf und Ruhe zurückgewonnen werden. Eine ruhige Nacht stellt 1 Punkt wieder her und eine ruhige Nacht mit medizinischer Versorgung 2 Punkte.\n\nHinweis, Erzähler: Handelt es sich um einen ernsten Kampf, gehen NPCs nicht KO, sondern sterben.\n\nHinweis, Erste Hilfe: Ist Schaden nicht älter als eine Stunde und wurde er noch nicht versorgt, kann er mit erster Hilfe behandelt werden. Das dauert 5 Minuten, erfordert eine Probe auf Klugheit + Medizin und heilt 1 LP für je 2 Erfolge."
   },
   "sp": {
     "name": "Schicksalspunkte",
     "abbreviation": "SP",
-    "description": "SP sind der Funke des Besonderen, der Helden von anderen Personen unterscheidet. Setzt du einen SP ein, kannst du bei einer deiner Proben eine beliebige Anzahl von Würfeln neu rollen.\nSP können im Spiel nicht zurückgewonnen werden. Du startest einfach jeden Spielabend mit einem vollen Vorrat."
+    "description": "SP sind der Funke des Besonderen, der Helden von anderen Personen unterscheidet. Setzt du einen SP ein, kannst du bei einer deiner Proben eine beliebige Anzahl von Würfeln neu rollen.\n\nSP können im Spiel nicht zurückgewonnen werden. Du startest einfach jeden Spielabend mit einem vollen Vorrat."
   },
   "stufe": {
     "name": "Stufe",
     "abbreviation": "ST",
-    "description": "Deine Stufe beschreibt, wie mächtig du bist. Sie dient vor allem als Richtwert für den Erzähler, um Abenteuer so zu gestalten, dass sie zu deinen Fähigkeiten passen.\n1-3 = Anfänger\n4-6 = Amateur\n7-9 = Veteran\n10-12 = Meister\n13+ = Legende"
+    "description": "Deine Stufe beschreibt, wie mächtig du bist. Sie dient vor allem als Richtwert für den Erzähler, um Abenteuer so zu gestalten, dass sie zu deinen Fähigkeiten passen.\n\n1-3 = Anfänger\n\n4-6 = Amateur\n\n7-9 = Veteran\n\n10-12 = Meister\n\n13+ = Legende"
   },
   "tempo": {
     "name": "Tempo",

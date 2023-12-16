@@ -8,7 +8,7 @@ export default class Flaws {
     this.value = this.value.filter((el) => !el.innate);
   }
 
-  getFlaw(id) {
+  findFlaw(id) {
     return this.value.find((el) => el.id === id);
   }
 
@@ -18,13 +18,15 @@ export default class Flaws {
       comment: "",
       innate: innate,
     });
-    this.hero.saveHero();
     document.dispatchEvent(new Event("resetFlaws"));
+    document.dispatchEvent(new Event("resetStates"));
+    this.hero.saveHero();
   }
 
   removeFlaw(index) {
     this.value.splice(index, 1);
-    this.hero.saveHero();
     document.dispatchEvent(new Event("resetFlaws"));
+    document.dispatchEvent(new Event("resetStates"));
+    this.hero.saveHero();
   }
 }

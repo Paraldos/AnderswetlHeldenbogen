@@ -18,7 +18,7 @@ export default class FlawsModal {
 
   addFlaws() {
     for (let id in db.flaws) {
-      if (hero.flaws.getFlaw(id)) continue;
+      if (hero.flaws.findFlaw(id)) continue;
       else new SingleFlaw(id, this.modal);
     }
   }

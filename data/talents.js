@@ -24,15 +24,17 @@ export default class Talents {
       selected: "",
       innate: innate,
     });
-    this.hero.saveHero();
     document.dispatchEvent(new Event("resetTalents"));
+    document.dispatchEvent(new Event("resetStates"));
+    this.hero.saveHero();
   }
 
   increaseTalent(index) {
     if (this.value[index].level >= 5) return;
     this.value[index].level += 1;
-    this.hero.saveHero();
     document.dispatchEvent(new Event("resetTalents"));
+    document.dispatchEvent(new Event("resetStates"));
+    this.hero.saveHero();
   }
 
   decreaseTalent(index) {
@@ -40,7 +42,8 @@ export default class Talents {
     if (this.value[index].level <= 0) {
       this.value.splice(index, 1);
     }
-    this.hero.saveHero();
     document.dispatchEvent(new Event("resetTalents"));
+    document.dispatchEvent(new Event("resetStates"));
+    this.hero.saveHero();
   }
 }
