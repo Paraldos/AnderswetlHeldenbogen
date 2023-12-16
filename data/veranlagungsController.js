@@ -26,6 +26,13 @@ export default class VeranlagungsController {
     }
   }
 
+  resetVeranlagung() {
+    let talent = this.hero.talents.findTalent("veranlagung");
+    if (talent) {
+      talent.selected = "";
+    }
+  }
+
   setVeranlagung(id) {
     let talent = this.hero.talents.findTalent("veranlagung");
     talent.selected = id;

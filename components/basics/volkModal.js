@@ -37,7 +37,7 @@ export default class VolkModal {
   addSelectEvent(modal) {
     let select = modal.content.querySelector(".modal__select");
     select.addEventListener("change", (event) => {
-      hero.volksController.changeVolk(event.target.value);
+      hero.changeVolk(event.target.value);
       this.dbEntry = db.voelker[hero.grundlagen.volk];
       this.updateModalDescription(modal);
     });

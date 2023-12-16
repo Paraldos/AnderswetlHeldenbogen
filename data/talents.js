@@ -4,16 +4,13 @@ export default class Talents {
     this.value = [];
   }
 
-  getSum() {
-    return this.value.reduce((acc, el) => acc + el.level, 0);
-  }
-
-  removeInnateTalents() {
-    this.value = this.value.filter((el) => !el.innate);
-  }
-
+  // =================================== basics
   findTalent(id) {
     return this.value.find((el) => el.id === id);
+  }
+
+  getSum() {
+    return this.value.reduce((acc, el) => acc + el.level, 0);
   }
 
   addTalent(id, innate = false) {
@@ -45,5 +42,18 @@ export default class Talents {
     document.dispatchEvent(new Event("resetTalents"));
     document.dispatchEvent(new Event("resetStates"));
     this.hero.saveHero();
+  }
+
+  // =================================== innate
+  removeInnateTalents() {
+    this.value = this.value.filter((el) => !el.innate);
+  }
+
+  addInnateTalents(dbEntry) {
+    let talents = dbEntry.talents ? dbEntry.talents.split("\n") : [];
+    talents.forEach((id) => {
+      if (this.findTalent(id)) this.findTalent(id).innate = true;
+      else this.addTalent(id, true);
+    });
   }
 }

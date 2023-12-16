@@ -4,10 +4,6 @@ export default class Flaws {
     this.value = [];
   }
 
-  removeInnateFlaws() {
-    this.value = this.value.filter((el) => !el.innate);
-  }
-
   findFlaw(id) {
     return this.value.find((el) => el.id === id);
   }
@@ -28,5 +24,18 @@ export default class Flaws {
     document.dispatchEvent(new Event("resetFlaws"));
     document.dispatchEvent(new Event("resetStates"));
     this.hero.saveHero();
+  }
+
+  // ============================== innate
+  removeInnateFlaws() {
+    this.value = this.value.filter((el) => !el.innate);
+  }
+
+  addInnateFlaws(dbEntry) {
+    const innateFlaws = dbEntry.flaws ? dbEntry.flaws.split("\n") : [];
+    innateFlaws.forEach((id) => {
+      if (this.getFlaw(id)) this.getFlaw(id).innate = true;
+      else this.addFlaw(id, true);
+    });
   }
 }

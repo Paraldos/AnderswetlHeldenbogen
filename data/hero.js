@@ -1,5 +1,4 @@
 import db from "./db.js";
-import VolksController from "./volksController.js";
 import Talents from "./talents.js";
 import VeranlagungsController from "./veranlagungsController.js";
 import Flaws from "./flaws.js";
@@ -8,7 +7,6 @@ class Hero {
   constructor() {
     this.arrayOfHeros = [];
     this.heroIndex = null;
-    this.volksController = new VolksController(this);
     this.talents = new Talents(this);
     this.veranlagungsController = new VeranlagungsController(this);
     this.flaws = new Flaws(this);
@@ -130,6 +128,23 @@ class Hero {
     this.getHeroIndex();
     // reset
     this.getStartHero();
+  }
+
+  changeVolk(id) {
+    // basics
+    this.grundlagen.volk = id;
+    // talents
+    this.talents.removeInnateTalents();
+    this.talents.addInnateTalents(db.voelker[id]);
+    this.veranlagungsController.resetVeranlagung();
+    // flaws
+    this.flaws.removeInnateFlaws();
+    this.flaws.addInnateFlaws(db.voelker[id]);
+    // update
+    this.saveHero();
+    document.dispatchEvent(new Event("resetAttributs"));
+    document.dispatchEvent(new Event("updateVolk"));
+    document.dispatchEvent(new Event("resetTalents"));
   }
 }
 

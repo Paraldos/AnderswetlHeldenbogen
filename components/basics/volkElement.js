@@ -24,7 +24,7 @@ export default class VolkElement {
 
   addEventListeners() {
     this.mainBtn.addEventListener("click", () => new VolkModal());
-    document.addEventListener("updateMainBtn", () => this.updateMainBtn());
+    document.addEventListener("updateVolk", () => this.updateMainBtn());
   }
 
   updateMainBtn() {
