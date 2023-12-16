@@ -11,7 +11,9 @@ export default class StateModal {
 
   initModal() {
     this.modal = new Modal();
-    this.modal.content.innerHTML = `<h2>${this.dbEntry.name} (${this.dbEntry.abbreviation})</h2>`;
+    this.modal.content.innerHTML = `<h2>${this.dbEntry.name} ${
+      this.dbEntry.abbreviation ? `(${this.dbEntry.abbreviation})` : ""
+    }</h2>`;
     this.addDescription();
   }
 

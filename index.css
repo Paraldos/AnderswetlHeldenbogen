@@ -16,6 +16,7 @@
   --color__heading--text: var(--color__one);
   --color__heading--border: var(--color__one);
   --color__btn-background: var(--color__four);
+  --color__btn-background--alternative: var(--color__brown--dark);
   --color__btn-background--disabled: rgba(0, 0, 0, 0.2);
   --color__btn-text: var(--color__one);
   --color__btn--hover: var(--color__two);
@@ -414,28 +415,21 @@ option {
 .states__content {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 10px;
+  gap: 10px 40px;
 }
 .states__list {
   list-style: none;
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px 40px;
 }
 .states__list-item {
   display: flex;
   gap: 10px;
 }
-.states__squares {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 5px;
+.states__current-minus-btn, .states__current-plus-btn {
+  background-color: var(--color__btn-background--alternative);
 }
-.states__main-btn {
-  max-width: 300px;
-}
-
 .navbar {
   display: flex;
   justify-content: center;

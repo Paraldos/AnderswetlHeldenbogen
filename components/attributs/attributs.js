@@ -10,14 +10,7 @@ export default class Attributs {
     document.addEventListener("updateAttributsHeader", () =>
       this.updateSectionHeader()
     );
-    document.addEventListener("resetAttribute", () => this.onReset());
     this.section.editBtn.addEventListener("click", () => this.onEditBtnClick());
-  }
-
-  onReset() {
-    this.attributs.forEach((el) => {
-      el.updateElement();
-    });
   }
 
   onEditBtnClick() {

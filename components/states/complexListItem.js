@@ -3,98 +3,128 @@ import hero from "../../data/hero.js";
 import StateModal from "./stateModal.js";
 
 export default class ComplexListItem {
-  constructor(id, container) {
+  constructor(id, list) {
     this.id = id;
-    this.container = container;
+    this.list = list;
     this.dbEntry = db.states[id];
-    this.heroEntry = hero.states[id];
+
     this.item = this.initItem();
-
-    this.container.appendChild(this.item);
-    this.updateStatesSquares();
-
-    this.mainBtn = this.item.querySelector(".states__main-btn");
-    this.mainBtn.addEventListener("click", () => new StateModal(this.id));
+    this.list.appendChild(this.item);
+    this.currentMainBtn = this.item.querySelector(".states__current-main-btn");
+    this.maxMainBtn = this.item.querySelector(".states__max-main-btn");
     this.updateMainBtnText();
 
-    this.plusBtn = this.item.querySelector(".states__plus-btn");
-    this.plusBtn.addEventListener("click", () => this.onPlusBtnClick());
+    this.currentMainBtn.addEventListener(
+      "click",
+      () => new StateModal(this.id)
+    );
+    if (this.id !== "sp") {
+      this.maxMainBtn.addEventListener("click", () => new StateModal(this.id));
+    }
 
-    this.minusBtn = this.item.querySelector(".states__minus-btn");
-    this.minusBtn.addEventListener("click", () => this.onMinusBtnClick());
+    this.item
+      .querySelector(".states__current-plus-btn")
+      .addEventListener("click", () => this.onCurrentPlusBtnClick());
+    this.item
+      .querySelector(".states__current-minus-btn")
+      .addEventListener("click", () => this.onCurrentMinusBtnClick());
 
-    if (this.id != "sp") {
-      this.maxPlusBtn = this.item.querySelector(".states__max-plus-btn");
-      this.maxPlusBtn.addEventListener("click", () => this.onMaxPlusBtnClick());
-
-      this.maxMinusBtn = this.item.querySelector(".states__max-minus-btn");
-      this.maxMinusBtn.addEventListener("click", () =>
-        this.onMaxMinusBtnClick()
-      );
+    if (this.id !== "sp") {
+      this.item
+        .querySelector(".states__max-plus-btn")
+        .addEventListener("click", () => this.onMaxPlusBtnClick());
+      this.item
+        .querySelector(".states__max-minus-btn")
+        .addEventListener("click", () => this.onMaxMinusBtnclick());
     }
 
     document.addEventListener("resetStates", () => {
-      this.updateStatesSquares();
+      this.updateValues();
       this.updateMainBtnText();
     });
   }
 
-  onMaxPlusBtnClick() {
-    hero.states[this.id].max++;
-    hero.saveHero();
-    this.updateStatesSquares();
-    this.updateMainBtnText();
-  }
-
-  onMaxMinusBtnClick() {
-    if (this.id == "ap" && this.heroEntry.max <= 7) return;
-    if (this.id == "lp" && this.heroEntry.max <= 7) return;
-    if (this.id == "sp" && this.heroEntry.max <= 3) return;
-    this.heroEntry.max--;
-    hero.saveHero();
-    this.updateStatesSquares();
-    this.updateMainBtnText();
-  }
-
-  onPlusBtnClick() {
-    if (this.heroEntry.current < this.getMax()) {
-      this.heroEntry.current++;
-      hero.saveHero();
-      this.updateStatesSquares();
-    }
-  }
-
-  onMinusBtnClick() {
-    if (this.heroEntry.current > 0) {
-      this.heroEntry.current--;
-      hero.saveHero();
-      this.updateStatesSquares();
-    }
-  }
-
+  // ===================================================================== init
   initItem() {
-    let listItem = document.createElement("li");
-    listItem.classList = `states__list-item states__${this.id}`;
-    listItem.innerHTML = `
-        <button class="states__main-btn">Text</button>
-        <div class="states__squares states__${
-          this.id
-        }-squares states__edit-element"></div>
-        <button class="symbol-btn states__minus-btn states__edit-element"><i class="fa-solid fa-minus"></i></button>
-        <button class="symbol-btn states__plus-btn states__edit-element"><i class="fa-solid fa-plus"></i></button>
-        
-        ${this.id != "sp" ? this.getMaxBtns() : ""}`;
-    return listItem;
+    return Object.assign(document.createElement("li"), {
+      className: "states__list-item",
+      innerHTML: `
+        ${this.getCurrentBtns()}
+        ${this.getMaxBtns()}`,
+    });
+  }
+
+  getCurrentBtns() {
+    return `
+      <button class="states__current-main-btn ${
+        this.id === "sp" ? "" : "states__edit-element"
+      }">???</button>
+      <button class="symbol-btn states__current-minus-btn states__edit-element"><i class="fa-solid fa-minus"></i></button>
+      <button class="symbol-btn states__current-plus-btn states__edit-element"><i class="fa-solid fa-plus"></i></button>`;
   }
 
   getMaxBtns() {
-    return `<p class="states__edit-element invisible">Maximum: </p>
-    <button class="symbol-btn states__max-minus-btn states__edit-element invisible"><i class="fa-solid fa-minus"></i></button>
-    <button class="symbol-btn states__max-plus-btn states__edit-element invisible"><i class="fa-solid fa-plus"></i></button>`;
+    return this.id === "sp"
+      ? ""
+      : `
+      <button class="states__max-main-btn states__edit-element invisible">???</button>
+      <button class="symbol-btn states__max-minus-btn states__edit-element invisible"><i class="fa-solid fa-minus"></i></button>
+      <button class="symbol-btn states__max-plus-btn states__edit-element invisible"><i class="fa-solid fa-plus"></i></button>`;
   }
 
+  // ===================================================================== update
+  updateMainBtnText() {
+    let currentTxt = this.dbEntry.abbreviation;
+    currentTxt += `: ${hero.states[this.id].current} von ${this.getMax()}`;
+    this.currentMainBtn.innerText = currentTxt;
+
+    if (this.id == "sp") return;
+    let maxTxt = `Max ${this.dbEntry.abbreviation}: `;
+    maxTxt += this.getMax();
+    this.maxMainBtn.innerText = maxTxt;
+  }
+
+  updateValues() {
+    if (hero.states[this.id].current > this.getMax()) {
+      hero.states[this.id].current = this.getMax();
+      hero.saveHero();
+    }
+  }
+
+  // ===================================================================== listener
+  onCurrentPlusBtnClick() {
+    if (hero.states[this.id].current >= this.getMax()) return;
+    hero.states[this.id].current++;
+    hero.saveHero();
+    this.updateMainBtnText();
+  }
+
+  onCurrentMinusBtnClick() {
+    if (hero.states[this.id].current <= 0) return;
+    hero.states[this.id].current--;
+    hero.saveHero();
+    this.updateMainBtnText();
+  }
+
+  onMaxPlusBtnClick() {
+    hero.states[this.id].max++;
+    hero.states[this.id].current++;
+    hero.saveHero();
+    this.updateMainBtnText();
+  }
+
+  onMaxMinusBtnclick() {
+    if (hero.states[this.id].max <= db.states[this.id].min) return;
+    hero.states[this.id].max--;
+    hero.states[this.id].current--;
+    if (hero.states[this.id].current < 0) hero.states[this.id].current = 0;
+    hero.saveHero();
+    this.updateMainBtnText();
+  }
+
+  // ===================================================================== Helper
   getMax() {
-    let max = this.heroEntry.max;
+    let max = hero.states[this.id].max;
     if (this.id == "sp") {
       if (hero.talents.findTalent("glueck")) max++;
       if (hero.flaws.findFlaw("pech")) max--;
@@ -103,24 +133,5 @@ export default class ComplexListItem {
       if (hero.talents.findTalent("huene")) max += 2;
     }
     return max;
-  }
-
-  updateMainBtnText() {
-    let mainTxt = `${this.dbEntry.abbreviation}: ${this.getMax()}`;
-    this.mainBtn.textContent = mainTxt;
-  }
-
-  updateStatesSquares() {
-    let container = this.item.querySelector(`.states__${this.id}-squares`);
-    container.innerHTML = "";
-
-    for (let i = 1; i <= this.getMax(); i++) {
-      let square = document.createElement("i");
-      square.classList.add(
-        i <= hero.states[this.id].current ? "fa-solid" : "fa-regular"
-      );
-      square.classList.add("fa-square");
-      container.appendChild(square);
-    }
   }
 }

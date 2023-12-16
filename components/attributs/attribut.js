@@ -16,6 +16,7 @@ export default class Attribut {
     this.addMainBtnListener();
     this.addPlusBtnListener();
     this.addMinusListener();
+    document.addEventListener("resetAttributs", () => this.updateElement());
   }
 
   createElement() {

@@ -34,7 +34,7 @@ export default class TalentModal {
       newSelect.appendChild(
         Object.assign(document.createElement("option"), {
           value: attribut,
-          innerText: db.attribute[attribut].name,
+          innerText: db.attributs[attribut].name,
           selected: this.talent.selected == attribut ? true : false,
         })
       );
@@ -42,8 +42,9 @@ export default class TalentModal {
   }
 
   onSelectorChange(event) {
-    hero.talents.value[this.index].selected = event.target.value;
+    hero.veranlagungsController.setVeranlagung(event.target.value);
     hero.saveHero();
+    document.dispatchEvent(new Event("resetAttributs"));
     document.dispatchEvent(new Event("resetTalents"));
   }
 

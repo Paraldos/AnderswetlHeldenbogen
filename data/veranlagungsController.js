@@ -13,7 +13,7 @@ export default class VeranlagungsController {
 
   getVeranlagungName() {
     let talent = this.hero.talents.findTalent("veranlagung");
-    if (talent.selected) return db.attribute[talent.selected].name;
+    if (talent.selected) return db.attributs[talent.selected].name;
     else return false;
   }
 
@@ -22,7 +22,7 @@ export default class VeranlagungsController {
     if (volk.limits) {
       return volk.limits.split("\n");
     } else {
-      return Object.keys(db.attribute);
+      return Object.keys(db.attributs);
     }
   }
 

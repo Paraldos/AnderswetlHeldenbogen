@@ -81,12 +81,12 @@ class Hero {
     this.flaws.value = [];
 
     this.states = {
-      ap: { max: 7, current: 2 },
-      lp: { max: 7, current: 7 },
-      sp: { max: 3, current: 3 },
-      ep: 0,
-      stufe: 1,
-      tempo: 7,
+      ap: { max: db.states.ap.min, current: 2 },
+      lp: { max: db.states.lp.min, current: 7 },
+      sp: { max: db.states.sp.min, current: 3 },
+      ep: db.states.ep.min,
+      stufe: db.states.stufe.min,
+      tempo: db.states.tempo.min,
     };
   }
 
