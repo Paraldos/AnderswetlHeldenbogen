@@ -168,51 +168,67 @@ option {
   background-color: var(--color__scrollbar-thumb--hover);
 }
 
-.attributs__content {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px 40px;
-}
-
-.attribut {
+.navbar {
   display: flex;
-  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: var(--height__nav);
+  z-index: var(--zIndex__navbar);
+  background-color: var(--color__nav-background);
+  border-top: 4px solid var(--color__nav-text);
+}
+.navbar__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: -moz-fit-content;
+  width: fit-content;
+  aspect-ratio: 1/1;
+  box-shadow: none;
+  border: none;
+  background-color: transparent;
+}
+.navbar__btn i:before {
+  font-size: 1.6rem;
+}
+.navbar__btn:hover {
+  transform: scale(1.2);
+  color: var(--color__nav-text--hover);
 }
 
-.skills__content {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px 40px;
+.delete-hero-modal {
+  margin-top: 20px;
 }
-.skills__container {
-  height: -moz-fit-content;
-  height: fit-content;
+.delete-hero-modal__btns {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.modal__new-hero-btn {
+  margin-top: 20px;
+  padding: 20px;
+}
+.modal hr {
+  margin: 10px 0;
+  border: 1px solid var(--color__nav-text);
+}
+.modal ul {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 10px 40px;
-}
-.skills__container h3 {
+  gap: 10px;
+  list-style: none;
+  padding: 0;
   margin: 0;
 }
-
-.skill {
+.modal li {
   display: flex;
   gap: 10px;
-}
-
-.grundlagen__content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 7px 20px;
-}
-.grundlagen__element {
-  display: flex;
-  flex-direction: column;
-}
-
-.beschreibung-element {
-  grid-column-start: 1;
-  grid-column-end: 3;
 }
 
 .main {
@@ -328,6 +344,53 @@ option {
   transform: scale(1.4);
 }
 
+.grundlagen__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px 20px;
+}
+.grundlagen__element {
+  display: flex;
+  flex-direction: column;
+}
+
+.beschreibung-element {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.attributs__content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px 40px;
+}
+
+.attribut {
+  display: flex;
+  gap: 10px;
+}
+
+.skills__content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px 40px;
+}
+.skills__container {
+  height: -moz-fit-content;
+  height: fit-content;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px 40px;
+}
+.skills__container h3 {
+  margin: 0;
+}
+
+.skill {
+  display: flex;
+  gap: 10px;
+}
+
 .talents__volkstalent-btn {
   display: none;
 }
@@ -430,65 +493,31 @@ option {
 .states__current-minus-btn, .states__current-plus-btn {
   background-color: var(--color__btn-background--alternative);
 }
-.navbar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100vw;
-  height: var(--height__nav);
-  z-index: var(--zIndex__navbar);
-  background-color: var(--color__nav-background);
-  border-top: 4px solid var(--color__nav-text);
-}
-.navbar__btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: -moz-fit-content;
-  width: fit-content;
-  aspect-ratio: 1/1;
-  box-shadow: none;
-  border: none;
-  background-color: transparent;
-}
-.navbar__btn i:before {
-  font-size: 1.6rem;
-}
-.navbar__btn:hover {
-  transform: scale(1.2);
-  color: var(--color__nav-text--hover);
-}
-
-.delete-hero-modal {
-  margin-top: 20px;
-}
-.delete-hero-modal__btns {
-  margin-top: 20px;
-  display: flex;
-  gap: 20px;
-}
-
-.modal__new-hero-btn {
-  margin-top: 20px;
-  padding: 20px;
-}
-.modal hr {
-  margin: 10px 0;
-  border: 1px solid var(--color__nav-text);
-}
-.modal ul {
+.inventory__content {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 10px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
 }
-.modal li {
+.inventory__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.inventory__consumables-plus-btn {
+  width: 35px;
+}
+.inventory__consumables-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 40px;
+}
+
+.consumable {
   display: flex;
   gap: 10px;
+}
+.consumable__value {
+  margin: 0 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }/*# sourceMappingURL=index.css.map */

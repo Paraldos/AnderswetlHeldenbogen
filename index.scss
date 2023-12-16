@@ -8,13 +8,15 @@
 @import "./styles/scrollbar";
 
 // components
-@import "./components/attributs/attributs";
-@import "./components/skills/skills";
-@import "components/basics/basics";
+@import "./components/navbar/navbar";
 @import "./components/main/main";
 @import "./components/modal/modal";
 @import "./components/section/section";
+
+@import "components/basics/basics";
+@import "./components/attributs/attributs";
+@import "./components/skills/skills";
 @import "./components/talents/talents";
 @import "./components/flaws/flaws";
 @import "./components/states/states";
-@import "./components/navbar/navbar";
+@import "./components/inventory/invetory";

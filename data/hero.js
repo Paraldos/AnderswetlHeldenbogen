@@ -86,6 +86,8 @@ class Hero {
       stufe: db.states.stufe.min,
       tempo: db.states.tempo.min,
     };
+
+    this.consumables = [{ name: "Trank", value: 0 }];
   }
 
   newHero() {
@@ -105,6 +107,7 @@ class Hero {
     this.talents.value = this.arrayOfHeros[index].talents;
     this.flaws.value = this.arrayOfHeros[index].flaws;
     this.states = this.arrayOfHeros[index].states;
+    this.consumables = this.arrayOfHeros[index].consumables;
   }
 
   saveHero() {
@@ -115,6 +118,7 @@ class Hero {
       talents: this.talents.value,
       flaws: this.flaws.value,
       states: this.states,
+      consumables: this.consumables,
     };
     this.arrayOfHeros[this.heroIndex] = hero;
     this.setHeroIndex();

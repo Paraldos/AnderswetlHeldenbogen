@@ -5,12 +5,6 @@
     "abbreviation": "AP",
     "description": "AP verkörpern die geistigen und körperlichen Reserven, mit denen du besondere Fähigkeiten wie z.B. Manöver oder Zauber aktvierst.\n\nAP erholt sich schnell. Für 1 Stunde Rast erhältst du 2 AP zurück. Eine Nachtruhe füllt deinen Vorrat vollständig auf."
   },
-  "ep": {
-    "name": "Erfahrungspunkte",
-    "min": 0,
-    "abbreviation": "EP",
-    "description": "EP sind die Währung, mit der du deine Werte verbessern kannst.\n\nGewöhnlich erhältst du 1 bis 2 Punkte, wen eine Aufgabe abgeschlossen oder ein mächtiger Gegner besiegt wurde.\n\nNimmst du dir eine Woche Zeit (trainieren, studieren, meditieren, etc.) und investierst 5 EP, kannst du eine Stufe aufsteigen und eine der folgenden Verbesserungen kaufen:\n\n- 2 Punkte auf Fertigkeiten\n- 2 Punkte auf max. AP oder max LP\n- Neues Talent\n\nJede 3te Stufe (3, 6, 9, 12, 15, etc.) darfst du außerdem ein Attribut um einen Punkt verbessern.\n\nOptional, Lehrer: Du benötigst eine Woche Training und einen passenden Lehrer, der vermutlich Geld oder eine Gegenleistung für seine Dienste verlangt."
-  },
   "lp": {
     "name": "Lebenspunkte",
     "min": 7,
@@ -22,6 +16,12 @@
     "min": 3,
     "abbreviation": "SP",
     "description": "SP sind der Funke des Besonderen, der Helden von anderen Personen unterscheidet. Setzt du einen SP ein, kannst du bei einer deiner Proben eine beliebige Anzahl von Würfeln neu rollen.\n\nSP können im Spiel nicht zurückgewonnen werden. Du startest einfach jeden Spielabend mit einem vollen Vorrat."
+  },
+  "ep": {
+    "name": "Erfahrungspunkte",
+    "min": 0,
+    "abbreviation": "EP",
+    "description": "EP sind die Währung, mit der du deine Werte verbessern kannst.\n\nGewöhnlich erhältst du 1 bis 2 Punkte, wen eine Aufgabe abgeschlossen oder ein mächtiger Gegner besiegt wurde.\n\nNimmst du dir eine Woche Zeit (trainieren, studieren, meditieren, etc.) und investierst 5 EP, kannst du eine Stufe aufsteigen und eine der folgenden Verbesserungen kaufen:\n\n- 2 Punkte auf Fertigkeiten\n- 2 Punkte auf max. AP oder max LP\n- Neues Talent\n\nJede 3te Stufe (3, 6, 9, 12, 15, etc.) darfst du außerdem ein Attribut um einen Punkt verbessern.\n\nOptional, Lehrer: Du benötigst eine Woche Training und einen passenden Lehrer, der vermutlich Geld oder eine Gegenleistung für seine Dienste verlangt."
   },
   "stufe": {
     "name": "Stufe",

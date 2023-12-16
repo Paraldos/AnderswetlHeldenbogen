@@ -1,0 +1,34 @@
+.inventory {
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  &__consumables-plus-btn {
+    width: 35px;
+  }
+
+  &__consumables-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 40px;
+  }
+}
+
+.consumable {
+  display: flex;
+  gap: 10px;
+
+  &__value {
+    margin: 0 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

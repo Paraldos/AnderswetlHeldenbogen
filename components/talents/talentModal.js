@@ -61,7 +61,7 @@ export default class TalentModal {
     comment.innerText = hero.talents.value[this.index].comment;
     this.modal.content.appendChild(comment);
 
-    comment.addEventListener("input", (event) => {
+    comment.addEventListener("input", () => {
       hero.talents.value[this.index].comment = comment.value;
       hero.saveHero();
       document.dispatchEvent(new Event("resetTalents"));
