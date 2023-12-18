@@ -53,6 +53,9 @@ export default class SimpleListItem {
       ? this.dbEntry.abbreviation
       : this.dbEntry.name;
     txt += `: ${this.getValue()}`;
+    if (this.id == "ep") {
+      txt += ` (Total: ${hero.states.ep + (hero.states.stufe - 1) * 5})`;
+    }
     this.mainBtn.innerText = txt;
   }
 
@@ -76,6 +79,9 @@ export default class SimpleListItem {
 
   onMinusBtnClick() {
     if (hero.states[this.id] > 0) {
+      if (this.id == "stufe") {
+        hero.states.ep += 5;
+      }
       hero.states[this.id]--;
       document.dispatchEvent(new Event("resetStates"));
       hero.saveHero();
