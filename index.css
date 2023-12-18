@@ -496,13 +496,15 @@ option {
 .inventory__content {
   display: grid;
   grid-template-columns: 1fr;
+  gap: 30px;
+  margin-top: 30px;
 }
 .inventory__header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
-.inventory__consumables-plus-btn {
+.inventory__consumables-plus-btn, .inventory__items-plus-btn {
   width: 35px;
 }
 .inventory__consumables-container {
@@ -510,14 +512,34 @@ option {
   grid-template-columns: repeat(2, 1fr);
   gap: 10px 40px;
 }
-
-.consumable {
+.inventory__consumable {
   display: flex;
   gap: 10px;
 }
-.consumable__value {
+.inventory__consumable-value {
   margin: 0 15px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.inventory__items-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px 40px;
+}
+.inventory__labels, .inventory__item {
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr 7fr;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.inventory__item-delete-btn {
+  display: none;
+}
+
+.inventory__edit .inventory__labels, .inventory__edit .inventory__item {
+  grid-template-columns: 4fr 1fr 1fr 7fr 35px;
+}
+.inventory__edit .inventory__item-delete-btn {
+  display: inline-block;
 }/*# sourceMappingURL=index.css.map */
