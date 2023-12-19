@@ -22,6 +22,7 @@ export default class InventorySection {
     this.itemPlusBtn = this.container.querySelector(".inventory__items-plus-btn")
     this.resetItems();
     // init money
+    this.initMoney()
     new Money()
     // ================== events
     this.consPlusBtn.addEventListener("click", () => this.onConsumablesPlusClick());
@@ -51,7 +52,7 @@ export default class InventorySection {
 
   // ================== init
   initConsumables() {
-    let element = Object.assign(document.createElement("div"), {
+    this.container.appendChild(Object.assign(document.createElement("div"), {
       classList: "",
       innerHTML: `
         <div class="inventory__header">
@@ -59,8 +60,7 @@ export default class InventorySection {
           <button class="inventory__consumables-plus-btn symbol-btn invisible"><i class="fa-solid fa-plus"></i></button>
         </div>
         <div class="inventory__consumables-container"></div>`
-    })
-    this.container.appendChild(element)
+    }))
   }
 
   initInventory() {
@@ -80,6 +80,15 @@ export default class InventorySection {
         <div class="inventory__items-container"></div>`
     })
     this.container.appendChild(element)
+  }
+
+  initMoney() {
+    this.container.appendChild(Object.assign(document.createElement("div"), {
+        classList: "",
+        innerHTML:`
+          Money
+        `
+      }))
   }
 
   // ================== helper
