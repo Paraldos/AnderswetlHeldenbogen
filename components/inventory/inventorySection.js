@@ -6,26 +6,26 @@ import Item from "./item.js";
 
 export default class InventorySection {
   constructor() {
+    // basics
     this.section = new Section("Inventar", "inventory");
-    // init
-    this.initSection();
-    this.consuamblesContainer = this.section.contentContainer.querySelector(
-      ".inventory__consumables-container"
-    );
+    this.container = this.section.contentContainer
+    // ================== init
+    // init consumables
+    this.initConsumables()
+    this.consContainer = this.container.querySelector(".inventory__consumables-container");
+    this.consPlusBtn = this.container.querySelector(".inventory__consumables-plus-btn")
     this.resetConsumables();
-    this.itemsContainer = this.section.contentContainer.querySelector(
-      ".inventory__items-container"
-    );
-    this.itemsLabels =
-      this.section.contentContainer.querySelector(".inventory__labels");
+    // init items
+    this.initInventory()
+    this.itemsContainer = this.container.querySelector(".inventory__items-container");
+    this.itemsLabels = this.container.querySelector(".inventory__labels");
+    this.itemPlusBtn = this.container.querySelector(".inventory__items-plus-btn")
     this.resetItems();
-    // events
-    this.section.contentContainer
-      .querySelector(".inventory__consumables-plus-btn")
-      .addEventListener("click", () => this.onConsumablesPlusClick());
-    this.section.contentContainer
-      .querySelector(".inventory__items-plus-btn")
-      .addEventListener("click", () => this.onItemsPlusClick());
+    // init money
+    new Money()
+    // ================== events
+    this.consPlusBtn.addEventListener("click", () => this.onConsumablesPlusClick());
+    this.itemPlusBtn.addEventListener("click", () => this.onItemsPlusClick());
     this.section.editBtn.addEventListener("click", () => this.onEditBtnClick());
     document.addEventListener("resetItems", () => this.resetItems());
   }
@@ -44,47 +44,66 @@ export default class InventorySection {
   }
 
   onEditBtnClick() {
-    this.section.contentContainer.classList.toggle("inventory__edit");
+    this.container.classList.toggle("inventory__edit");
+    this.consPlusBtn.classList.toggle("invisible")
+    this.itemPlusBtn.classList.toggle("invisible")
   }
 
   // ================== init
-  initSection() {
-    this.section.contentContainer.innerHTML = `
-      <div>
+  initConsumables() {
+    let element = Object.assign(document.createElement("div"), {
+      classList: "",
+      innerHTML: `
         <div class="inventory__header">
-            <h3>Verbrauchsgegenstände</h3>
-            <button class="inventory__consumables-plus-btn symbol-btn"><i class="fa-solid fa-plus"></i></button>
+          <h3>Verbrauchsgegenstände</h3>
+          <button class="inventory__consumables-plus-btn symbol-btn invisible"><i class="fa-solid fa-plus"></i></button>
         </div>
-        <div class="inventory__consumables-container"></div>
-      </div>
+        <div class="inventory__consumables-container"></div>`
+    })
+    this.container.appendChild(element)
+  }
 
-      <div>
+  initInventory() {
+    let element = Object.assign(document.createElement("div"), {
+      classList: "",
+      innerHTML: `
         <div class="inventory__header">
           <h3>Werkzeuge</h3>
-          <button class="inventory__items-plus-btn symbol-btn"><i class="fa-solid fa-plus"></i></button>
+          <button class="inventory__items-plus-btn symbol-btn invisible"><i class="fa-solid fa-plus"></i></button>
         </div>
         <div class="inventory__labels">
-          <label class="item__label">Name</label>
-          <label class="item__label">Bonus</label>
-          <label class="item__label">Pool</label>
-          <label class="item__label">Beschreibung</label>
+          <label>Name</label>
+          <label>Bonus</label>
+          <label>Pool</label>
+          <label>Beschreibung</label>
         </div>
-        <div class="inventory__items-container"></div>
-      </div>
-    `;
+        <div class="inventory__items-container"></div>`
+    })
+    this.container.appendChild(element)
+  }
+
+  // ================== helper
+  updateLabelVisibility() {
+    this.itemsLabels.classList.toggle("invisible", hero.items.length <= 0)
   }
 
   resetConsumables() {
-    this.consuamblesContainer.innerHTML = "";
+    this.consContainer.innerHTML = "";
     hero.consumables.forEach((consumable, index) => {
-      new Consumable(consumable, index, this.consuamblesContainer);
+      new Consumable(consumable, index, this.consContainer);
     });
   }
 
   resetItems() {
+    this.updateLabelVisibility()
     this.itemsContainer.innerHTML = "";
     hero.items.forEach((item, index) => {
       new Item(item, index, this.itemsContainer);
     });
+  }
+}
+
+class Money {
+  constructor(container) {
   }
 }
