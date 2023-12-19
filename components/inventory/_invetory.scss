@@ -50,6 +50,22 @@
   &__item-delete-btn {
     display: none;
   }
+
+  &__money {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  &__money-value {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &__change-money-container {
+    display: flex;
+    gap: 10px;
+  }
 }
 
 .inventory__edit {

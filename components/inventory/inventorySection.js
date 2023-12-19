@@ -8,24 +8,33 @@ export default class InventorySection {
   constructor() {
     // basics
     this.section = new Section("Inventar", "inventory");
-    this.container = this.section.contentContainer
+    this.container = this.section.contentContainer;
     // ================== init
     // init consumables
-    this.initConsumables()
-    this.consContainer = this.container.querySelector(".inventory__consumables-container");
-    this.consPlusBtn = this.container.querySelector(".inventory__consumables-plus-btn")
+    this.initConsumables();
+    this.consContainer = this.container.querySelector(
+      ".inventory__consumables-container"
+    );
+    this.consPlusBtn = this.container.querySelector(
+      ".inventory__consumables-plus-btn"
+    );
     this.resetConsumables();
     // init items
-    this.initInventory()
-    this.itemsContainer = this.container.querySelector(".inventory__items-container");
+    this.initInventory();
+    this.itemsContainer = this.container.querySelector(
+      ".inventory__items-container"
+    );
     this.itemsLabels = this.container.querySelector(".inventory__labels");
-    this.itemPlusBtn = this.container.querySelector(".inventory__items-plus-btn")
+    this.itemPlusBtn = this.container.querySelector(
+      ".inventory__items-plus-btn"
+    );
     this.resetItems();
     // init money
-    this.initMoney()
-    new Money()
+    new Money(this.container);
     // ================== events
-    this.consPlusBtn.addEventListener("click", () => this.onConsumablesPlusClick());
+    this.consPlusBtn.addEventListener("click", () =>
+      this.onConsumablesPlusClick()
+    );
     this.itemPlusBtn.addEventListener("click", () => this.onItemsPlusClick());
     this.section.editBtn.addEventListener("click", () => this.onEditBtnClick());
     document.addEventListener("resetItems", () => this.resetItems());
@@ -46,21 +55,23 @@ export default class InventorySection {
 
   onEditBtnClick() {
     this.container.classList.toggle("inventory__edit");
-    this.consPlusBtn.classList.toggle("invisible")
-    this.itemPlusBtn.classList.toggle("invisible")
+    this.consPlusBtn.classList.toggle("invisible");
+    this.itemPlusBtn.classList.toggle("invisible");
   }
 
   // ================== init
   initConsumables() {
-    this.container.appendChild(Object.assign(document.createElement("div"), {
-      classList: "",
-      innerHTML: `
+    this.container.appendChild(
+      Object.assign(document.createElement("div"), {
+        classList: "",
+        innerHTML: `
         <div class="inventory__header">
           <h3>Verbrauchsgegenstände</h3>
           <button class="inventory__consumables-plus-btn symbol-btn invisible"><i class="fa-solid fa-plus"></i></button>
         </div>
-        <div class="inventory__consumables-container"></div>`
-    }))
+        <div class="inventory__consumables-container"></div>`,
+      })
+    );
   }
 
   initInventory() {
@@ -77,23 +88,14 @@ export default class InventorySection {
           <label>Pool</label>
           <label>Beschreibung</label>
         </div>
-        <div class="inventory__items-container"></div>`
-    })
-    this.container.appendChild(element)
-  }
-
-  initMoney() {
-    this.container.appendChild(Object.assign(document.createElement("div"), {
-        classList: "",
-        innerHTML:`
-          Money
-        `
-      }))
+        <div class="inventory__items-container"></div>`,
+    });
+    this.container.appendChild(element);
   }
 
   // ================== helper
   updateLabelVisibility() {
-    this.itemsLabels.classList.toggle("invisible", hero.items.length <= 0)
+    this.itemsLabels.classList.toggle("invisible", hero.items.length <= 0);
   }
 
   resetConsumables() {
@@ -104,7 +106,7 @@ export default class InventorySection {
   }
 
   resetItems() {
-    this.updateLabelVisibility()
+    this.updateLabelVisibility();
     this.itemsContainer.innerHTML = "";
     hero.items.forEach((item, index) => {
       new Item(item, index, this.itemsContainer);
@@ -114,5 +116,62 @@ export default class InventorySection {
 
 class Money {
   constructor(container) {
+    this.container = container;
+    // init
+    this.initMoney();
+    this.moneyValue = this.container.querySelector(".inventory__money-value");
+    this.moneyChange = this.container.querySelector(".inventory__money-change");
+    this.moneyPlus = this.container.querySelector(".inventory__money-plus");
+    this.moneyMinus = this.container.querySelector(".inventory__money-minus");
+    // events
+    this.moneyPlus.addEventListener("click", () => this.onMoneyPlusClick());
+    this.moneyMinus.addEventListener("click", () => this.onMoneyMinusClick());
+  }
+
+  // ================== events
+  onMoneyPlusClick() {
+    hero.money += parseFloat(this.moneyChange.value);
+    hero.saveHero();
+    this.moneyValue.innerHTML = this.getMoney();
+  }
+
+  onMoneyMinusClick() {
+    hero.money -= parseFloat(this.moneyChange.value);
+    hero.saveHero();
+    this.moneyValue.innerHTML = this.getMoney();
+  }
+
+  // ================== init
+  initMoney(container) {
+    let money = Object.assign(document.createElement("div"), {
+      classList: "inventory__money",
+      innerHTML: `
+        <h3>Geld</h3>
+        <div></div>
+        <div class="inventory__money-value">
+          ${this.getMoney()}
+        </div>
+        <div class="inventory__change-money-container">
+          <input class="inventory__money-change" type="number" value="0">
+          <button class="inventory__money-minus symbol-btn"><i class="fa-solid fa-minus"></i></button>
+          <button class="inventory__money-plus symbol-btn"><i class="fa-solid fa-plus"></i></button>
+        </div>`,
+    });
+    this.container.appendChild(money);
+  }
+
+  // ================== helper
+  getMoney() {
+    let money = hero.money;
+    let goldValue = Math.floor(money / 100);
+    money %= 100;
+    let silverValue = Math.floor(money / 10);
+    money %= 10;
+    let copperValue = money;
+
+    return `
+      <p>Gold: ${goldValue}</p>
+      <p>Silber: ${silverValue}</p>
+      <p>Kupfer: ${copperValue}</p>`;
   }
 }

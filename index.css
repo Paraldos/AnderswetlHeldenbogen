@@ -241,6 +241,7 @@ option {
   height: -moz-fit-content;
   height: fit-content;
   margin-bottom: calc(var(--height__nav) + 40px);
+  padding: 0 20px;
 }
 .main__new-hero-btn {
   height: 60px;
@@ -535,6 +536,19 @@ option {
 }
 .inventory__item-delete-btn {
   display: none;
+}
+.inventory__money {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.inventory__money-value {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.inventory__change-money-container {
+  display: flex;
+  gap: 10px;
 }
 
 .inventory__edit .inventory__labels, .inventory__edit .inventory__item {
