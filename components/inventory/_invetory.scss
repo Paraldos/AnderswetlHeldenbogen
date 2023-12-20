@@ -42,13 +42,9 @@
   &__labels,
   &__item {
     display: grid;
-    grid-template-columns: 4fr 1fr 1fr 7fr;
+    grid-template-columns: 4fr 1fr 1fr 7fr 35px;
     gap: 10px;
     flex-wrap: wrap;
-  }
-
-  &__item-delete-btn {
-    display: none;
   }
 
   &__money {
@@ -68,15 +64,23 @@
   }
 }
 
-.inventory__edit {
+.no-edit {
   .inventory {
+    &__consumables-plus-btn {
+      display: none;
+    }
+
+    &__items-plus-btn {
+      display: none;
+    }
+
     &__labels,
     &__item {
-      grid-template-columns: 4fr 1fr 1fr 7fr 35px;
+      grid-template-columns: 4fr 1fr 1fr 7fr;
     }
 
     &__item-delete-btn {
-      display: inline-block;
+      display: none;
     }
   }
 }

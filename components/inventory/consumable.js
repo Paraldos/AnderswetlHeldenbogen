@@ -1,4 +1,3 @@
-import db from "../../data/db.js";
 import hero from "../../data/hero.js";
 
 export default class Consumable {

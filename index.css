@@ -530,12 +530,9 @@ option {
 }
 .inventory__labels, .inventory__item {
   display: grid;
-  grid-template-columns: 4fr 1fr 1fr 7fr;
+  grid-template-columns: 4fr 1fr 1fr 7fr 35px;
   gap: 10px;
   flex-wrap: wrap;
-}
-.inventory__item-delete-btn {
-  display: none;
 }
 .inventory__money {
   display: grid;
@@ -551,9 +548,15 @@ option {
   gap: 10px;
 }
 
-.inventory__edit .inventory__labels, .inventory__edit .inventory__item {
-  grid-template-columns: 4fr 1fr 1fr 7fr 35px;
+.no-edit .inventory__consumables-plus-btn {
+  display: none;
 }
-.inventory__edit .inventory__item-delete-btn {
-  display: inline-block;
+.no-edit .inventory__items-plus-btn {
+  display: none;
+}
+.no-edit .inventory__labels, .no-edit .inventory__item {
+  grid-template-columns: 4fr 1fr 1fr 7fr;
+}
+.no-edit .inventory__item-delete-btn {
+  display: none;
 }/*# sourceMappingURL=index.css.map */
