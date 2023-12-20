@@ -7,16 +7,10 @@ export default class Attributs {
   constructor() {
     this.section = new Section("Attribute", "attributs");
     this.attributs = this.fillAttributsArray();
+    this.updateSectionHeader();
     document.addEventListener("updateAttributsHeader", () =>
       this.updateSectionHeader()
     );
-    this.section.editBtn.addEventListener("click", () => this.onEditBtnClick());
-  }
-
-  onEditBtnClick() {
-    const btnIsOn = this.section.toggleEditBtn();
-    this.updateSectionHeader();
-    this.attributs.forEach((el) => el.toggleEditBtn(btnIsOn));
   }
 
   fillAttributsArray() {
@@ -28,11 +22,9 @@ export default class Attributs {
   }
 
   updateSectionHeader() {
-    if (this.section.editBtn.classList.contains("on")) {
-      this.section.updateHeader(`Attribute (${this.getAttributsSum()})`);
-    } else {
-      this.section.updateHeader("Attribute");
-    }
+    this.section.updateHeader(
+      `Attribute <span class="attributes__sum">(${this.getAttributsSum()})</span>`
+    );
   }
 
   getAttributsSum() {

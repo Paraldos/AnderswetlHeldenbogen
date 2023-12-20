@@ -11,11 +11,13 @@ export default class Attribut {
     this.mainBtn = this.element.querySelector(".attribut__main-btn");
     this.plusBtn = this.element.querySelector(".attribut__plus-btn");
     this.minusBtn = this.element.querySelector(".attribut__minus-btn");
-
     this.updateElement();
-    this.addMainBtnListener();
-    this.addPlusBtnListener();
-    this.addMinusListener();
+    this.mainBtn.addEventListener(
+      "click",
+      () => new AttributModal(this.dbEntry)
+    );
+    this.minusBtn.addEventListener("click", () => this.onMinusBtnClick());
+    this.plusBtn.addEventListener("click", () => this.onPlusBtnClick());
     document.addEventListener("resetAttributs", () => this.updateElement());
   }
 
@@ -24,10 +26,10 @@ export default class Attribut {
     newElement.classList.add("attribut");
     newElement.innerHTML = `
       <button class="attribut__main-btn">???</button>
-      <button class="attribut__minus-btn invisible symbol-btn">
+      <button class="attribut__minus-btn symbol-btn">
         <i class="fa-solid fa-minus"></i>
       </button>
-      <button class="attribut__plus-btn invisible symbol-btn">
+      <button class="attribut__plus-btn symbol-btn">
         <i class="fa-solid fa-plus"></i>
       </button>`;
     this.container.appendChild(newElement);
@@ -43,40 +45,20 @@ export default class Attribut {
     document.dispatchEvent(new Event("updateAttributsHeader"));
   }
 
-  addMainBtnListener() {
-    this.mainBtn.addEventListener(
-      "click",
-      () => new AttributModal(this.dbEntry)
-    );
+  onPlusBtnClick() {
+    if (hero.attributs[this.key].value < 5) {
+      hero.attributs[this.key].value += 1;
+      hero.saveHero();
+      this.updateElement();
+    }
   }
 
-  addPlusBtnListener() {
-    this.plusBtn.addEventListener("click", () => {
-      if (hero.attributs[this.key].value < 5) {
-        hero.attributs[this.key].value += 1;
-        hero.saveHero();
-        this.updateElement();
-      }
-    });
-  }
-
-  addMinusListener() {
-    this.minusBtn.addEventListener("click", () => {
-      if (hero.attributs[this.key].value > 1) {
-        hero.attributs[this.key].value -= 1;
-        hero.saveHero();
-        this.updateElement();
-      }
-    });
-  }
-
-  toggleEditBtn(btnsVisible) {
-    btnsVisible
-      ? this.plusBtn.classList.remove("invisible")
-      : this.plusBtn.classList.add("invisible");
-    btnsVisible
-      ? this.minusBtn.classList.remove("invisible")
-      : this.minusBtn.classList.add("invisible");
+  onMinusBtnClick() {
+    if (hero.attributs[this.key].value > 1) {
+      hero.attributs[this.key].value -= 1;
+      hero.saveHero();
+      this.updateElement();
+    }
   }
 }
 

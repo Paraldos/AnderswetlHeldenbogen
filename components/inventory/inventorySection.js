@@ -5,7 +5,6 @@ import Money from "./money.js";
 
 export default class InventorySection {
   constructor() {
-    // basics
     this.section = new Section("Inventar", "inventory");
     this.container = this.section.contentContainer;
     new Consumables(this.container);
@@ -14,7 +13,6 @@ export default class InventorySection {
     this.initOther();
   }
 
-  // ================== init
   initOther() {
     let element = Object.assign(document.createElement("div"), {
       innerHTML: `

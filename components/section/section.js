@@ -9,11 +9,12 @@ export default class Section {
 
     this.editBtn.addEventListener("click", () => {
       this.section.classList.toggle("no-edit");
+      document.dispatchEvent(new Event("toggleEdit"));
     });
   }
 
   updateHeader(text) {
-    this.text.innerText = text;
+    this.text.innerHTML = text;
   }
 
   toggleEditBtn() {

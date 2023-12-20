@@ -10,3 +10,13 @@
   display: flex;
   gap: 10px;
 }
+
+.no-edit {
+  .symbol-btn {
+    display: none;
+  }
+
+  .attributes__sum {
+    display: none;
+  }
+}

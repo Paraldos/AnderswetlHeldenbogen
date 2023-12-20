@@ -371,6 +371,13 @@ option {
   gap: 10px;
 }
 
+.no-edit .symbol-btn {
+  display: none;
+}
+.no-edit .attributes__sum {
+  display: none;
+}
+
 .skills__content {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
