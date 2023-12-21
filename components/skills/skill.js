@@ -22,10 +22,10 @@ export default class Skill {
     newElement.classList.add("skill");
     newElement.innerHTML = `
       <button class="skill__main-btn">???</button>
-      <button class="skill__minus-btn invisible symbol-btn">
+      <button class="skill__minus-btn symbol-btn">
         <i class="fa-solid fa-minus"></i>
       </button>
-      <button class="skill__plus-btn invisible symbol-btn">
+      <button class="skill__plus-btn symbol-btn">
         <i class="fa-solid fa-plus"></i>
       </button>`;
     container.appendChild(newElement);
@@ -61,15 +61,6 @@ export default class Skill {
         this.updateElement();
       }
     });
-  }
-
-  toggleEditBtn(btnsVisible) {
-    btnsVisible
-      ? this.plusBtn.classList.remove("invisible")
-      : this.plusBtn.classList.add("invisible");
-    btnsVisible
-      ? this.minusBtn.classList.remove("invisible")
-      : this.minusBtn.classList.add("invisible");
   }
 }
 

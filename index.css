@@ -345,6 +345,13 @@ option {
   transform: scale(1.4);
 }
 
+.no-edit .symbol-btn {
+  display: none;
+}
+.no-edit .hide-on-no-edit {
+  display: none;
+}
+
 .grundlagen__content {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -369,13 +376,6 @@ option {
 .attribut {
   display: flex;
   gap: 10px;
-}
-
-.no-edit .symbol-btn {
-  display: none;
-}
-.no-edit .attributes__sum {
-  display: none;
 }
 
 .skills__content {

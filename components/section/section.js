@@ -2,7 +2,7 @@ export default class Section {
   constructor(title, id, plusBtn = false) {
     this.main = document.querySelector(".main");
     this.section = this.createSection(title, id, plusBtn);
-    this.text = this.section.querySelector(".section__text");
+    this.headerText = this.section.querySelector(".section__header-text");
     this.editBtn = this.section.querySelector(".section__edit-btn");
     this.plusBtn = this.section.querySelector(".section__plus-btn");
     this.contentContainer = this.section.querySelector(".section__content");
@@ -14,7 +14,7 @@ export default class Section {
   }
 
   updateHeader(text) {
-    this.text.innerHTML = text;
+    this.headerText.innerHTML = text;
   }
 
   toggleEditBtn() {
@@ -27,7 +27,7 @@ export default class Section {
       classList: "section no-edit",
       innerHTML: `
         <div class="section__header">
-          <h1 class="section__text">${title}</h1>
+          <h1 class="section__header-text">${title}</h1>
           ${this.addPlusBtn(plusBtn)}
           <button class="section__edit-btn">
             <i class="fa-solid fa-wrench"></i>

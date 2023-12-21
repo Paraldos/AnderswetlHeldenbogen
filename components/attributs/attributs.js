@@ -6,25 +6,15 @@ import Attribut from "./attribut.js";
 export default class Attributs {
   constructor() {
     this.section = new Section("Attribute", "attributs");
-    this.attributs = this.fillAttributsArray();
+    this.attributs = Object.keys(db.attributs).map((key) => new Attribut(key));
     this.updateSectionHeader();
     document.addEventListener("updateAttributsHeader", () =>
       this.updateSectionHeader()
     );
   }
 
-  fillAttributsArray() {
-    let attributs = [];
-    for (let key in db.attributs) {
-      attributs.push(new Attribut(key));
-    }
-    return attributs;
-  }
-
   updateSectionHeader() {
-    this.section.updateHeader(
-      `Attribute <span class="attributes__sum">(${this.getAttributsSum()})</span>`
-    );
+    this.section.headerText.innerHTML = `Attribute <span class="hide-on-no-edit">(${this.getAttributsSum()})</span>`;
   }
 
   getAttributsSum() {
