@@ -7,13 +7,11 @@ export default class SimpleListItem {
     this.id = id;
     this.list = list;
     this.dbEntry = db.states[id];
-
     this.item = this.initItem();
     this.list.appendChild(this.item);
     this.mainBtn = this.item.querySelector(".states__main-btn");
     this.updateMainBtnText();
     this.mainBtn.addEventListener("click", () => new StateModal(this.id));
-
     if (this.id != "tempo") {
       this.plusBtn = this.item.querySelector(".states__plus-btn");
       this.plusBtn.addEventListener("click", () => this.onPlusBtnClick());
@@ -22,7 +20,6 @@ export default class SimpleListItem {
       this.minusBtn.addEventListener("click", () => this.onMinusBtnClick());
       this.updateBtns();
     }
-
     document.addEventListener("resetStates", () => {
       this.updateMainBtnText();
       this.updateBtns();

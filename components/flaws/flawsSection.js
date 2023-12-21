@@ -7,7 +7,6 @@ import FlawsModal from "./flawsModal.js";
 export default class FlawsSection {
   constructor() {
     this.section = new Section("Schwächen", "flaws", true);
-    this.editToggle = false;
     this.container = document.querySelector(".flaws__content");
     this.flaws = this.addFlaws();
     this.section.plusBtn.addEventListener("click", () => new FlawsModal());
@@ -18,13 +17,12 @@ export default class FlawsSection {
   addFlaws() {
     if (!hero.flaws.value) return [];
     return hero.flaws.value.map(
-      (el, index) => new SingleFlaw(el.id, index, this.editToggle)
+      (el, index) => new SingleFlaw(el.id, index, this.section.editToggle)
     );
   }
 
   onToggleEdit() {
-    this.editToggle = !this.editToggle;
-    this.flaws.forEach((el) => el.toggleEditBtn(this.editToggle));
+    this.flaws.forEach((el) => el.toggleEditBtn(this.section.editToggle));
     this.updateSectionHeader();
   }
 
@@ -35,7 +33,7 @@ export default class FlawsSection {
   }
 
   updateSectionHeader() {
-    const visible = this.editToggle ? "" : "invisible";
+    const visible = this.section.editToggle ? "" : "invisible";
     this.section.headerText.innerHTML = `Schwächen <span class="${visible}">(${this.getFlawsSum()})</span>`;
   }
 

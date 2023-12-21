@@ -6,14 +6,12 @@ import Skill from "./skill.js";
 export default class Skills {
   constructor() {
     this.section = new Section("Fertigkeiten", "skills");
-    this.editToggle = false;
     this.container = this.createContainer();
     this.skills = Object.keys(db.skills).map((key) => new Skill(key));
-    this.updateSectionHeader();
     document.addEventListener("updateSkillsHeader", () =>
       this.updateSectionHeader()
     );
-    document.addEventListener("toggleEdit", () => this.onToggleEdit());
+    document.addEventListener("toggleEdit", () => this.updateSectionHeader());
   }
 
   createContainer() {
@@ -26,7 +24,7 @@ export default class Skills {
   }
 
   updateSectionHeader() {
-    const visible = this.editToggle ? "" : "invisible";
+    const visible = this.section.editToggle ? "" : "invisible";
     this.section.headerText.innerHTML = `Fertigkeiten <span class="${visible}">(${this.getSkillsSum()})</span>`;
   }
 
@@ -36,10 +34,5 @@ export default class Skills {
       sum += hero.skills[key].value;
     }
     return sum;
-  }
-
-  onToggleEdit() {
-    this.editToggle = !this.editToggle;
-    this.updateSectionHeader();
   }
 }

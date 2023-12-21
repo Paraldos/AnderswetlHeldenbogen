@@ -490,9 +490,10 @@ option {
   display: flex;
   gap: 10px;
 }
-.states__current-minus-btn, .states__current-plus-btn {
+.states__btn--alternative {
   background-color: var(--color__btn-background--alternative);
 }
+
 .inventory__content {
   display: grid;
   grid-template-columns: 1fr;

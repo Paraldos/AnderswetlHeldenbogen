@@ -17,11 +17,7 @@
     gap: 10px;
   }
 
-  &__current-minus-btn,
-  &__current-plus-btn {
+  &__btn--alternative {
     background-color: var(--color__btn-background--alternative);
-
-    &:hover:enabled {
-    }
   }
 }

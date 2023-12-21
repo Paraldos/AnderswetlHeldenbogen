@@ -1,3 +1,4 @@
+import hero from "../../data/hero.js";
 import Section from "../section/section.js";
 import ComplexListItem from "./complexListItem.js";
 import SimpleListItem from "./simpleListItem.js";
@@ -9,7 +10,10 @@ export default class StatesSection {
     this.initList(["ap", "lp", "sp"], ComplexListItem);
     this.initList(["ep", "stufe", "tempo"], SimpleListItem);
     this.editElement = this.container.querySelectorAll(".states__edit-element");
-    // this.section.editBtn.addEventListener("click", () => this.onEditBtnClick());
+    document.addEventListener("toggleEdit", () => this.onToggleEdit());
+    document.addEventListener("updateStatesHeader", () => {
+      this.updateSectionHeader();
+    });
   }
 
   initList(ids, itemType) {
@@ -21,9 +25,22 @@ export default class StatesSection {
     });
   }
 
-  onEditBtnClick() {
+  onToggleEdit() {
     this.editElement.forEach((el) => {
       el.classList.toggle("invisible");
     });
+    this.updateSectionHeader();
+  }
+
+  updateSectionHeader() {
+    const visible = this.section.editToggle ? "" : "invisible";
+    this.section.headerText.innerHTML = `Merkmale <span class="${visible}">(${this.getStatesSum()})</span>`;
+  }
+
+  getStatesSum() {
+    let sum = -14;
+    sum += hero.states.ap.max;
+    sum += hero.states.lp.max;
+    return sum;
   }
 }

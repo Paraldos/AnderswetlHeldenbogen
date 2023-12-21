@@ -1,10 +1,12 @@
 export default class Section {
   constructor(title, id, plusBtn = false) {
     this.main = document.querySelector(".main");
+    this.editToggle = false;
     this.section = this.createSection(title, id, plusBtn);
     this.headerText = this.section.querySelector(".section__header-text");
     this.plusBtn = this.section.querySelector(".section__plus-btn");
     this.contentContainer = this.section.querySelector(".section__content");
+    document.addEventListener("toggleEdit", () => this.onToggleEdit());
   }
 
   createSection(title, id, plusBtn) {
@@ -26,5 +28,9 @@ export default class Section {
     return plusBtn
       ? `<button class="section__plus-btn"><i class="fa-solid fa-plus"></i></button>`
       : "";
+  }
+
+  onToggleEdit() {
+    this.editToggle = !this.editToggle;
   }
 }

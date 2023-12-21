@@ -7,6 +7,7 @@ export default class InventorySection {
   constructor() {
     this.section = new Section("Inventar", "inventory");
     this.container = this.section.contentContainer;
+    this.editToggle = false;
     new Consumables(this.container);
     new Items(this.container);
     new Money(this.container);
@@ -15,9 +16,7 @@ export default class InventorySection {
 
   initOther() {
     let element = Object.assign(document.createElement("div"), {
-      innerHTML: `
-        <h3>Sonstiges</h3>
-      `,
+      innerHTML: `<h3>Sonstiges</h3>`,
     });
     this.container.appendChild(element);
   }

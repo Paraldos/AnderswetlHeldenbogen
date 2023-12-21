@@ -3,7 +3,7 @@ import BasicElement from "./basicElement.js";
 import EthnicityElement from "./ethnicityElement.js";
 import DescriptionElement from "./descriptionElement.js";
 
-export default class Basics {
+export default class BasicsSection {
   constructor() {
     this.section = new Section("Grundlagen", "basics");
     new BasicElement(this.section.contentContainer, "name");

@@ -1,7 +1,7 @@
 import db from "../../data/db.js";
 import hero from "../../data/hero.js";
 //
-import Basics from "../basics/basics.js";
+import BasicsSection from "../basics/basicsSection.js";
 import Attributs from "../attributs/attributs.js";
 import Skills from "../skills/skills.js";
 import TalentsSection from "../talents/talentsSection.js";
@@ -26,7 +26,7 @@ export default class Main {
   }
 
   fillMainWithHero() {
-    new Basics();
+    new BasicsSection();
     new Attributs();
     new Skills();
     new TalentsSection();

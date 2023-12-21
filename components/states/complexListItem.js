@@ -3,123 +3,99 @@ import hero from "../../data/hero.js";
 import StateModal from "./stateModal.js";
 
 export default class ComplexListItem {
-  constructor(id, list) {
+  constructor(id, container) {
     this.id = id;
-    this.list = list;
     this.dbEntry = db.states[id];
-
+    this.container = container;
+    this.editToggle = false;
+    // init
     this.item = this.initItem();
-    this.list.appendChild(this.item);
-    this.currentMainBtn = this.item.querySelector(".states__current-main-btn");
-    this.maxMainBtn = this.item.querySelector(".states__max-main-btn");
-    this.updateMainBtnText();
-
-    this.currentMainBtn.addEventListener(
-      "click",
-      () => new StateModal(this.id)
-    );
-    if (this.id !== "sp") {
-      this.maxMainBtn.addEventListener("click", () => new StateModal(this.id));
-    }
-
-    this.item
-      .querySelector(".states__current-plus-btn")
-      .addEventListener("click", () => this.onCurrentPlusBtnClick());
-    this.item
-      .querySelector(".states__current-minus-btn")
-      .addEventListener("click", () => this.onCurrentMinusBtnClick());
-
-    if (this.id !== "sp") {
-      this.item
-        .querySelector(".states__max-plus-btn")
-        .addEventListener("click", () => this.onMaxPlusBtnClick());
-      this.item
-        .querySelector(".states__max-minus-btn")
-        .addEventListener("click", () => this.onMaxMinusBtnclick());
-    }
-
-    document.addEventListener("resetStates", () => {
-      this.updateValues();
-      this.updateMainBtnText();
-    });
+    this.mainBtn = this.item.querySelector(".states__main-btn");
+    this.plusBtn = this.item.querySelector(".states__plus-btn");
+    this.minusBtn = this.item.querySelector(".states__minus-btn");
+    this.updateMainBtn();
+    // events
+    this.mainBtn.addEventListener("click", () => new StateModal(this.id));
+    this.plusBtn.addEventListener("click", () => this.onPlusBtnClick());
+    this.minusBtn.addEventListener("click", () => this.onMinusBtnClick());
+    document.addEventListener("resetStates", () => this.updateMainBtn());
+    document.addEventListener("toggleEdit", () => this.onToggleEdit());
   }
 
   // ===================================================================== init
   initItem() {
-    return Object.assign(document.createElement("li"), {
+    let element = Object.assign(document.createElement("li"), {
       className: "states__list-item",
       innerHTML: `
-        ${this.getCurrentBtns()}
-        ${this.getMaxBtns()}`,
+        <button class="states__main-btn">placeholder</button>
+        <button class="symbol-btn states__minus-btn states__btn--alternative"><i class="fa-solid fa-minus"></i></button>
+        <button class="symbol-btn states__plus-btn states__btn--alternative"><i class="fa-solid fa-plus"></i></button>`,
     });
-  }
-
-  getCurrentBtns() {
-    return `
-      <button class="states__current-main-btn ${
-        this.id === "sp" ? "" : "states__edit-element"
-      }">???</button>
-      <button class="symbol-btn states__current-minus-btn states__edit-element"><i class="fa-solid fa-minus"></i></button>
-      <button class="symbol-btn states__current-plus-btn states__edit-element"><i class="fa-solid fa-plus"></i></button>`;
-  }
-
-  getMaxBtns() {
-    return this.id === "sp"
-      ? ""
-      : `
-      <button class="states__max-main-btn states__edit-element invisible">???</button>
-      <button class="symbol-btn states__max-minus-btn states__edit-element invisible"><i class="fa-solid fa-minus"></i></button>
-      <button class="symbol-btn states__max-plus-btn states__edit-element invisible"><i class="fa-solid fa-plus"></i></button>`;
+    this.container.appendChild(element);
+    return element;
   }
 
   // ===================================================================== update
-  updateMainBtnText() {
-    let currentTxt = this.dbEntry.abbreviation;
-    currentTxt += `: ${hero.states[this.id].current} von ${this.getMax()}`;
-    this.currentMainBtn.innerText = currentTxt;
-
-    if (this.id == "sp") return;
-    let maxTxt = `Max ${this.dbEntry.abbreviation}: `;
-    maxTxt += this.getMax();
-    this.maxMainBtn.innerText = maxTxt;
-  }
-
-  updateValues() {
-    if (hero.states[this.id].current > this.getMax()) {
-      hero.states[this.id].current = this.getMax();
-      hero.saveHero();
+  updateMainBtn() {
+    let txt = "";
+    if (this.editToggle && this.id !== "sp") {
+      txt = `Max ${this.dbEntry.abbreviation}: `;
+      txt += this.getMax();
+    } else {
+      txt = this.dbEntry.abbreviation;
+      txt += `: ${hero.states[this.id].current} von ${this.getMax()}`;
     }
+    this.mainBtn.innerText = txt;
   }
 
   // ===================================================================== listener
-  onCurrentPlusBtnClick() {
-    if (hero.states[this.id].current >= this.getMax()) return;
-    hero.states[this.id].current++;
-    hero.saveHero();
-    this.updateMainBtnText();
+  onToggleEdit() {
+    this.editToggle = !this.editToggle;
+    this.plusBtn.classList.toggle("states__btn--alternative");
+    this.minusBtn.classList.toggle("states__btn--alternative");
+    if (this.id == "sp") {
+      this.plusBtn.classList.toggle("invisible");
+      this.minusBtn.classList.toggle("invisible");
+    }
+    this.updateMainBtn();
   }
 
-  onCurrentMinusBtnClick() {
-    if (hero.states[this.id].current <= 0) return;
-    hero.states[this.id].current--;
-    hero.saveHero();
-    this.updateMainBtnText();
+  onPlusBtnClick() {
+    this.editToggle ? this.onPlusMax() : this.onPlusCurrent();
+    document.dispatchEvent(new Event("updateStatesHeader"));
+    this.updateMainBtn();
   }
 
-  onMaxPlusBtnClick() {
+  onMinusBtnClick() {
+    this.editToggle ? this.onMinusMax() : this.onMinusCurrent();
+    document.dispatchEvent(new Event("updateStatesHeader"));
+    this.updateMainBtn();
+  }
+
+  onPlusMax() {
     hero.states[this.id].max++;
     hero.states[this.id].current++;
     hero.saveHero();
-    this.updateMainBtnText();
   }
 
-  onMaxMinusBtnclick() {
+  onPlusCurrent() {
+    if (hero.states[this.id].current >= this.getMax()) return;
+    hero.states[this.id].current++;
+    hero.saveHero();
+  }
+
+  onMinusMax() {
     if (hero.states[this.id].max <= db.states[this.id].min) return;
     hero.states[this.id].max--;
     hero.states[this.id].current--;
     if (hero.states[this.id].current < 0) hero.states[this.id].current = 0;
     hero.saveHero();
-    this.updateMainBtnText();
+  }
+
+  onMinusCurrent() {
+    if (hero.states[this.id].current <= 0) return;
+    hero.states[this.id].current--;
+    hero.saveHero();
   }
 
   // ===================================================================== Helper

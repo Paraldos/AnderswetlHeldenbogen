@@ -7,7 +7,6 @@ import TalentModal from "./talentModal.js";
 export default class TalentsSection {
   constructor() {
     this.section = new Section("Talente", "talents", true);
-    this.editToggle = false;
     this.types = [
       ["Allgemein", "allgemein"],
       ["Kampf", "kampf"],
@@ -37,7 +36,7 @@ export default class TalentsSection {
 
   initTalents() {
     return hero.talents.value.map(
-      (el, index) => new SingleTalent(el.id, index, this.editToggle)
+      (el, index) => new SingleTalent(el.id, index, this.section.editToggle)
     );
   }
 
@@ -50,9 +49,8 @@ export default class TalentsSection {
   }
 
   onToggleEdit() {
-    this.editToggle = !this.editToggle;
     this.updateSectionHeader();
-    this.talents.forEach((el) => el.toggleEditBtn(this.editToggle));
+    this.talents.forEach((el) => el.toggleEditBtn(this.section.editToggle));
   }
 
   onReset() {
@@ -64,7 +62,7 @@ export default class TalentsSection {
 
   // helper
   updateSectionHeader() {
-    const visible = this.editToggle ? "" : "invisible";
+    const visible = this.section.editToggle ? "" : "invisible";
     this.section.headerText.innerHTML = `Talente <span class="${visible}">(${hero.talents.getSum()})</span>`;
   }
 }
