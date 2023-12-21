@@ -352,17 +352,16 @@ option {
   display: none;
 }
 
-.grundlagen__content {
+.basics__content {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 7px 20px;
 }
-.grundlagen__element {
+.basics__element {
   display: flex;
   flex-direction: column;
 }
-
-.beschreibung-element {
+.basics__description {
   grid-column-start: 1;
   grid-column-end: 3;
 }

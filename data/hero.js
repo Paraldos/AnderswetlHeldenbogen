@@ -153,7 +153,7 @@ class Hero {
     // update
     this.saveHero();
     document.dispatchEvent(new Event("resetAttributs"));
-    document.dispatchEvent(new Event("updateVolk"));
+    document.dispatchEvent(new Event("updateEthnecity"));
     document.dispatchEvent(new Event("resetTalents"));
   }
 }

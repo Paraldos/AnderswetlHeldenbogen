@@ -1,37 +1,40 @@
 import db from "../../data/db.js";
 import hero from "../../data/hero.js";
 
-// TEst
 export default class BasicElement {
-  constructor(section, key) {
-    this.section = section;
+  constructor(container, key) {
+    this.container = container;
     this.key = key;
     this.dbEntry = db.grundlagen[key];
     this.element = this.createElement();
     this.nameInput = this.element.querySelector(".basic-element__input");
-    this.addInputEvent();
+    document.addEventListener("toggleEdit", () => this.onToggleEdit());
+    this.nameInput.addEventListener("input", () => this.onInputEvent());
   }
 
   createElement() {
-    let element = document.createElement("div");
-    element.classList.add("basic-element", "grundlagen__element");
-    element.innerHTML = `
-      <label>${this.dbEntry.name}:</label>
-      <input type="text" class="basic-element__input" value="${
-        hero.grundlagen[this.key]
-      }" disabled>`;
-    this.section.contentContainer.appendChild(element);
+    let element = Object.assign(document.createElement("div"), {
+      classList: "basic-element grundlagen__element",
+      innerHTML: `
+        <label>${this.dbEntry.name}:</label>
+        <input 
+          type="text" 
+          class="basic-element__input" 
+          value="${hero.grundlagen[this.key]}" 
+          disabled>`,
+    });
+    this.container.appendChild(element);
     return element;
   }
 
-  addInputEvent() {
+  onInputEvent() {
     this.nameInput.addEventListener("input", () => {
       hero.grundlagen[this.key] = this.nameInput.value;
       hero.saveHero();
     });
   }
 
-  toggleEditBtn(on) {
-    this.nameInput.disabled = !on;
+  onToggleEdit() {
+    this.nameInput.disabled = !this.nameInput.disabled;
   }
 }

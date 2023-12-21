@@ -1,4 +1,4 @@
-.grundlagen {
+.basics {
   &__content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -9,9 +9,9 @@
     display: flex;
     flex-direction: column;
   }
-}
 
-.beschreibung-element {
-  grid-column-start: 1;
-  grid-column-end: 3;
+  &__description {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
 }

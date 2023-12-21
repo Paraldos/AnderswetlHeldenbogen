@@ -1,8 +1,8 @@
 import db from "../../data/db.js";
 import hero from "../../data/hero.js";
 //
+import Basics from "../basics/basics.js";
 import Attributs from "../attributs/attributs.js";
-import Grundlagen from "../basics/grundlagen.js";
 import Skills from "../skills/skills.js";
 import TalentsSection from "../talents/talentsSection.js";
 import FlawsSection from "../flaws/flawsSection.js";
@@ -27,7 +27,7 @@ export default class Main {
 
   fillMainWithHero() {
     new InventorySection();
-    new Grundlagen();
+    new Basics();
     new Attributs();
     new Skills();
     new TalentsSection();
