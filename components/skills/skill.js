@@ -11,9 +11,10 @@ export default class Skill {
     this.plusBtn = this.element.querySelector(".skill__plus-btn");
     this.minusBtn = this.element.querySelector(".skill__minus-btn");
     this.updateElement();
-    this.addMainBtnListener();
-    this.addPlusListener();
-    this.addMinusListener();
+    this.mainBtn.addEventListener("click", () => new SkillsModal(this.dbEntry));
+    this.plusBtn.addEventListener("click", () => this.onPlusBtnClick());
+    this.minusBtn.addEventListener("click", () => this.onMinusBtnClick());
+    document.addEventListener("toggleEdit", () => this.onToggleEdit());
   }
 
   createElement() {
@@ -22,10 +23,10 @@ export default class Skill {
     newElement.classList.add("skill");
     newElement.innerHTML = `
       <button class="skill__main-btn">???</button>
-      <button class="skill__minus-btn symbol-btn">
+      <button class="skill__minus-btn symbol-btn invisible">
         <i class="fa-solid fa-minus"></i>
       </button>
-      <button class="skill__plus-btn symbol-btn">
+      <button class="skill__plus-btn symbol-btn invisible">
         <i class="fa-solid fa-plus"></i>
       </button>`;
     container.appendChild(newElement);
@@ -39,28 +40,25 @@ export default class Skill {
     document.dispatchEvent(new Event("updateSkillsHeader"));
   }
 
-  addMainBtnListener() {
-    this.mainBtn.addEventListener("click", () => new SkillsModal(this.dbEntry));
+  onPlusBtnClick() {
+    if (hero.skills[this.key].value < 5) {
+      hero.skills[this.key].value += 1;
+      hero.saveHero();
+      this.updateElement();
+    }
   }
 
-  addPlusListener() {
-    this.plusBtn.addEventListener("click", () => {
-      if (hero.skills[this.key].value < 5) {
-        hero.skills[this.key].value += 1;
-        hero.saveHero();
-        this.updateElement();
-      }
-    });
+  onMinusBtnClick() {
+    if (hero.skills[this.key].value > 0) {
+      hero.skills[this.key].value -= 1;
+      hero.saveHero();
+      this.updateElement();
+    }
   }
 
-  addMinusListener() {
-    this.minusBtn.addEventListener("click", () => {
-      if (hero.skills[this.key].value > 0) {
-        hero.skills[this.key].value -= 1;
-        hero.saveHero();
-        this.updateElement();
-      }
-    });
+  onToggleEdit() {
+    this.plusBtn.classList.toggle("invisible");
+    this.minusBtn.classList.toggle("invisible");
   }
 }
 

@@ -8,23 +8,13 @@ export default class Section {
     this.contentContainer = this.section.querySelector(".section__content");
 
     this.editBtn.addEventListener("click", () => {
-      this.section.classList.toggle("no-edit");
       document.dispatchEvent(new Event("toggleEdit"));
     });
   }
 
-  updateHeader(text) {
-    this.headerText.innerHTML = text;
-  }
-
-  toggleEditBtn() {
-    this.editBtn.classList.toggle("on");
-    return this.editBtn.classList.contains("on");
-  }
-
   createSection(title, id, plusBtn) {
     let section = Object.assign(document.createElement("section"), {
-      classList: "section no-edit",
+      classList: "section",
       innerHTML: `
         <div class="section__header">
           <h1 class="section__header-text">${title}</h1>

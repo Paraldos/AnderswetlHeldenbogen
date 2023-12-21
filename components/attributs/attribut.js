@@ -19,6 +19,7 @@ export default class Attribut {
     this.minusBtn.addEventListener("click", () => this.onMinusBtnClick());
     this.plusBtn.addEventListener("click", () => this.onPlusBtnClick());
     document.addEventListener("resetAttributs", () => this.updateElement());
+    document.addEventListener("toggleEdit", () => this.onToggleEdit());
   }
 
   createElement() {
@@ -26,10 +27,10 @@ export default class Attribut {
     newElement.classList.add("attribut");
     newElement.innerHTML = `
       <button class="attribut__main-btn">???</button>
-      <button class="attribut__minus-btn symbol-btn">
+      <button class="attribut__minus-btn symbol-btn invisible">
         <i class="fa-solid fa-minus"></i>
       </button>
-      <button class="attribut__plus-btn symbol-btn">
+      <button class="attribut__plus-btn symbol-btn invisible">
         <i class="fa-solid fa-plus"></i>
       </button>`;
     this.container.appendChild(newElement);
@@ -59,6 +60,11 @@ export default class Attribut {
       hero.saveHero();
       this.updateElement();
     }
+  }
+
+  onToggleEdit() {
+    this.plusBtn.classList.toggle("invisible");
+    this.minusBtn.classList.toggle("invisible");
   }
 }
 

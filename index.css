@@ -345,13 +345,6 @@ option {
   transform: scale(1.4);
 }
 
-.no-edit .symbol-btn {
-  display: none;
-}
-.no-edit .hide-on-no-edit {
-  display: none;
-}
-
 .basics__content {
   display: grid;
   grid-template-columns: 1fr 1fr;

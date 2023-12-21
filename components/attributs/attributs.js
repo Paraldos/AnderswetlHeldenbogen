@@ -6,15 +6,18 @@ import Attribut from "./attribut.js";
 export default class Attributs {
   constructor() {
     this.section = new Section("Attribute", "attributs");
+    this.editToggle = false;
     this.attributs = Object.keys(db.attributs).map((key) => new Attribut(key));
     this.updateSectionHeader();
-    document.addEventListener("updateAttributsHeader", () =>
-      this.updateSectionHeader()
-    );
+    document.addEventListener("updateAttributsHeader", () => {
+      this.updateSectionHeader();
+    });
+    document.addEventListener("toggleEdit", () => this.onToggleEdit());
   }
 
   updateSectionHeader() {
-    this.section.headerText.innerHTML = `Attribute <span class="hide-on-no-edit">(${this.getAttributsSum()})</span>`;
+    const visible = this.editToggle ? "" : "invisible";
+    this.section.headerText.innerHTML = `Attribute <span class="${visible}">(${this.getAttributsSum()})</span>`;
   }
 
   getAttributsSum() {
@@ -23,5 +26,10 @@ export default class Attributs {
       sum += hero.attributs[key].value;
     }
     return sum;
+  }
+
+  onToggleEdit() {
+    this.editToggle = !this.editToggle;
+    this.updateSectionHeader();
   }
 }
