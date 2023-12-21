@@ -1,4 +1,4 @@
-import hero from "../../data/hero.js";
+import hero from "../../../data/hero.js";
 
 export default class Money {
   constructor(container) {
@@ -32,16 +32,14 @@ export default class Money {
     let money = Object.assign(document.createElement("div"), {
       classList: "inventory__money",
       innerHTML: `
-          <h3>Geld</h3>
-          <div></div>
-          <div class="inventory__money-value">
-            ${this.getMoney()}
-          </div>
-          <div class="inventory__change-money-container">
-            <input class="inventory__money-change" type="number" value="0">
-            <button class="inventory__money-minus symbol-btn"><i class="fa-solid fa-minus"></i></button>
-            <button class="inventory__money-plus symbol-btn"><i class="fa-solid fa-plus"></i></button>
-          </div>`,
+        <div class="inventory__money-value">
+          ${this.getMoney()}
+        </div>
+        <div class="inventory__change-money-container">
+          <input class="inventory__money-change" type="number" value="0">
+          <button class="inventory__money-minus symbol-btn"><i class="fa-solid fa-minus"></i></button>
+          <button class="inventory__money-plus symbol-btn"><i class="fa-solid fa-plus"></i></button>
+        </div>`,
     });
     this.container.appendChild(money);
   }
@@ -56,8 +54,8 @@ export default class Money {
     let copperValue = money;
 
     return `
-        <p>Gold: ${goldValue}</p>
-        <p>Silber: ${silverValue}</p>
-        <p>Kupfer: ${copperValue}</p>`;
+      <p>Gold: ${goldValue}</p>
+      <p>Silber: ${silverValue}</p>
+      <p>Kupfer: ${copperValue}</p>`;
   }
 }

@@ -1,80 +1,17 @@
+@import "./consumables/consumables";
+@import "./money/money";
+@import "./items/items";
+
 .inventory {
   &__content {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 30px;
-    margin-top: 30px;
+    gap: 10px;
   }
 
   &__header {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 5px;
-  }
-
-  &__items-container {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 10px 40px;
-  }
-
-  &__labels,
-  &__item {
-    display: grid;
-    grid-template-columns: 4fr 1fr 1fr 7fr 35px;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-
-  &__items-plus-btn {
-    width: 35px;
-  }
-
-  &__money {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-
-  &__money-value {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  &__change-money-container {
-    display: flex;
-    gap: 10px;
-  }
-}
-
-.consumables {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-  &__header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 5px;
-  }
-
-  &__plus-btn {
-    width: 35px;
-  }
-
-  &__body {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px 40px;
-  }
-
-  &__item {
-    display: flex;
-    gap: 10px;
-  }
-
-  &__item-value {
-    margin: 0 15px;
-    @include display-flex-center;
+    margin-top: 20px;
   }
 }

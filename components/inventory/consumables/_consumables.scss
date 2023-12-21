@@ -1,0 +1,27 @@
+.consumables {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  &__plus-btn {
+    width: 35px;
+  }
+
+  &__body {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 40px;
+  }
+
+  &__item {
+    display: flex;
+    gap: 10px;
+  }
+
+  &__item-value {
+    margin-right: 15px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+  }
+}

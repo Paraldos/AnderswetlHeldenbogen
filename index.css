@@ -489,54 +489,10 @@ option {
   background-color: var(--color__btn-background--alternative);
 }
 
-.inventory__content {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 30px;
-  margin-top: 30px;
-}
-.inventory__header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 5px;
-}
-.inventory__items-container {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 10px 40px;
-}
-.inventory__labels, .inventory__item {
-  display: grid;
-  grid-template-columns: 4fr 1fr 1fr 7fr 35px;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-.inventory__items-plus-btn {
-  width: 35px;
-}
-.inventory__money {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-.inventory__money-value {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-.inventory__change-money-container {
-  display: flex;
-  gap: 10px;
-}
-
 .consumables {
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
-.consumables__header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 5px;
 }
 .consumables__plus-btn {
   width: 35px;
@@ -551,8 +507,57 @@ option {
   gap: 10px;
 }
 .consumables__item-value {
-  margin: 0 15px;
+  margin-right: 15px;
+  white-space: nowrap;
   display: flex;
-  justify-content: center;
   align-items: center;
+}
+
+.inventory__money {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.inventory__money-value {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.inventory__change-money-container {
+  display: flex;
+  gap: 10px;
+}
+
+.items__body {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px 40px;
+}
+.items__labels {
+  list-style: none;
+}
+.items__labels li {
+  font-size: 0.6rem;
+}
+.items__labels, .items__item {
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr 7fr;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.items__labels--edit, .items__item--edit {
+  grid-template-columns: 4fr 1fr 1fr 7fr 35px;
+}
+.items__items-plus-btn {
+  width: 35px;
+}
+
+.inventory__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+.inventory__header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 }/*# sourceMappingURL=index.css.map */
