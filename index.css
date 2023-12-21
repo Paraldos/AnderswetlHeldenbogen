@@ -476,11 +476,6 @@ option {
 }
 
 .states__content {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px 40px;
-}
-.states__list {
   list-style: none;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

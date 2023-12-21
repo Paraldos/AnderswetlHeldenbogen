@@ -3,61 +3,58 @@ import hero from "../../data/hero.js";
 import StateModal from "./stateModal.js";
 
 export default class SimpleListItem {
-  constructor(id, list) {
+  constructor(id, container) {
     this.id = id;
-    this.list = list;
+    this.container = container;
     this.dbEntry = db.states[id];
+    // init
     this.item = this.initItem();
-    this.list.appendChild(this.item);
     this.mainBtn = this.item.querySelector(".states__main-btn");
-    this.updateMainBtnText();
+    this.plusBtn = this.item.querySelector(".states__plus-btn");
+    this.minusBtn = this.item.querySelector(".states__minus-btn");
+    this.updateMainBtn();
+    this.updateBtns();
+    // events
     this.mainBtn.addEventListener("click", () => new StateModal(this.id));
-    if (this.id != "tempo") {
-      this.plusBtn = this.item.querySelector(".states__plus-btn");
-      this.plusBtn.addEventListener("click", () => this.onPlusBtnClick());
+    this.plusBtn.addEventListener("click", () => this.onPlusBtnClick());
+    this.minusBtn.addEventListener("click", () => this.onMinusBtnClick());
+    document.addEventListener("resetStates", () => this.onResetStates());
+    document.addEventListener("toggleEdit", () => this.onToggleEdit());
+  }
 
-      this.minusBtn = this.item.querySelector(".states__minus-btn");
-      this.minusBtn.addEventListener("click", () => this.onMinusBtnClick());
-      this.updateBtns();
-    }
-    document.addEventListener("resetStates", () => {
-      this.updateMainBtnText();
-      this.updateBtns();
-    });
+  onToggleEdit() {
+    this.plusBtn.classList.toggle("invisible");
+    this.minusBtn.classList.toggle("invisible");
   }
 
   // ===================================================================== init
   initItem() {
-    return Object.assign(document.createElement("li"), {
+    let element = Object.assign(document.createElement("li"), {
       className: "states__list-item",
       innerHTML: `
         <button class="states__main-btn">???</button>
-        ${this.getBtns()}`,
+        <button class="symbol-btn states__minus-btn states__edit-element invisible"><i class="fa-solid fa-minus"></i></button>
+        <button class="symbol-btn states__plus-btn states__edit-element invisible"><i class="fa-solid fa-plus"></i></button>`,
     });
-  }
-
-  getBtns() {
-    return this.id === "tempo"
-      ? ""
-      : `
-      <button class="symbol-btn states__minus-btn states__edit-element invisible"><i class="fa-solid fa-minus"></i></button>
-      <button class="symbol-btn states__plus-btn states__edit-element invisible"><i class="fa-solid fa-plus"></i></button>`;
+    this.container.appendChild(element);
+    return element;
   }
 
   // ===================================================================== update
-  updateMainBtnText() {
+  onResetStates() {
+    this.updateMainBtn();
+    this.updateBtns();
+  }
+
+  updateMainBtn() {
     let txt = this.dbEntry.abbreviation
       ? this.dbEntry.abbreviation
       : this.dbEntry.name;
     txt += `: ${this.getValue()}`;
-    if (this.id == "ep") {
-      txt += ` (Total: ${hero.states.ep + (hero.states.stufe - 1) * 5})`;
-    }
     this.mainBtn.innerText = txt;
   }
 
   updateBtns() {
-    if (this.id === "tempo") return;
     if (this.id == "stufe") {
       this.plusBtn.disabled = hero.states.ep < 5;
     }
@@ -88,7 +85,6 @@ export default class SimpleListItem {
   // ===================================================================== helper
   getValue() {
     let value = hero.states[this.id];
-    if (this.id == "tempo" && hero.flaws.findFlaw("lahm")) value -= 2;
     return value;
   }
 }
