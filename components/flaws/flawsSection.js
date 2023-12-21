@@ -7,35 +7,24 @@ import FlawsModal from "./flawsModal.js";
 export default class FlawsSection {
   constructor() {
     this.section = new Section("Schwächen", "flaws", true);
+    this.editToggle = false;
     this.container = document.querySelector(".flaws__content");
     this.flaws = this.addFlaws();
-    this.section.plusBtn.addEventListener("click", () => this.onPlusBtnClick());
-    this.section.editBtn.addEventListener("click", () => this.onEditBtnClick());
+    this.section.plusBtn.addEventListener("click", () => new FlawsModal());
+    document.addEventListener("toggleEdit", () => this.onToggleEdit());
     document.addEventListener("resetFlaws", () => this.onReset());
   }
 
   addFlaws() {
-    let arr = [];
-    if (!hero.flaws.value) return arr;
-    hero.flaws.value.forEach((el, index) => {
-      arr.push(
-        new SingleFlaw(
-          el.id,
-          index,
-          this.section.editBtn.classList.contains("on")
-        )
-      );
-    });
-    return arr;
+    if (!hero.flaws.value) return [];
+    return hero.flaws.value.map(
+      (el, index) => new SingleFlaw(el.id, index, this.editToggle)
+    );
   }
 
-  onPlusBtnClick() {
-    new FlawsModal();
-  }
-
-  onEditBtnClick() {
-    const btnIsOn = this.section.toggleEditBtn();
-    this.flaws.forEach((el) => el.toggleEditBtn(btnIsOn));
+  onToggleEdit() {
+    this.editToggle = !this.editToggle;
+    this.flaws.forEach((el) => el.toggleEditBtn(this.editToggle));
     this.updateSectionHeader();
   }
 
@@ -46,11 +35,8 @@ export default class FlawsSection {
   }
 
   updateSectionHeader() {
-    if (this.section.editBtn.classList.contains("on")) {
-      this.section.updateHeader(`Schwächen (${this.getFlawsSum()})`);
-    } else {
-      this.section.updateHeader("Schwächen");
-    }
+    const visible = this.editToggle ? "" : "invisible";
+    this.section.headerText.innerHTML = `Schwächen <span class="${visible}">(${this.getFlawsSum()})</span>`;
   }
 
   getFlawsSum() {
@@ -76,7 +62,6 @@ class SingleFlaw {
 
   createElement() {
     const txt = `${this.dbEntry.name}${this.flaw.comment ? "*" : ""}`;
-
     let newElement = document.createElement("div");
     newElement.classList.add("flaw");
     newElement.innerHTML = `

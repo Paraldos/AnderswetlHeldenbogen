@@ -7,6 +7,7 @@ import TalentModal from "./talentModal.js";
 export default class TalentsSection {
   constructor() {
     this.section = new Section("Talente", "talents", true);
+    this.editToggle = false;
     this.types = [
       ["Allgemein", "allgemein"],
       ["Kampf", "kampf"],
@@ -17,8 +18,8 @@ export default class TalentsSection {
     this.typeContainers = this.initTypeContainers();
     this.talents = this.initTalents();
     this.updateContainerVisbility();
-    this.section.editBtn.addEventListener("click", () => this.onEditBtnClick());
     this.section.plusBtn.addEventListener("click", () => new TalentsModal());
+    document.addEventListener("toggleEdit", () => this.onToggleEdit());
     document.addEventListener("resetTalents", () => this.onReset());
   }
 
@@ -36,12 +37,7 @@ export default class TalentsSection {
 
   initTalents() {
     return hero.talents.value.map(
-      (el, index) =>
-        new SingleTalent(
-          el.id,
-          index,
-          this.section.editBtn.classList.contains("on")
-        )
+      (el, index) => new SingleTalent(el.id, index, this.editToggle)
     );
   }
 
@@ -53,10 +49,10 @@ export default class TalentsSection {
     });
   }
 
-  onEditBtnClick() {
-    const btnIsOn = this.section.toggleEditBtn();
+  onToggleEdit() {
+    this.editToggle = !this.editToggle;
     this.updateSectionHeader();
-    this.talents.forEach((el) => el.toggleEditBtn(btnIsOn));
+    this.talents.forEach((el) => el.toggleEditBtn(this.editToggle));
   }
 
   onReset() {
@@ -68,11 +64,8 @@ export default class TalentsSection {
 
   // helper
   updateSectionHeader() {
-    if (this.section.editBtn.classList.contains("on")) {
-      this.section.updateHeader(`Talente (${hero.talents.getSum()})`);
-    } else {
-      this.section.updateHeader("Talente");
-    }
+    const visible = this.editToggle ? "" : "invisible";
+    this.section.headerText.innerHTML = `Talente <span class="${visible}">(${hero.talents.getSum()})</span>`;
   }
 }
 

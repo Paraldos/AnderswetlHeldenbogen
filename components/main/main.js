@@ -26,13 +26,13 @@ export default class Main {
   }
 
   fillMainWithHero() {
-    new InventorySection();
     new Basics();
     new Attributs();
     new Skills();
     new TalentsSection();
     new FlawsSection();
     new StatesSection();
+    new InventorySection();
   }
 
   fillMainWithPlaceholder() {

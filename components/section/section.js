@@ -3,13 +3,8 @@ export default class Section {
     this.main = document.querySelector(".main");
     this.section = this.createSection(title, id, plusBtn);
     this.headerText = this.section.querySelector(".section__header-text");
-    this.editBtn = this.section.querySelector(".section__edit-btn");
     this.plusBtn = this.section.querySelector(".section__plus-btn");
     this.contentContainer = this.section.querySelector(".section__content");
-
-    this.editBtn.addEventListener("click", () => {
-      document.dispatchEvent(new Event("toggleEdit"));
-    });
   }
 
   createSection(title, id, plusBtn) {
@@ -19,9 +14,6 @@ export default class Section {
         <div class="section__header">
           <h1 class="section__header-text">${title}</h1>
           ${this.addPlusBtn(plusBtn)}
-          <button class="section__edit-btn">
-            <i class="fa-solid fa-wrench"></i>
-          </button>
         </div>
         <div class="${id}__content section__content"></div>
       `,

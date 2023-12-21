@@ -9,7 +9,7 @@ export default class StatesSection {
     this.initList(["ap", "lp", "sp"], ComplexListItem);
     this.initList(["ep", "stufe", "tempo"], SimpleListItem);
     this.editElement = this.container.querySelectorAll(".states__edit-element");
-    this.section.editBtn.addEventListener("click", () => this.onEditBtnClick());
+    // this.section.editBtn.addEventListener("click", () => this.onEditBtnClick());
   }
 
   initList(ids, itemType) {

@@ -8,7 +8,6 @@ export default class Attributs {
     this.section = new Section("Attribute", "attributs");
     this.editToggle = false;
     this.attributs = Object.keys(db.attributs).map((key) => new Attribut(key));
-    this.updateSectionHeader();
     document.addEventListener("updateAttributsHeader", () => {
       this.updateSectionHeader();
     });

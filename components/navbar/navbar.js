@@ -7,5 +7,10 @@ export default class Navbar {
     this.editBtn = document.querySelector(".navbar__edit-btn");
     // events
     this.heroBtn.addEventListener("click", () => new HerosModal());
+    this.editBtn.addEventListener("click", () => this.onToggleEdit());
+  }
+
+  onToggleEdit() {
+    document.dispatchEvent(new Event("toggleEdit"));
   }
 }
