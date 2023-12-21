@@ -14,6 +14,7 @@ export default class ComplexListItem {
     this.plusBtn = this.item.querySelector(".states__plus-btn");
     this.minusBtn = this.item.querySelector(".states__minus-btn");
     this.updateMainBtn();
+    this.updateBtns();
     // events
     this.mainBtn.addEventListener("click", () => new StateModal(this.id));
     this.plusBtn.addEventListener("click", () => this.onPlusBtnClick());
@@ -48,6 +49,11 @@ export default class ComplexListItem {
     this.mainBtn.innerText = txt;
   }
 
+  updateBtns() {
+    this.minusBtn.disabled = hero.states[this.id].current <= 0;
+    this.plusBtn.disabled = hero.states[this.id].current >= this.getMax();
+  }
+
   // ===================================================================== listener
   onToggleEdit() {
     this.editToggle = !this.editToggle;
@@ -63,12 +69,14 @@ export default class ComplexListItem {
   onPlusBtnClick() {
     this.editToggle ? this.onPlusMax() : this.onPlusCurrent();
     document.dispatchEvent(new Event("updateStatesHeader"));
+    this.updateBtns();
     this.updateMainBtn();
   }
 
   onMinusBtnClick() {
     this.editToggle ? this.onMinusMax() : this.onMinusCurrent();
     document.dispatchEvent(new Event("updateStatesHeader"));
+    this.updateBtns();
     this.updateMainBtn();
   }
 
