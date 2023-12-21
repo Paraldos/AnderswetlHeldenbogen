@@ -12,27 +12,6 @@
     margin-bottom: 5px;
   }
 
-  &__consumables-plus-btn,
-  &__items-plus-btn {
-    width: 35px;
-  }
-
-  &__consumables-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px 40px;
-  }
-
-  &__consumable {
-    display: flex;
-    gap: 10px;
-  }
-
-  &__consumable-value {
-    margin: 0 15px;
-    @include display-flex-center;
-  }
-
   &__items-container {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -45,6 +24,10 @@
     grid-template-columns: 4fr 1fr 1fr 7fr 35px;
     gap: 10px;
     flex-wrap: wrap;
+  }
+
+  &__items-plus-btn {
+    width: 35px;
   }
 
   &__money {
@@ -64,23 +47,34 @@
   }
 }
 
-.no-edit {
-  .inventory {
-    &__consumables-plus-btn {
-      display: none;
-    }
+.consumables {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 
-    &__items-plus-btn {
-      display: none;
-    }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
 
-    &__labels,
-    &__item {
-      grid-template-columns: 4fr 1fr 1fr 7fr;
-    }
+  &__plus-btn {
+    width: 35px;
+  }
 
-    &__item-delete-btn {
-      display: none;
-    }
+  &__body {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 40px;
+  }
+
+  &__item {
+    display: flex;
+    gap: 10px;
+  }
+
+  &__item-value {
+    margin: 0 15px;
+    @include display-flex-center;
   }
 }

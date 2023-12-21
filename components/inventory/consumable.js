@@ -5,31 +5,27 @@ export default class Consumable {
     this.consumable = consumable;
     this.index = index;
     this.container = container;
+    // init
     this.element = this.initElement();
-
-    this.value = this.element.querySelector(".inventory__consumable-value");
-
-    this.name = this.element.querySelector(".inventory__consumable-name");
+    this.value = this.element.querySelector(".consumables__item-value");
+    this.name = this.element.querySelector(".consumables__item-name");
+    this.plsBtn = this.element.querySelector(".consumables__item-plus-btn");
+    this.minusBtn = this.element.querySelector(".consumables__item-minus-btn");
+    // events
     this.name.addEventListener("change", () => this.onNameChange());
-
-    this.plsBtn = this.element.querySelector(".inventory__consumable-plus-btn");
     this.plsBtn.addEventListener("click", () => this.onPlsBtnClick());
-
-    this.minusBtn = this.element.querySelector(
-      ".inventory__consumable-minus-btn"
-    );
     this.minusBtn.addEventListener("click", () => this.onMinusBtnClick());
   }
 
   // ================== init
   initElement() {
     let element = Object.assign(document.createElement("div"), {
-      className: "inventory__consumable",
+      className: "consumables__item",
       innerHTML: `
-          <input class="inventory__consumable-name" type="text" value="${this.consumable.name}" />
-          <p class="inventory__consumable-value">${this.consumable.value}</p>
-          <button class="inventory__consumable-minus-btn symbol-btn"><i class="fa-solid fa-minus"></i></button>
-          <button class="inventory__consumable-plus-btn symbol-btn"><i class="fa-solid fa-plus"></i></button>`,
+          <input class="consumables__item-name" type="text" value="${this.consumable.name}" />
+          <p class="consumables__item-value">${this.consumable.value}</p>
+          <button class="consumables__item-minus-btn symbol-btn"><i class="fa-solid fa-minus"></i></button>
+          <button class="consumables__item-plus-btn symbol-btn"><i class="fa-solid fa-plus"></i></button>`,
     });
     this.container.appendChild(element);
     return element;

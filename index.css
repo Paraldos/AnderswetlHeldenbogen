@@ -500,24 +500,6 @@ option {
   justify-content: space-between;
   margin-bottom: 5px;
 }
-.inventory__consumables-plus-btn, .inventory__items-plus-btn {
-  width: 35px;
-}
-.inventory__consumables-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px 40px;
-}
-.inventory__consumable {
-  display: flex;
-  gap: 10px;
-}
-.inventory__consumable-value {
-  margin: 0 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .inventory__items-container {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -528,6 +510,9 @@ option {
   grid-template-columns: 4fr 1fr 1fr 7fr 35px;
   gap: 10px;
   flex-wrap: wrap;
+}
+.inventory__items-plus-btn {
+  width: 35px;
 }
 .inventory__money {
   display: grid;
@@ -543,15 +528,31 @@ option {
   gap: 10px;
 }
 
-.no-edit .inventory__consumables-plus-btn {
-  display: none;
+.consumables {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
-.no-edit .inventory__items-plus-btn {
-  display: none;
+.consumables__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
 }
-.no-edit .inventory__labels, .no-edit .inventory__item {
-  grid-template-columns: 4fr 1fr 1fr 7fr;
+.consumables__plus-btn {
+  width: 35px;
 }
-.no-edit .inventory__item-delete-btn {
-  display: none;
+.consumables__body {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 40px;
+}
+.consumables__item {
+  display: flex;
+  gap: 10px;
+}
+.consumables__item-value {
+  margin: 0 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }/*# sourceMappingURL=index.css.map */

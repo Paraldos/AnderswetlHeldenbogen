@@ -15,9 +15,8 @@ export default class InventorySection {
   }
 
   initOther() {
-    let element = Object.assign(document.createElement("div"), {
-      innerHTML: `<h3>Sonstiges</h3>`,
-    });
+    let element = document.createElement("div");
+    element.innerHTML = `<h3>Sonstiges</h3>`;
     this.container.appendChild(element);
   }
 }
