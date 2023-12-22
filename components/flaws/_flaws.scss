@@ -32,3 +32,9 @@
     overflow: hidden;
   }
 }
+
+@media (max-width: $breakpoint-md) {
+  .flaws__content {
+    grid-template-columns: 1fr;
+  }
+}

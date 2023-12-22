@@ -35,7 +35,7 @@ export default class Items {
       <li>Name</li>
       <li>Bonus</li>
       <li>Pool</li>
-      <li>Beschreibung</li>`;
+      <li class="items__description-label">Beschreibung</li>`;
     this.container.appendChild(element);
     return element;
   }

@@ -12,9 +12,9 @@ export default class DescriptionElement {
 
   createElement() {
     let element = Object.assign(document.createElement("div"), {
-      classList: "basics__description basics__element",
+      classList: "basics__description",
       innerHTML: `
-        <label>${db.grundlagen.beschreibung.name}:</label>
+        <label class="basics__label">${db.grundlagen.beschreibung.name}:</label>
         <textarea class="basics__description-text" disabled>${hero.grundlagen.beschreibung}</textarea>`,
     });
     this.section.contentContainer.appendChild(element);

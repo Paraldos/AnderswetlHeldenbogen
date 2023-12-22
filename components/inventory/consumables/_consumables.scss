@@ -25,3 +25,11 @@
     align-items: center;
   }
 }
+
+@media (max-width: $breakpoint-md) {
+  .consumables {
+    &__body {
+      grid-template-columns: 1fr;
+    }
+  }
+}

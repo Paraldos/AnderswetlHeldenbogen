@@ -5,13 +5,26 @@
     gap: 7px 20px;
   }
 
-  &__element {
-    display: flex;
-    flex-direction: column;
-  }
-
   &__description {
     grid-column-start: 1;
     grid-column-end: 3;
+  }
+
+  &__label {
+    display: block;
+    height: 20px;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .basics {
+    &__content {
+      grid-template-columns: 1fr;
+    }
+
+    &__description {
+      grid-column-start: 1;
+      grid-column-end: 2;
+    }
   }
 }

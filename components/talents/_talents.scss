@@ -62,3 +62,16 @@
 .modal__textfield {
   margin-bottom: 10px;
 }
+
+@media (max-width: $breakpoint-md) {
+  .talents {
+    &__container {
+      grid-template-columns: 1fr;
+
+      h3 {
+        grid-column-start: 1;
+        grid-column-end: 2;
+      }
+    }
+  }
+}

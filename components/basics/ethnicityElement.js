@@ -20,7 +20,7 @@ export default class EthnicityElement {
     let element = Object.assign(document.createElement("div"), {
       classList: "basics__ethnicity-element",
       innerHTML: `
-        <label>${this.dbEntry.name}:</label>
+        <label class="basics__label">${this.dbEntry.name}:</label>
         <button class="basics__ethnicity-btn" disabled>placeholder</button>`,
     });
     this.container.appendChild(element);

@@ -1,7 +1,7 @@
 .items {
   &__body {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr;
     gap: 10px 40px;
   }
 
@@ -27,5 +27,36 @@
 
   &__items-plus-btn {
     width: 35px;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .items {
+    &__labels,
+    &__item {
+      grid-template-columns: 4fr 1fr 1fr;
+
+      &-description {
+        grid-column: 1 / span 3;
+      }
+
+      &--edit {
+        grid-template-columns: 4fr 1fr 1fr;
+
+        .items__item-description {
+          grid-column: 1 / span 2;
+        }
+      }
+    }
+
+    &__description-label {
+      display: none;
+    }
+
+    &__item-delete-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }

@@ -89,7 +89,8 @@ class Hero {
 
     this.consumables = [];
     this.items = [];
-    this.money = 0.0;
+    this.money = 0;
+    this.otherInventory = "";
   }
 
   newHero() {
@@ -112,6 +113,7 @@ class Hero {
     this.consumables = this.arrayOfHeros[index].consumables;
     this.items = this.arrayOfHeros[index].items;
     this.money = this.arrayOfHeros[index].money;
+    this.otherInventory = this.arrayOfHeros[index].otherInventory;
   }
 
   saveHero() {
@@ -125,6 +127,7 @@ class Hero {
       consumables: this.consumables,
       items: this.items,
       money: this.money,
+      otherInventory: this.otherInventory,
     };
     this.arrayOfHeros[this.heroIndex] = hero;
     this.setHeroIndex();

@@ -5,10 +5,10 @@ export default class Money {
     this.container = container;
     // init
     this.initMoney();
-    this.moneyValue = this.container.querySelector(".inventory__money-value");
-    this.moneyChange = this.container.querySelector(".inventory__money-change");
-    this.moneyPlus = this.container.querySelector(".inventory__money-plus");
-    this.moneyMinus = this.container.querySelector(".inventory__money-minus");
+    this.moneyValue = this.container.querySelector(".money__values");
+    this.moneyChange = this.container.querySelector(".money__change");
+    this.moneyPlus = this.container.querySelector(".money__plus-btn");
+    this.moneyMinus = this.container.querySelector(".money__minus-btn");
     // events
     this.moneyPlus.addEventListener("click", () => this.onMoneyPlusClick());
     this.moneyMinus.addEventListener("click", () => this.onMoneyMinusClick());
@@ -17,6 +17,7 @@ export default class Money {
   // ================== events
   onMoneyPlusClick() {
     hero.money += parseFloat(this.moneyChange.value);
+    this.moneyChange.value = 0;
     hero.saveHero();
     this.moneyValue.innerHTML = this.getMoney();
   }
@@ -30,15 +31,15 @@ export default class Money {
   // ================== init
   initMoney(container) {
     let money = Object.assign(document.createElement("div"), {
-      classList: "inventory__money",
+      classList: "money",
       innerHTML: `
-        <div class="inventory__money-value">
+        <div class="money__values">
           ${this.getMoney()}
         </div>
-        <div class="inventory__change-money-container">
-          <input class="inventory__money-change" type="number" value="0">
-          <button class="inventory__money-minus symbol-btn"><i class="fa-solid fa-minus"></i></button>
-          <button class="inventory__money-plus symbol-btn"><i class="fa-solid fa-plus"></i></button>
+        <div class="money__change-container">
+          <input class="money__change" type="number" value="0">
+          <button class="money__minus-btn symbol-btn"><i class="fa-solid fa-minus"></i></button>
+          <button class="money__plus-btn symbol-btn"><i class="fa-solid fa-plus"></i></button>
         </div>`,
     });
     this.container.appendChild(money);
@@ -54,8 +55,8 @@ export default class Money {
     let copperValue = money;
 
     return `
-      <p>Gold: ${goldValue}</p>
-      <p>Silber: ${silverValue}</p>
-      <p>Kupfer: ${copperValue}</p>`;
+      <p class="money__value">Gold: ${goldValue}</p>
+      <p class="money__value">Silber: ${silverValue}</p>
+      <p class="money__value">Kupfer: ${copperValue}</p>`;
   }
 }

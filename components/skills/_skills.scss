@@ -21,3 +21,19 @@
   display: flex;
   gap: 10px;
 }
+
+@media (max-width: $breakpoint-md) {
+  .skills {
+    &__content {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .skills {
+    &__content {
+      grid-template-columns: 1fr;
+    }
+  }
+}

@@ -7,9 +7,9 @@ export default class Skill {
     this.key = key;
     this.dbEntry = db.skills[key];
     this.element = this.createElement();
-    this.mainBtn = this.element.querySelector(".skill__main-btn");
-    this.plusBtn = this.element.querySelector(".skill__plus-btn");
-    this.minusBtn = this.element.querySelector(".skill__minus-btn");
+    this.mainBtn = this.element.querySelector(".skills__skill-main-btn");
+    this.plusBtn = this.element.querySelector(".skills__skill-plus-btn");
+    this.minusBtn = this.element.querySelector(".skills__skill-minus-btn");
     this.updateElement();
     this.mainBtn.addEventListener("click", () => new SkillsModal(this.dbEntry));
     this.plusBtn.addEventListener("click", () => this.onPlusBtnClick());
@@ -22,11 +22,11 @@ export default class Skill {
     const newElement = document.createElement("div");
     newElement.classList.add("skill");
     newElement.innerHTML = `
-      <button class="skill__main-btn">???</button>
-      <button class="skill__minus-btn symbol-btn invisible">
+      <button class="skills__skill-main-btn">???</button>
+      <button class="skills__skill-minus-btn symbol-btn invisible">
         <i class="fa-solid fa-minus"></i>
       </button>
-      <button class="skill__plus-btn symbol-btn invisible">
+      <button class="skills__skill-plus-btn symbol-btn invisible">
         <i class="fa-solid fa-plus"></i>
       </button>`;
     container.appendChild(newElement);

@@ -2,7 +2,7 @@
   &__content {
     list-style: none;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px 40px;
   }
 
@@ -13,5 +13,13 @@
 
   &__btn--alternative {
     background-color: var(--color__btn-background--alternative);
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .states {
+    &__content {
+      grid-template-columns: 1fr;
+    }
   }
 }
