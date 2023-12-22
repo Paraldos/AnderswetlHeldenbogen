@@ -50,6 +50,7 @@ export default class Talents {
   }
 
   addInnateTalents(dbEntry) {
+    if (dbEntry === undefined) return;
     let talents = dbEntry.talents ? dbEntry.talents.split("\n") : [];
     talents.forEach((id) => {
       if (this.findTalent(id)) this.findTalent(id).innate = true;

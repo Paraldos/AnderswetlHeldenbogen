@@ -1,19 +1,22 @@
-import db from "../../data/db.js";
 import hero from "../../data/hero.js";
 import Section from "../section/section.js";
-import FlawModal from "./flawModal.js";
 import FlawsModal from "./flawsModal.js";
+import SingleFlaw from "./singleFlaw.js";
 
 export default class FlawsSection {
   constructor() {
+    // init
     this.section = new Section("Schwächen", "flaws", true);
     this.container = document.querySelector(".flaws__content");
     this.flaws = this.addFlaws();
+    this.updateVisibility();
+    // events
     this.section.plusBtn.addEventListener("click", () => new FlawsModal());
     document.addEventListener("toggleEdit", () => this.onToggleEdit());
     document.addEventListener("resetFlaws", () => this.onReset());
   }
 
+  // ============================== init
   addFlaws() {
     if (!hero.flaws.value) return [];
     return hero.flaws.value.map(
@@ -21,76 +24,26 @@ export default class FlawsSection {
     );
   }
 
-  onToggleEdit() {
-    this.flaws.forEach((el) => el.toggleEditBtn(this.section.editToggle));
-    this.updateSectionHeader();
-  }
-
+  // ============================== events
   onReset() {
     this.container.innerHTML = "";
     this.flaws = this.addFlaws();
-    this.updateSectionHeader();
+    this.onToggleEdit();
   }
 
-  updateSectionHeader() {
-    const visible = this.section.editToggle ? "" : "invisible";
-    this.section.headerText.innerHTML = `Schwächen <span class="${visible}">(${this.getFlawsSum()})</span>`;
+  onToggleEdit() {
+    const spanVisibility = this.section.editToggle ? "" : "invisible";
+    this.section.headerText.innerHTML = `Schwächen <span class="${spanVisibility}">(${this.getFlawsSum()})</span>`;
+    this.updateVisibility();
   }
 
+  // ============================== helper
   getFlawsSum() {
     return hero.flaws.value.length;
   }
-}
 
-class SingleFlaw {
-  constructor(id, index, btnsVisiblity) {
-    this.id = id;
-    this.index = index;
-    this.container = document.querySelector(".flaws__content");
-    this.dbEntry = db.flaws[id];
-    this.flaw = hero.flaws.value[this.index];
-    this.element = this.createElement();
-    this.mainBtn = this.element.querySelector(".flaw__main-btn");
-    this.minusBtn = this.element.querySelector(".flaw__minus-btn");
-    this.mainBtn.addEventListener("click", () => this.onMainBtnClick());
-    this.minusBtn.addEventListener("click", () => this.onMinusBtnClick());
-    this.updateBtns();
-    this.toggleEditBtn(btnsVisiblity);
-  }
-
-  createElement() {
-    const txt = `${this.dbEntry.name}${this.flaw.comment ? "*" : ""}`;
-    let newElement = document.createElement("div");
-    newElement.classList.add("flaw");
-    newElement.innerHTML = `
-      <button class="flaw__main-btn">${txt}</button>
-      <button class="flaw__minus-btn symbol-btn">
-        <i class="fa-solid fa-minus"></i>
-      </button>`;
-    this.container.appendChild(newElement);
-    return newElement;
-  }
-
-  updateBtns() {
-    this.flaw.innate
-      ? this.minusBtn.setAttribute("disabled", true)
-      : this.minusBtn.removeAttribute("disabled");
-  }
-
-  onMainBtnClick() {
-    new FlawModal(this.dbEntry, this.index);
-  }
-
-  onMinusBtnClick() {
-    hero.flaws.removeFlaw(this.index);
-  }
-
-  toggleEditBtn(btnsVisible) {
-    if (btnsVisible) {
-      this.minusBtn.classList.remove("invisible");
-    } else {
-      this.minusBtn.classList.add("invisible");
-    }
-    this.updateBtns();
+  updateVisibility() {
+    const visibility = !this.section.editToggle && hero.flaws.value.length <= 0;
+    this.section.section.classList.toggle("invisible", visibility);
   }
 }

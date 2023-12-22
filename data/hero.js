@@ -135,15 +135,13 @@ class Hero {
   }
 
   removeHero(index) {
-    // array
     this.arrayOfHeros.splice(index, 1);
     this.setArrayOfHeros();
     this.getHeroIndex();
-    // reset
     this.getStartHero();
   }
 
-  changeVolk(id) {
+  changeEthnicity(id) {
     // basics
     this.grundlagen.volk = id;
     // talents
