@@ -51,7 +51,7 @@ export default class Talents {
 
   // =================================== innate
   removeInnateTalents() {
-    this.value = this.value.filter((el) => !el.innate || el.id === "sprache");
+    this.value = this.value.filter((el) => !el.innate);
   }
 
   addInnateTalents(dbEntry) {
