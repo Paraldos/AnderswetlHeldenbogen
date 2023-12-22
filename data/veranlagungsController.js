@@ -20,7 +20,7 @@ export default class VeranlagungsController {
   getVeranlagungLimits() {
     let volk = db.voelker[this.hero.grundlagen.volk];
     if (volk.limits) {
-      return volk.limits.split("\n");
+      return volk.limits;
     } else {
       return Object.keys(db.attributs);
     }

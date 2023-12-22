@@ -10,7 +10,12 @@ export default class Talents {
   }
 
   getSum() {
-    return this.value.reduce((acc, el) => acc + el.level, 0);
+    let sum = 0;
+    this.value.forEach((el) => {
+      sum += el.level;
+      if (el.innate) sum -= 1;
+    });
+    return sum;
   }
 
   addTalent(id, innate = false) {
@@ -50,9 +55,9 @@ export default class Talents {
   }
 
   addInnateTalents(dbEntry) {
+    this.addTalent("sprache", true);
     if (dbEntry === undefined) return;
-    let talents = dbEntry.talents ? dbEntry.talents.split("\n") : [];
-    talents.forEach((id) => {
+    dbEntry.talents.forEach((id) => {
       if (this.findTalent(id)) this.findTalent(id).innate = true;
       else this.addTalent(id, true);
     });

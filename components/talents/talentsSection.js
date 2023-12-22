@@ -21,6 +21,7 @@ export default class TalentsSection {
     document.addEventListener("resetTalents", () => this.onReset());
   }
 
+  // ============================== init
   initTypeContainers() {
     this.section.contentContainer.innerHTML = "";
     return this.types.map(([name, id]) => {
@@ -39,6 +40,7 @@ export default class TalentsSection {
     );
   }
 
+  // ============================== events
   onToggleEdit() {
     this.updateSectionHeader();
     this.talents.forEach((el) => el.toggleEditBtn(this.section.editToggle));
@@ -52,7 +54,7 @@ export default class TalentsSection {
     this.updateSectionHeader();
   }
 
-  // helper
+  // ============================== helper
   updateSectionHeader() {
     const visible = this.section.editToggle ? "" : "invisible";
     this.section.headerText.innerHTML = `Talente <span class="${visible}">(${hero.talents.getSum()})</span>`;

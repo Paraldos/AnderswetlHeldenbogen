@@ -63,7 +63,7 @@ export default class SingleTalent {
   updateBtns() {
     this.plusBtn.classList.toggle("invisible", this.dbEntry.max_level <= 1);
     this.plusBtn.disabled = this.dbEntry.max_level <= this.talent.level;
-    this.minusBtn.disabled = this.talent.innate;
+    this.minusBtn.disabled = this.talent.level <= 1 && this.talent.innate;
   }
 
   toggleEditBtn(btnsVisible) {

@@ -31,7 +31,7 @@
   },
   "tempo": {
     "name": "Tempo",
-    "min": 7,
+    "min": 9,
     "abbreviation": "",
     "description": "Tempo ist nur während des Kampfes relevant. Es bestimmt wie viele Meter du pro Runde zurücklegen kannst."
   }

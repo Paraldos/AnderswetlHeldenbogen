@@ -19,7 +19,7 @@ export default class Attributs {
   }
 
   getAttributsSum() {
-    let sum = 0;
+    let sum = -12;
     for (let key in hero.attributs) {
       sum += hero.attributs[key].value;
     }

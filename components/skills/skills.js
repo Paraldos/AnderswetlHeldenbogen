@@ -29,7 +29,7 @@ export default class Skills {
   }
 
   getSkillsSum() {
-    let sum = 0;
+    let sum = -16;
     for (let key in db.skills) {
       sum += hero.skills[key].value;
     }

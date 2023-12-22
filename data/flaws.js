@@ -33,9 +33,8 @@ export default class Flaws {
 
   addInnateFlaws(dbEntry) {
     if (dbEntry === undefined) return;
-    const innateFlaws = dbEntry.flaws ? dbEntry.flaws.split("\n") : [];
-    innateFlaws.forEach((id) => {
-      if (this.getFlaw(id)) this.getFlaw(id).innate = true;
+    dbEntry.flaws.forEach((id) => {
+      if (this.findFlaw(id)) this.getFlaw(id).innate = true;
       else this.addFlaw(id, true);
     });
   }

@@ -1,37 +1,37 @@
 {
   "elf": {
     "name": "Elf",
-    "talents": "magie\nveranlagung",
-    "schwaechen": "zwei_linke_haende",
-    "limits": "geschick\ncharisma",
+    "talents": ["magie", "veranlagung"],
+    "flaws": ["zwei_linke_haende"],
+    "limits": ["geschick", "charisma"],
     "description": "Elfen sind groß, schlank, haben spitze Ohren und helle Haut. Ihre Augen und Haare neigen zu denselben Farben wie Menschen, sind aber intensiver gefärbt. \nElfen sind verwandte der Feen mit einem angeborenen Talent für Magie. Sie werde im Schnitt bis zu 700 Jahre alt, einige wenige können aber bis zu 1.000 alt Jahre werden. Die meisten von ihnen leben in gut verborgenen Sippen in alten, schwer zugänglichen Wäldern.\n\nTalente: Magie, Veranlagung (Geschick) oder Veranlagung (Charisma)\nSchwäche: Zwei Linke Hände"
   },
   "halbelf": {
     "name": "Halbelf",
-    "talents": "veranlagung",
-    "schwaechen": "",
-    "limits": "geschick\ncharisma",
+    "talents": ["veranlagung"],
+    "flaws": [],
+    "limits": ["geschick", "charisma"],
     "description": "Halbelfen sind eine seltene Mischung aus menschlichem und elfischem Blut. Wie Elfen sind sie gewöhnlich schlank, groß und haben spitze Ohren, während ihre Haut und Augenfarbe von ihrer menschlichen Seite bestimmt wird.\nHalbelfen werden im Schnitt etwas älter als Menschen, erreichen aber nur selten ihren 150sten Geburtstag. Viele Halbelfen neigen zur Magie, sie sind aber bei weitem nicht alle magisch begabt. Sie haben auch keine eigene Kultur, sondern passen sich an die Gepflogenheiten ihrer Umwelt an.\n\nTalent: Veranlagung (Geschick) oder Veranlagung (Charisma)"
   },
   "mensch": {
     "name": "Mensch",
-    "talents": null,
-    "schwaechen": "",
-    "limits": null,
+    "talents": [],
+    "flaws": [],
+    "limits": [],
     "description": "Menschen sind anpassungsfähig und vielseitig. Sie haben sich über die ganze Welt verbreitet, sind in fast allen Regionen heimisch. Dabei haben sie sich in unzählige Kulturen und Nationen aufgespalten die teils sehr unterschiedlichen Sitten, Religionen und Bräuchen pflegen.\nAuch äußerlich sind Menschen sehr vielseitig. Nordländer haben gewöhnlich helle Haut und ihre Harre können schwarz, braun, rot oder blond sein. Südländer hingegen sind eher dunkelhäutig und neigen zu schwarzen Haaren und dunklen Augen. Durch Dinge wie z.B. Handel und Krieg gibt es aber ständige Wanderungen, weshalb vor allem die großen Städte recht bunt sein können.\n\nWähl ein zusätzliches Talent bei der Heldenerschaffung."
   },
   "ork": {
     "name": "Ork",
-    "talents": "veranlagung\nhuene",
-    "schwaechen": "aussenseiter",
-    "limits": "staerke",
+    "talents": ["veranlagung", "huene"],
+    "flaws": ["aussenseiter"],
+    "limits": ["staerke"],
     "description": "Orks sind kräftig, groß und bedrohlich. Sie haben bräunliches oder schwarzes Fell und aus ihrem Mund ragen gefährlich wirkende Hauer.\nDie Kultur der Orks basiert auf dem Recht des stärkeren. Die meisten leben als Nomaden in den kargen Steppen des Nordens. Sie sind gefürchtet für ihre blutigen Raubzüge in die Königreiche der Menschen.\n\nTalente: Veranlagung (Stärke), Hüne\nNachteil: Außenseiter"
   },
   "zwerg": {
     "name": "Zwerg",
-    "talents": "veranlagung",
-    "schwaechen": "",
-    "limits": "zaehigkeit",
+    "talents": ["veranlagung"],
+    "flaws": [],
+    "limits": ["zaehigkeit"],
     "description": "Zwerge sind klein, aber stämmig. Sie neigen zu dunklerer Haut und schwarzen oder braunen Augen. Ihr Haarwuchs ist stark ausgeprägt, weshalb die meisten Frauen prächtige Zöpfe und Männer stattliche Bärte tragen.\r\nZwerge können bis zu 300 Jahre alt werden und die meisten leben in isolierten Bergkönigreichen. Sie schätzen qualitatives Handwerk, ehrenhaften Kampf, harte Arbeit und gutes Bier. Magier, Faullenzer und Dummschwätzer haben bei ihnen allerdings einen eher schlechten Stand.\r\n\r\nTalente: Veranlagung (Zähigkeit)"
   }
 }
