@@ -13,13 +13,12 @@ export default class ComlexState {
     this.mainBtn = this.item.querySelector(".states__main-btn");
     this.plusBtn = this.item.querySelector(".states__plus-btn");
     this.minusBtn = this.item.querySelector(".states__minus-btn");
-    this.updateMainBtn();
     this.updateBtns();
     // events
     this.mainBtn.addEventListener("click", () => new StateModal(this.id));
     this.plusBtn.addEventListener("click", () => this.onPlusBtnClick());
     this.minusBtn.addEventListener("click", () => this.onMinusBtnClick());
-    document.addEventListener("resetStates", () => this.updateMainBtn());
+    document.addEventListener("resetStates", () => this.updateBtns());
     document.addEventListener("toggleEdit", () => this.onToggleEdit());
   }
 
@@ -37,6 +36,11 @@ export default class ComlexState {
   }
 
   // ===================================================================== update
+  updateBtns() {
+    this.updateMainBtn();
+    this.updatePlusMinusBtns();
+  }
+
   updateMainBtn() {
     let txt = "";
     if (this.editToggle && this.id !== "sp") {
@@ -49,9 +53,14 @@ export default class ComlexState {
     this.mainBtn.innerText = txt;
   }
 
-  updateBtns() {
-    this.minusBtn.disabled = hero.states[this.id].current <= 0;
-    this.plusBtn.disabled = hero.states[this.id].current >= this.getMax();
+  updatePlusMinusBtns() {
+    if (this.editToggle) {
+      this.minusBtn.disabled = hero.states[this.id].max <= this.dbEntry.min;
+      this.plusBtn.disabled = false;
+    } else {
+      this.minusBtn.disabled = hero.states[this.id].current <= 0;
+      this.plusBtn.disabled = hero.states[this.id].current >= this.getMax();
+    }
   }
 
   // ===================================================================== listener
@@ -63,21 +72,19 @@ export default class ComlexState {
       this.plusBtn.classList.toggle("invisible");
       this.minusBtn.classList.toggle("invisible");
     }
-    this.updateMainBtn();
+    this.updateBtns();
   }
 
   onPlusBtnClick() {
     this.editToggle ? this.onPlusMax() : this.onPlusCurrent();
     document.dispatchEvent(new Event("updateStatesHeader"));
     this.updateBtns();
-    this.updateMainBtn();
   }
 
   onMinusBtnClick() {
     this.editToggle ? this.onMinusMax() : this.onMinusCurrent();
     document.dispatchEvent(new Event("updateStatesHeader"));
     this.updateBtns();
-    this.updateMainBtn();
   }
 
   onPlusMax() {
