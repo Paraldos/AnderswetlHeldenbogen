@@ -14,6 +14,7 @@ export default class Flaws {
       comment: "",
       innate: innate,
     });
+    this.sort();
     document.dispatchEvent(new Event("resetFlaws"));
     document.dispatchEvent(new Event("resetStates"));
     this.hero.saveHero();
@@ -32,6 +33,18 @@ export default class Flaws {
       if (!el.innate) sum += 1;
     });
     return sum;
+  }
+
+  sort() {
+    this.value.sort((a, b) => {
+      if (a.id < b.id) {
+        return -1;
+      }
+      if (a.id > b.id) {
+        return 1;
+      }
+      return 0;
+    });
   }
 
   // ============================== innate

@@ -9,6 +9,18 @@ export default class Talents {
     return this.value.find((el) => el.id === id);
   }
 
+  sort() {
+    this.value.sort((a, b) => {
+      if (a.id < b.id) {
+        return -1;
+      }
+      if (a.id > b.id) {
+        return 1;
+      }
+      return 0;
+    });
+  }
+
   getSum() {
     let sum = 0;
     this.value.forEach((el) => {
@@ -26,6 +38,7 @@ export default class Talents {
       selected: "",
       innate: innate,
     });
+    this.sort();
     document.dispatchEvent(new Event("resetTalents"));
     document.dispatchEvent(new Event("resetStates"));
     this.hero.saveHero();
