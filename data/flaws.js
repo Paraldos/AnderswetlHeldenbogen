@@ -26,6 +26,14 @@ export default class Flaws {
     this.hero.saveHero();
   }
 
+  getSum() {
+    let sum = 0;
+    this.value.forEach((el) => {
+      if (!el.innate) sum += 1;
+    });
+    return sum;
+  }
+
   // ============================== innate
   removeInnateFlaws() {
     this.value = this.value.filter((el) => !el.innate);

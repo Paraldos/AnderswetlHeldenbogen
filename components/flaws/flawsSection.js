@@ -33,15 +33,11 @@ export default class FlawsSection {
 
   onToggleEdit() {
     const spanVisibility = this.section.editToggle ? "" : "invisible";
-    this.section.headerText.innerHTML = `Schwächen <span class="${spanVisibility}">(${this.getFlawsSum()})</span>`;
+    this.section.headerText.innerHTML = `Schwächen <span class="${spanVisibility}">(${hero.flaws.getSum()})</span>`;
     this.updateVisibility();
   }
 
   // ============================== helper
-  getFlawsSum() {
-    return hero.flaws.value.length;
-  }
-
   updateVisibility() {
     const visibility = !this.section.editToggle && hero.flaws.value.length <= 0;
     this.section.section.classList.toggle("invisible", visibility);
