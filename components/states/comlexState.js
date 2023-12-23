@@ -2,7 +2,7 @@ import db from "../../data/db.js";
 import hero from "../../data/hero.js";
 import StateModal from "./stateModal.js";
 
-export default class ComplexListItem {
+export default class ComlexState {
   constructor(id, container) {
     this.id = id;
     this.dbEntry = db.states[id];

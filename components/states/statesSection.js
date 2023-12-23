@@ -1,7 +1,7 @@
 import hero from "../../data/hero.js";
 import Section from "../section/section.js";
-import ComplexListItem from "./complexListItem.js";
-import SimpleListItem from "./simpleListItem.js";
+import ComlexState from "./comlexState.js";
+import SimpleState from "./simpleState.js";
 import Tempo from "./tempoItem.js";
 
 export default class StatesSection {
@@ -9,11 +9,11 @@ export default class StatesSection {
     this.section = new Section("Merkmale", "states");
     this.container = this.section.contentContainer;
     // init
-    new ComplexListItem("ap", this.container);
-    new ComplexListItem("lp", this.container);
-    new ComplexListItem("sp", this.container);
-    new SimpleListItem("ep", this.container);
-    new SimpleListItem("stufe", this.container);
+    new ComlexState("ap", this.container);
+    new ComlexState("lp", this.container);
+    new ComlexState("sp", this.container);
+    new SimpleState("ep", this.container);
+    new SimpleState("stufe", this.container);
     new Tempo(this.container);
     // events
     this.editElement = this.container.querySelectorAll(".states__edit-element");
