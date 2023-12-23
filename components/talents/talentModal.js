@@ -30,7 +30,7 @@ export default class TalentModal {
   }
 
   addSelectorOptions(newSelect) {
-    for (let attribut of hero.veranlagungsController.getVeranlagungLimits()) {
+    for (let attribut of hero.veranlagung.getVeranlagungLimits()) {
       newSelect.appendChild(
         Object.assign(document.createElement("option"), {
           value: attribut,
@@ -42,7 +42,7 @@ export default class TalentModal {
   }
 
   onSelectorChange(event) {
-    hero.veranlagungsController.setVeranlagung(event.target.value);
+    hero.veranlagung.setVeranlagung(event.target.value);
     hero.saveHero();
     document.dispatchEvent(new Event("resetAttributs"));
     document.dispatchEvent(new Event("resetTalents"));

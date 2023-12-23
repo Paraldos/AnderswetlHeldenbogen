@@ -1,6 +1,6 @@
 import db from "./db.js";
 import Talents from "./talents.js";
-import VeranlagungsController from "./veranlagungsController.js";
+import Veranlagung from "./veranlagung.js";
 import Flaws from "./flaws.js";
 
 class Hero {
@@ -8,7 +8,7 @@ class Hero {
     this.arrayOfHeros = [];
     this.heroIndex = null;
     this.talents = new Talents(this);
-    this.veranlagungsController = new VeranlagungsController(this);
+    this.veranlagung = new Veranlagung(this);
     this.flaws = new Flaws(this);
 
     this.getArrayOfHeros();
@@ -147,7 +147,7 @@ class Hero {
     // talents
     this.talents.removeInnateTalents();
     this.talents.addInnateTalents(db.voelker[id]);
-    this.veranlagungsController.resetVeranlagung();
+    this.veranlagung.resetVeranlagung();
     // flaws
     this.flaws.removeInnateFlaws();
     this.flaws.addInnateFlaws(db.voelker[id]);

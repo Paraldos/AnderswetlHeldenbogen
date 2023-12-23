@@ -30,8 +30,8 @@ export default class SingleTalent {
       ${this.dbEntry.max_level > 1 ? `(${this.talent.level})` : ""}
       ${
         this.dbEntry.name == "Veranlagung" &&
-        hero.veranlagungsController.getVeranlagungName()
-          ? ` (${hero.veranlagungsController.getVeranlagungName()})`
+        hero.veranlagung.getVeranlagungName()
+          ? ` (${hero.veranlagung.getVeranlagungName()})`
           : ""
       }`;
     let newElement = document.createElement("div");

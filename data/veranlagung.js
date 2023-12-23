@@ -1,6 +1,6 @@
 import db from "./db.js";
 
-export default class VeranlagungsController {
+export default class Veranlagung {
   constructor(hero) {
     this.hero = hero;
   }
@@ -19,11 +19,7 @@ export default class VeranlagungsController {
 
   getVeranlagungLimits() {
     let volk = db.voelker[this.hero.grundlagen.volk];
-    if (volk.limits) {
-      return volk.limits;
-    } else {
-      return Object.keys(db.attributs);
-    }
+    return volk.limits ? volk.limits : Object.keys(db.attributs);
   }
 
   resetVeranlagung() {

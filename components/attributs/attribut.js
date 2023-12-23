@@ -39,7 +39,7 @@ export default class Attribut {
 
   updateElement() {
     let value = hero.attributs[this.key].value;
-    if (hero.veranlagungsController.getVeranlagung() === this.key) {
+    if (hero.veranlagung.getVeranlagung() === this.key) {
       value += 1;
     }
     this.mainBtn.innerHTML = `${this.dbEntry.name}: ${value}`;
