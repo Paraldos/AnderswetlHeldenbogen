@@ -20,6 +20,7 @@ export default class StatesSection {
     document.addEventListener("updateStatesHeader", () => {
       this.updateSectionHeader();
     });
+    document.addEventListener("toggleEdit", () => this.updateSectionHeader());
   }
 
   updateSectionHeader() {

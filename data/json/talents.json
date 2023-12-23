@@ -2,267 +2,457 @@
   "eidetischesGedaechtnis": {
     "name": "Eidetisches Gedächtnis",
     "type": "allgemein",
-    "comment": false,
     "max_level": 1,
     "description": "Du hast ein perfektes Gedächtnis. Du erhältst +4 wen du versuchst dich an etwas zu erinnern, die Zeit zu schätzen oder dich zu orientieren. Außerdem kannst du 3x schneller lesen als üblich."
   },
   "eisenmagen": {
     "name": "Eisenmagen",
     "type": "allgemein",
-    "comment": false,
     "max_level": 1,
     "description": "Du erhältst +4 wen du versuchst einer Krankheit oder einem Gift zu widerstehen. Außerdem kannst du viele Dinge Essen, die andere als ungenießbar betrachten."
   },
   "fachgebiet": {
     "name": "Fachgebiet",
     "type": "allgemein",
-    "comment": true,
     "max_level": 5,
     "description": "Für jede Stufe darfst du ein Handwerkliches oder Wissenschaftliches Fachgebiet (z.B. Mathematik, Okkultismus, Schmieden oder Theologie). Du erhältst +2 auf alle Proben, die mit deinem Fachgebiet zu tun haben."
   },
   "gelaendekunde": {
     "name": "Geländekunde",
     "type": "allgemein",
-    "comment": true,
     "max_level": 5,
     "description": "Wähle für jede Stufe einen Geländetyp (z.B. Arktis, Dschungel, Tundra oder Wüste). Du erhältst +2 wen es darum geht im gewählten Gebiet zu überleben (z.B. Jagen, Gefahren entdecken, das Wetter einschätzen, Widerstand gegen Durst, Hunger, Hitze oder Kälte)."
   },
   "gefaehrte": {
     "name": "Gefährte",
     "type": "allgemein",
-    "comment": true,
     "max_level": 1,
     "description": "Du hast einen treuen Gefährten, der dir loyal zur Seite steht, wie z.B. einen Knappen, Leibwächter oder Jagdhund. Sein Level ist dein bestes Attribut + deine beste Fertigkeit +1."
   },
   "glueck": {
     "name": "Glück",
     "type": "allgemein",
-    "comment": false,
     "max_level": 1,
     "description": "Du hast mehr Leben als eine ganze Wagenladung Katzen. Du hast 4 anstelle der üblichen 3 SP pro Spielabend."
   },
   "gutaussehend": {
     "name": "Gutaussehend",
     "type": "allgemein",
-    "comment": false,
     "max_level": 1,
     "description": "Du siehst außerordentlich gut aus, oder hast eine sehr beeindruckende Ausstrahlung. Dadurch erhältst du +2 auf dazu passende soziale Proben."
   },
   "herausragender_sinn": {
     "name": "Herausragender Sinn",
     "type": "allgemein",
-    "comment": true,
     "max_level": 5,
     "description": "Für jede Stufe darfst du einen Sinn wählen (z.B. Geruch oder Sicht). Du erhältst +2 auf alle Wahrnehmungsproben, die mit den so gewählten Sinnen zu tun haben."
   },
   "huene": {
     "name": "Hüne",
     "type": "allgemein",
-    "comment": false,
     "max_level": 1,
     "description": "Du bist deutlich größer und massiger als die meisten. Deine maximalen LP steigen um 2 und du erhältst +2 wen du versuchst jemanden einzuschüchtern."
   },
   "kontakte": {
     "name": "Kontakte",
     "type": "allgemein",
-    "comment": true,
     "max_level": 5,
     "description": "Wähle für jede Stufe eine Gruppe wie z.B. Adlige oder Diebe. Du bist hervorragend in diesen Gruppen vernetzt und kannst jederzeit Informationen abgreifen oder um einen kleinen Gefallen bitten."
   },
   "sprache": {
     "name": "Sprache",
     "type": "allgemein",
-    "comment": true,
     "max_level": 5,
     "description": "Für jede Stufe eignest du dir zwei neue Sprachen an, die du lesen, sprechen und schreiben kannst."
   },
   "status": {
     "name": "Status",
     "type": "allgemein",
-    "comment": true,
     "max_level": 3,
     "description": "Wähle eine soziale Elite, zu der du gehörst (z.B. Adel oder Priester). Dank deinem Status genießt du Ansehen und Respekt und du hast, wen es passt, sogar einen offiziellen Rang.\nKannst du deinen Status gelten machen, kannst du mit einer Sonderbehandlung rechnen und erhältst +2 auf die meisten sozialen Proben.\n\n1 = Lokale Größe\n2 = Landesweit bekannt\n3 = Weltberühmt\n\nHinweis: Es gibt immer auch Leute, die deine Gruppe nicht leiden können und dich mit Abscheu oder sogar hass behandeln."
   },
   "veranlagung": {
     "name": "Veranlagung",
     "type": "allgemein",
-    "comment": false,
     "max_level": 1,
     "description": "Wähle ein Attribut. Du erhältst +1 in dem Attribut und kannst es im Verlauf des Spiels auf maximal 6 anstelle der üblichen 5 Punkte steigern."
   },
   "beidhaendig": {
     "name": "Beidhändig",
     "type": "kampf",
-    "comment": false,
     "max_level": 1,
     "description": "Du kannst zwei Waffen gleichzeitig benutzen, wen eine davon leicht ist (d.h. du darfst den Bonus von beiden Waffen zu deinen Attacken addieren)."
   },
   "blutrausch": {
     "name": "Blutrausch",
     "type": "kampf",
-    "comment": false,
     "max_level": 1,
     "description": "Nachdem du einen Gegner getötet oder K.O. geschlagen hast, kannst du sofort noch eine Attacke durchführen."
   },
   "finesse": {
     "name": "Finesse",
     "type": "kampf",
-    "comment": false,
     "max_level": 1,
     "description": "Du hast gelernt dich im Kampf auf Beweglichkeit und Tempo zu verlassen.\nHast du keine Waffe oder eine Waffe mit der Anmerkung Fines, darfst du deine Attacken mit Geschick anstelle von Stärke würfeln.\nAußerdem darfst du deine Paraden mit Weisheit anstelle von Zähigkeit würfeln."
   },
   "kampfkunst": {
     "name": "Kampfkunst",
     "type": "kampf",
-    "comment": false,
     "max_level": 1,
     "description": "Du eignest dir eine waffenlose Kampfkunst wie z.B. Boxen oder Kung-Fu an. Dadurch erhältst du +2 auf Paraden ohne Rüstung oder Schild und +2 auf Attacken ohne Waffe."
   },
   "kampfsinn": {
     "name": "Kampfsinn",
     "type": "kampf",
-    "comment": false,
     "max_level": 1,
     "description": "Du kannst dich auf zwei Paraden pro Runde konzentrieren. Du erleidest also erst ab der 3ten Parade einen Malus."
   },
   "kernschuss": {
     "name": "Kernschuss",
     "type": "kampf",
-    "comment": false,
     "max_level": 1,
     "description": "Für normale Schützen ist es schwierig einen Gegner zu treffen, der in einen Nahkampf verwickelt ist. Du hast das aber schon so oft gemacht, dass du keinen Malus mehr erleidest.\n\nHinweis: Kernschuss wirkt nicht, wenn du selbst im Nahkampf bist."
   },
   "ausweichen": {
     "name": "Ausweichen",
     "type": "manoever",
-    "comment": false,
     "max_level": 1,
     "description": "Typ: Nah- und Fernkampf\nKosten: Parade & 1 AP\nBeschreibung: Du machst einen 2m Satz zur Seite, wodurch du +2 auf deine Parade erhältst."
   },
   "ausfall": {
     "name": "Ausfall",
     "type": "manoever",
-    "comment": false,
     "max_level": 1,
     "description": "Typ: Nahkampf\nKosten: Aktion\nBeschreibung: Du legst all deine Macht in deinen nächsten Angriff. Dadurch erhältst du +3 auf deine Attacke.\nAllerdings erleidest du auch -2 auf deine nächste Parade (verfällt nach einer Runde)."
   },
   "binden": {
     "name": "Binden",
     "type": "manoever",
-    "comment": false,
     "max_level": 1,
     "description": "Typ: Nahkampf\nKosten: Aktion & 1 AP oder Parade & 1 AP\nBeschreibung: Du bringst deinen Gegner aus dem Gleichgewicht, indem du z.B. seine Deckung unterwanderst.\nWürfel eine normale Attacke oder Parade. Erzielst du mehr Erfolge als dein Gegner, erleidet er für eine Runde -2 auf alle Proben."
   },
   "blattschuss": {
     "name": "Blattschuss",
     "type": "manoever",
-    "comment": false,
     "max_level": 1,
     "description": "Typ: Fernkampf\nKosten: Aktion & 1 AP\nBeschreibung: Du konzentrierst deine Attacke auf eine Schwachstelle des Gegners (z.B. den Hals oder ein Gelenk). Dadurch erleide es -2 auf seine Parade."
   },
   "entwaffnen": {
     "name": "Entwaffnen",
     "type": "manoever",
-    "comment": false,
     "max_level": 1,
     "description": "Typ: Nahkampf\nKosten: Aktion & 1 AP oder Parade & 1 AP\nBeschreibung: Würfel eine normale Attacke oder Parade. Hast du mehr erfolge als der Gegner, entreißt du ihm seine Waffe und schleuderst sie einige Meter davon.\nHast du eine Hand frei, kannst du die Waffe an dich reißen, anstelle sie davon zu schleudern."
   },
   "finte": {
     "name": "Finte",
     "type": "manoever",
-    "comment": false,
     "max_level": 1,
     "description": "Typ: Nahkampf\nKosten: Aktion & 1 AP\nBeschreibung: Du verwirrst deinen Gegner z.B. mit einer Scheinattacke oder einer Ladung Sand in die Augen. Dadurch erleidet er -2 auf seine Parade."
   },
   "kampfrausch": {
     "name": "Kampfrausch",
     "type": "manoever",
-    "comment": false,
     "max_level": 1,
     "description": "Typ: Nah- und Fernkampf\nKosten: Aktion & 1 AP\nBeschreibung: Du darfst zwei Attacken -2 ausführen. Dabei kannst du frei wählen, ob beide Attacken dasselbe oder zwei verschiedene Ziele treffen."
   },
   "kommandos": {
     "name": "Kommandos",
     "type": "manoever",
-    "comment": false,
     "max_level": 1,
     "description": "Kosten: Aktion & 1 AP\nBeschreibung: Du verschaffst dir einen Überblick über die Situation, und koordinierst deine Verbündeten mit ein paar befehlen. Dadurch erhalten diese +2 auf ihre nächste Kampfrobe (verfällt nach einer Runde)."
   },
   "konter": {
     "name": "Konter",
     "type": "manoever",
-    "comment": false,
     "max_level": 1,
     "description": "Typ: Nahkampf\nKosten: Parade & 1 AP\nBeschreibung: Würfel eine normale Parade. Erzielst du mehr Erfolge als der Gegner, verursachst du den Überschuss als Schaden."
   },
   "rundumschlag": {
     "name": "Rundumschlag",
     "type": "manoever",
-    "comment": false,
     "max_level": 1,
     "description": "Typ: Nahkampf\nKosten: Aktion & 1 AP\nBeschreibung: Würfel eine Attacke -2. Alle Gegner in Nahkampfreichweite werden getroffen (und dürfen sich mit einer eigenen Parade wehren)."
   },
   "sturmangriff": {
     "name": "Sturmangriff",
     "type": "manoever",
-    "comment": false,
     "max_level": 1,
     "description": "Typ: Nahkampf\nKosten: 2 Aktionen & 1 AP\nBeschreibung: Beweg dich nach den üblichen Regeln. Kannst du dabei wenigstens 4 Meter in gerader Linie auf einen Gegner zustürmen, darfst du gegen diesen Gegner eine Attacke +2 rollen."
   },
   "zielen": {
     "name": "Zielen",
     "type": "manoever",
-    "comment": false,
     "max_level": 1,
     "description": "Typ: Fernkampf\nKosten: Aktion\nBeschreibung: Du hältst inne und nimmst dir Zeit zu Zielen. Dadurch erhältst du +2 auf deine Attacke und darfst die Reichweite deiner Waffe verdoppeln.\nAllerdings erleidest du auch -2 auf deine nächste Parade (verfällt nach einer Runde)."
   },
   "entrueckung": {
     "name": "Entrückung",
     "type": "uebernatuerlich",
-    "comment": false,
     "max_level": 1,
     "description": "Voraussetzung: Magie (Glaube)\nMeditierst du für 10 Minuten und investierst 1 AP, kannst du dich in einen Zustand der Entrückung versetzen. Du erhältst für den Rest des Tages +1 auf gottgefälligen Taten, aber -1 auf alles andere."
   },
   "katzenaugen": {
     "name": "Katzenaugen",
     "type": "uebernatuerlich",
-    "comment": false,
     "max_level": 1,
     "description": "Du hast Augen wie eine Katze. Solang wenigstens ein bisschen licht vorhanden ist, kannst du normal sehen."
   },
   "magie": {
     "name": "Magie",
     "type": "uebernatuerlich",
-    "comment": true,
     "max_level": 1,
     "description": "Du erlangst die Fähigkeit Zauber zu erlernen und zu benutzen. Wähle eine der folgenden Traditionen und einen Zauber, mit dem du deine magische Laufbahn beginnst.\n\n- Angeboren: Du hast angeborene Magie, die durch Emotionen und pure Willenskraft gelenkt wird.\n- Natur: Du ziehst deine Kraft aus der urtümlichen Wildnis der Natur.\n- Glaube: Du beziehst magische Kraft von einem Gott, Dämon oder ähnlich mächtigen Entität.\n- Wissen: Du betrachtest Magie als eine Wissenschaft oder Kunstform, die man studieren und kontrollieren kann.\n\nHinweis: Einige Zauberkünstler, wie z.B. Priester, sind hoch angesehen und sollten auf kurz oder lang das Talent Status kaufen."
   },
   "unbeugsam": {
     "name": "Unbeugsam",
     "type": "uebernatuerlich",
-    "comment": false,
     "max_level": 1,
     "description": "Du hast einen eisernen Willen und erhältst +4, wen du versuchst mentale Angriffe abzuwehren."
   },
   "unsterblich": {
     "name": "Unsterblich",
     "type": "uebernatuerlich",
-    "comment": false,
     "max_level": 2,
     "description": "Ob du es nun als Fluch oder Segen betrachtest, aber du alterst nicht. Sofern du nicht mit Gewalt getötet wirst, lebst du ewig.\nMit Stufe 2 kann auch der Tod dich nichtmehr aufhalten. Wirst du getötet, kommst du nach einigen Stunden mit 1 LP wieder zu dir."
   },
   "verhuellte_aura": {
     "name": "Verhüllte Aura",
     "type": "uebernatuerlich",
-    "comment": false,
     "max_level": 1,
     "description": "Voraussetzung: Magie\nAus irgendeinem Grund ist deine Magie nicht wahrzunehmen. Talente und Fähigkeiten die Magie oder magische Fähigkeiten aufspüren, funktionieren bei dir nicht."
   },
   "bannen": {
     "name": "Bannen",
     "type": "zauber",
-    "comment": null,
     "max_level": 1,
     "description": "Kosten: Aktion & 1 AP\nReichweite: 12 Meter\nWirkungsdauer: Sofort\nProbe: Zauberprobe vs. Zauberprobe\nBeschreibung: Bannen beendet die Wirkung eines fremden Zaubers. Er hört einfach auf zu wirken.\n\nHinweis: Es ist möglich magische Phänomene und Artefakte zu bannen. Dafür brauchst du aber spezielle Zutaten und ein Ritual.\nFür einen simples Artefakt bedeutet das ein paar Stunden Vorbereitung, bei mächtigen Artefakten kann es Tage, Wochen oder sogar Monate dauern.\n\nExorzismus\nKosten: Aktion & 2 AP\nReichweite: 12 Meter\nWirkungsdauer: Sofort\nProbe: Zauberprobe vs. Weisheit + Fassung\nBeschreibung: Exorzismus verbannt beschworene magische Wesenheiten, wie z.B. Dämonen, Geister oder Elementare. Sie verschwinden einfach oder kehren in die Dimension zurück, aus der sie stammen.\n\nHinweis: Kreaturen, die an die Welt gebunden sind (z.B. durch eine Aufgabe oder einen Gegenstand), werden nur temporär gebannt. Sie tauchen nach 24 Stunden wieder an ihrem Anker auf."
+  },
+  "barriere": {
+    "name": "Barriere",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion & 1 AP\nReichweite: 6 Meter\nWirkungsdauer: 5 Minuten\nProbe: -\nVarianten: Eis, Pflanzen, Felsen\nBeschreibung: Mit Barriere kannst du eine Mauer erschaffen. Sie ist 3 Meter hoch, 3 Meter breit, 1 Meter dick und hat 30 LP. Wenn der Zauber endet, zerfällt die Barriere zu Staub oder löst sich einfach auf. Es bleiben keine Spuren oder verwertbare Überreste.\n\nHinweis: Du kannst 1 AP extra investieren um…\n…die Wirkungsdauer auf 1 Stunde anzuheben.\n…die Höhe oder Breite der Mauer zu verdoppeln.\n…die LP der Barriere zu verdoppeln.\n\nBrücke\nKosten: Aktion & 1 AP\nReichweite: Speziell\nWirkungsdauer: 5 Minuten\nProbe: -\nBeschreibung: Anstelle einer Mauer erzeugst du eine Brücke. Sie ist max. 3m Breit und 12m lang. Du musst den Startpunkt berühren und der Start- und Endpunkt müssen auf festen Boden sein.\n\nHinweis: Du kannst 1 AP extra investieren um…\n…die Wirkungsdauer auf 1 Stunde anzuheben.\n…die LP der Brücke zu verdoppeln.\n…die maximale Breite und Länge der Brücke zu verdoppeln."
+  },
+  "beschwoeren": {
+    "name": "Beschwören",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion & 1 AP\nReichweite: 6 Meter\nWirkungsdauer: 10 Minuten\nProbe: Zauberprobe vs. Weisheit + Fassung\nVariante: Dämon, Elementar, Geist\nBeschreibung: Du beschwörst eine Kreatur und erteilt ihr einen Befehl, den sie befolgen muss.\nBeachte die NPC regeln im Bestiarium. Das Level der Kreatur ist maximal so hoch wie der Wert deiner Zauberprobe -2. Einmal beschworen, musst du einen Vergleich gegen die Kreatur würfeln, um zu sehen, ob du sie kontrollieren kannst.\nGewinnt die Kreatur mit 1 bis 2 Erfolgen, verschwindet sie und der Zauber ist ein Misserfolg. Gewinnt sie mit aber mit 3+ Erfolgen, reißt sie sich los, und versucht sich an dir zu rächen.\nDie folgenden Faktoren können die Probe beeinflussen:\n\n-2 / +2 Befehl gefällt / missfällt der Kreatur.\n+2 Beschwörungskreis (erfordert Kreide oder Farbe und 30 Minuten zum Zeichnen).\n+1 bis +3 Opfergabe (z.B. reines Element für Elementare, Blut für Dämonen, etc.).\n+1 bis +5 Passender Ort (z.B. mystischen Quelle für ein Wasserelementar).\n-1 bis -5 Unpassender Ort (z.B. Tempel für einen Dämon).\n\nHinweis: Du kannst 1 AP extra investieren um…\n…die Wirkungsdauer um 1 Stunde zu erhöhen.\nHinweis: Die Kreatur bleibt, bis sie ihre Aufgabe erledigt hat, getötet wird oder die Wirkungsdauer endet. Danach verschwindet Sie, ohne etwas Verwertbare zu hinterlassen.\n\nHinweis: Kreaturen können auch für längere Zeit an einem Bestimmten Ort verankert werden (z.B. den Eingang einer Schatzkammer). Dafür ist aber ein mehrstündiges Ritual und selten Materialien nötig: 1 Jahr = 50 Gold / 10 Jahre = 500 Gold / 100 Jahre 1.000 Gold / permanent = unbekannt."
+  },
+  "botschaft": {
+    "name": "Botschaft",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion & 1 AP\nReichweite: Unbegrenzt\nWirkungsdauer: Sofort\nProbe: -\nBeschreibung: Du sprichst ein paar Worte, welche die Zielperson als Stimme in ihrem Kopf hört. Die Botschaft muss kurz und präzise sein (max. 2 bis 3 Sätze) und hebt sich merklich von gewöhnlichen Gedanken ab.\n\nAudienz\nKosten: Aktion & 2 AP\nReichweite: Unbegrenzt\nWirkungsdauer: 1 Stunde\nProbe: -\nBeschreibung: Audienz funktioniert nur, wen das Ziel schläft oder meditiert. Du und das Ziel treffen sich in einer abstrakten Traumlandschaft, in der ihr euch unterhalten könnt. Du kannst mit etwas Konzentration sogar Bilder oder Geräusche erzeugen (z.B. etwas vorzuzeigen).\nBeide Teilnehmer können die Kommunikation jederzeit beenden und der Zauber endet sofort, wen einer der beiden in der realen Welt Schaden erleidet.\n\nHinweis: Du kannst 1 AP extra investieren um…\n…die Wirkungsdauer auf 3 Stunden zu erhöhen.\n…eine weitere Person in die Audienz aufzunehmen."
+  },
+  "dunkelheit": {
+    "name": "Dunkelheit",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion & 1 AP\nReichweite: 15m\nWirkungsdauer: 5 Minuten\nProbe: -\nBeschreibung: Du erschaffst eine 3m durchmessende Kugel aus absoluter Dunkelheit. Selbst magisches Licht kann den Bereich nicht erhellen.\nInnerhalb der Kugel sind körperlichen Proben um 4 erschwert. Fernkampf ist überhaupt nicht möglich.\n\nHinweis: Du kannst 1 AP extra investieren um…\n…die Reichweite, um 15m zu erhöhen.\n…die Wirkungsdauer auf 1 Stunde anzuheben.\n…den Durchmesser der Kugel Radius, um 3m zu erhöhen."
+  },
+  "eingraben": {
+    "name": "Eingraben",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion & 1 AP\nReichweite: Berührung\nWirkungsdauer: 24 Stunden\nProbe: -\nBeschreibung: Du verschmilzt mit einem Stück Erde (min. 1m³ material). Das erlaubt dir z.B. dich vor Feinden zu verstecken oder ungestört zu rasten.\nBist du eingegraben, kannst du nichts sehen und nur noch gedämpft hören. Dafür spürst du, wen jemand oder etwas in deiner Nähe ist.\n\nHinweis: Die Rückverwandlung zählt als Aktion.\n\nHinweis: Du kannst 1 AP extra investieren um…\n…mit anderen Materialien als Erde zu verschmelzen (z.B. Holz oder Stein).\n…die Wirkungsdauer auf 1 Woche anzuheben.\n…dich mit Tempo 1 in der Erde bewegen zu können."
+  },
+  "entzuecken": {
+    "name": "Entzücken",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Nebensache & 1 AP\nReichweite: 15 Meter\nWirkungsdauer: 1 Stunde\nProbe: Zauberprobe vs. Weisheit + Fassung\nBeschreibung: Das Opfer hält dich für einen guten Freund und hat das dringende Bedürfnisse dir zu gefallen. Du erhältst +4 auf alle sozialen Proben gegen das Opfer und es erleidet -2 wen es sich auf etwas anderes als dich konzentrieren möchte (Kämpfe und ähnliche extreme Situationen sind ausgenommen).\n\nHinweis: Bei schlafenden Opfern bewirkt der Zauber angenehme Träume.\n\nHinweis: Du kannst 1 AP extra investieren um…\n…bis zu 3 Personen auf einmal zu verzaubern.\n…die Wirkungsdauer auf 24 Stunden auszudehnen."
+  },
+  "explosion": {
+    "name": "Explosion",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion & 1 AP\nReichweite: 30 Meter\nWirkungsdauer: Sofort\nProbe: Zauberprobe vs. Parade\nVariante: Schadensart (z.B. Blitz, Feuer oder Frost)\nBeschreibung: Du schleuderst einen Energieball, der am Zielort explodiert. Die Explosion hat einen 3m Radius und jeder im Zielgebiet wird mit voller Wucht getroffen. Das Ergebnis der Zauberprobe bestimmt wie viel Schaden die Explosion verursacht. Jedes Opfer darf sich mit einer eigenen Parade wehren.\n\nHinweis: Du kannst 1 AP extra investieren um…\n...den Explosionsradius um 3 Meter zu erhöhen.\n...die Reichweite um 30 Meter zu erhöhen."
+  },
+  "festigen": {
+    "name": "Festigen",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion & 1 AP\nReichweite: Berührung\nWirkungsdauer: 10 Minuten\nProbe: -\nVariante: Charisma, Klugheit, Weisheit, Geschick, Stärke, Zähigkeit\nBeschreibung: Du steigerst das gewählte Attribut vorrübergehend um einen Punkt. Hast du z.B. Stärke 3 und Festigen (Stärke), kannst du den Wert vorrübergehend auf 4 anheben.\n\nHinweis: Du kannst 1 AP extra investieren um…\n…die Reichweite auf 9m zu erhöhen.\n…die Wirkungsdauer auf 1 Stunden zu erhöhen.\n\nMaximieren\nKosten: Nebensache & 1 AP\nReichweite: Selbst\nWirkungsdauer: 1 Runde\nProbe: -\nBeschreibung: Mit dieser Variante kannst du das gewählte Attribut für eine Runde um +2 anheben.\nDu könntest also z.B. Charisma 4 auf 6 anheben, um beim Betreten eines Ballsaals einen besonders guten Eindruck zu machen.\n\nHinweis: Festigen und Maximieren sind nicht kumulativ. Wird Maximieren gewirkt, obwohl das Attribut schon gefestigt ist, steigt das Attribut um 1 weiteren Punkte, und kehrt nach der Aktion wieder auf den gefestigten Wert zurück."
+  },
+  "fluch": {
+    "name": "Fluch",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion & 2 AP\nReichweite: 15 Meter\nWirkungsdauer: 1 Woche pro Erfolg\nProbe: Zauberprobe vs. Weisheit + Fassung\nBeschreibung: Flüche sind eine sehr alte, archaische Form von Magie. Du musst das Opfer sehen und lauthals eine Strafe ankündigen, unter der das Opfer leiden soll (z.B. „Pickel und Warzen sollen dir wachsen!“). Je nach Art der Strafe, setzt die Wirkung sofort ein (z.B. Hexenschuss oder Warzen) oder erst nach einigen Stunden (z.B. Impotenz oder Erntetot).\n\n- Beute: Tiere Hassen das Opfer. Katzen fauchen, Pferde scheuen und in der Wildnis muss das Opfer mit Tierangriffen rechnen.\n- Erntetot: Die Ernte oder das Vieh des Opfers wird vernichtet (z.B. durch Hagelschlag, Nager oder Krankheiten). Pro Tag werden etwa 5% des Besitzts des Opfers zerstört.\n- Hexenschuss: Das Opfer wird von plötzlichen Schmerzen in Kopf und Rücken geplagt. Es erleidet -2 auf alle Proben.\n- Impotenz: Das Opfer wird impotent und/oder unfruchtbar. War das Opfer schwanger, erleidet es eine Fehlgeburt.\n- Pech: Das Opfer wird von Pech verfolgt. Es zerbricht ständig Dinge, stolpert über Hindernisse, etc. Misslingt ihm eine - Probe, resultiert das gewöhnlich in irgendeine Form von Peinlichkeit.\n- Pestilenz: Das Opfer leidet unter starken Schnupfen, Durchfall, etc.  Es kann aber niemanden anstecken.\n- Schlaflosigkeit: Das Opfer kann nicht mehr schlafen oder wird im Schlaf von grausigen Alpträumen heimgesucht. Es kann sich durch Schlaf nichtmehr erholen, wird leicht reizbar und beginnt nach einigen Tagen zu Halluzinieren (-2 auf alle Proben).\n- Warzen: Das Opfer wachsen Warzen, Eiterbeulen und Narben. Es erleidet -2 auf sämtliche soziale Proben, verführen ist komplett unmöglich.\n\nSoll der Fluch länger halten als einen Tag, musst du eine Bedingung setzen, wie z.B. „Warzen sollen dir Sprießen, bis du dich für deine Unverschämtheit entschuldigt hast!“. Die Bedingung muss etwas sein, dass erfüllt werden kann und das Opfer muss verstehen was von ihm verlangt wird. Wird keine Bedingung eingeflochten oder ist die Bedingung unmöglich zu erfüllen, wirkt der Fluch nur für einen Tag.\n\nHinweis: Legenden behaupten, dass alle Zauberer Flüche im Moment ihres Todes ausstoßen können und dass diese Todesflüche unglaublich mächtig sein können. Einige behaupten z.B., dass Vampire und Werfwölfe durch solche Todesflüche entstanden sind.\n\nHinweis: Du kannst 1 AP extra investieren um…\n…eine ganze Familie zu verfluchen."
+  },
+  "geschoss": {
+    "name": "Geschoss",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion\nReichweite: 30m\nWirkungsdauer: Sofort\nProbe: Zauberprobe vs. Parade\nVariante: Schadensart (z.B. Blitz, Feuer oder Frost)\nBeschreibung: Du schleuderst ein magisches Geschoss auf ein Ziel deiner Wahl. Deine Zauberprobe entscheidet wie viel Schaden du verursachst, und das Opfer darf sich mit einer Parade wehren.\n\nTipp: Geschoss kostet keine AP und ist daher eine Art Standardattacke für Zauberer.\n\nHinweis: Du kannst 1 AP extra investieren um…\n…die Reichweite um 60 Meter zu erhöhen."
+  },
+  "hast": {
+    "name": "Hast",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Nebensache & 1 AP\nReichweite: Selbst\nWirkungsdauer: 1 Runde\nProbe: -\nBeschreibung: Der Zauber macht dich für kurze Zeit extrem schnell. Du erhältst für eine Runde +20 Tempo und +4 auf alle Proben, die mit Geschwindigkeit zu tun haben (wie z.B. laufen oder mit Anlauf springen).\n\nDauerlauf\nKosten: Nebensache & 1 AP\nReichweite: Selbst\nWirkungsdauer: 1 Stunde\nProbe: -\nBeschreibung: Dauerlauf ist eine schwächere, aber länger anhaltende Variante von Hast. Du erhältst +4 auf dein Tempo, +2 auf Proben, die mit laufen zu tun haben und kannst permanent laufen, springen, sprinten, etc. ohne müde oder erschöpft zu werden.\n\nHinweis: Du kannst 1 AP extra investieren um…\n...die Wirkungsdauer auf 24 Stunden zu erhöhen."
+  },
+  "heilung": {
+    "name": "Heilung",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion & 1 AP\nReichweite: Berührung\nWirkungsdauer: Sofort\nProbe: Zauberprobe\nBeschreibung: Du heilst eine Person mit Magie. Würfel eine Zauberprobe. Das Ziel erhält für jeden Erfolg 1 LP zurück.\n\nHinweis: Du kannst 1 AP extra investieren um…\n…die Reichweite auf 9 Meter zu erhöhen.\n\nGenesung\nKosten: Aktion & 2 AP\nReichweite: Berührung\nWirkungsdauer: Sofort\nProbe: Zauberprobe, siehe Text\nBeschreibung: Du befreist das Ziel von einer Krankheit oder einem Gift. Der Malus für die Probe hängt von der Schwere des Gebrechens ab:\n\n-1 Schnupfen\n-3 Lungenentzündung\n-5 Krebs im Endstadium\n\nWiederherstellung\nKosten: 1 Stunde & 3 AP\nReichweite: Berührung\nWirkungsdauer: Sofort\nProbe: Zauberprobe\nBeschreibung: Du stellst beim Patienten ein abgetrenntes, zerstörtes oder verkrüppeltes Körperteil wieder her. Schäden die älter als ein Jahr sind, können nicht behandelt werden."
+  },
+  "hypnose": {
+    "name": "Hypnose",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion & 2 AP\nReichweite: 6 Meter\nWirkungsdauer: 10 Minuten\nProbe: Zauberprobe vs. Weisheit + Fassung\nBeschreibung: Du gibst einen Befehl, den das Opfer in willenloser Trance befolgen muss. Die Trance hält für die Wirkungsdauer oder, bis der Befehl ausgeführt wurde.\nDu kannst dem Opfer Befehlen, dass es dir alle Fragen wahrheitsgemäß beantworten soll. Befehle wie „Tu alles, was ich dir sage“ oder „Befolge all meine Befehle“ haben aber keine Wirkung.\n\nHinweis: Das Opfer muss verstehen, was du sagst, damit du einen Befehl erteilen kannst.\n\nHinweis: Du kannst 1 AP extra investieren um…\n…die Wirkungsdauer auf 30 Minuten zu erhöhen.\n…einen Befehl mit Auslöser zu vergeben (z.B. „Wenn du Person Y siehst“). Der Befehl schlummert, bis er ausgelöst wird, maximal aber ein Jahr. Danach gilt die übliche Wirkungsdauer.\n…dem Opfer zu Befehlen, dass es etwas vergessen soll (z.B. „Vergiss, was du gerade gesehen hast“). Die Erinnerung darf nicht älter als 1 Woche sein und ist permanent verloren."
+  },
+  "illusion": {
+    "name": "Illusion",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion & 1 AP\nReichweite: Speziell\nWirkungsdauer: 1 Stunde\nProbe: Zauberprobe\nBeschreibung: Du kannst in einem 6m Radius Illusionen von Bildern, Geräuschen und Düften erzeugen. Das erlaubt dir z.B. die Illusion von einem wehenden Vorhang oder Kampfeslärm zu erzeuge.\nIllusionen können mit einer Probe auf Weisheit + Wahrnehmung enttarnt werden. Bei komplexen Illusionen (z.B. beim Abbild eines Lebewesens oder einem imitierten Gespräch) dürfen Zeugen jede Runde eine Probe rollen. Bei simplen Illusionen (z.B. dem Abbild einer Wand) ist eine gezielte Suche nötig.\n\nHinweis: Trugbilder kann man nicht berühren oder belasten. Allerdings manipuliert der Zauber den Verstand, damit man Berührungen unterbewusst vermeidet.\n\nHinweis: Wurde eine Illusion enttarnt, dann verschwindet sie nicht einfach. Sie wirkt nur einfach unecht und falsch und kann daher ignoriert oder umgangen werden.\n\nHinweis: Du kannst 1 AP extra investieren um…\n…die Wirkungsdauer um 3 Stunden erhöhen.\n…den Radius um 10 Meter vergrößern.\n…die Illusion realistischer zu machen (-2 beim Enttarnen)."
+  },
+  "levitation": {
+    "name": "Levitation",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion & 1 AP\nReichweite: Selbst\nWirkungsdauer: 10 Minuten\nProbe: -\nBeschreibung: Mithilfe von Levitation kannst du durch die Luft fliegen und dich mit deinem doppelten Tempo fortbewegen.\n\nHinweis: Möchtest du anspruchsvolle Manöver fliegen, kann der Erzähler dafür eine Zauberprobe verlangen.\n\nHinweis: Du kannst 1 AP extra investieren um…\n…die Wirkungsdauer auf 1 Stunde zu erhöhen."
+  },
+  "magie_erkennen": {
+    "name": "Magie Erkennen",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion & 1 AP\nReichweite: 15 Meter\nWirkungsdauer: Sofort\nProbe: -\nBeschreibung: Du spürst sämtliche Magie innerhalb der Reichweite und kannst einschätzen, wie mächtig sie ungefähr ist. Außerdem durchschaust du automatisch magische Illusionen und Unsichtbarkeit.\n\nHinweis: Nachdem du Magie entdeckt hast, kannst du 5 Minuten extra investieren, um 3 Ja/Nein Fragen dazu zu stellen.\nHandelt es sich um einen magischen Gegenstand, kannst du eine Stunde investieren, um herauszufinden was er kann und wie er funktioniert."
+  },
+  "mimik": {
+    "name": "Mimik",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion & 1 AP\nReichweite: Selbst\nWirkungsdauer: 1 Stunde\nProbe: Zauberproben, Details sind im Text\nBeschreibung: Mit Mimik nimmst du das Aussehen einer anderen Person an (inklusive Geruch, Kleidung, Stimme und sogar Körpersprache). Du erhältst allerdings keine Fähigkeiten der Zielperson. Die Veränderung ist rein äußerlich.\n\n+/-0 Generische Person (z.B. alten Frau).\n-2 Person einer bestimmten Gruppe (z.B. Stadtwache).\n-4 Bestimmte Person (z.B. Bürgermeisters einer Stadt).\n+2 Du hast etwas von der Zielperson (z.B. ein Haar).\n\nHinweis: Du kannst 1 AP extra investieren um…\n…um eine Person, die du berührst, zu verwandeln.\n…die Wirkungsdauer auf 24 Stunden zu erhöhen."
+  },
+  "mutation": {
+    "name": "Mutation",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion & 1 AP\nReichweite: Selbst\nWirkungsdauer: 1 Stunde\nProbe: -\nBeschreibung: Du veränderst deinen Körper, um die Fähigkeiten eines Tiers anzunehmen.\n\nBeispiel Mutationen:\n- Adleraugen: Du erhältst +4 beim Sehen.\n- Flügel: Du erhältst Flügel und kannst mit Tempo 30 fliegen.\n- Katzenaugen: Du kannst wie eine Katze oder Eule bei Dämmerlicht sehen.\n- Klauen: Deine Hände werden zu natürlichen +3 Waffen*.\n- Kiemen: Du kannst unter Wasser zu atmen.\n- Panzerhaut: Du erhältst +3 als natürliche Rüstung*.\n- Spinnenlauf: Du kannst, wie eine Spinne an Wänden und Decken entlanglaufen.\n- Spürnase: Du erhältst +4 beim Spuren lesen und riechen im Allgemeinen.\n* kann nicht mit normaler Ausrüstung kombiniert werden.\n\nHinweis: Die Rückverwandlung zählt als Aktion.\n\nHinweis: Du kannst 1 AP extra investieren um…\n…eine Person, die du berührst, zu verwandeln.\n…die Wirkungsdauer auf 24 Stunden zu verlängern."
+  },
+  "nebelleib": {
+    "name": "Nebelleib",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion & 1 AP\nReichweite: Selbst\nWirkungsdauer: 10 Minuten\nProbe: -\nBeschreibung: Du und all deine Ausrüstung verwandeln sich in eine Wolke aus Nebel.\nIn Nebelform kannst du dich mit Tempo 6 bewegen, an Wänden hochkriechen und durch kleinste Ritzen zwängen. Du behältst deine üblichen Werte und Sinne, und bist immun gegen normalen Schaden (z.B. durch Feuer oder normale Waffe).\nDafür kannst du nicht sprechen, mit deiner Umwelt interagieren, Angreifen oder Zauber wirken. Außerdem kann magischer Schaden dich nach wie vor verletzen und starker Wind kann dich bremsen oder sogar davon wehen.\n\nHinweis: Die Rückverwandlung zählt als Aktion.\n\nHinweis: Du kannst 1 AP extra investieren um…\n...die Wirkungsdauer auf 1 Stunde zu erhöhen.\n...dein Tempo in Nebelgestallt auf 10 zu erhöhen."
+  },
+  "nekormantie": {
+    "name": "Nekromantie",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion & 3 AP\nReichweite: 3m\nWirkungsdauer: 30 Minuten\nProbe: Zauberprobe\nBeschreibung: Für jeden Erfolg kannst du eine Leiche innerhalb der Reichweite als Zombie oder Skelett zum Unleben erwecken und unter deine Kontrolle zwingen.\n\nHinweis: Du kannst 1 AP extra investieren um…\n…die Reichweite, um 3m zu erhöhen.\n…die Wirkungsdauer, auf 24 Stunden zu erhöhen."
+  },
+  "object_lesen": {
+    "name": "Objekt lesen",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: 5 Minuten & 1 AP\nReichweite: Selbst\nWirkungsdauer: Sofort\nProbe: Zauberprobe\nBeschreibung: Du kannst drei Ja/Nein Fragen zu einem Gegenstand stellen, die der Erzähler wahrheitsgemäß beantworten muss.\nAlternativ erfährst du, wozu ein Gegenstand gut ist, und wie er funktioniert."
+  },
+  "odem": {
+    "name": "Odem",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion & 1 AP\nReichweite: Speziell\nWirkungsdauer: Sofort\nProbe: Zauberprobe vs. Parade\nVariante: Schadensart (z.B. Blitz, Feuer oder Frost)\nBeschreibung: Aus deinen Händen bricht ein Kegel tödlicher Energie hervor. Er reicht 6m weit und breitet sich in einem 45° Winkel aus. Deine Zauberprobe entscheidet wie viel Schaden entsteht. Jeder im Zielgebiet wird getroffen und darf mit einer eigenen Parade dagegen würfeln.\n\nHinweis: Du kannst 1 AP extra investieren um…\n...die Reichweite des Odems um 3 Meter zu erhöhen.\n…den Winkel des Odems auf 90° zu erhöhen."
+  },
+  "regeneration": {
+    "name": "Regeneration",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Nebensache & 1 AP\nReichweite: Selbst\nWirkungsdauer: Sofort\nProbe: -\nBeschreibung: Du beschleunigst die selbst heilenden Kräfte deines Körpers, und erhältst sofort 2 LP zurück. Der Zauber kann nur einmal pro Runde genutzt werden."
+  },
+  "schild": {
+    "name": "Schild",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion & 1 AP\nReichweite: Berührung\nWirkungsdauer: 10 Minuten\nProbe: -\nVariante: Art des Schutzes (z.B. Illusionäre Doppelgänger oder steinerne Haut)\nBeschreibung: Du nutzt Magie, um dich vor Angriffen zu schützen. Du erhältst eine natürliche Rüstung von +3 (bzw. +1 wen du schon eine Rüstung trägst).\n\nHinweis: Du kannst 1 AP extra investieren, um die Wirkungsdauer auf 1 Stunde zu erhöhen."
+  },
+  "schutz_vor_elementen": {
+    "name": "Schutz vor Elementen",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion & 1 AP\nReichweite: Berührung\nWirkungsdauer: 1 Stunde\nProbe: -\nBeschreibung: Du oder eine Person, die du berührst, wird immun gegen schädliche Umwelteinflüsse wie z.B. Temperatur, Druck oder mangelnde Atemluft. Dadurch kann sie auch in extremen Umgebungen, wie z.B. unter Wasser oder in einem Vulkan, ohne Probleme überleben.\n\nHinweis: Der Zauber macht die Zielperson nicht immun gegen Angriffe mit einem Element (wie z.B. einem Feuerpfeil).\n\nHinweis: Du kannst 1 AP extra investieren um…\n…die Reichweite auf 9m zu erhöhen.\n…die Wirkungsdauer auf 24 Stunden anzuheben.\n…drei Personen auf einmal zu verzaubern."
+  },
+  "stasis": {
+    "name": "Stasis",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion & 2 AP\nReichweite: 9 Meter\nWirkungsdauer: 1 Minute\nProbe: Zauberprobe vs. Weisheit + Fassung\nBeschreibung: Stasis ist eine recht eigentümliche Fähigkeit, welche das Opfer kurzfristig in der Zeit einfriert. Es hört einfach auf sich zu bewegen und wirkt wie eine Statue – selbst dann, wenn es sich z.B. mitten in der Luft befindet.\nSolang die Stasis aktiv ist, kann das Opfer nichts tun, nichts wahrnehmen und noch nicht einmal denken. Dafür ist es aber immun gegen Schaden, kann nicht bewegt werden und Effekte wie Gifte hören auf zu wirken.\n\nHinweis: Das Opfer bemerkt nichts von dem Zauber, es sei denn die Umgebung verändert sich merklich, während es eingefroren ist.\n\nHinweis: Du kannst 1 AP extra investieren um…\n…die Reichweite, um 3m zu erhöhen.\n…die Wirkungsdauer auf 10 Minuten zu erhöhen."
+  },
+  "stille": {
+    "name": "Stille",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion & 1 AP\nReichweite: Selbst \nWirkungsdauer: 5 Minuten\nProbe: -\nBeschreibung: Du erschaffst eine 3m durchmessende Kugel der absoluten Stille um dich herum. Du kannst bestimmen, ob sie dich begleitet oder an Ort und Stelle verharrt.\n\nHinweis: Du kannst 1 AP extra investieren um…\n…die Wirkungsdauer auf 1 Stunde anzuheben.\n…den Durchmesser der Kugel Radius, um 3m zu erhöhen."
+  },
+  "telekinese": {
+    "name": "Telekinese",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion\nReichweite: 30 Meter\nWirkungsdauer: 5 Minuten\nProbe: -\nBeschreibung: Du kannst ein maximal 10kg Objekt mit reiner Gedankenkraft anheben und bewegen (ca. Tempo 9). Ganz so, als würdest du mit einer unsichtbaren Hand danach greifen. \n\nHinweis: Verlässt das Objekt die Reichweite, endet der Zauber.\n\nHinweis: Möchtest du etwas Komplexes mit Telekinese tun (z.B. ein Schloss knacken), kann der Erzähler eine erneute Zauberprobe verlangen.\n\nHinweis: Du kannst 1 AP extra investieren um…\n...die Reichweite auf 60 Meter zu erhöhen.\n...das Maximalgewicht des Objekts auf 500kg zu erhöhen."
+  },
+  "telepathie": {
+    "name": "Telepathie",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion & 1 AP\nReichweite: 5 Meter\nWirkungsdauer: 5 Minuten\nProbe: Zauberprobe vs. Weisheit + Fassung\nBeschreibung: Mit Telepathie kannst du die aktuellen Gedanken einer Person belauschen.\nDas Opfer spürt nichts von dem geistigen Angriff, wehrt sich aber intuitiv dagegen. Gelingt ihm das, dann schirmt es seinen Geist ab und wird für 1 Stunde immun gegen weitere Versuche.\n\nHinweis: Weiß das Opfer, dass seine Gedanken belauscht werden, dann kann es versuchen aktiv an unwichtige Dinge zu denken.\n\nHinweis: Dringst du in die Gedanken einer träumenden Person ein, kannst du den Traum nach deinen Wünschen verändern. Allerdings kostet jede Anpassung AP.\n\nHinweis: Du kannst 1 AP extra investieren um…\n…die Wirkungsdauer auf 30 Minuten zu erhöhen.\n…die Reichweite auf 15 Meter zu erhöhen."
+  },
+  "teleport": {
+    "name": "Teleport",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion & 1 AP\nReichweite: 5km\nWirkungsdauer: Sofort\nProbe: Zauberproben, Details sind im Text\nBeschreibung: Du verschwindest von dort, wo du bist, und tauchst ohne Zeitverlust an einem anderen Ort innerhalb der Reichweite auf. Die Schwierigkeit der Zauberprobe hängt davon ab, wie gut du den Zielort kennst:\n\n-0 Sichtkontakt\n-2 Vor kurzem gesehen\n-4 Vor langer Zeit gesehen\n-6 Nach Beschreibung\n\nHinweis: Du kannst dich nicht in feste Materie hineinversetzen (Wasser wird verdrängt, Sand ist zu dicht).\n\nHinweis: Du kannst 1 AP extra investieren um…\n…die Reichweite auf Unbegrenzt zu erhöhen.\n...einen Passagier oder 500 Kilo Last mitzunehmen (erfordert Berührung)."
+  },
+  "tiergestalt": {
+    "name": "Tiergestalt",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion & 1 AP\nReichweite: Selbst\nWirkungsdauer: 24 Stunden\nProbe: -\nVariante: Zwei Tiere (z.B. Adler und Fuchs)\nBeschreibung: Du verwandelst dich und deine Ausrüstung in ein Tier. Dein Level ist der Wert deiner Zauberprobe -2. Abgesehen von deiner Klugheit, LP und AP übernimmst du die Werte des Tiers.\n\nHinweis: Du kannst dich nur in normale Tiere verwandeln, die du auch kennst. Fabelwesen und magische Tiere sind also keine Option.\n\nHinweis: Die Rückverwandlung zählt als Aktion.\n\nHinweis: Du kannst 1 AP extra investieren um…\n…die Wirkungsdauer auf 1 Woche zu erhöhen."
+  },
+  "tierkontrolle": {
+    "name": "Tierkontrolle",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion & 1 AP\nReichweite: 10 Meter\nWirkungsdauer: 10 Minuten\nProbe: Zauberprobe vs. Weisheit + Fassung\nBeschreibung: Du verzauberst ein Tier, damit du mit ihm sprechen und ihm Kommandos erteilen kannst. Es wird sich loyal und hilfsbereit verhalten und sich sogar in den Tod stürzen, wen du darum bittest.\n\nTipp: Tiere verwenden einfache Worte und sind auf bestimmte Sinne fixiert. Außerdem bevorzugen sie simple Themen (z.B. Nahrung oder welche Gefahren es in der Nähe gibt).\n\nHinweis: Du kannst 1 AP extra investieren um…\n…die Wirkungsdauer auf 24 Stunde zu erhöhen.\n…um einer Gruppe von Tieren einen Befehl zu erteilen (z.B. einem Rudel Wölfe). Die Verteidigung wird vom Alphatier mit +2 gerollt.\n…um ein zufälliges Tier innerhalb von 1km zu verzaubern und zu dir zu rufen (du kannst eine bestimmte Tierart festlegen)."
+  },
+  "unsichtbarkeit": {
+    "name": "Unsichtbarkeit",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion & 1 AP\nReichweite: Selbst\nWirkungsdauer: 10 Minuten\nProbe: -\nBeschreibung: Alle ignorieren dich, ganz so, als wärst du unsichtbar.  Die Wirkung endet sofort, wenn du dich auffällig verhältst, z.B. wenn du laut schreist, eine Tür zuschlägst oder jemanden attackierst.\n\nHinweis: Du kannst 1 AP extra investieren um…\n…um eine Person, die du berührst, zu tarnen.\n...die Wirkungsdauer auf 1 Stunde anzuheben.\n\nVerbergen\nKosten: 1 Minute & 2 AP\nReichweite: Berührung\nWirkungsdauer: 1 Woche\nProbe: -\nBeschreibung: Du verbirgst einen Gegenstand, anstelle von dir selbst. Der Gegenstand darf nicht viel größer sein als du selbst.\nSieht sich jemand in der Nähe des Gegenstands um, darf er mit Weisheit + Fassung einen Vergleich gegen deine Zauberprobe würfeln, um die Tarnung zu durchschauen.\n\nHinweis: Du kannst 1 AP extra investieren um…\n…den Zauber mit einer Aktion anstelle einer Minute zu wirken.\n…die Wirkungsdauer, um eine Woche anzuheben.\n…etwas zu tarnen das größer ist als du (max., aber so groß wie eine Kutsche)."
+  },
+  "verstricken": {
+    "name": "Verstricken",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion & 1 AP\nReichweite: 9 Meter\nWirkungsdauer: 1 Minute\nProbe: Zauberprobe vs. Stärke + Fitness\nVariante: z.B. Spinnennetze, Ranken oder Kleber\nBeschreibung: Der Zauber verstrickt ein Ziel. Es kann sich nicht bewegen und erleidet -4 auf alle Proben. Die Probe des Zaubers wird jede Runde wiederholt, um zu sehen ob das Opfers ich befreien kann.\n\nHinweis: Du kannst 1 AP extra investieren um…\n…die Reichweite, um 9m zu erhöhen.\n…ein Gebiet mit 9 Meter Radius zu verzaubern. Jeder der das Gebiet betritt muss würfeln, um zu sehen, ob er gefangen wird."
+  },
+  "wettermacht": {
+    "name": "Wettermacht",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: 1 Minute & 2 AP\nReichweite: Speziell\nWirkungsdauer: Speziell\nProbe: Zauberprobe, Details sind im Text\nBeschreibung: Du veränderst das Wetter in deiner Umgebung. Dabei gilt, je größer die Veränderung, umso schwieriger die Probe:\n\n+/-0 Gering (z.B. Wind etwas Verstärken).\n-2 Mittel (z.B. Regen an einem wolkigen Tag).\n-4 Groß (z.B. einen Sturm beruhigen).\n\nGelingt deine Probe, verändert sich das Wetter innerhalb von wenigen Minuten zur gewünschten Form. Sobald sich das neue Wetter geformt hat, verhält es sich ganz natürlich.\n\nHinweis: Du kannst 1 AP extra investieren damit…\n…das geschaffene Wetter für 6 Stunden bleibt, ehe es sich normal zu verhalten beginnt.\n…sich das Wetter scheinbar natürlich formt (kann entsprechend ein paar Stunden dauern).\n\nHinweis: Wetter, das überhaupt nicht passt (z.B. ein Schneesturm in der Wüste), kann mit dem Zauber nicht erschaffen werden."
+  },
+  "zauberruestung": {
+    "name": "Zauberrüstung",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion & 1 AP\nReichweite: Berührung\nWirkungsdauer: 10 Minuten\nProbe: -\nBeschreibung: Du verzauberst eine Rüstung, damit sie mehr Schutz bietet. Dadurch erhöht sich ihr Bonus um einen Punkt.\n\nHinweis: Du kannst 1 AP extra investieren, um die Wirkungsdauer auf 1 Stunde zu erhöhen.\n\nHinweis: Du kannst den Zauber auch nutzen um natürliche Rüstung (wie z.B. dickes Bärenfell) zu verbessern."
+  },
+  "zaubertrickes": {
+    "name": "Zaubertricks",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion\nReichweite: 5m, speziell\nWirkungsdauer: Speziell\nProbe: -\nBeschreibung: Du beherrschst eine ganze Litanei kleiner, magischer tricks, die du nutzen kannst, um deinen Alltag zu erleichtern:\n\nFeuerfinger: Du erschaffst eine kleine flamme, die für eine Minute über einem deiner Finger schwebt.\nLicht: Du erzeugst eine schwebende fackelhelle Lichtkugel, die dir für eine Stunde folg. Für 1 AP kannst du sie an einem Ort verankern.\nLockruf: Ein kleines Tier, das du sehen kannst (z.B. ein Eichhörnchen oder Katze) nähert sich dir neugierig.\nKochen: Erhitze oder Kühle den Inhalt eines Bechers, Kochtopfs oder eine Pfanne.\nPoltern: Du erzeugst einen kleinen telekinetischen Stoß, um z.B. eine Flasche zu zerdeppern oder einen Becher vom Tisch zu stoßen.\nPutzteufel: Ein Raum reinigt sich für 15 Minuten selbst (Abwasch wäscht sich, Besen kehren, etc.).\nSäubern: Du säuberst und/oder trocknest einen Satz Kleidung.\nTelekinese: Öffne eine Tür oder ein Fenster oder bewege Spielfiguren.\nTrocken: Du und deine Kleidung werden für eine Stunde vor Regen und Schnee geschützt.\nWindstoß: Erzeug einen starken Windstoß, der Blätter verweht, Fenster aufstößt, etc."
+  },
+  "zauberwaffe": {
+    "name": "Zauberwaffe",
+    "type": "zauber",
+    "max_level": 1,
+    "description": "Kosten: Aktion & 1 AP\nReichweite: Berührung\nWirkungsdauer: 10 Minuten\nProbe: -\nBeschreibung: Du verzauberst eine Waffe, damit sie mehr Schaden verursacht. Ihr Bonus erhöht sich um einen Punkt und sie gilt während der Wirkungsdauer als magische Waffe.\n\nHinweis: Du kannst 1 AP extra investieren, um die Wirkungsdauer auf 1 Stunde zu erhöhen.\n\nHinweis: Du kannst den Zauber auch nutzen um eine natürliche Waffe (wie z.B. Klauen) zu verbessern."
   }
 }
