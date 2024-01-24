@@ -1,7 +1,7 @@
-@import "./consumables/consumables";
-@import "./money/money";
-@import "./items/items";
-@import "./other/other";
+@import "./consumables";
+@import "./money";
+@import "./items";
+@import "./other";
 
 .inventory {
   &__content {

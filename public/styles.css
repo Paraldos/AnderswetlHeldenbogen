@@ -186,7 +186,6 @@ option {
   justify-content: center;
   align-items: center;
   height: 100%;
-  width: -moz-fit-content;
   width: fit-content;
   aspect-ratio: 1/1;
   box-shadow: none;
@@ -238,7 +237,6 @@ option {
   flex-direction: column;
   position: relative;
   min-height: calc(100vh - var(--height__nav) - 40px);
-  height: -moz-fit-content;
   height: fit-content;
   margin-bottom: calc(var(--height__nav) + 40px);
   padding: 0 20px;
@@ -268,8 +266,7 @@ option {
   inset: 0;
   z-index: -1;
   background-color: rgba(0, 0, 0, 0.4);
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   transition: opacity var(--animation-time);
   opacity: 0;
 }
@@ -284,7 +281,6 @@ option {
 }
 .modal__content {
   padding: 0 15px 30px 15px;
-  height: -moz-fit-content;
   height: fit-content;
   max-height: 70vh;
   overflow: auto;
@@ -396,7 +392,6 @@ option {
   gap: 10px 40px;
 }
 .skills__container {
-  height: -moz-fit-content;
   height: fit-content;
   display: grid;
   grid-template-columns: 1fr;
@@ -648,4 +643,6 @@ option {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
-}/*# sourceMappingURL=index.css.map */
+}
+
+/*# sourceMappingURL=styles.css.map */
