@@ -181,6 +181,12 @@ option {
   background-color: var(--color__nav-background);
   border-top: 4px solid var(--color__nav-text);
 }
+.navbar__vertical-ruler {
+  width: 4px;
+  height: 70%;
+  background-color: var(--color__nav-text);
+  border-radius: 5px;
+}
 .navbar__btn {
   display: flex;
   justify-content: center;
