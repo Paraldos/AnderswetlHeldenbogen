@@ -10,13 +10,20 @@
       src="https://kit.fontawesome.com/12bc7dd6b9.js"
       crossorigin="anonymous"
     ></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script defer type="module" src="./index.js"></script>
   </head>
   <body>
-    <main class="main"></main>
-    <nav class="navbar">
+    <main class="main">
+      <div class="sign-in">
+        <button id="sign-in-with-google" class="sign-in__button disabled">
+          <i class="fa-solid fa-right-to-bracket"></i>
+          <p>Anmelden</p>
+        </button>
+      </div>
+    </main>
+    <nav class="navbar disabled">
       <button class="navbar__btn navbar__hero-btn">
         <i class="fa-solid fa-users"></i>
       </button>
@@ -26,17 +33,6 @@
       <button class="navbar__btn navbar__edit-btn">
         <i class="fa-solid fa-wrench"></i>
       </button>
-      <div class="navbar__vertical-ruler"></div>
-      <button
-        id="sign-in-with-google"
-        class="navbar__btn navbar__edit-btn invisible"
-      >
-        <i class="fa-solid fa-right-to-bracket"></i>
-      </button>
-      <button id="sign-out" class="navbar__btn navbar__edit-btn invisible">
-        <i class="fa-solid fa-x"></i>
-      </button>
     </nav>
-    <footer></footer>
   </body>
 </html>

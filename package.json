@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "node-sass": "^9.0.0"
+  },
+  "scripts": {
+    "watch:scss": "node-sass -w src/styles/styles.scss -o public/"
+  }
+}
