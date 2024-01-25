@@ -1,6 +1,5 @@
 export default class Auth {
-  constructor(firebaseConfig) {
-    firebase.initializeApp(firebaseConfig);
+  constructor() {
     this.provider = new firebase.auth.GoogleAuthProvider();
     this.signInButton = document.getElementById("sign-in-with-google");
     this.signInButton.addEventListener("click", () => this.signInWithGoogle());
