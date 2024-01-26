@@ -7,11 +7,15 @@ export default class Navbar {
     this.wikiBtn = document.querySelector(".navbar__wiki-btn");
     this.editBtn = document.querySelector(".navbar__edit-btn");
     // events
-    this.heroBtn.addEventListener("click", () => new HerosModal());
-    this.editBtn.addEventListener("click", () => this.onToggleEdit());
+    this.heroBtn.addEventListener("click", () => this.onHeroBtn());
+    this.editBtn.addEventListener("click", () => this.onEditBtn());
   }
 
-  onToggleEdit() {
+  onHeroBtn() {
+    new HerosModal();
+  }
+
+  onEditBtn() {
     document.dispatchEvent(new Event("toggleEdit"));
   }
 

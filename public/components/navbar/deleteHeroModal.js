@@ -1,5 +1,5 @@
 import hero from "../../data/hero.js";
-import Modal from "../modal/modal.js";
+import Modal from "../../templates/modal/modal.js";
 
 export default class DeleteHeroModal {
   constructor(index) {
