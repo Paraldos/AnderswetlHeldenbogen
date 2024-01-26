@@ -3,3 +3,34 @@
   justify-content: center;
   align-items: center;
 }
+
+@mixin btn-mixin {
+  --transition-time: 0.2s;
+
+  width: 100%;
+  padding: 5px 10px;
+
+  background-color: var(--color__btn-background);
+  color: var(--color__btn-text);
+  border: 1px solid transparent;
+  box-shadow: rgba(0, 0, 0, 0.2) 1.95px 1.95px 2.6px;
+  outline: none;
+  text-align: left;
+
+  transition-property: border-color padding;
+  transition-duration: var(--transition-time);
+
+  &:hover:enabled {
+    border-color: var(--color__btn-text);
+  }
+
+  &:disabled {
+    background-color: var(--color__btn-background--disabled);
+    box-shadow: none;
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+}

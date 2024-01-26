@@ -72,7 +72,6 @@ h2 {
 .disabled {
   display: none !important; }
 
-button,
 textarea,
 input,
 select {
@@ -87,20 +86,16 @@ select {
   text-align: left;
   transition-property: border-color padding;
   transition-duration: var(--transition-time); }
-  button:hover:enabled,
   textarea:hover:enabled,
   input:hover:enabled,
   select:hover:enabled {
     border-color: var(--color__btn-text); }
-  button:disabled,
   textarea:disabled,
   input:disabled,
   select:disabled {
     background-color: var(--color__btn-background--disabled);
     box-shadow: none; }
-  button:focus, button:focus-visible,
-  textarea:focus,
-  textarea:focus-visible,
+  textarea:focus, textarea:focus-visible,
   input:focus,
   input:focus-visible,
   select:focus,
@@ -145,6 +140,31 @@ option {
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: var(--color__scrollbar-thumb--hover); }
+
+button {
+  --transition-time: 0.2s;
+  width: 100%;
+  padding: 5px 10px;
+  background-color: var(--color__btn-background);
+  color: var(--color__btn-text);
+  border: 1px solid transparent;
+  box-shadow: rgba(0, 0, 0, 0.2) 1.95px 1.95px 2.6px;
+  outline: none;
+  text-align: left;
+  transition-property: border-color padding;
+  transition-duration: var(--transition-time); }
+  button:hover:enabled {
+    border-color: var(--color__btn-text); }
+  button:disabled {
+    background-color: var(--color__btn-background--disabled);
+    box-shadow: none; }
+  button:focus, button:focus-visible {
+    outline: none; }
+
+.btn-list--horizontal {
+  display: flex;
+  margin: 20px 0;
+  gap: 20px; }
 
 .sign-in {
   position: fixed;
@@ -194,13 +214,6 @@ option {
     .navbar__btn:hover {
       transform: scale(1.2);
       color: var(--color__nav-text--hover); }
-
-.delete-hero-modal {
-  margin-top: 20px; }
-  .delete-hero-modal__btns {
-    margin-top: 20px;
-    display: flex;
-    gap: 20px; }
 
 .modal__new-hero-btn {
   margin-top: 20px;
@@ -266,7 +279,7 @@ option {
     transition: transform var(--animation-time);
     transform: translateX(110vw); }
   .modal__content {
-    padding: 0 15px 30px 15px;
+    padding: 20px 15px 20px 15px;
     height: fit-content;
     max-height: 70vh;
     overflow: auto; }

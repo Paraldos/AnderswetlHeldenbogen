@@ -1,0 +1,9 @@
+button {
+  @include btn-mixin;
+}
+
+.btn-list--horizontal {
+  display: flex;
+  margin: 20px 0;
+  gap: 20px;
+}

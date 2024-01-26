@@ -1,10 +1,5 @@
-// abstract
-@import "./abstract/variables";
-@import "./abstract/mixins";
-@import "./abstract/mediaQueries";
-@import "./abstract/basics";
-@import "./abstract/inputs";
-@import "./abstract/scrollbar";
+@import "./abstract/_Imports";
+@import "./elements/_Imports";
 
 // components
 @import "./components/login/login";
