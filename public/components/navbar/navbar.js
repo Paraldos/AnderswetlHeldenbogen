@@ -19,7 +19,7 @@ export default class Navbar {
     document.dispatchEvent(new Event("toggleEdit"));
   }
 
-  disableNavbar(disabled) {
+  disable(disabled) {
     this.navbar.classList.toggle("disabled", disabled);
   }
 }

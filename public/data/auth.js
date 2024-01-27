@@ -17,7 +17,7 @@ export default class Auth {
     return firebase.auth().onAuthStateChanged(callback);
   }
 
-  disableButton(disabled) {
+  disable(disabled) {
     this.signInButton.classList.toggle("disabled", disabled);
   }
 }
