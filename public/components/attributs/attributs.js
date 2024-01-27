@@ -1,28 +1,33 @@
-import db from "../../data/db.js";
-import hero from "../../data/hero.js";
+import database from "../../data/database.js";
 import Section from "../section/section.js";
 import Attribut from "./attribut.js";
 
 export default class Attributs {
   constructor() {
     this.section = new Section("Attribute", "attributs");
-    this.attributs = Object.keys(db.attributs).map((key) => new Attribut(key));
+    this.createAttributs();
     document.addEventListener("updateAttributsHeader", () => {
       this.updateSectionHeader();
     });
     document.addEventListener("toggleEdit", () => this.updateSectionHeader());
   }
 
+  createAttributs() {
+    Object.keys(database.attributs).map(
+      (key) => new Attribut(key, this.section.contentContainer)
+    );
+  }
+
   updateSectionHeader() {
-    const visible = this.section.editToggle ? "" : "invisible";
+    const visible = this.section.editToggle ? "" : "disabled";
     this.section.headerText.innerHTML = `Attribute <span class="${visible}">(${this.getAttributsSum()})</span>`;
   }
 
   getAttributsSum() {
-    let sum = -12;
-    for (let key in hero.attributs) {
-      sum += hero.attributs[key].value;
+    let attributsSum = -12;
+    for (let key in database.hero.attributs) {
+      attributsSum += database.hero.attributs[key].value;
     }
-    return sum;
+    return attributsSum;
   }
 }

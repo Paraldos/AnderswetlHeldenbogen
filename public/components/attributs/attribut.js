@@ -1,78 +1,103 @@
-import db from "../../data/db.js";
-import hero from "../../data/hero.js";
-import Modal from "../modal/modal.js";
+import database from "../../data/database.js";
+import AttributModal from "./attributModal.js";
 
 export default class Attribut {
-  constructor(key) {
+  constructor(key, container) {
     this.key = key;
-    this.dbEntry = db.attributs[key];
-    this.container = document.querySelector(".attributs__content");
+    this.container = container;
+    this.dbEntry = database.attributs[key];
     this.element = this.createElement();
-    this.mainBtn = this.element.querySelector(".attribut__main-btn");
-    this.plusBtn = this.element.querySelector(".attribut__plus-btn");
-    this.minusBtn = this.element.querySelector(".attribut__minus-btn");
-    this.updateElement();
-    this.mainBtn.addEventListener(
-      "click",
-      () => new AttributModal(this.dbEntry)
-    );
-    this.minusBtn.addEventListener("click", () => this.onMinusBtnClick());
-    this.plusBtn.addEventListener("click", () => this.onPlusBtnClick());
     document.addEventListener("resetAttributs", () => this.updateElement());
-    document.addEventListener("toggleEdit", () => this.onToggleEdit());
   }
 
   createElement() {
-    const newElement = document.createElement("div");
-    newElement.classList.add("attribut");
-    newElement.innerHTML = `
-      <button class="attribut__main-btn">???</button>
-      <button class="attribut__minus-btn symbol-btn invisible">
-        <i class="fa-solid fa-minus"></i>
-      </button>
-      <button class="attribut__plus-btn symbol-btn invisible">
-        <i class="fa-solid fa-plus"></i>
-      </button>`;
-    this.container.appendChild(newElement);
-    return newElement;
+    const element = document.createElement("div");
+    element.classList.add("attribut");
+    element.append(
+      this.createMainBtn(),
+      this.createMinusBtn(),
+      this.createPlusBtn()
+    );
+    this.container.appendChild(element);
+    return element;
   }
 
-  updateElement() {
-    let value = hero.attributs[this.key].value;
-    if (hero.veranlagung.getVeranlagung() === this.key) {
-      value += 1;
+  createButton(classes, innerHTML, clickHandler, toggleEdit = false) {
+    const btn = document.createElement("button");
+    btn.classList.add(...classes);
+    btn.innerHTML = innerHTML;
+    btn.addEventListener("click", clickHandler);
+    if (toggleEdit) {
+      document.addEventListener("toggleEdit", () => this.onToggleEdit(btn));
     }
-    this.mainBtn.innerHTML = `${this.dbEntry.name}: ${value}`;
-    document.dispatchEvent(new Event("updateAttributsHeader"));
+    return btn;
   }
 
-  onPlusBtnClick() {
-    if (hero.attributs[this.key].value < 5) {
-      hero.attributs[this.key].value += 1;
-      hero.saveHero();
-      this.updateElement();
-    }
+  createMainBtn() {
+    return this.createButton(["attribut__main-btn"], this.getMainBtnTxt(), () =>
+      this.onMainBtnClick()
+    );
+  }
+
+  createMinusBtn() {
+    return this.createButton(
+      ["attribut__minus-btn", "symbol-btn", "disabled"],
+      `<i class="fa-solid fa-minus"></i>`,
+      () => this.onMinusBtnClick(),
+      true
+    );
+  }
+
+  createPlusBtn() {
+    return this.createButton(
+      ["attribut__plus-btn", "symbol-btn", "disabled"],
+      `<i class="fa-solid fa-plus"></i>`,
+      () => this.onPlusBtnClick(),
+      true
+    );
+  }
+
+  // events
+  onMainBtnClick() {
+    new AttributModal(this.dbEntry);
   }
 
   onMinusBtnClick() {
-    if (hero.attributs[this.key].value > 1) {
-      hero.attributs[this.key].value -= 1;
-      hero.saveHero();
+    if (this.heroAttributeValue > 1) {
+      this.heroAttributeValue -= 1;
       this.updateElement();
+      database.saveHero();
     }
   }
 
-  onToggleEdit() {
-    this.plusBtn.classList.toggle("invisible");
-    this.minusBtn.classList.toggle("invisible");
+  onPlusBtnClick() {
+    if (this.heroAttributeValue < 5) {
+      this.heroAttributeValue += 1;
+      this.updateElement();
+      database.saveHero();
+    }
   }
-}
 
-class AttributModal {
-  constructor(dbEntry) {
-    this.modal = new Modal();
-    this.modal.content.innerHTML = `
-      <h2>${dbEntry.name}</h2>
-      <p>${dbEntry.description}</p>`;
+  onToggleEdit(btn) {
+    btn.classList.toggle("disabled");
+  }
+
+  // Helper
+  get heroAttributeValue() {
+    return database.hero.attributs[this.key].value;
+  }
+
+  set heroAttributeValue(value) {
+    database.hero.attributs[this.key].value = value;
+  }
+
+  getMainBtnTxt() {
+    return `${this.dbEntry.name}: ${this.heroAttributeValue}`;
+  }
+
+  updateElement() {
+    const mainBtn = this.element.querySelector(".attribut__main-btn");
+    mainBtn.innerHTML = this.getMainBtnTxt();
+    document.dispatchEvent(new Event("updateAttributsHeader"));
   }
 }

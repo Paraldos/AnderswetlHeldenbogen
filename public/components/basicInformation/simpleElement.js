@@ -1,10 +1,10 @@
-import Database from "../../data/database.js";
+import database from "../../data/database.js";
 
 export default class SimpleElement {
   constructor(container, key) {
     this.container = container;
     this.key = key;
-    this.dbEntry = Database.hero.basicInformation[key];
+    this.dbEntry = database.hero.basicInformation[key];
     this.createElement();
   }
 
@@ -37,7 +37,7 @@ export default class SimpleElement {
   }
 
   onInputEvent(input) {
-    Database.hero.basicInformation[this.key].value = input.value;
-    Database.saveHero();
+    database.hero.basicInformation[this.key].value = input.value;
+    database.saveHero();
   }
 }

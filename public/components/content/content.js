@@ -1,6 +1,6 @@
-import Database from "../../data/database.js";
-import BasicsInformationSection from "../basicsInformation/basicsInformationSection.js";
-// import Attributs from "../attributs/attributs.js";
+import database from "../../data/database.js";
+import BasicsInformationSection from "../basicInformation/basicInformationSection.js";
+import Attributs from "../attributs/attributs.js";
 // import Skills from "../skills/skills.js";
 // import TalentsSection from "../talents/talentsSection.js";
 // import FlawsSection from "../flaws/flawsSection.js";
@@ -19,7 +19,7 @@ export default class Content {
 
   reset() {
     this.content.innerHTML = "";
-    if (!Database.hero) {
+    if (!database.hero) {
       this.createPlaceholder();
     } else {
       this.createHero();
@@ -28,7 +28,7 @@ export default class Content {
 
   createHero() {
     new BasicsInformationSection();
-    // new Attributs();
+    new Attributs();
     // new Skills();
     // new TalentsSection();
     // new FlawsSection();
@@ -43,7 +43,7 @@ export default class Content {
   }
 
   onNewHeroBtn() {
-    Database.newHero();
+    database.newHero();
     document.dispatchEvent(new Event("resetAll"));
   }
 }
