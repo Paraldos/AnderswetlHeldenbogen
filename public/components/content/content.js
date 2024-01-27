@@ -10,7 +10,6 @@ import BasicsInformationSection from "../basicsInformation/basicsInformationSect
 export default class Content {
   constructor() {
     this.content = document.querySelector(".content");
-    this.reset();
     document.addEventListener("resetAll", () => this.reset());
   }
 

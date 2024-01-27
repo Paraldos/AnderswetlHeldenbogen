@@ -18,7 +18,17 @@ class Database {
     this.init();
     // heros
     this.hero;
-    this.currentHeroRef;
+  }
+
+  async setUser(userId) {
+    this.userId = userId;
+    const path = `/users/${userId}/lastUsedHero`;
+    const lastUsedHero = await this.read(path);
+    if (lastUsedHero) {
+      if (await this.read(`/users/${this.userId}/heroes/${lastUsedHero}`)) {
+        await this.loadHero(lastUsedHero);
+      }
+    }
   }
 
   async init() {
@@ -45,6 +55,7 @@ class Database {
     const path = `/users/${this.userId}/heroes/`;
     const newHeroRef = this.database.ref(path).push();
     this.hero.refKey = newHeroRef.key;
+    this.write(`/users/${this.userId}/lastUsedHero`, this.hero.refKey);
     await this.saveHero();
   }
 
@@ -72,7 +83,7 @@ class Database {
   async loadHero(heroRefKey) {
     const path = `/users/${this.userId}/heroes/${heroRefKey}`;
     this.hero = await this.read(path);
-    console.log(this.hero);
+    this.write(`/users/${this.userId}/lastUsedHero`, this.hero.refKey);
   }
 
   nameToId(string) {

@@ -12,9 +12,11 @@ auth.onAuthStateChanged(async (user) => {
   navbar.disable(user ? false : true);
   content.disable(user ? false : true);
   if (user) {
-    Database.userId = user.uid;
+    await Database.setUser(user.uid);
+    document.dispatchEvent(new Event("resetAll"));
     console.log("User logged in.");
   } else {
-    console.log("No User signed in.");
+    document.dispatchEvent(new Event("resetAll"));
+    console.log("No user.");
   }
 });
