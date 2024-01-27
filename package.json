@@ -3,6 +3,6 @@
     "node-sass": "^9.0.0"
   },
   "scripts": {
-    "watch:scss": "node-sass -w src/styles/styles.scss -o public/"
+    "watch:scss": "node-sass -w src/styles/main.scss -o public/"
   }
 }
