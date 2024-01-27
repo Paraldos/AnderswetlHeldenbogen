@@ -1,8 +1,9 @@
 import Auth from "./data/auth.js";
-import Database from "./data/database.js";
+import database from "./data/database.js";
 import Navbar from "./components/navbar/navbar.js";
 import Content from "./components/content/content.js";
 
+await database.init();
 const auth = new Auth();
 const navbar = new Navbar();
 const content = new Content();
@@ -12,7 +13,7 @@ auth.onAuthStateChanged(async (user) => {
   navbar.disable(user ? false : true);
   content.disable(user ? false : true);
   if (user) {
-    await Database.setUser(user.uid);
+    await database.setUser(user.uid);
     document.dispatchEvent(new Event("resetAll"));
     console.log("User logged in.");
   } else {

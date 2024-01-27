@@ -7,7 +7,7 @@ export default class Attribut {
     this.container = container;
     this.dbEntry = database.attributs[key];
     this.element = this.createElement();
-    document.addEventListener("resetAttributs", () => this.updateElement());
+    // document.addEventListener("resetAttributs", () => this.updateElement());
   }
 
   createElement() {
@@ -63,16 +63,16 @@ export default class Attribut {
   }
 
   onMinusBtnClick() {
-    if (this.heroAttributeValue > 1) {
-      this.heroAttributeValue -= 1;
+    if (this.heroValue > 1) {
+      this.heroValue -= 1;
       this.updateElement();
       database.saveHero();
     }
   }
 
   onPlusBtnClick() {
-    if (this.heroAttributeValue < 5) {
-      this.heroAttributeValue += 1;
+    if (this.heroValue < 5) {
+      this.heroValue += 1;
       this.updateElement();
       database.saveHero();
     }
@@ -83,16 +83,16 @@ export default class Attribut {
   }
 
   // Helper
-  get heroAttributeValue() {
+  get heroValue() {
     return database.hero.attributs[this.key].value;
   }
 
-  set heroAttributeValue(value) {
+  set heroValue(value) {
     database.hero.attributs[this.key].value = value;
   }
 
   getMainBtnTxt() {
-    return `${this.dbEntry.name}: ${this.heroAttributeValue}`;
+    return `${this.dbEntry.name}: ${this.heroValue}`;
   }
 
   updateElement() {

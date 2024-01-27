@@ -15,9 +15,28 @@ class Database {
     this.talents = null;
     this.flaws = null;
     this.conditions = null;
-    this.init();
     // heros
     this.hero;
+  }
+
+  async init() {
+    const paths = {
+      basicInformation: "/basicInformation",
+      voelker: "/voelker",
+      attributs: "/attributs",
+      skills: "/skills",
+      talents: "/talents",
+      flaws: "/flaws",
+      conditions: "/conditions",
+    };
+
+    const results = await Promise.all(
+      Object.values(paths).map((path) => this.read(path))
+    );
+
+    Object.keys(paths).forEach((key, i) => {
+      this[key] = results[i];
+    });
   }
 
   async setUser(userId) {
@@ -29,16 +48,6 @@ class Database {
         await this.loadHero(lastUsedHero);
       }
     }
-  }
-
-  async init() {
-    this.basicInformation = await this.read("/basicInformation");
-    this.voelker = await this.read("/voelker");
-    this.attributs = await this.read("/attributs");
-    this.skills = await this.read("/skills");
-    this.talents = await this.read("/talents");
-    this.flaws = await this.read("/flaws");
-    this.conditions = await this.read("/conditions");
   }
 
   async write(path, data) {

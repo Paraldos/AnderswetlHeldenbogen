@@ -4,13 +4,13 @@ import Skill from "./skill.js";
 
 export default class Skills {
   constructor() {
-    // this.section = new Section("Fertigkeiten", "skills");
-    // this.container = this.createContainer();
-    // // this.skills = Object.keys(db.skills).map((key) => new Skill(key));
-    // document.addEventListener("updateSkillsHeader", () =>
-    //   this.updateSectionHeader()
-    // );
-    // document.addEventListener("toggleEdit", () => this.updateSectionHeader());
+    this.section = new Section("Fertigkeiten", "skills");
+    this.container = this.createContainer();
+    this.skills = Object.keys(database.skills).map((key) => new Skill(key));
+    document.addEventListener("updateSkillsHeader", () =>
+      this.updateSectionHeader()
+    );
+    document.addEventListener("toggleEdit", () => this.updateSectionHeader());
   }
 
   createContainer() {
@@ -23,14 +23,14 @@ export default class Skills {
   }
 
   updateSectionHeader() {
-    const visible = this.section.editToggle ? "" : "invisible";
-    this.section.headerText.innerHTML = `Fertigkeiten <span class="${visible}">(${this.getSkillsSum()})</span>`;
+    const visible = this.section.editToggle ? "" : "disabled";
+    this.section.header.innerHTML = `Fertigkeiten <span class="${visible}">(${this.getSkillsSum()})</span>`;
   }
 
   getSkillsSum() {
     let sum = -16;
-    for (let key in db.skills) {
-      sum += hero.skills[key].value;
+    for (let key in database.hero.skills) {
+      sum += database.hero.skills[key].value;
     }
     return sum;
   }

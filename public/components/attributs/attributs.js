@@ -24,10 +24,10 @@ export default class Attributs {
   }
 
   getAttributsSum() {
-    let attributsSum = -12;
+    let sum = -12;
     for (let key in database.hero.attributs) {
-      attributsSum += database.hero.attributs[key].value;
+      sum += database.hero.attributs[key].value;
     }
-    return attributsSum;
+    return sum;
   }
 }

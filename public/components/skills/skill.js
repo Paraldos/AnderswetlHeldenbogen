@@ -1,71 +1,102 @@
 import database from "../../data/database.js";
-import Modal from "../../templates/modal/modal.js";
+import SkillModal from "./skillModal.js";
 
 export default class Skill {
   constructor(key) {
     this.key = key;
-    this.dbEntry = db.skills[key];
+    this.dbEntry = database.skills[key];
     this.element = this.createElement();
-    this.mainBtn = this.element.querySelector(".skills__skill-main-btn");
-    this.plusBtn = this.element.querySelector(".skills__skill-plus-btn");
-    this.minusBtn = this.element.querySelector(".skills__skill-minus-btn");
-    this.updateElement();
-    this.mainBtn.addEventListener("click", () => new SkillsModal(this.dbEntry));
-    this.plusBtn.addEventListener("click", () => this.onPlusBtnClick());
-    this.minusBtn.addEventListener("click", () => this.onMinusBtnClick());
-    document.addEventListener("toggleEdit", () => this.onToggleEdit());
   }
 
   createElement() {
-    let container = document.querySelector(`.skills__${this.dbEntry.type}`);
-    const newElement = document.createElement("div");
-    newElement.classList.add("skill");
-    newElement.innerHTML = `
-      <button class="skills__skill-main-btn">???</button>
-      <button class="skills__skill-minus-btn symbol-btn invisible">
-        <i class="fa-solid fa-minus"></i>
-      </button>
-      <button class="skills__skill-plus-btn symbol-btn invisible">
-        <i class="fa-solid fa-plus"></i>
-      </button>`;
-    container.appendChild(newElement);
-    return newElement;
+    const container = document.querySelector(`.skills__${this.dbEntry.type}`);
+    const element = document.createElement("div");
+    element.classList.add("skill");
+    element.append(
+      this.createMainBtn(),
+      this.createMinusBtn(),
+      this.createPlusBtn()
+    );
+    container.appendChild(element);
+    return element;
   }
 
-  updateElement() {
-    this.mainBtn.innerHTML = `${this.dbEntry.name}: ${
-      hero.skills[this.key].value
-    }`;
-    document.dispatchEvent(new Event("updateSkillsHeader"));
-  }
-
-  onPlusBtnClick() {
-    if (hero.skills[this.key].value < 5) {
-      hero.skills[this.key].value += 1;
-      hero.saveHero();
-      this.updateElement();
+  createButton(classes, innerHTML, clickHandler, toggleEdit = false) {
+    const btn = document.createElement("button");
+    btn.classList.add(...classes);
+    btn.innerHTML = innerHTML;
+    btn.addEventListener("click", clickHandler);
+    if (toggleEdit) {
+      document.addEventListener("toggleEdit", () => this.onToggleEdit(btn));
     }
+    return btn;
+  }
+
+  createMainBtn() {
+    return this.createButton(["skill__main-btn"], this.getMainBtnTxt(), () =>
+      this.onMainBtnClick()
+    );
+  }
+
+  createMinusBtn() {
+    return this.createButton(
+      ["skill__minus-btn", "symbol-btn", "disabled"],
+      `<i class="fa-solid fa-minus"></i>`,
+      () => this.onMinusBtnClick(),
+      true
+    );
+  }
+
+  createPlusBtn() {
+    return this.createButton(
+      ["skill__plus-btn", "symbol-btn", "disabled"],
+      `<i class="fa-solid fa-plus"></i>`,
+      () => this.onPlusBtnClick(),
+      true
+    );
+  }
+
+  // events
+  onMainBtnClick() {
+    new SkillModal(this.dbEntry);
   }
 
   onMinusBtnClick() {
-    if (hero.skills[this.key].value > 0) {
-      hero.skills[this.key].value -= 1;
-      hero.saveHero();
+    if (this.heroValue > 0) {
+      this.heroValue -= 1;
       this.updateElement();
+      database.saveHero();
     }
   }
 
-  onToggleEdit() {
-    this.plusBtn.classList.toggle("invisible");
-    this.minusBtn.classList.toggle("invisible");
+  onPlusBtnClick() {
+    if (this.heroValue < 5) {
+      this.heroValue += 1;
+      this.updateElement();
+      database.saveHero();
+    }
   }
-}
 
-class SkillsModal {
-  constructor(dbEntry) {
-    this.modal = new Modal();
-    this.modal.content.innerHTML = `
-    <h2>${dbEntry.name}</h2>
-    <p>${dbEntry.description}</p>`;
+  onToggleEdit(btn) {
+    btn.classList.toggle("disabled");
+  }
+
+  // helper
+  get heroValue() {
+    return database.hero.skills[this.key].value;
+  }
+
+  set heroValue(value) {
+    database.hero.skills[this.key].value = value;
+  }
+
+  getMainBtnTxt() {
+    return `${this.dbEntry.name}: ${this.heroValue}`;
+  }
+
+  updateElement() {
+    const mainBtn = this.element.querySelector(".skill__main-btn");
+    mainBtn.innerHTML = this.getMainBtnTxt();
+    document.dispatchEvent(new Event("updateSkillsHeader"));
   }
 }
