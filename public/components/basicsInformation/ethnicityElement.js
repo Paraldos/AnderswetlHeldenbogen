@@ -1,15 +1,14 @@
-import db from "../../data/db.js";
-import hero from "../../data/hero.js";
-import VolkModal from "./volkModal.js";
+import Database from "../../data/database.js";
+import EthnicityModal from "./ethnicityModal.js";
 
 export default class EthnicityElement {
   constructor(container) {
     this.container = container;
-    this.dbEntry = db.grundlagen.volk;
+    this.heroEthnicity = Database.hero.basicInformation.volk;
     this.element = this.createElement();
     this.ethnicityBtn = this.element.querySelector(".basics__ethnicity-btn");
     this.updateEthnicityBtn();
-    this.ethnicityBtn.addEventListener("click", () => new VolkModal());
+    this.ethnicityBtn.addEventListener("click", () => new EthnicityModal());
     document.addEventListener("toggleEdit", () => this.onToggleEdit());
     document.addEventListener("updateEthnecity", () =>
       this.updateEthnicityBtn()
@@ -20,7 +19,7 @@ export default class EthnicityElement {
     let element = Object.assign(document.createElement("div"), {
       classList: "basics__ethnicity-element",
       innerHTML: `
-        <label class="basics__label">${this.dbEntry.name}:</label>
+        <label class="basics__label">${this.heroEthnicity.name}:</label>
         <button class="basics__ethnicity-btn" disabled>placeholder</button>`,
     });
     this.container.appendChild(element);
@@ -28,8 +27,8 @@ export default class EthnicityElement {
   }
 
   updateEthnicityBtn() {
-    this.ethnicityBtn.innerText = hero.grundlagen.volk
-      ? db.voelker[hero.grundlagen.volk].name
+    this.ethnicityBtn.innerText = this.heroEthnicity.value
+      ? Database.voelker[this.heroEthnicity.value].name
       : "...";
   }
 
