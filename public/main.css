@@ -194,7 +194,7 @@ button {
     transition: transform var(--animation-time);
     transform: translateX(110vw); }
   .modal__content {
-    padding: 20px 15px 20px 15px;
+    padding: 0 15px 20px 15px;
     height: fit-content;
     max-height: 70vh;
     overflow: auto; }
