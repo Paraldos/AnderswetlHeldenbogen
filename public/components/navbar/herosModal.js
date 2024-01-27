@@ -58,12 +58,12 @@ export default class HerosModal {
     heroBtn.innerHTML = hero.basicInformation.name
       ? hero.basicInformation.name
       : "Namenloser Held";
-    heroBtn.addEventListener("click", (e) => this.onHeroBtnClick());
+    heroBtn.addEventListener("click", (e) => this.onHeroBtnClick(hero));
     return heroBtn;
   }
 
-  onHeroBtnClick() {
-    console.log("load hero");
+  onHeroBtnClick(hero) {
+    database.loadHero(hero.refKey);
   }
 
   createDeleteBtn(hero) {
@@ -78,21 +78,6 @@ export default class HerosModal {
     new DeleteHeroModal(hero);
   }
 
-  // addHerosList() {
-  //   let list = document.createElement("ul");
-  //   this.modal.content.appendChild(list);
-  //   hero.arrayOfHeros.forEach((el, index) => {
-  //     let li = document.createElement("li");
-  //     li.setAttribute("data-index", index);
-  //     li.innerHTML = `
-  //     <button class="modal__load-hero-btn">${(li.innerHTML = el.grundlagen.name
-  //       ? (li.innerHTML = el.grundlagen.name)
-  //       : "Namenloser Held")}</button>
-  //     <button class="modal__delete-hero-btn symbol-btn"><i class="fa-solid fa-x"></i></button>`;
-  //     list.appendChild(li);
-  //   });
-  // }
-
   // addLoadHeroListener() {
   //   let btns = this.modal.content.querySelectorAll(".modal__load-hero-btn");
   //   btns.forEach((el) => {
@@ -100,17 +85,6 @@ export default class HerosModal {
   //       hero.loadHero(e.target.parentElement.attributes["data-index"].value);
   //       this.modal.destroyModal();
   //       document.dispatchEvent(new Event("resetAll"));
-  //     });
-  //   });
-  // }
-
-  // addDeleteHeroListener() {
-  //   let btns = this.modal.content.querySelectorAll(".modal__delete-hero-btn");
-  //   btns.forEach((el) => {
-  //     el.addEventListener("click", (e) => {
-  //       this.DeleteHeroModal = new DeleteHeroModal(
-  //         el.parentElement.attributes["data-index"].value
-  //       );
   //     });
   //   });
   // }

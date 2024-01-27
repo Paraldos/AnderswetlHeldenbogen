@@ -1,10 +1,3 @@
-import grundlagen from "./json/grundlagen.json" assert { type: "json" };
-import voelker from "./json/voelker.json" assert { type: "json" };
-import attributs from "./json/attributs.json" assert { type: "json" };
-import skills from "./json/skills.json" assert { type: "json" };
-import talents from "./json/talents.json" assert { type: "json" };
-import flaws from "./json/flaws.json" assert { type: "json" };
-import states from "./json/states.json" assert { type: "json" };
 import firebaseConfig from "../firebaseConfig.js";
 firebase.initializeApp(firebaseConfig);
 
@@ -48,38 +41,37 @@ class Database {
 
   async newHero() {
     this.hero = new Hero();
-    const newHeroRef = this.database
-      .ref("users/" + this.userId + "/heroes")
-      .push();
+    const path = `/users/${this.userId}/heroes/`;
+    const newHeroRef = this.database.ref(path).push();
     this.hero.refKey = newHeroRef.key;
     await this.saveHero();
   }
 
   async saveHero() {
-    this.write(
-      "/users/" + this.userId + "/heroes/" + this.hero.refKey,
-      this.hero
-    );
+    const path = `/users/${this.userId}/heroes/${this.hero.refKey}`;
+    this.write(path, this.hero);
   }
 
   async removeHero(heroRefKey) {
-    const heroRef = this.database.ref(
-      "users/" + this.userId + "/heroes/" + heroRefKey
-    );
+    const path = `/users/${this.userId}/heroes/${heroRefKey}`;
+    const heroRef = this.database.ref(path);
     await heroRef.remove();
   }
 
   async getArrayOfHeros() {
-    const snapshot = await this.database
-      .ref("users/" + this.userId + "/heroes")
-      .once("value");
-    const heroes = snapshot.val();
+    const path = `/users/${this.userId}/heroes/`;
+    const heroes = await this.read(path);
     if (!heroes) {
       return [];
     } else {
-      const heroesArray = Object.keys(heroes).map((key) => heroes[key]);
-      return heroesArray;
+      return Object.keys(heroes).map((key) => heroes[key]);
     }
+  }
+
+  async loadHero(heroRefKey) {
+    const path = `/users/${this.userId}/heroes/${heroRefKey}`;
+    this.hero = await this.read(path);
+    console.log(this.hero);
   }
 }
 
@@ -95,6 +87,7 @@ class Hero {
     this.items = [];
     this.money = 0;
     this.otherInventory = "";
+    this.refKey = null;
   }
 
   createBasicInformation() {
@@ -122,7 +115,6 @@ class Hero {
   }
 
   createConditions() {
-    console.log(database.conditions);
     return {
       ap: { max: database.conditions.ap.min, current: 7 },
       lp: { max: database.conditions.lp.min, current: 7 },

@@ -13,7 +13,6 @@ const auth = new Auth();
 const navbar = new Navbar();
 
 auth.onAuthStateChanged(async (user) => {
-  // user = user ? user : null;
   auth.disableButton(user ? true : false);
   navbar.disableNavbar(user ? false : true);
   if (user) {
