@@ -11,6 +11,7 @@ export default class HerosModal {
   }
 
   initModal() {
+    this.modal.content.innerHTML = "";
     this.addNewHeroBtn();
     this.createHeroList();
   }
@@ -23,8 +24,8 @@ export default class HerosModal {
     newHeroBtn.addEventListener("click", () => this.onNewHeroClick());
   }
 
-  onNewHeroClick() {
-    database.newHero();
+  async onNewHeroClick() {
+    await database.newHero();
     this.modal.destroyModal();
     document.dispatchEvent(new Event("resetAll"));
   }
@@ -47,23 +48,25 @@ export default class HerosModal {
   createHeroListItem(hero) {
     let listItem = document.createElement("li");
     listItem.setAttribute("data-hero-ref", hero.refKey);
-    listItem.appendChild(this.createHeroBtn(hero));
+    listItem.appendChild(this.createLoadHeroBtn(hero));
     listItem.appendChild(this.createDeleteBtn(hero));
     return listItem;
   }
 
-  createHeroBtn(hero) {
-    let heroBtn = document.createElement("button");
-    heroBtn.className = "modal__load-hero-btn";
-    heroBtn.innerHTML = hero.basicInformation.name
-      ? hero.basicInformation.name
+  createLoadHeroBtn(hero) {
+    let loadHeroBtn = document.createElement("button");
+    loadHeroBtn.className = "modal__load-hero-btn";
+    loadHeroBtn.innerHTML = hero.basicInformation.name.value
+      ? hero.basicInformation.name.value
       : "Namenloser Held";
-    heroBtn.addEventListener("click", (e) => this.onHeroBtnClick(hero));
-    return heroBtn;
+    loadHeroBtn.addEventListener("click", (e) => this.onLoadHeroBtnClick(hero));
+    return loadHeroBtn;
   }
 
-  onHeroBtnClick(hero) {
-    database.loadHero(hero.refKey);
+  async onLoadHeroBtnClick(hero) {
+    await database.loadHero(hero.refKey);
+    this.modal.destroyModal();
+    document.dispatchEvent(new Event("resetAll"));
   }
 
   createDeleteBtn(hero) {
@@ -77,15 +80,4 @@ export default class HerosModal {
   onDeleteBtnClick(hero) {
     new DeleteHeroModal(hero);
   }
-
-  // addLoadHeroListener() {
-  //   let btns = this.modal.content.querySelectorAll(".modal__load-hero-btn");
-  //   btns.forEach((el) => {
-  //     el.addEventListener("click", (e) => {
-  //       hero.loadHero(e.target.parentElement.attributes["data-index"].value);
-  //       this.modal.destroyModal();
-  //       document.dispatchEvent(new Event("resetAll"));
-  //     });
-  //   });
-  // }
 }

@@ -18,7 +18,7 @@ export default class Hero {
   createBasicInformation() {
     let basicInformation = {};
     for (let el in Database.basicInformation) {
-      basicInformation[el] = "";
+      basicInformation[el] = Database.basicInformation[el];
     }
     return basicInformation;
   }

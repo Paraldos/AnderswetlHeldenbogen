@@ -1,5 +1,5 @@
 import Database from "../../data/database.js";
-// import BasicsSection from "../basics/basicsSection.js";
+import BasicsInformationSection from "../basicsInformation/basicsInformationSection.js";
 // import Attributs from "../attributs/attributs.js";
 // import Skills from "../skills/skills.js";
 // import TalentsSection from "../talents/talentsSection.js";
@@ -22,14 +22,13 @@ export default class Content {
     this.content.innerHTML = "";
     if (!Database.hero) {
       this.createPlaceholder();
+    } else {
+      this.createHero();
     }
-    // } else {
-    //   this.createHero();
-    // }
   }
 
   createHero() {
-    // new BasicsSection();
+    new BasicsInformationSection();
     // new Attributs();
     // new Skills();
     // new TalentsSection();

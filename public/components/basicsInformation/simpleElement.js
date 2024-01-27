@@ -1,11 +1,10 @@
-import db from "../../data/db.js";
-import hero from "../../data/hero.js";
+import Database from "../../data/database.js";
 
 export default class SimpleElement {
   constructor(container, key) {
     this.container = container;
     this.key = key;
-    this.dbEntry = db.grundlagen[key];
+    this.dbEntry = Database.hero.basicInformation[key];
     this.element = this.createElement();
     this.nameInput = this.element.querySelector(".basics__simple-input");
     document.addEventListener("toggleEdit", () => this.onToggleEdit());
@@ -20,7 +19,7 @@ export default class SimpleElement {
         <input 
           type="text" 
           class="basics__simple-input" 
-          value="${hero.grundlagen[this.key]}" 
+          value="${this.dbEntry.value}" 
           disabled>`,
     });
     this.container.appendChild(element);
@@ -29,8 +28,8 @@ export default class SimpleElement {
 
   onInputEvent() {
     this.nameInput.addEventListener("input", () => {
-      hero.grundlagen[this.key] = this.nameInput.value;
-      hero.saveHero();
+      Database.hero.basicInformation[this.key].value = this.nameInput.value;
+      Database.saveHero();
     });
   }
 

@@ -1,6 +1,6 @@
 export default class Section {
   constructor(title, id, plusBtn = false) {
-    this.main = document.querySelector(".main");
+    this.content = document.querySelector(".content");
     this.editToggle = false;
     this.section = this.createSection(title, id, plusBtn);
     this.headerText = this.section.querySelector(".section__header-text");
@@ -20,7 +20,7 @@ export default class Section {
         <div class="${id}__content section__content"></div>
       `,
     });
-    this.main.appendChild(section);
+    this.content.appendChild(section);
     return section;
   }
 
