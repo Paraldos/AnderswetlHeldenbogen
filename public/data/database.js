@@ -1,4 +1,5 @@
-import firebaseConfig from "../firebaseConfig.js";
+import Hero from "./hero.js";
+import firebaseConfig from "./firebaseConfig.js";
 firebase.initializeApp(firebaseConfig);
 
 class Database {
@@ -73,56 +74,13 @@ class Database {
     this.hero = await this.read(path);
     console.log(this.hero);
   }
-}
 
-class Hero {
-  constructor() {
-    this.basicInformation = this.createBasicInformation();
-    this.attributs = this.createAttributes();
-    this.skills = this.createSkills();
-    this.talents = [];
-    this.flaws = [];
-    this.conditions = this.createConditions();
-    this.consumables = [];
-    this.items = [];
-    this.money = 0;
-    this.otherInventory = "";
-    this.refKey = null;
-  }
-
-  createBasicInformation() {
-    let basicInformation = {};
-    for (let el in database.basicInformation) {
-      basicInformation[el] = "";
-    }
-    return basicInformation;
-  }
-
-  createAttributes() {
-    let attributes = {};
-    for (let el in database.attributs) {
-      attributes[el] = { value: 1 };
-    }
-    return attributes;
-  }
-
-  createSkills() {
-    let skills = {};
-    for (let el in database.skills) {
-      skills[el] = { value: 0 };
-    }
-    return skills;
-  }
-
-  createConditions() {
-    return {
-      ap: { max: database.conditions.ap.min, current: 7 },
-      lp: { max: database.conditions.lp.min, current: 7 },
-      sp: { max: database.conditions.sp.min, current: 3 },
-      ep: database.conditions.ep.min,
-      stufe: database.conditions.stufe.min,
-      tempo: database.conditions.tempo.min,
-    };
+  nameToId(string) {
+    let value = string.toLowerCase();
+    value = value.replace(/ä/g, "ae");
+    value = value.replace(/ö/g, "oe");
+    value = value.replace(/ü/g, "ue");
+    return value;
   }
 }
 
