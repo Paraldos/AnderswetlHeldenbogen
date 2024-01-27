@@ -1,6 +1,5 @@
-import db from "../../data/db.js";
-import hero from "../../data/hero.js";
-import Modal from "../modal/modal.js";
+import database from "../../data/database.js";
+import Modal from "../../templates/modal/modal.js";
 
 export default class Skill {
   constructor(key) {

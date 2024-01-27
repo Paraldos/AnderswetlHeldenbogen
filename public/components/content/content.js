@@ -1,7 +1,7 @@
 import database from "../../data/database.js";
 import BasicsInformationSection from "../basicInformation/basicInformationSection.js";
 import Attributs from "../attributs/attributs.js";
-// import Skills from "../skills/skills.js";
+import Skills from "../skills/skills.js";
 // import TalentsSection from "../talents/talentsSection.js";
 // import FlawsSection from "../flaws/flawsSection.js";
 // import StatesSection from "../states/statesSection.js";
@@ -29,7 +29,7 @@ export default class Content {
   createHero() {
     new BasicsInformationSection();
     new Attributs();
-    // new Skills();
+    new Skills();
     // new TalentsSection();
     // new FlawsSection();
     // new StatesSection();

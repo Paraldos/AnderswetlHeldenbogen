@@ -8,17 +8,13 @@
     height: calc(var(--section-header-height) + 2px);
     margin-bottom: 10px;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
     color: var(--color__heading--text);
     border-bottom: 2px solid var(--color__heading--border);
-
-    h1 {
-      width: 100%;
-    }
   }
 
-  &__plus-btn,
-  &__edit-btn {
+  &__plus-btn {
     box-shadow: none;
     line-height: 0;
     height: var(--section-header-height);

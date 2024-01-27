@@ -1,5 +1,5 @@
 import database from "../../data/database.js";
-import Section from "../section/section.js";
+import Section from "../../templates/section/section.js";
 import Attribut from "./attribut.js";
 
 export default class Attributs {
@@ -20,7 +20,7 @@ export default class Attributs {
 
   updateSectionHeader() {
     const visible = this.section.editToggle ? "" : "disabled";
-    this.section.headerText.innerHTML = `Attribute <span class="${visible}">(${this.getAttributsSum()})</span>`;
+    this.section.header.innerHTML = `Attribute <span class="${visible}">(${this.getAttributsSum()})</span>`;
   }
 
   getAttributsSum() {

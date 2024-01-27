@@ -314,12 +314,11 @@ button {
     height: calc(var(--section-header-height) + 2px);
     margin-bottom: 10px;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
     color: var(--color__heading--text);
     border-bottom: 2px solid var(--color__heading--border); }
-    .section__header h1 {
-      width: 100%; }
-  .section__plus-btn, .section__edit-btn {
+  .section__plus-btn {
     box-shadow: none;
     line-height: 0;
     height: var(--section-header-height);
@@ -328,7 +327,7 @@ button {
     border: none;
     transition-property: color, transform;
     transition-duration: 0.2s; }
-    .section__plus-btn:hover, .section__edit-btn:hover {
+    .section__plus-btn:hover {
       color: var(--color__btn--hover);
       transform: scale(1.4); }
 

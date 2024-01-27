@@ -1,17 +1,16 @@
-import db from "../../data/db.js";
-import hero from "../../data/hero.js";
-import Section from "../section/section.js";
+import database from "../../data/database.js";
+import Section from "../../templates/section/section.js";
 import Skill from "./skill.js";
 
 export default class Skills {
   constructor() {
-    this.section = new Section("Fertigkeiten", "skills");
-    this.container = this.createContainer();
-    this.skills = Object.keys(db.skills).map((key) => new Skill(key));
-    document.addEventListener("updateSkillsHeader", () =>
-      this.updateSectionHeader()
-    );
-    document.addEventListener("toggleEdit", () => this.updateSectionHeader());
+    // this.section = new Section("Fertigkeiten", "skills");
+    // this.container = this.createContainer();
+    // // this.skills = Object.keys(db.skills).map((key) => new Skill(key));
+    // document.addEventListener("updateSkillsHeader", () =>
+    //   this.updateSectionHeader()
+    // );
+    // document.addEventListener("toggleEdit", () => this.updateSectionHeader());
   }
 
   createContainer() {
