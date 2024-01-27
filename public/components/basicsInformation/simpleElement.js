@@ -5,35 +5,39 @@ export default class SimpleElement {
     this.container = container;
     this.key = key;
     this.dbEntry = Database.hero.basicInformation[key];
-    this.element = this.createElement();
-    this.nameInput = this.element.querySelector(".basics__simple-input");
-    document.addEventListener("toggleEdit", () => this.onToggleEdit());
-    this.nameInput.addEventListener("input", () => this.onInputEvent());
+    this.createElement();
   }
 
   createElement() {
-    let element = Object.assign(document.createElement("div"), {
-      classList: "basics__simple-element",
-      innerHTML: `
-        <label class="basics__label">${this.dbEntry.name}:</label>
-        <input 
-          type="text" 
-          class="basics__simple-input" 
-          value="${this.dbEntry.value}" 
-          disabled>`,
-    });
-    this.container.appendChild(element);
-    return element;
+    const div = document.createElement("div");
+    div.classList.add("basics__simple-element");
+    div.appendChild(this.createLabel());
+    div.appendChild(this.createInput());
+    this.container.appendChild(div);
   }
 
-  onInputEvent() {
-    this.nameInput.addEventListener("input", () => {
-      Database.hero.basicInformation[this.key].value = this.nameInput.value;
-      Database.saveHero();
-    });
+  createLabel() {
+    const label = document.createElement("label");
+    label.classList.add("basics__label");
+    label.innerText = this.dbEntry.name;
+    return label;
   }
 
-  onToggleEdit() {
-    this.nameInput.disabled = !this.nameInput.disabled;
+  createInput() {
+    const input = document.createElement("input");
+    input.value = this.dbEntry.value;
+    input.disabled = true;
+    document.addEventListener("toggleEdit", () => this.onToggleEdit(input));
+    input.addEventListener("input", () => this.onInputEvent(input));
+    return input;
+  }
+
+  onToggleEdit(input) {
+    input.disabled = !input.disabled;
+  }
+
+  onInputEvent(input) {
+    Database.hero.basicInformation[this.key].value = input.value;
+    Database.saveHero();
   }
 }
