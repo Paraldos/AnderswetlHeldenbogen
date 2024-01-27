@@ -1,7 +1,38 @@
 {
-  /* Visit https://firebase.google.com/docs/database/security to learn more about security rules. */
   "rules": {
-    ".read": false,
-    ".write": false
+    "users": {
+      "$userId": {
+        ".read": "$userId === auth.uid",
+        ".write": "$userId === auth.uid"
+      }
+    },
+    "basicInformation": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "attributs": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "skills": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "flaws": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "talents": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "conditions": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    },
+    "voelker": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    }
   }
 }
