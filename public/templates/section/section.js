@@ -27,8 +27,10 @@ export default class Section {
   createPlusBtn() {
     const btn = document.createElement("button");
     btn.classList.add("section__plus-btn");
+    if (!this.editToggle) btn.classList.add("disabled");
     btn.innerHTML = `<i class="fa-solid fa-plus"></i>`;
     this.section.appendChild(btn);
+    return btn;
   }
 
   createContent(id) {
@@ -40,5 +42,8 @@ export default class Section {
 
   onToggleEdit() {
     this.editToggle = !this.editToggle;
+    if (this.plusBtn) {
+      this.plusBtn.classList.toggle("disabled", !this.editToggle);
+    }
   }
 }

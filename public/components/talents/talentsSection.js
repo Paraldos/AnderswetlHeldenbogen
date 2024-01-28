@@ -6,13 +6,13 @@ import Section from "../../templates/section/section.js";
 export default class TalentsSection {
   constructor() {
     this.section = new Section("Talente", "talents", true);
-    // this.types = [
-    //   ["Allgemein", "allgemein"],
-    //   ["Kampf", "kampf"],
-    //   ["Manöver", "manoever"],
-    //   ["Übernatürlich", "uebernatuerlich"],
-    //   ["Zauber", "zauber"],
-    // ];
+    this.types = [
+      ["Allgemein", "allgemein"],
+      ["Kampf", "kampf"],
+      ["Manöver", "manoever"],
+      ["Übernatürlich", "uebernatuerlich"],
+      ["Zauber", "zauber"],
+    ];
     // this.typeContainers = this.initTypeContainers();
     // this.talents = this.initTalents();
     // this.updateVisibility();
