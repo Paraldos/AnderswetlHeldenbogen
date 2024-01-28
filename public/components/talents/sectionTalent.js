@@ -61,6 +61,7 @@ export default class SectionTalent {
     const btn = document.createElement("button");
     btn.className = "talent__plus-btn symbol-btn";
     btn.innerHTML = `<i class="fa-solid fa-plus"></i>`;
+    this.btnVisiblity ? "" : btn.classList.add("disabled");
     this.updatePlusBtnVisibility(btn);
     btn.addEventListener("click", () => this.onPlusBtnClick());
     document.addEventListener("toggleEdit", () => {
