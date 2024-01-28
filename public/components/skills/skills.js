@@ -1,5 +1,5 @@
 import database from "../../data/database.js";
-import Section from "../../templates/section/section.js";
+import Section from "../../templates/section.js";
 import Skill from "./skill.js";
 
 export default class Skills {

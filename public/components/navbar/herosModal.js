@@ -1,5 +1,5 @@
 import hero from "../../data/hero.js";
-import Modal from "../../templates/modal/modal.js";
+import Modal from "../../templates/modal.js";
 import database from "../../data/database.js";
 import DeleteHeroModal from "./deleteHeroModal.js";
 

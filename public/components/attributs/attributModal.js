@@ -1,4 +1,4 @@
-import Modal from "../../templates/modal/modal.js";
+import Modal from "../../templates/modal.js";
 
 export default class AttributModal {
   constructor(dbEntry) {

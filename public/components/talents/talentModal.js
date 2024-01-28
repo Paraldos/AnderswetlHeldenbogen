@@ -1,76 +1,75 @@
-import db from "../../data/db.js";
-import hero from "../../data/hero.js";
-import Modal from "../modal/modal.js";
+// import database from "../../data/database.js";
+import Modal from "../../templates/modal.js";
 
 export default class TalentModal {
   constructor(dbEntry, index = -1) {
     this.dbEntry = dbEntry;
     this.index = index;
-    this.talent = hero.talents.value[index];
+    // this.talent = database.hero.talents.value[index];
+
     this.modal = new Modal();
-    this.modal.content.innerHTML = `<h2>${this.dbEntry.name}</h2>`;
-    if (this.dbEntry.name == "Veranlagung" && this.index != -1) {
-      this.seletor = this.initSelector();
-      this.seletor.addEventListener("change", (e) => this.onSelectorChange(e));
-    }
-    if (this.index != -1) {
-      this.addCommentLabel();
-      this.addComment();
-    }
+    this.createHeader();
+    // if (this.dbEntry.name == "Veranlagung" && this.index != -1) {
+    //   this.createSelect();
+    // }
+    // if (this.index != -1) {
+    //   this.addCommentLabel();
+    //   this.addComment();
+    // }
     this.addTalentDescription();
   }
 
-  initSelector() {
-    const newSelector = Object.assign(document.createElement("select"), {
-      innerHTML: `<option value="">...</option>`,
-    });
-    this.addSelectorOptions(newSelector);
-    this.modal.content.appendChild(newSelector);
-    return newSelector;
+  createHeader() {
+    this.modal.content.innerHTML = `<h2>${this.dbEntry.name}</h2>`;
   }
 
-  addSelectorOptions(newSelect) {
-    for (let attribut of hero.veranlagung.getVeranlagungLimits()) {
-      newSelect.appendChild(
-        Object.assign(document.createElement("option"), {
-          value: attribut,
-          innerText: db.attributs[attribut].name,
-          selected: this.talent.selected == attribut ? true : false,
-        })
-      );
-    }
-  }
+  // createSelect() {
+  //   let newSelect = document.createElement("select");
+  //   newSelect.innerHTML = `<option value="">...</option>`;
+  //   this.createSelectItems(newSelect);
+  //   newSelect.addEventListener("change", (event) => onChangeSelect(event));
+  //   this.modal.content.appendChild(newSelect);
+  // }
 
-  onSelectorChange(event) {
-    hero.veranlagung.setVeranlagung(event.target.value);
-    hero.saveHero();
-    document.dispatchEvent(new Event("resetAttributs"));
-    document.dispatchEvent(new Event("resetTalents"));
-  }
+  // createSelectItems(select) {
+  //   for (const attKey in database.attributs) {
+  //     let newSelectItem = document.createElement("option");
+  //     newSelectItem.value = attKey;
+  //     newSelectItem.innerText = database.attributs[attKey].name;
+  //     // newSelectItem.selected = this.talent.selected == attKey ? true : false;
+  //     select.appendChild(newSelectItem);
+  //   }
+  // }
 
-  // comment
-  addCommentLabel() {
-    this.modal.content.appendChild(
-      Object.assign(document.createElement("label"), { innerHTML: "Anmerkung" })
-    );
-  }
+  // onChangeSelect(event) {
+  //   hero.veranlagung.setVeranlagung(event.target.value);
+  //   hero.saveHero();
+  //   document.dispatchEvent(new Event("resetAttributs"));
+  //   document.dispatchEvent(new Event("resetTalents"));
+  // }
 
-  addComment() {
-    let comment = document.createElement("textarea");
-    comment.classList.add("modal__textfield");
-    comment.innerText = hero.talents.value[this.index].comment;
-    this.modal.content.appendChild(comment);
+  // addCommentLabel() {
+  //   this.modal.content.appendChild(
+  //     Object.assign(document.createElement("label"), { innerHTML: "Anmerkung" })
+  //   );
+  // }
 
-    comment.addEventListener("input", () => {
-      hero.talents.value[this.index].comment = comment.value;
-      hero.saveHero();
-      document.dispatchEvent(new Event("resetTalents"));
-    });
-  }
+  // addComment() {
+  //   let comment = document.createElement("textarea");
+  //   comment.classList.add("modal__textfield");
+  //   comment.innerText = hero.talents.value[this.index].comment;
+  //   this.modal.content.appendChild(comment);
+
+  //   comment.addEventListener("input", () => {
+  //     hero.talents.value[this.index].comment = comment.value;
+  //     hero.saveHero();
+  //     document.dispatchEvent(new Event("resetTalents"));
+  //   });
+  // }
 
   addTalentDescription() {
-    let newElement = document.createElement("p");
-    newElement.innerText = this.dbEntry.description;
-    this.modal.content.appendChild(newElement);
+    let element = document.createElement("p");
+    element.innerText = this.dbEntry.description;
+    this.modal.content.appendChild(element);
   }
 }

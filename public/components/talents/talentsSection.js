@@ -1,11 +1,11 @@
 import database from "../../data/database.js";
-import Section from "../../templates/section/section.js";
-// import TalentsModal from "./talentsModal.js";
-// import SingleTalent from "./singleTalent.js";
+import Section from "../../templates/section.js";
+import TalentsModal from "./talentsModal.js";
+import SectionTalent from "./sectionTalent.js";
+import talents from "../../data/talents.js";
 
 export default class TalentsSection {
   constructor() {
-    this.section = new Section("Talente", "talents", true);
     this.types = [
       ["Allgemein", "allgemein"],
       ["Kampf", "kampf"],
@@ -13,60 +13,55 @@ export default class TalentsSection {
       ["Übernatürlich", "uebernatuerlich"],
       ["Zauber", "zauber"],
     ];
-    // this.typeContainers = this.initTypeContainers();
-    // this.talents = this.initTalents();
-    // this.updateVisibility();
-    // this.section.plusBtn.addEventListener("click", () => new TalentsModal());
-    // document.addEventListener("toggleEdit", () => this.onToggleEdit());
-    // document.addEventListener("resetTalents", () => this.onReset());
+    this.section = new Section("Talente", "talents", true);
+    this.initSection();
+    this.section.plusBtn.addEventListener("click", () => this.onPlusBtnClick());
+    document.addEventListener("resetTalents", () => this.initSection());
+    document.addEventListener("toggleEdit", () => this.updateHeader());
+    document.addEventListener("resetTalentHeader", () => this.updateHeader());
   }
 
-  // ============================== init
-  initTypeContainers() {
-    this.section.contentContainer.innerHTML = "";
-    return this.types.map(([name, id]) => {
-      let newElement = Object.assign(document.createElement("div"), {
-        className: `talents__container talents__${id}`,
-        innerHTML: `<h3>${name}</h3>`,
-      });
-      this.section.contentContainer.appendChild(newElement);
-      return newElement;
-    });
+  initSection() {
+    this.section.content.innerHTML = "";
+    this.initContainer();
+    this.initTalents();
+    this.updateVisibility();
+    this.updateHeader();
+  }
+
+  initContainer() {
+    for (const [name, id] of this.types) {
+      let newElement = document.createElement("div");
+      newElement.className = `talents__container talents__${id}`;
+      newElement.innerHTML = `<h3>${name}</h3>`;
+      this.section.content.appendChild(newElement);
+    }
   }
 
   initTalents() {
-    return hero.talents.value.map(
-      (el, index) => new SingleTalent(el.id, index, this.section.editToggle)
+    if (!database.hero.talents) return;
+    database.hero.talents.map(
+      (talent, index) =>
+        new SectionTalent(talent.id, index, this.section.editToggle)
     );
   }
 
-  // ============================== events
-  onToggleEdit() {
-    this.updateSectionHeader();
-    this.talents.forEach((el) => el.toggleEditBtn(this.section.editToggle));
-    this.updateVisibility();
+  onPlusBtnClick() {
+    new TalentsModal(this.types);
   }
 
-  onReset() {
-    this.typeContainers = this.initTypeContainers();
-    this.talents = this.initTalents();
-    this.updateVisibility();
-    this.updateSectionHeader();
-  }
-
-  // ============================== helper
-  updateSectionHeader() {
-    const visible = this.section.editToggle ? "" : "invisible";
-    this.section.headerText.innerHTML = `Talente <span class="${visible}">(${hero.talents.getSum()})</span>`;
+  updateHeader() {
+    this.section.editToggle
+      ? (this.section.header.innerHTML = `Talente <span>(${talents.getSum()})</span>`)
+      : (this.section.header.innerHTML = `Talente`);
   }
 
   updateVisibility() {
-    this.section.section.classList.toggle(
-      "invisible",
-      !this.section.editToggle && hero.talents.value.length <= 0
+    const containers = this.section.content.querySelectorAll(
+      ".talents__container"
     );
-    this.typeContainers.forEach((el) => {
-      el.classList.toggle("invisible", el.childElementCount <= 1);
-    });
+    for (const container of containers) {
+      container.classList.toggle("disabled", container.childElementCount <= 1);
+    }
   }
 }

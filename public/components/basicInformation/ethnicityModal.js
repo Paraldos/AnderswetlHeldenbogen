@@ -1,5 +1,5 @@
 import Database from "../../data/database.js";
-import Modal from "../../templates/modal/modal.js";
+import Modal from "../../templates/modal.js";
 
 export default class EthnicityModal {
   constructor() {
