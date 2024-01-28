@@ -1,4 +1,5 @@
 .section {
+  position: relative;
   width: 100%;
   max-width: var(--section-max-widht);
   margin: auto;
@@ -15,8 +16,11 @@
   }
 
   &__plus-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+
     box-shadow: none;
-    line-height: 0;
     height: var(--section-header-height);
     width: var(--section-header-height);
     background-color: transparent;

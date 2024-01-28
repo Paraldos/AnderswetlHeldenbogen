@@ -1,24 +1,24 @@
-import hero from "../../data/hero.js";
-import Section from "../section/section.js";
-import TalentsModal from "./talentsModal.js";
-import SingleTalent from "./singleTalent.js";
+import database from "../../data/database.js";
+import Section from "../../templates/section/section.js";
+// import TalentsModal from "./talentsModal.js";
+// import SingleTalent from "./singleTalent.js";
 
 export default class TalentsSection {
   constructor() {
     this.section = new Section("Talente", "talents", true);
-    this.types = [
-      ["Allgemein", "allgemein"],
-      ["Kampf", "kampf"],
-      ["Manöver", "manoever"],
-      ["Übernatürlich", "uebernatuerlich"],
-      ["Zauber", "zauber"],
-    ];
-    this.typeContainers = this.initTypeContainers();
-    this.talents = this.initTalents();
-    this.updateVisibility();
-    this.section.plusBtn.addEventListener("click", () => new TalentsModal());
-    document.addEventListener("toggleEdit", () => this.onToggleEdit());
-    document.addEventListener("resetTalents", () => this.onReset());
+    // this.types = [
+    //   ["Allgemein", "allgemein"],
+    //   ["Kampf", "kampf"],
+    //   ["Manöver", "manoever"],
+    //   ["Übernatürlich", "uebernatuerlich"],
+    //   ["Zauber", "zauber"],
+    // ];
+    // this.typeContainers = this.initTypeContainers();
+    // this.talents = this.initTalents();
+    // this.updateVisibility();
+    // this.section.plusBtn.addEventListener("click", () => new TalentsModal());
+    // document.addEventListener("toggleEdit", () => this.onToggleEdit());
+    // document.addEventListener("resetTalents", () => this.onReset());
   }
 
   // ============================== init

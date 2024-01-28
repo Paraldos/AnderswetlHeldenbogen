@@ -2,7 +2,7 @@ import database from "../../data/database.js";
 import BasicsInformationSection from "../basicInformation/basicInformationSection.js";
 import Attributs from "../attributs/attributs.js";
 import Skills from "../skills/skills.js";
-// import TalentsSection from "../talents/talentsSection.js";
+import TalentsSection from "../talents/talentsSection.js";
 // import FlawsSection from "../flaws/flawsSection.js";
 // import StatesSection from "../states/statesSection.js";
 // import InventorySection from "../inventory/inventorySection.js";
@@ -27,10 +27,10 @@ export default class CharacterSheet {
   }
 
   createHero() {
+    new TalentsSection();
     new BasicsInformationSection();
     new Attributs();
     new Skills();
-    // new TalentsSection();
     // new FlawsSection();
     // new StatesSection();
     // new InventorySection();
