@@ -7,18 +7,18 @@ import Skills from "../skills/skills.js";
 // import StatesSection from "../states/statesSection.js";
 // import InventorySection from "../inventory/inventorySection.js";
 
-export default class Content {
+export default class CharacterSheet {
   constructor() {
-    this.content = document.querySelector(".content");
+    this.characterSheet = document.querySelector(".characterSheet");
     document.addEventListener("resetAll", () => this.reset());
   }
 
   disable(disabled) {
-    this.content.classList.toggle("disabled", disabled);
+    this.characterSheet.classList.toggle("disabled", disabled);
   }
 
   reset() {
-    this.content.innerHTML = "";
+    this.characterSheet.innerHTML = "";
     if (!database.hero) {
       this.createPlaceholder();
     } else {
@@ -37,8 +37,10 @@ export default class Content {
   }
 
   createPlaceholder() {
-    this.content.innerHTML = `<button class="content__new-hero-btn">Neuer Held</button>`;
-    let newHeroBtn = this.content.querySelector(".content__new-hero-btn");
+    this.characterSheet.innerHTML = `<button class="characterSheet__new-hero-btn">Neuer Held</button>`;
+    let newHeroBtn = this.characterSheet.querySelector(
+      ".characterSheet__new-hero-btn"
+    );
     newHeroBtn.addEventListener("click", () => this.onNewHeroBtn());
   }
 

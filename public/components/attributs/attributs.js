@@ -14,7 +14,7 @@ export default class Attributs {
 
   createAttributs() {
     Object.keys(database.attributs).map(
-      (key) => new Attribut(key, this.section.contentContainer)
+      (key) => new Attribut(key, this.section.content)
     );
   }
 

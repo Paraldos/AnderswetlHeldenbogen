@@ -16,7 +16,7 @@ export default class DescriptionElement {
         <label class="basics__label">${Database.hero.basicInformation.beschreibung.name}:</label>
         <textarea class="basics__description-text" disabled>${Database.hero.basicInformation.beschreibung.value}</textarea>`,
     });
-    this.section.contentContainer.appendChild(element);
+    this.section.content.appendChild(element);
     return element;
   }
 

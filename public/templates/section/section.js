@@ -1,10 +1,10 @@
 export default class Section {
   constructor(title, id, plusBtn = false) {
-    this.content = document.querySelector(".content");
-    this.section = this.createSection(title, id, plusBtn);
+    this.characterSheet = document.querySelector(".characterSheet");
+    this.section = this.createSection();
     this.header = this.createHeader(title, plusBtn);
     this.plusBtn = plusBtn ? this.createPlusBtn() : null;
-    this.contentContainer = this.createContent(id);
+    this.content = this.createContent(id);
     this.editToggle = false;
     document.addEventListener("toggleEdit", () => this.onToggleEdit());
   }
@@ -12,7 +12,7 @@ export default class Section {
   createSection() {
     let section = document.createElement("section");
     section.classList.add("section");
-    this.content.appendChild(section);
+    this.characterSheet.appendChild(section);
     return section;
   }
 

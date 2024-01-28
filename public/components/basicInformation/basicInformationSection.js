@@ -6,10 +6,10 @@ import DescriptionElement from "./descriptionElement.js";
 export default class BasicsInformationSection {
   constructor() {
     this.section = new Section("Grundlagen", "basics");
-    new SimpleElement(this.section.contentContainer, "name");
-    new EthnicityElement(this.section.contentContainer);
-    new SimpleElement(this.section.contentContainer, "konzept");
-    new SimpleElement(this.section.contentContainer, "motive");
+    new SimpleElement(this.section.content, "name");
+    new EthnicityElement(this.section.content);
+    new SimpleElement(this.section.content, "konzept");
+    new SimpleElement(this.section.content, "motive");
     new DescriptionElement(this.section);
   }
 }

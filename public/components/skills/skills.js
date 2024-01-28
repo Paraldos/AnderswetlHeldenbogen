@@ -5,7 +5,7 @@ import Skill from "./skill.js";
 export default class Skills {
   constructor() {
     this.section = new Section("Fertigkeiten", "skills");
-    this.container = this.createContainer();
+    this.createContainer();
     this.skills = Object.keys(database.skills).map((key) => new Skill(key));
     document.addEventListener("updateSkillsHeader", () =>
       this.updateSectionHeader()
@@ -14,12 +14,10 @@ export default class Skills {
   }
 
   createContainer() {
-    let container = document.querySelector(".skills__content");
-    container.innerHTML = `
+    this.section.content.innerHTML = `
         <div class="skills__container skills__geistig"><h3>Geistig</h3></div>
         <div class="skills__container skills__koerperlich"><h3>Körperlich</h3></div>
         <div class="skills__container skills__sozial"><h3>Sozial</h3></div>`;
-    return container;
   }
 
   updateSectionHeader() {

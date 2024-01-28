@@ -1,12 +1,12 @@
 import Auth from "./data/auth.js";
 import database from "./data/database.js";
 import Navbar from "./components/navbar/navbar.js";
-import Content from "./components/content/content.js";
+import CharacterSheet from "./components/characterSheet/characterSheet.js";
 
 await database.init();
 const auth = new Auth();
 const navbar = new Navbar();
-const content = new Content();
+const content = new CharacterSheet();
 
 auth.onAuthStateChanged(async (user) => {
   auth.disable(user ? true : false);
