@@ -1,7 +1,7 @@
 import database from "../../data/database.js";
 import Section from "../../templates/section.js";
-import FlawsModal from "./flawsModal.js";
-import SingleFlaw from "./singleFlaw.js";
+// import FlawsModal from "./flawsModal.js";
+// import SingleFlaw from "./singleFlaw.js";
 
 export default class FlawsSection {
   constructor() {
