@@ -9,7 +9,6 @@ export default class FlawsSection {
     this.section = new Section("Schwächen", "flaws", true);
     this.container = document.querySelector(".flaws__content");
     this.flaws = this.addFlaws();
-    this.updateVisibility();
     // events
     this.section.plusBtn.addEventListener("click", () => new FlawsModal());
     document.addEventListener("toggleEdit", () => this.onToggleEdit());
@@ -18,8 +17,8 @@ export default class FlawsSection {
 
   // ============================== init
   addFlaws() {
-    if (!hero.flaws.value) return [];
-    return hero.flaws.value.map(
+    if (!database.hero.flaws) return [];
+    return database.hero.flaws.map(
       (el, index) => new SingleFlaw(el.id, index, this.section.editToggle)
     );
   }
@@ -32,14 +31,8 @@ export default class FlawsSection {
   }
 
   onToggleEdit() {
-    const spanVisibility = this.section.editToggle ? "" : "invisible";
+    const spanVisibility = this.section.editToggle ? "" : "disabled";
     this.section.headerText.innerHTML = `Schwächen <span class="${spanVisibility}">(${hero.flaws.getSum()})</span>`;
     this.updateVisibility();
-  }
-
-  // ============================== helper
-  updateVisibility() {
-    const visibility = !this.section.editToggle && hero.flaws.value.length <= 0;
-    this.section.section.classList.toggle("invisible", visibility);
   }
 }
