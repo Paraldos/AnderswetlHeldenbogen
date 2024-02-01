@@ -7,11 +7,15 @@ class Flaws {
   }
 
   findFlaw(id) {
-    return this.value.find((el) => el.id === id);
+    if (!database.hero.flaws) return false;
+    return database.hero.flaws.find((el) => el.id === id);
   }
 
   addFlaw(id, innate = false) {
-    this.value.push({
+    if (!database.hero.flaws) {
+      database.hero.flaws = [];
+    }
+    database.hero.flaws.push({
       id: id,
       comment: "",
       innate: innate,
@@ -19,7 +23,7 @@ class Flaws {
     this.sort();
     document.dispatchEvent(new Event("resetFlaws"));
     document.dispatchEvent(new Event("resetStates"));
-    this.hero.saveHero();
+    database.saveHero();
   }
 
   removeFlaw(index) {
@@ -40,7 +44,7 @@ class Flaws {
   }
 
   sort() {
-    this.value.sort((a, b) => {
+    database.hero.flaws.sort((a, b) => {
       if (a.id < b.id) {
         return -1;
       }

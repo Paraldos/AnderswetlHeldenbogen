@@ -1,5 +1,5 @@
-import hero from "../../data/hero.js";
-import Modal from "../modal/modal.js";
+import database from "../../data/database.js";
+import Modal from "../../templates/modal.js";
 
 export default class FlawModal {
   constructor(dbEntry, index = -1) {
