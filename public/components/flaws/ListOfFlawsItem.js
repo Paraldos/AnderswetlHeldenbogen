@@ -1,5 +1,5 @@
 import database from "../../data/database.js";
-import FlawModal from "./heroFlawDescription.js";
+import DescriptionModal from "../descriptionModal/descriptionModal.js";
 
 export default class ListItem {
   constructor(id, modal) {
@@ -28,7 +28,7 @@ export default class ListItem {
   }
 
   onMainBtnClick() {
-    new FlawModal(this.dbEntry);
+    new DescriptionModal(this.dbEntry);
   }
 
   createPlusBtn() {

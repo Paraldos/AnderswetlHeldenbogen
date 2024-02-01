@@ -1,5 +1,5 @@
 import database from "../../data/database.js";
-import AttributModal from "./attributModal.js";
+import DescriptionModal from "../descriptionModal/descriptionModal.js";
 
 export default class Attribut {
   constructor(key, container) {
@@ -59,7 +59,7 @@ export default class Attribut {
 
   // events
   onMainBtnClick() {
-    new AttributModal(this.dbEntry);
+    new DescriptionModal(this.dbEntry);
   }
 
   onMinusBtnClick() {

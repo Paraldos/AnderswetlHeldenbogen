@@ -19,7 +19,7 @@ export default class ListOfFlaws {
   addFlaws() {
     for (let id in database.flaws) {
       if (flaws.findFlaw(id)) continue;
-      else new ListItem(id, this.modal);
+      else new ListOfFlawsItem(id, this.modal);
     }
   }
 

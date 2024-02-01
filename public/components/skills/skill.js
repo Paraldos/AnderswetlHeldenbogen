@@ -1,5 +1,5 @@
 import database from "../../data/database.js";
-import SkillModal from "./skillModal.js";
+import DescriptionModal from "../descriptionModal/descriptionModal.js";
 
 export default class Skill {
   constructor(key) {
@@ -58,7 +58,7 @@ export default class Skill {
 
   // events
   onMainBtnClick() {
-    new SkillModal(this.dbEntry);
+    new DescriptionModal(this.dbEntry);
   }
 
   onMinusBtnClick() {

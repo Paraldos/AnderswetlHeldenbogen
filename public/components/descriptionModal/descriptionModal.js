@@ -1,10 +1,10 @@
 import Modal from "../../templates/modal.js";
 
-export default class AttributModal {
+export default class DescriptionModal {
   constructor(dbEntry) {
     this.modal = new Modal();
     this.modal.content.innerHTML = `
-        <h2>${dbEntry.name}</h2>
-        <p>${dbEntry.description}</p>`;
+            <h2>${dbEntry.name}</h2>
+            <p>${dbEntry.description}</p>`;
   }
 }
