@@ -1,8 +1,8 @@
 import database from "../../data/database.js";
 import Section from "../../templates/section.js";
-import Attribut from "./attribut.js";
+import AttributsSectionItem from "./attributsSectionItem.js";
 
-export default class Attributs {
+export default class AttributsSection {
   constructor() {
     this.section = new Section("Attribute", "attributs");
     this.createAttributs();
@@ -14,7 +14,7 @@ export default class Attributs {
 
   createAttributs() {
     Object.keys(database.attributs).map(
-      (key) => new Attribut(key, this.section.content)
+      (key) => new AttributsSectionItem(key, this.section.content)
     );
   }
 

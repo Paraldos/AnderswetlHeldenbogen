@@ -1,12 +1,14 @@
 import database from "../../data/database.js";
 import Section from "../../templates/section.js";
-import Skill from "./skill.js";
+import SkillsSectionItem from "./skillsSectionItem.js";
 
-export default class Skills {
+export default class SkillsSection {
   constructor() {
     this.section = new Section("Fertigkeiten", "skills");
     this.createContainer();
-    this.skills = Object.keys(database.skills).map((key) => new Skill(key));
+    this.skills = Object.keys(database.skills).map(
+      (key) => new SkillsSectionItem(key)
+    );
     document.addEventListener("updateSkillsHeader", () =>
       this.updateSectionHeader()
     );

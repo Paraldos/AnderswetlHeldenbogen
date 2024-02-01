@@ -1,24 +1,23 @@
 import database from "../../data/database.js";
 import DescriptionModal from "../descriptionModal/descriptionModal.js";
 
-export default class Attribut {
-  constructor(key, container) {
+export default class SkillsSectionItem {
+  constructor(key) {
     this.key = key;
-    this.container = container;
-    this.dbEntry = database.attributs[key];
+    this.dbEntry = database.skills[key];
     this.element = this.createElement();
-    // document.addEventListener("resetAttributs", () => this.updateElement());
   }
 
   createElement() {
+    const container = document.querySelector(`.skills__${this.dbEntry.type}`);
     const element = document.createElement("div");
-    element.classList.add("attribut");
+    element.classList.add("skill");
     element.append(
       this.createMainBtn(),
       this.createMinusBtn(),
       this.createPlusBtn()
     );
-    this.container.appendChild(element);
+    container.appendChild(element);
     return element;
   }
 
@@ -34,14 +33,14 @@ export default class Attribut {
   }
 
   createMainBtn() {
-    return this.createButton(["attribut__main-btn"], this.getMainBtnTxt(), () =>
+    return this.createButton(["skill__main-btn"], this.getMainBtnTxt(), () =>
       this.onMainBtnClick()
     );
   }
 
   createMinusBtn() {
     return this.createButton(
-      ["attribut__minus-btn", "symbol-btn", "disabled"],
+      ["skill__minus-btn", "symbol-btn", "disabled"],
       `<i class="fa-solid fa-minus"></i>`,
       () => this.onMinusBtnClick(),
       true
@@ -50,7 +49,7 @@ export default class Attribut {
 
   createPlusBtn() {
     return this.createButton(
-      ["attribut__plus-btn", "symbol-btn", "disabled"],
+      ["skill__plus-btn", "symbol-btn", "disabled"],
       `<i class="fa-solid fa-plus"></i>`,
       () => this.onPlusBtnClick(),
       true
@@ -63,7 +62,7 @@ export default class Attribut {
   }
 
   onMinusBtnClick() {
-    if (this.heroValue > 1) {
+    if (this.heroValue > 0) {
       this.heroValue -= 1;
       this.updateElement();
       database.saveHero();
@@ -82,13 +81,13 @@ export default class Attribut {
     btn.classList.toggle("disabled");
   }
 
-  // Helper
+  // helper
   get heroValue() {
-    return database.hero.attributs[this.key].value;
+    return database.hero.skills[this.key].value;
   }
 
   set heroValue(value) {
-    database.hero.attributs[this.key].value = value;
+    database.hero.skills[this.key].value = value;
   }
 
   getMainBtnTxt() {
@@ -96,8 +95,8 @@ export default class Attribut {
   }
 
   updateElement() {
-    const mainBtn = this.element.querySelector(".attribut__main-btn");
+    const mainBtn = this.element.querySelector(".skill__main-btn");
     mainBtn.innerHTML = this.getMainBtnTxt();
-    document.dispatchEvent(new Event("updateAttributsHeader"));
+    document.dispatchEvent(new Event("updateSkillsHeader"));
   }
 }
