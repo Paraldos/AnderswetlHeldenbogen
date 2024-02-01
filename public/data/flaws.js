@@ -27,20 +27,20 @@ class Flaws {
   }
 
   removeFlaw(index) {
-    this.value.splice(index, 1);
+    database.hero.flaws.splice(index, 1);
     document.dispatchEvent(new Event("resetFlaws"));
     document.dispatchEvent(new Event("resetStates"));
-    this.hero.saveHero();
+    database.saveHero();
   }
 
   getSum() {
-    if (!database.hero.flaws) {
-      return 0;
-    }
-    const sumOfFlaws = database.hero.flaws.reduce((sum, flaw) => {
-      return sum + flaw.innate ? 0 : 1;
+    if (!database.hero.flaws) return 0;
+    if (database.hero.flaws.length === 0) return 0;
+    let sum = 0;
+    database.hero.flaws.forEach((el) => {
+      if (!el.innate) sum++;
     });
-    return sumOfFlaws;
+    return sum;
   }
 
   sort() {

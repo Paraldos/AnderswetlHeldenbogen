@@ -1,6 +1,6 @@
 import database from "../../data/database.js";
 import Modal from "../../templates/modal.js";
-import FlawModal from "./flawModal.js";
+import FlawModal from "./heroFlawDescription.js";
 import flaws from "../../data/flaws.js";
 
 export default class ListOfFlaws {

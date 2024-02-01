@@ -1,7 +1,7 @@
 import database from "../../data/database.js";
 import Modal from "../../templates/modal.js";
 
-export default class FlawModal {
+export default class HeroFlawDescription {
   constructor(dbEntry, index = -1) {
     this.dbEntry = dbEntry;
     this.index = index;
@@ -19,7 +19,7 @@ export default class FlawModal {
     if (this.index === -1) return;
     let comment = document.createElement("textarea");
     comment.classList.add("modal__textfield");
-    comment.value = hero.flaws.value[this.index].comment;
+    comment.value = database.hero.flaws[this.index].comment;
     this.modal.content.appendChild(comment);
     comment.addEventListener("input", () => this.handleInput(comment));
   }
@@ -31,8 +31,8 @@ export default class FlawModal {
   }
 
   handleInput(comment) {
-    hero.flaws.value[this.index].comment = comment.value;
-    hero.saveHero();
+    database.hero.flaws[this.index].comment = comment.value;
+    database.saveHero();
     document.dispatchEvent(new Event("resetTalents"));
   }
 }
