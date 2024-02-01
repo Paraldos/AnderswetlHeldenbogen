@@ -1,5 +1,6 @@
 import database from "../../data/database.js";
 import Section from "../../templates/section.js";
+import flaws from "../../data/flaws.js";
 // import FlawsModal from "./flawsModal.js";
 // import SingleFlaw from "./singleFlaw.js";
 
@@ -32,7 +33,6 @@ export default class FlawsSection {
 
   onToggleEdit() {
     const spanVisibility = this.section.editToggle ? "" : "disabled";
-    this.section.headerText.innerHTML = `Schwächen <span class="${spanVisibility}">(${hero.flaws.getSum()})</span>`;
-    this.updateVisibility();
+    this.section.header.innerHTML = `Schwächen <span class="${spanVisibility}">(${flaws.getSum()})</span>`;
   }
 }

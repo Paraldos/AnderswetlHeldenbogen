@@ -1,4 +1,6 @@
-export default class Flaws {
+import database from "./database.js";
+
+class Flaws {
   constructor(hero) {
     this.hero = hero;
     this.value = [];
@@ -28,11 +30,13 @@ export default class Flaws {
   }
 
   getSum() {
-    let sum = 0;
-    this.value.forEach((el) => {
-      if (!el.innate) sum += 1;
+    if (!database.hero.flaws) {
+      return 0;
+    }
+    const sumOfFlaws = database.hero.flaws.reduce((sum, flaw) => {
+      return sum + flaw.innate ? 0 : 1;
     });
-    return sum;
+    return sumOfFlaws;
   }
 
   sort() {
@@ -60,3 +64,6 @@ export default class Flaws {
     });
   }
 }
+
+const flaws = new Flaws();
+export default flaws;
