@@ -1,5 +1,5 @@
 import database from "../../data/database.js";
-import DescriptionModal from "../descriptionModal/descriptionModal.js";
+import DescriptionModal from "../../templates/descriptionModal.js";
 
 export default class ListItem {
   constructor(id, modal) {
