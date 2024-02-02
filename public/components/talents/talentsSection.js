@@ -1,7 +1,7 @@
 import database from "../../data/database.js";
 import Section from "../../templates/section.js";
-import TalentsModal from "./talentsModal.js";
-import SectionTalent from "./sectionTalent.js";
+import ListOfTalents from "./listOfTalents.js";
+import TalentsSectionItem from "./talentsSectionItem.js";
 import talents from "../../data/talents.js";
 
 export default class TalentsSection {
@@ -42,12 +42,12 @@ export default class TalentsSection {
     if (!database.hero.talents) return;
     database.hero.talents.map(
       (talent, index) =>
-        new SectionTalent(talent.id, index, this.section.editToggle)
+        new TalentsSectionItem(talent.id, index, this.section.editToggle)
     );
   }
 
   onPlusBtnClick() {
-    new TalentsModal(this.types);
+    new ListOfTalents(this.types);
   }
 
   updateHeader() {

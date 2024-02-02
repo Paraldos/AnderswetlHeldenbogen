@@ -1,6 +1,6 @@
 import database from "../../data/database.js";
 import flaws from "../../data/flaws.js";
-import HeroFlawDescription from "./heroFlawDescription.js";
+import HeroFlaw from "./heroFlaw.js";
 
 export default class FlawSectionItem {
   constructor(id, index, section) {
@@ -29,7 +29,7 @@ export default class FlawSectionItem {
   }
 
   onMainBtnClick() {
-    new HeroFlawDescription(this.dbEntry, this.index);
+    new HeroFlaw(this.dbEntry, this.index);
   }
 
   createMinusBtn() {

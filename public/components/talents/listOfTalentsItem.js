@@ -1,9 +1,10 @@
 import database from "../../data/database.js";
 import talents from "../../data/talents.js";
-import TalentModal from "./talentModal.js";
+import TalentModal from "./heroTalent.js";
 
-export default class ModalTalent {
+export default class ListOfTalentsItem {
   constructor(key, modalContent) {
+    console.log("hi");
     this.key = key;
     this.dbEntry = database.talents[key];
     this.modalContent = modalContent;

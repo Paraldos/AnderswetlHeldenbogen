@@ -1,9 +1,9 @@
 import database from "../../data/database.js";
 import talents from "../../data/talents.js";
 import Modal from "../../templates/modal.js";
-import ModalTalent from "./modalTalent.js";
+import ListOfTalentsItem from "./listOfTalentsItem.js";
 
-export default class TalentsModal {
+export default class ListOfTalents {
   constructor(types) {
     this.types = types;
     this.modal = new Modal();
@@ -30,7 +30,7 @@ export default class TalentsModal {
   createTalents() {
     talents
       .getUnusedTalents()
-      .map((talentKey) => new ModalTalent(talentKey, this.modal.content));
+      .map((talentKey) => new ListOfTalentsItem(talentKey, this.modal.content));
   }
 
   updateContainerVisbility() {

@@ -1,9 +1,8 @@
 // import database from "../../data/database.js";
 import Modal from "../../templates/modal.js";
 
-export default class TalentModal {
+export default class HeroTalent {
   constructor(dbEntry, index = -1) {
-    console.log("hi");
     this.dbEntry = dbEntry;
     this.index = index;
     // this.talent = database.hero.talents.value[index];

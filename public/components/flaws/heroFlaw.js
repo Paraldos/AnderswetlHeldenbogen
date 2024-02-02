@@ -1,7 +1,7 @@
 import database from "../../data/database.js";
 import Modal from "../../templates/modal.js";
 
-export default class HeroFlawDescription {
+export default class HeroFlaw {
   constructor(dbEntry, index = -1) {
     this.dbEntry = dbEntry;
     this.index = index;

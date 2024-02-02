@@ -1,8 +1,8 @@
 import database from "../../data/database.js";
 import talents from "../../data/talents.js";
-import TalentModal from "./talentModal.js";
+import HeroTalent from "./heroTalent.js";
 
-export default class SectionTalent {
+export default class TalentsSectionItem {
   constructor(id, index, btnVisiblity) {
     this.index = index;
     this.btnVisiblity = btnVisiblity;
@@ -39,7 +39,7 @@ export default class SectionTalent {
   }
 
   onMainBtnclick() {
-    new TalentModal(this.dbEntry, this.index);
+    new HeroTalent(this.dbEntry, this.index);
   }
 
   createMinusBtn(sectionTalent) {
