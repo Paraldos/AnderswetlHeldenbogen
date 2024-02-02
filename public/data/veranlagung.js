@@ -6,8 +6,8 @@ class Veranlagung {
     this.hero = hero;
   }
 
-  getVeranlagung() {
-    let talent = this.hero.talents.findTalent("veranlagung");
+  getSelectedAttribut() {
+    let talent = talents.findTalent("veranlagung");
     if (talent) return talent.selected;
     else return false;
   }

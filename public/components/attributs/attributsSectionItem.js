@@ -1,5 +1,6 @@
 import database from "../../data/database.js";
 import DescriptionModal from "../../templates/descriptionModal.js";
+import veranlagung from "../../data/veranlagung.js";
 
 export default class AttributsSectionItem {
   constructor(key, container) {
@@ -84,7 +85,11 @@ export default class AttributsSectionItem {
 
   // Helper
   get heroValue() {
-    return database.hero.attributs[this.key].value;
+    let value = database.hero.attributs[this.key].value;
+    if (veranlagung.getSelectedAttribut() == this.key) {
+      value += 1;
+    }
+    return value;
   }
 
   set heroValue(value) {
