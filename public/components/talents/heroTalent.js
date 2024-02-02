@@ -1,21 +1,17 @@
-// import database from "../../data/database.js";
+import database from "../../data/database.js";
 import Modal from "../../templates/modal.js";
 
 export default class HeroTalent {
-  constructor(dbEntry, index = -1) {
+  constructor(dbEntry, index) {
     this.dbEntry = dbEntry;
     this.index = index;
-    // this.talent = database.hero.talents.value[index];
-
+    this.heroEntry = database.hero.talents[index];
     this.modal = new Modal();
     this.createHeader();
     // if (this.dbEntry.name == "Veranlagung" && this.index != -1) {
     //   this.createSelect();
     // }
-    // if (this.index != -1) {
-    //   this.addCommentLabel();
-    //   this.addComment();
-    // }
+    this.createComment();
     this.addTalentDescription();
   }
 
@@ -48,24 +44,19 @@ export default class HeroTalent {
   //   document.dispatchEvent(new Event("resetTalents"));
   // }
 
-  // addCommentLabel() {
-  //   this.modal.content.appendChild(
-  //     Object.assign(document.createElement("label"), { innerHTML: "Anmerkung" })
-  //   );
-  // }
+  createComment() {
+    let comment = document.createElement("textarea");
+    comment.classList.add("modal__textfield");
+    comment.innerText = this.heroEntry.comment;
+    comment.addEventListener("input", () => this.onInputComment(event));
+    this.modal.content.appendChild(comment);
+  }
 
-  // addComment() {
-  //   let comment = document.createElement("textarea");
-  //   comment.classList.add("modal__textfield");
-  //   comment.innerText = hero.talents.value[this.index].comment;
-  //   this.modal.content.appendChild(comment);
-
-  //   comment.addEventListener("input", () => {
-  //     hero.talents.value[this.index].comment = comment.value;
-  //     hero.saveHero();
-  //     document.dispatchEvent(new Event("resetTalents"));
-  //   });
-  // }
+  onInputComment(event) {
+    this.heroEntry.comment = event.target.value;
+    database.saveHero();
+    document.dispatchEvent(new Event("resetTalents"));
+  }
 
   addTalentDescription() {
     let element = document.createElement("p");

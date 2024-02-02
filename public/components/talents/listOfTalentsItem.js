@@ -1,10 +1,10 @@
 import database from "../../data/database.js";
 import talents from "../../data/talents.js";
 import TalentModal from "./heroTalent.js";
+import DescriptionModal from "../../templates/descriptionModal.js";
 
 export default class ListOfTalentsItem {
   constructor(key, modalContent) {
-    console.log("hi");
     this.key = key;
     this.dbEntry = database.talents[key];
     this.modalContent = modalContent;
@@ -33,7 +33,7 @@ export default class ListOfTalentsItem {
   }
 
   onClickMainBtn() {
-    new TalentModal(this.dbEntry);
+    new DescriptionModal(this.dbEntry);
   }
 
   createPlusBtn(container) {

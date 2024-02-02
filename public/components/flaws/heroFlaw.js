@@ -33,6 +33,6 @@ export default class HeroFlaw {
   handleInput(comment) {
     database.hero.flaws[this.index].comment = comment.value;
     database.saveHero();
-    document.dispatchEvent(new Event("resetTalents"));
+    document.dispatchEvent(new Event("resetFlaws"));
   }
 }

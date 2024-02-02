@@ -6,8 +6,8 @@ export default class TalentsSectionItem {
   constructor(id, index, btnVisiblity) {
     this.index = index;
     this.btnVisiblity = btnVisiblity;
-    this.talent = database.hero.talents[this.index];
     this.dbEntry = database.talents[id];
+    this.heroEntry = database.hero.talents[index];
     this.container = document.querySelector(`.talents__${this.dbEntry.type}`);
     this.initSectionTalent();
   }
@@ -22,20 +22,17 @@ export default class TalentsSectionItem {
   }
 
   createMainBtn(sectionTalent) {
-    const btn = document.createElement("button");
-    btn.className = "talent__main-btn";
-    btn.innerHTML = `
-      ${this.dbEntry.name}
-      ${this.talent.comment ? "*" : ""}
-      ${this.dbEntry.max_level > 1 ? `(${this.talent.level})` : ""}`;
-    // ${
-    //   this.dbEntry.name == "Veranlagung" &&
-    //   hero.veranlagung.getVeranlagungName()
-    //     ? ` (${hero.veranlagung.getVeranlagungName()})`
-    //     : ""
-    // };
-    btn.addEventListener("click", () => this.onMainBtnclick());
-    sectionTalent.appendChild(btn);
+    const el = document.createElement("button");
+    el.className = "talent__main-btn";
+    el.insertAdjacentHTML("beforeend", this.dbEntry.name);
+    if (this.heroEntry.comment) {
+      el.insertAdjacentHTML("beforeend", "*");
+    }
+    if (this.dbEntry.max_level > 1) {
+      el.insertAdjacentHTML("beforeend", ` (${this.heroEntry.level})`);
+    }
+    el.addEventListener("click", () => this.onMainBtnclick());
+    sectionTalent.appendChild(el);
   }
 
   onMainBtnclick() {
@@ -72,7 +69,7 @@ export default class TalentsSectionItem {
   }
 
   updatePlusBtnVisibility(btn) {
-    if (this.talent.level >= this.dbEntry.max_level) {
+    if (this.heroEntry.level >= this.dbEntry.max_level) {
       btn.classList.add("disabled");
     }
   }
