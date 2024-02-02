@@ -1,5 +1,6 @@
 import database from "../../data/database.js";
 import DescriptionModal from "../../templates/descriptionModal.js";
+import flaws from "../../data/flaws.js";
 
 export default class ListItem {
   constructor(id, modal) {
