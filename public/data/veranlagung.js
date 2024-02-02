@@ -1,6 +1,7 @@
-import db from "./db.js";
+import database from "./database.js";
+import talents from "./talents.js";
 
-export default class Veranlagung {
+class Veranlagung {
   constructor(hero) {
     this.hero = hero;
   }
@@ -30,8 +31,10 @@ export default class Veranlagung {
   }
 
   setVeranlagung(id) {
-    let talent = this.hero.talents.findTalent("veranlagung");
+    let talent = talents.findTalent("veranlagung");
     talent.selected = id;
-    this.hero.saveHero();
   }
 }
+
+const veranlagung = new Veranlagung();
+export default veranlagung;

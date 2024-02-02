@@ -1,4 +1,3 @@
-import database from "../../data/database.js";
 import talents from "../../data/talents.js";
 import Modal from "../../templates/modal.js";
 import ListOfTalentsItem from "./listOfTalentsItem.js";

@@ -1,6 +1,5 @@
 import database from "../../data/database.js";
 import talents from "../../data/talents.js";
-import TalentModal from "./heroTalent.js";
 import DescriptionModal from "../../templates/descriptionModal.js";
 
 export default class ListOfTalentsItem {
