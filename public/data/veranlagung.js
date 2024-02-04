@@ -2,10 +2,6 @@ import database from "./database.js";
 import talents from "./talents.js";
 
 class Veranlagung {
-  constructor(hero) {
-    this.hero = hero;
-  }
-
   getSelectedAttribut() {
     let talent = talents.findTalent("veranlagung");
     if (talent) return talent.selected;
