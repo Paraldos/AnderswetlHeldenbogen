@@ -4,7 +4,7 @@ import AttributsSection from "../attributs/attributsSection.js";
 import SkillsSection from "../skills/skillsSection.js";
 import TalentsSection from "../talents/talentsSection.js";
 import FlawsSection from "../flaws/flawsSection.js";
-// import StatesSection from "../states/statesSection.js";
+import StatesSection from "../states/statesSection.js";
 // import InventorySection from "../inventory/inventorySection.js";
 
 export default class CharacterSheet {
@@ -27,12 +27,12 @@ export default class CharacterSheet {
   }
 
   createHero() {
-    new TalentsSection();
+    new StatesSection();
     new BasicsInformationSection();
     new AttributsSection();
     new SkillsSection();
+    new TalentsSection();
     new FlawsSection();
-    // new StatesSection();
     // new InventorySection();
   }
 
