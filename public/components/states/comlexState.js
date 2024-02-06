@@ -1,5 +1,4 @@
-import db from "../../data/db.js";
-import hero from "../../data/hero.js";
+import database from "../../data/database.js";
 import StateModal from "./stateModal.js";
 
 export default class ComlexState {

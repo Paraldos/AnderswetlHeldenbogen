@@ -1,6 +1,5 @@
-import Modal from "../modal/modal.js";
-import db from "../../data/db.js";
-import hero from "../../data/hero.js";
+import database from "../../data/database.js";
+import Modal from "../../templates/modal.js";
 
 export default class StateModal {
   constructor(id) {

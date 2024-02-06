@@ -1,5 +1,5 @@
 import hero from "../../data/hero.js";
-import Section from "../section/section.js";
+import Section from "../../templates/section.js";
 import ComlexState from "./comlexState.js";
 import SimpleState from "./simpleState.js";
 import Tempo from "./tempoItem.js";
