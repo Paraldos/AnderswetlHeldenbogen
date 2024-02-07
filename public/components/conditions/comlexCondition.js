@@ -1,10 +1,10 @@
 import database from "../../data/database.js";
-import StateModal from "./stateModal.js";
+import StateModal from "./conditionModal.js";
 
 export default class ComlexState {
   constructor(id, container) {
     this.id = id;
-    this.dbEntry = db.states[id];
+    this.dbEntry = database.hero.states[id];
     this.container = container;
     this.editToggle = false;
     // init

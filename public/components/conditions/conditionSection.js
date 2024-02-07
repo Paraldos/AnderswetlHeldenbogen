@@ -4,7 +4,7 @@ import ComlexState from "./comlexState.js";
 import SimpleState from "./simpleState.js";
 import Tempo from "./tempoItem.js";
 
-export default class StatesSection {
+export default class ConditionSection {
   constructor() {
     this.section = new Section("Merkmale", "states");
     this.container = this.section.contentContainer;

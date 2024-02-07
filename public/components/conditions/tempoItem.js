@@ -1,5 +1,5 @@
 import hero from "../../data/hero.js";
-import StateModal from "./stateModal.js";
+import StateModal from "./conditionModal.js";
 
 export default class Tempo {
   constructor(container) {
