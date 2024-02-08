@@ -1,7 +1,7 @@
 import database from "../../data/database.js";
 import StateModal from "./conditionModal.js";
 
-export default class ComlexState {
+export default class ComplexCondition {
   constructor(id, container) {
     this.id = id;
     this.dbEntry = database.hero.states[id];

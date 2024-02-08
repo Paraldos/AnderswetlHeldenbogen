@@ -1,6 +1,6 @@
 import hero from "../../data/hero.js";
 import Section from "../../templates/section.js";
-import ComlexState from "./comlexState.js";
+import ComplexCondition from "./comlexCondition.js";
 import SimpleState from "./simpleState.js";
 import Tempo from "./tempoItem.js";
 
@@ -9,9 +9,9 @@ export default class ConditionSection {
     this.section = new Section("Merkmale", "states");
     this.container = this.section.contentContainer;
     // init
-    new ComlexState("ap", this.container);
-    new ComlexState("lp", this.container);
-    new ComlexState("sp", this.container);
+    new ComplexCondition("ap", this.container);
+    new ComplexCondition("lp", this.container);
+    new ComplexCondition("sp", this.container);
     new SimpleState("ep", this.container);
     new SimpleState("stufe", this.container);
     new Tempo(this.container);
