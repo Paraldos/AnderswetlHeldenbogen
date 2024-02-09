@@ -1,7 +1,7 @@
 import database from "../../data/database.js";
 import StateModal from "./stateModal.js";
 
-export default class SimpleState {
+export default class SimpleCondition {
   constructor(id, container) {
     this.id = id;
     this.container = container;

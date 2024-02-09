@@ -1,7 +1,7 @@
 import hero from "../../data/hero.js";
 import Section from "../../templates/section.js";
 import ComplexCondition from "./comlexCondition.js";
-import SimpleState from "./simpleState.js";
+import SimpleCondition from "./simpleCondition.js";
 import Tempo from "./tempoItem.js";
 
 export default class ConditionSection {
