@@ -1,7 +1,7 @@
 import database from "../../data/database.js";
 import Modal from "../../templates/modal.js";
 
-export default class StateModal {
+export default class ConditionModal {
   constructor(id) {
     this.id = id;
     this.dbEntry = db.states[id];

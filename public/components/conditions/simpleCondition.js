@@ -1,5 +1,5 @@
 import database from "../../data/database.js";
-import StateModal from "./stateModal.js";
+import ConditionModal from "./conditionModal.js";
 
 export default class SimpleCondition {
   constructor(id, container) {
@@ -14,7 +14,7 @@ export default class SimpleCondition {
     this.updateMainBtn();
     this.updateBtns();
     // events
-    this.mainBtn.addEventListener("click", () => new StateModal(this.id));
+    this.mainBtn.addEventListener("click", () => new ConditionModal(this.id));
     this.plusBtn.addEventListener("click", () => this.onPlusBtnClick());
     this.minusBtn.addEventListener("click", () => this.onMinusBtnClick());
     document.addEventListener("resetStates", () => this.onResetStates());
