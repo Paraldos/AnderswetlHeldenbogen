@@ -4,31 +4,31 @@ import StateModal from "./conditionModal.js";
 export default class ComplexCondition {
   constructor(id, container) {
     this.id = id;
-    this.dbEntry = database.hero.states[id];
+    this.dbEntry = database.hero.conditions[id];
     this.container = container;
     this.editToggle = false;
     // init
     this.item = this.initItem();
-    this.mainBtn = this.item.querySelector(".states__main-btn");
-    this.plusBtn = this.item.querySelector(".states__plus-btn");
-    this.minusBtn = this.item.querySelector(".states__minus-btn");
+    this.mainBtn = this.item.querySelector(".condition__main-btn");
+    this.plusBtn = this.item.querySelector(".condition__plus-btn");
+    this.minusBtn = this.item.querySelector(".condition__minus-btn");
     this.updateBtns();
     // events
     this.mainBtn.addEventListener("click", () => new StateModal(this.id));
     this.plusBtn.addEventListener("click", () => this.onPlusBtnClick());
     this.minusBtn.addEventListener("click", () => this.onMinusBtnClick());
-    document.addEventListener("resetStates", () => this.updateBtns());
+    document.addEventListener("resetCondition", () => this.updateBtns());
     document.addEventListener("toggleEdit", () => this.onToggleEdit());
   }
 
   // ===================================================================== init
   initItem() {
     let element = Object.assign(document.createElement("li"), {
-      className: "states__list-item",
+      className: "condition__list-item",
       innerHTML: `
-        <button class="states__main-btn">placeholder</button>
-        <button class="symbol-btn states__minus-btn states__btn--alternative"><i class="fa-solid fa-minus"></i></button>
-        <button class="symbol-btn states__plus-btn states__btn--alternative"><i class="fa-solid fa-plus"></i></button>`,
+        <button class="condition__main-btn">placeholder</button>
+        <button class="symbol-btn condition__minus-btn condition__btn--alternative"><i class="fa-solid fa-minus"></i></button>
+        <button class="symbol-btn condition__plus-btn condition__btn--alternative"><i class="fa-solid fa-plus"></i></button>`,
     });
     this.container.appendChild(element);
     return element;
@@ -47,26 +47,30 @@ export default class ComplexCondition {
       txt += this.getMax();
     } else {
       txt = this.dbEntry.abbreviation;
-      txt += `: ${hero.states[this.id].current} von ${this.getMax()}`;
+      txt += `: ${
+        database.hero.conditions[this.id].current
+      } von ${this.getMax()}`;
     }
     this.mainBtn.innerText = txt;
   }
 
   updatePlusMinusBtns() {
     if (this.editToggle) {
-      this.minusBtn.disabled = hero.states[this.id].max <= this.dbEntry.min;
+      this.minusBtn.disabled =
+        database.hero.condition[this.id].max <= this.dbEntry.min;
       this.plusBtn.disabled = false;
     } else {
-      this.minusBtn.disabled = hero.states[this.id].current <= 0;
-      this.plusBtn.disabled = hero.states[this.id].current >= this.getMax();
+      this.minusBtn.disabled = database.hero.condition[this.id].current <= 0;
+      this.plusBtn.disabled =
+        database.hero.condition[this.id].current >= this.getMax();
     }
   }
 
   // ===================================================================== listener
   onToggleEdit() {
     this.editToggle = !this.editToggle;
-    this.plusBtn.classList.toggle("states__btn--alternative");
-    this.minusBtn.classList.toggle("states__btn--alternative");
+    this.plusBtn.classList.toggle("condition__btn--alternative");
+    this.minusBtn.classList.toggle("condition__btn--alternative");
     if (this.id == "sp") {
       this.plusBtn.classList.toggle("invisible");
       this.minusBtn.classList.toggle("invisible");
@@ -76,45 +80,49 @@ export default class ComplexCondition {
 
   onPlusBtnClick() {
     this.editToggle ? this.onPlusMax() : this.onPlusCurrent();
-    document.dispatchEvent(new Event("updateStatesHeader"));
+    document.dispatchEvent(new Event("updateConditionHeader"));
     this.updateBtns();
   }
 
   onMinusBtnClick() {
     this.editToggle ? this.onMinusMax() : this.onMinusCurrent();
-    document.dispatchEvent(new Event("updateStatesHeader"));
+    document.dispatchEvent(new Event("updateConditionHeader"));
     this.updateBtns();
   }
 
   onPlusMax() {
-    hero.states[this.id].max++;
-    hero.states[this.id].current++;
+    database.hero.condition[this.id].max++;
+    database.hero.condition[this.id].current++;
     hero.saveHero();
   }
 
   onPlusCurrent() {
-    if (hero.states[this.id].current >= this.getMax()) return;
-    hero.states[this.id].current++;
+    if (database.hero.conditions[this.id].current >= this.getMax()) return;
+    database.hero.conditions[this.id].current++;
     hero.saveHero();
   }
 
   onMinusMax() {
-    if (hero.states[this.id].max <= db.states[this.id].min) return;
-    hero.states[this.id].max--;
-    hero.states[this.id].current--;
-    if (hero.states[this.id].current < 0) hero.states[this.id].current = 0;
+    if (
+      database.hero.conditions[this.id].max <= database.conditions[this.id].min
+    )
+      return;
+    database.hero.conditions[this.id].max--;
+    database.hero.conditions[this.id].current--;
+    if (database.hero.conditions[this.id].current < 0)
+      database.hero.conditions[this.id].current = 0;
     hero.saveHero();
   }
 
   onMinusCurrent() {
-    if (hero.states[this.id].current <= 0) return;
-    hero.states[this.id].current--;
-    hero.saveHero();
+    if (database.hero.conditions[this.id].current <= 0) return;
+    database.hero.conditions[this.id].current--;
+    database.saveHero();
   }
 
   // ===================================================================== Helper
   getMax() {
-    let max = hero.states[this.id].max;
+    let max = database.conditions[this.id].max;
     if (this.id == "sp") {
       if (hero.talents.findTalent("glueck")) max++;
       if (hero.flaws.findFlaw("pech")) max--;
