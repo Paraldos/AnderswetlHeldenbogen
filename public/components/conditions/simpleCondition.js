@@ -1,5 +1,4 @@
 import database from "../../data/database.js";
-import ConditionModal from "./conditionModal.js";
 
 export default class SimpleCondition {
   constructor(id, container) {
