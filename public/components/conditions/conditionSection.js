@@ -7,16 +7,17 @@ import Tempo from "./tempoItem.js";
 export default class ConditionSection {
   constructor() {
     this.section = new Section("Merkmale", "states");
-    this.container = this.section.contentContainer;
     // init
-    new ComplexCondition("ap", this.container);
-    new ComplexCondition("lp", this.container);
-    new ComplexCondition("sp", this.container);
-    new SimpleState("ep", this.container);
-    new SimpleState("stufe", this.container);
-    new Tempo(this.container);
+    // new ComplexCondition("ap", this.section.content);
+    // new ComplexCondition("lp", this.section.content);
+    // new ComplexCondition("sp", this.section.content);
+    // new SimpleCondition("ep", this.section.content);
+    // new SimpleCondition("stufe", this.section.content);
+    // new Tempo(this.section.content);
     // events
-    this.editElement = this.container.querySelectorAll(".states__edit-element");
+    this.editElement = this.section.content.querySelectorAll(
+      ".states__edit-element"
+    );
     document.addEventListener("updateStatesHeader", () => {
       this.updateSectionHeader();
     });

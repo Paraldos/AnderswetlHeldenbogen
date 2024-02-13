@@ -1,5 +1,7 @@
 import database from "../../data/database.js";
 import StateModal from "./conditionModal.js";
+import talents from "../../data/talents.js";
+import flaws from "../../data/flaws.js";
 
 export default class ComplexCondition {
   constructor(id, container) {
@@ -60,9 +62,9 @@ export default class ComplexCondition {
         database.hero.condition[this.id].max <= this.dbEntry.min;
       this.plusBtn.disabled = false;
     } else {
-      this.minusBtn.disabled = database.hero.condition[this.id].current <= 0;
+      this.minusBtn.disabled = database.hero.conditions[this.id].current <= 0;
       this.plusBtn.disabled =
-        database.hero.condition[this.id].current >= this.getMax();
+        database.hero.conditions[this.id].current >= this.getMax();
     }
   }
 
@@ -124,11 +126,11 @@ export default class ComplexCondition {
   getMax() {
     let max = database.conditions[this.id].max;
     if (this.id == "sp") {
-      if (hero.talents.findTalent("glueck")) max++;
-      if (hero.flaws.findFlaw("pech")) max--;
+      if (talents.findTalent("glueck")) max++;
+      if (flaws.findFlaw("pech")) max--;
     }
     if (this.id == "lp") {
-      if (hero.talents.findTalent("huene")) max += 2;
+      if (talents.findTalent("huene")) max += 2;
     }
     return max;
   }
