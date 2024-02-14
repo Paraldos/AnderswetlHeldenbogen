@@ -1,4 +1,4 @@
-.states {
+.condition {
   &__content {
     list-style: none;
     display: grid;
@@ -16,8 +16,16 @@
   }
 }
 
-@media (max-width: $breakpoint-md) {
-  .states {
+@media (max-width: $breakpoint-lg) {
+  .condition {
+    &__content {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .condition {
     &__content {
       grid-template-columns: 1fr;
     }

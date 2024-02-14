@@ -1,17 +1,17 @@
 import database from "../../data/database.js";
 import Section from "../../templates/section.js";
-import ComplexCondition from "./comlexCondition.js";
-import SimpleCondition from "./simpleCondition.js";
+import ComplexConditionItem from "./ComplexConditionItem.js";
+import SimpleConditionItem from "./simpleConditionItem.js";
 import Tempo from "./tempoItem.js";
 
 export default class ConditionSection {
   constructor() {
-    this.section = new Section("Merkmale", "states");
-    new ComplexCondition("ap", this.section);
-    new ComplexCondition("lp", this.section);
+    this.section = new Section("Merkmale", "condition");
+    new ComplexConditionItem("ap", this.section);
+    new ComplexConditionItem("lp", this.section);
     // new ComplexCondition("sp", this.section);
-    // new SimpleCondition("ep", this.section.content);
-    // new SimpleCondition("stufe", this.section.content);
+    new SimpleConditionItem("ep", this.section);
+    new SimpleConditionItem("stufe", this.section);
     // new Tempo(this.section.content);
     document.addEventListener("updateConditionsHeader", () => {
       this.updateHeader();

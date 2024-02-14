@@ -514,21 +514,25 @@ button {
   .skills__content {
     grid-template-columns: 1fr; } }
 
-.states__content {
+.condition__content {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px 40px; }
 
-.states__list-item {
+.condition__list-item {
   display: flex;
   gap: 10px; }
 
-.states__btn--alternative {
+.condition__btn--alternative {
   background-color: var(--color__btn-background--alternative); }
 
-@media (max-width: 768px) {
-  .states__content {
+@media (max-width: 992px) {
+  .condition__content {
+    grid-template-columns: 1fr 1fr; } }
+
+@media (max-width: 576px) {
+  .condition__content {
     grid-template-columns: 1fr; } }
 
 .talents__volkstalent-btn {

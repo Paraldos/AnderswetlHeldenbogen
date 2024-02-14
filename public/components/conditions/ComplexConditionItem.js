@@ -3,15 +3,19 @@ import DescriptionModal from "../../templates/descriptionModal.js";
 import talents from "../../data/talents.js";
 import flaws from "../../data/flaws.js";
 
-export default class ComplexCondition {
+export default class ComplexConditionItem {
   constructor(id, section) {
     this.id = id;
-    this.seciton = section;
+    this.section = section;
     this.container = section.content;
     this.dbEntry = database.conditions[id];
     this.heroEntry = database.hero.conditions[id];
     this.editToggle = false;
     this.element = this.createElement();
+    document.addEventListener("toggleEdit", () => {
+      this.updateMainBtn();
+      this.updateBtnClasses();
+    });
   }
 
   // ========= create element
@@ -33,17 +37,11 @@ export default class ComplexCondition {
     btn.classList.add("condition__main-btn");
     btn.innerText = this.getMainBtnTxt();
     btn.addEventListener("click", () => new DescriptionModal(this.dbEntry));
-    document.addEventListener("toggleEdit", () => this.updateMainBtn());
     return btn;
   }
 
-  updateMainBtn() {
-    let mainBtn = this.element.querySelector(`.condition__main-btn`);
-    mainBtn.innerText = this.getMainBtnTxt();
-  }
-
   getMainBtnTxt() {
-    if (this.seciton.editToggle) {
+    if (this.section.editToggle) {
       return `Max ${this.dbEntry.abbreviation}: ${this.getConditionMaxValue()}`;
     } else {
       return `${this.dbEntry.abbreviation}: ${
@@ -63,16 +61,17 @@ export default class ComplexCondition {
     }
     return max;
   }
-
   // ========= minus btn
   createMinusBtn() {
     let btn = document.createElement("button");
-    btn.classList.add("condition__minus-btn", "condition__btn--alternative");
     btn.innerHTML = `<i class="fa-solid fa-minus"></i>`;
+    btn.classList.add("condition__minus-btn", "symbol-btn");
+    if (this.section.editToggle) {
+      btn.classList.add("condition__btn--alternative");
+    }
     btn.addEventListener("click", () => {
-      this.seciton.editToggle ? this.onMinusMax() : this.onMinusCurrent();
+      this.section.editToggle ? this.onMinusMax() : this.onMinusCurrent();
       this.updateMainBtn();
-      document.dispatchEvent(new CustomEvent("updateConditionsHeader"));
     });
     return btn;
   }
@@ -94,12 +93,14 @@ export default class ComplexCondition {
   // ========= plus btn
   createPlusBtn() {
     let btn = document.createElement("button");
-    btn.classList.add("condition__plus-btn", "condition__btn--alternative");
     btn.innerHTML = `<i class="fa-solid fa-plus"></i>`;
+    btn.classList.add("condition__plus-btn", "symbol-btn");
+    if (this.section.editToggle) {
+      btn.classList.add("condition__btn--alternative");
+    }
     btn.addEventListener("click", () => {
-      this.seciton.editToggle ? this.onPlusMax() : this.onPlusCurrent();
+      this.section.editToggle ? this.onPlusMax() : this.onPlusCurrent();
       this.updateMainBtn();
-      document.dispatchEvent(new CustomEvent("updateConditionsHeader"));
     });
     return btn;
   }
@@ -114,5 +115,25 @@ export default class ComplexCondition {
     if (this.heroEntry.current >= this.getConditionMaxValue()) return;
     this.heroEntry.current++;
     database.saveHero();
+  }
+
+  // ========= helper
+  updateMainBtn() {
+    let mainBtn = this.element.querySelector(`.condition__main-btn`);
+    mainBtn.innerText = this.getMainBtnTxt();
+    document.dispatchEvent(new CustomEvent("updateConditionsHeader"));
+  }
+
+  updateBtnClasses() {
+    let minusBtn = this.element.querySelector(`.condition__minus-btn`);
+    let plusBtn = this.element.querySelector(`.condition__plus-btn`);
+    minusBtn.classList.toggle(
+      "condition__btn--alternative",
+      this.section.editToggle
+    );
+    plusBtn.classList.toggle(
+      "condition__btn--alternative",
+      this.section.editToggle
+    );
   }
 }
