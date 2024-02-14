@@ -10,7 +10,12 @@ export default class SimpleConditionItem {
     this.heroEntry = database.hero.conditions[id];
     this.element = this.createElement();
     this.mainBtn = this.createMainBtn();
+    this.minusBtn = this.createMinusBtn();
     this.plusBtn = this.createPlusBtn();
+    document.addEventListener("toggleEdit", () => {
+      this.updateMainBtn();
+      this.updateBtns();
+    });
   }
 
   // ================= element
@@ -25,12 +30,34 @@ export default class SimpleConditionItem {
   createMainBtn() {
     let btn = document.createElement("button");
     btn.classList.add("condition__main-btn");
-    btn.innerText = this.dbEntry.abbreviation
-      ? `${this.dbEntry.abbreviation}: ${this.heroEntry}`
-      : `${this.dbEntry.name}: ${this.heroEntry}`;
+    btn.innerText = this.getMainBtnTxt();
     btn.addEventListener("click", () => new DescriptionModal(this.dbEntry));
     this.element.appendChild(btn);
     return btn;
+  }
+
+  getMainBtnTxt() {
+    return this.dbEntry.abbreviation
+      ? `${this.dbEntry.abbreviation}: ${this.heroEntry}`
+      : `${this.dbEntry.name}: ${this.heroEntry}`;
+  }
+
+  // ================= minus btn
+  createMinusBtn() {
+    let btn = document.createElement("button");
+    btn.innerHTML = `<i class="fa-solid fa-minus"></i>`;
+    btn.classList.add(
+      "condition__minus-btn",
+      "condition__edit-element",
+      "symbol-btn"
+    );
+    this.element.appendChild(btn);
+    return btn;
+  }
+
+  onToggleEdit() {
+    this.plusBtn.classList.toggle("invisible");
+    this.minusBtn.classList.toggle("invisible");
   }
 
   // ================= plus btn
@@ -40,31 +67,20 @@ export default class SimpleConditionItem {
     btn.classList.add(
       "condition__plus-btn",
       "condition__edit-element",
-      "symbol-btn",
-      "disabled"
+      "symbol-btn"
     );
     btn.addEventListener("click", () => this.onPlusBtnClick());
     this.element.appendChild(btn);
     return btn;
   }
 
-  // ================= minus btn
-  createMinusBtn() {
-    let btn = document.createElement("button");
-    btn.classList.add(
-      "symbol-btn",
-      "condition__minus-btn",
-      "condition__edit-element",
-      "symbol-btn",
-      "disabled"
-    );
-    btn.innerHTML = `<i class="fa-solid fa-minus"></i>`;
-    return btn;
-  }
-
-  onToggleEdit() {
-    this.plusBtn.classList.toggle("invisible");
-    this.minusBtn.classList.toggle("invisible");
+  onPlusBtnClick() {
+    if (this.id == "stufe") {
+      hero.states.ep -= 5;
+    }
+    hero.states[this.id]++;
+    document.dispatchEvent(new Event("resetStates"));
+    hero.saveHero();
   }
 
   // ===================================================================== init
@@ -81,17 +97,8 @@ export default class SimpleConditionItem {
   }
 
   // ===================================================================== update
-  onResetCondition() {
-    this.updateMainBtn();
-    this.updateBtns();
-  }
-
   updateMainBtn() {
-    let txt = this.dbEntry.abbreviation
-      ? this.dbEntry.abbreviation
-      : this.dbEntry.name;
-    txt += `: ${this.getValue()}`;
-    this.mainBtn.innerText = txt;
+    this.this.mainBtn.innerText = this.getMainBtnTxt();
   }
 
   updateBtns() {
@@ -102,14 +109,6 @@ export default class SimpleConditionItem {
   }
 
   // ===================================================================== listener
-  onPlusBtnClick() {
-    if (this.id == "stufe") {
-      hero.states.ep -= 5;
-    }
-    hero.states[this.id]++;
-    document.dispatchEvent(new Event("resetStates"));
-    hero.saveHero();
-  }
 
   onMinusBtnClick() {
     if (hero.states[this.id] > 0) {
