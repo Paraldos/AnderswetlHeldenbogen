@@ -49,7 +49,8 @@ export default class SimpleConditionItem {
     btn.classList.add(
       "condition__minus-btn",
       "condition__edit-element",
-      "symbol-btn"
+      "symbol-btn",
+      "disabled"
     );
     this.element.appendChild(btn);
     return btn;
@@ -67,7 +68,8 @@ export default class SimpleConditionItem {
     btn.classList.add(
       "condition__plus-btn",
       "condition__edit-element",
-      "symbol-btn"
+      "symbol-btn",
+      "disabled"
     );
     btn.addEventListener("click", () => this.onPlusBtnClick());
     this.element.appendChild(btn);
@@ -98,14 +100,15 @@ export default class SimpleConditionItem {
 
   // ===================================================================== update
   updateMainBtn() {
-    this.this.mainBtn.innerText = this.getMainBtnTxt();
+    this.mainBtn.innerText = this.getMainBtnTxt();
   }
 
   updateBtns() {
     if (this.id == "stufe") {
       this.plusBtn.disabled = this.heroEntry < 5;
     }
-    this.minusBtn.disabled = this.heroEntry <= database.conditions[this.id].min;
+    this.plusBtn.classList.toggle("disabled", !this.section.editToggle);
+    this.minusBtn.classList.toggle("disabled", !this.section.editToggle);
   }
 
   // ===================================================================== listener
