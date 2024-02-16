@@ -45,5 +45,6 @@ export default class ListOfTalentsItem {
 
   onClickPlusBtn() {
     talents.addTalent(this.key);
+    document.dispatchEvent(new Event("updateConditions"));
   }
 }

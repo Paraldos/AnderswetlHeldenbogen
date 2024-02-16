@@ -43,5 +43,6 @@ export default class ListItem {
 
   onPlusBtnClick() {
     flaws.addFlaw(this.id);
+    document.dispatchEvent(new Event("updateConditions"));
   }
 }

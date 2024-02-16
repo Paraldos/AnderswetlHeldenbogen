@@ -2,6 +2,8 @@ import database from "../../data/database.js";
 import DescriptionModal from "../../templates/descriptionModal.js";
 import talents from "../../data/talents.js";
 import flaws from "../../data/flaws.js";
+import PlusBtn from "../../templates/plusBtn.js";
+import MinusBtn from "../../templates/minusBtn.js";
 
 export default class ComplexConditionItem {
   constructor(id, section) {
@@ -10,9 +12,15 @@ export default class ComplexConditionItem {
     this.container = section.content;
     this.dbEntry = database.conditions[id];
     this.heroEntry = database.hero.conditions[id];
-    this.editToggle = false;
     this.element = this.createElement();
+    this.mainBtn = this.createMainBtn();
+    this.minusBtn = this.createMinusBtn();
+    this.plusBtn = this.createPlusBtn();
     document.addEventListener("toggleEdit", () => {
+      this.updateMainBtn();
+      this.updateBtnClasses();
+    });
+    document.addEventListener("updateConditions", () => {
       this.updateMainBtn();
       this.updateBtnClasses();
     });
@@ -22,11 +30,6 @@ export default class ComplexConditionItem {
   createElement() {
     let element = document.createElement("div");
     element.classList.add("condition__list-item");
-    element.append(
-      this.createMainBtn(),
-      this.createMinusBtn(),
-      this.createPlusBtn()
-    );
     this.container.appendChild(element);
     return element;
   }
@@ -37,6 +40,7 @@ export default class ComplexConditionItem {
     btn.classList.add("condition__main-btn");
     btn.innerText = this.getMainBtnTxt();
     btn.addEventListener("click", () => new DescriptionModal(this.dbEntry));
+    this.element.appendChild(btn);
     return btn;
   }
 
@@ -63,9 +67,7 @@ export default class ComplexConditionItem {
   }
   // ========= minus btn
   createMinusBtn() {
-    let btn = document.createElement("button");
-    btn.innerHTML = `<i class="fa-solid fa-minus"></i>`;
-    btn.classList.add("condition__minus-btn", "symbol-btn");
+    let btn = new MinusBtn([], this.element).btn;
     if (!this.section.editToggle) {
       btn.classList.add("condition__btn--alternative");
     }
@@ -92,9 +94,7 @@ export default class ComplexConditionItem {
 
   // ========= plus btn
   createPlusBtn() {
-    let btn = document.createElement("button");
-    btn.innerHTML = `<i class="fa-solid fa-plus"></i>`;
-    btn.classList.add("condition__plus-btn", "symbol-btn");
+    let btn = new PlusBtn([], this.element).btn;
     if (!this.section.editToggle) {
       btn.classList.add("condition__btn--alternative");
     }
@@ -125,13 +125,11 @@ export default class ComplexConditionItem {
   }
 
   updateBtnClasses() {
-    let minusBtn = this.element.querySelector(`.condition__minus-btn`);
-    let plusBtn = this.element.querySelector(`.condition__plus-btn`);
-    minusBtn.classList.toggle(
+    this.minusBtn.classList.toggle(
       "condition__btn--alternative",
       !this.section.editToggle
     );
-    plusBtn.classList.toggle(
+    this.plusBtn.classList.toggle(
       "condition__btn--alternative",
       !this.section.editToggle
     );

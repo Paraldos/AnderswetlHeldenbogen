@@ -52,6 +52,7 @@ export default class TalentsSectionItem {
   onMinusBtnClick() {
     talents.minusTalent(this.index);
     document.dispatchEvent(new Event("resetTalentHeader"));
+    document.dispatchEvent(new Event("updateConditions"));
   }
 
   createPlusBtn(sectionTalent) {
@@ -77,6 +78,7 @@ export default class TalentsSectionItem {
   onPlusBtnClick() {
     talents.plusTalent(this.index);
     document.dispatchEvent(new Event("resetTalentHeader"));
+    document.dispatchEvent(new Event("updateConditions"));
   }
 
   onToggleEdit(btn) {

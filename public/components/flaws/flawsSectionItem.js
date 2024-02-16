@@ -45,6 +45,7 @@ export default class FlawSectionItem {
 
   onMinusBtnClick() {
     flaws.removeFlaw(this.index);
+    document.dispatchEvent(new Event("updateConditions"));
   }
 
   onToggleEdit(btn) {
