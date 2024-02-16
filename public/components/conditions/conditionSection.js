@@ -12,7 +12,7 @@ export default class ConditionSection {
     // new ComplexCondition("sp", this.section);
     new SimpleConditionItem("ep", this.section);
     new SimpleConditionItem("stufe", this.section);
-    // new Tempo(this.section.content);
+    new Tempo(this.section);
     document.addEventListener("updateConditionsHeader", () => {
       this.updateHeader();
     });

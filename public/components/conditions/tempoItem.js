@@ -1,31 +1,35 @@
-import hero from "../../data/hero.js";
+import database from "../../data/database.js";
+import flaws from "../../data/flaws.js";
+import DescriptionModal from "../../templates/descriptionModal.js";
 
 export default class Tempo {
-  constructor(container) {
-    this.container = container;
-    this.item = this.initItem();
-    this.mainBtn = this.item.querySelector(".states__main-btn");
-    this.updateMainBtn();
-    this.mainBtn.addEventListener("click", () => new StateModal("tempo"));
-    document.addEventListener("resetStates", () => this.updateMainBtn());
+  constructor(section) {
+    this.section = section;
+    this.container = section.content;
+    this.item = this.createElement();
+    document.addEventListener("updateConditions", () => this.updateMainBtn());
   }
 
-  updateMainBtn() {
-    this.mainBtn.innerText = `Tempo: ${this.getValue()}`;
-  }
-
-  initItem() {
-    let element = Object.assign(document.createElement("li"), {
-      className: "states__list-item",
-      innerHTML: `<button class="states__main-btn">placeholder</button>`,
-    });
+  createElement() {
+    let element = document.createElement("li");
+    element.classList.add("states__list-item");
+    element.innerHTML = `<button class="states__main-btn">Tempo: ${this.getValue()}</button>`;
+    element.addEventListener(
+      "click",
+      () => new DescriptionModal(database.conditions.tempo)
+    );
     this.container.appendChild(element);
     return element;
   }
 
+  updateMainBtn() {
+    let btn = document.querySelector(".states__main-btn");
+    btn.innerText = `Tempo: ${this.getValue()}`;
+  }
+
   getValue() {
-    let value = hero.states.tempo;
-    if (hero.flaws.findFlaw("lahm")) value -= 2;
+    let value = database.hero.conditions.tempo;
+    if (flaws.findFlaw("lahm")) value -= 2;
     return value;
   }
 }

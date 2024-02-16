@@ -97,7 +97,7 @@ export default class SimpleConditionItem {
     database.saveHero();
   }
 
-  // ===================================================================== update
+  // ================= helper
   updateMainBtn() {
     this.mainBtn.innerText = this.getMainBtnTxt();
   }
