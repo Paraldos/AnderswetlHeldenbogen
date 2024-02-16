@@ -7,12 +7,15 @@ export default class SimpleConditionItem {
     this.section = section;
     this.container = section.content;
     this.dbEntry = database.conditions[id];
-    this.heroEntry = database.hero.conditions[id];
     this.element = this.createElement();
     this.mainBtn = this.createMainBtn();
     this.minusBtn = this.createMinusBtn();
     this.plusBtn = this.createPlusBtn();
     document.addEventListener("toggleEdit", () => {
+      this.updateMainBtn();
+      this.updateBtns();
+    });
+    document.addEventListener("updateConditions", () => {
       this.updateMainBtn();
       this.updateBtns();
     });
@@ -37,9 +40,10 @@ export default class SimpleConditionItem {
   }
 
   getMainBtnTxt() {
+    let value = database.hero.conditions[this.id];
     return this.dbEntry.abbreviation
-      ? `${this.dbEntry.abbreviation}: ${this.heroEntry}`
-      : `${this.dbEntry.name}: ${this.heroEntry}`;
+      ? `${this.dbEntry.abbreviation}: ${value}`
+      : `${this.dbEntry.name}: ${value}`;
   }
 
   // ================= minus btn
@@ -53,12 +57,19 @@ export default class SimpleConditionItem {
       "disabled"
     );
     this.element.appendChild(btn);
+    btn.addEventListener("click", () => this.onMinusBtnClick());
     return btn;
   }
 
-  onToggleEdit() {
-    this.plusBtn.classList.toggle("invisible");
-    this.minusBtn.classList.toggle("invisible");
+  onMinusBtnClick() {
+    if (database.hero.conditions[this.id] <= 0) return;
+    if (this.id == "stufe") {
+      database.hero.conditions.ep += 5;
+      document.dispatchEvent(new Event("updateConditions"));
+    }
+    database.hero.conditions[this.id]--;
+    this.updateMainBtn();
+    database.saveHero();
   }
 
   // ================= plus btn
@@ -78,24 +89,12 @@ export default class SimpleConditionItem {
 
   onPlusBtnClick() {
     if (this.id == "stufe") {
-      hero.states.ep -= 5;
+      database.hero.conditions.ep -= 5;
+      document.dispatchEvent(new Event("updateConditions"));
     }
-    hero.states[this.id]++;
-    document.dispatchEvent(new Event("resetStates"));
-    hero.saveHero();
-  }
-
-  // ===================================================================== init
-  initItem() {
-    let element = Object.assign(document.createElement("li"), {
-      className: "condition__list-item",
-      innerHTML: `
-        <button class="condition__main-btn">???</button>
-        <button class="symbol-btn condition__minus-btn condition__edit-element symbol-btn disabled"><i class="fa-solid fa-minus"></i></button>
-        <button class="symbol-btn condition__plus-btn condition__edit-element symbol-btn disabled"><i class="fa-solid fa-plus"></i></button>`,
-    });
-    this.container.appendChild(element);
-    return element;
+    database.hero.conditions[this.id]++;
+    this.updateMainBtn();
+    database.saveHero();
   }
 
   // ===================================================================== update
@@ -105,22 +104,9 @@ export default class SimpleConditionItem {
 
   updateBtns() {
     if (this.id == "stufe") {
-      this.plusBtn.disabled = this.heroEntry < 5;
+      this.plusBtn.disabled = database.hero.conditions.ep < 5;
     }
     this.plusBtn.classList.toggle("disabled", !this.section.editToggle);
     this.minusBtn.classList.toggle("disabled", !this.section.editToggle);
-  }
-
-  // ===================================================================== listener
-
-  onMinusBtnClick() {
-    if (hero.states[this.id] > 0) {
-      if (this.id == "stufe") {
-        hero.states.ep += 5;
-      }
-      hero.states[this.id]--;
-      document.dispatchEvent(new Event("resetStates"));
-      hero.saveHero();
-    }
   }
 }
