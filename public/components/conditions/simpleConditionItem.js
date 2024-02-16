@@ -1,5 +1,7 @@
 import database from "../../data/database.js";
 import DescriptionModal from "../../templates/descriptionModal.js";
+import PlusBtn from "../../templates/plusBtn.js";
+import MinusBtn from "../../templates/minusBtn.js";
 
 export default class SimpleConditionItem {
   constructor(id, section) {
@@ -48,15 +50,7 @@ export default class SimpleConditionItem {
 
   // ================= minus btn
   createMinusBtn() {
-    let btn = document.createElement("button");
-    btn.innerHTML = `<i class="fa-solid fa-minus"></i>`;
-    btn.classList.add(
-      "condition__minus-btn",
-      "condition__edit-element",
-      "symbol-btn",
-      "disabled"
-    );
-    this.element.appendChild(btn);
+    let btn = new MinusBtn(["disabled"], this.element).btn;
     btn.addEventListener("click", () => this.onMinusBtnClick());
     return btn;
   }
@@ -73,16 +67,8 @@ export default class SimpleConditionItem {
 
   // ================= plus btn
   createPlusBtn() {
-    let btn = document.createElement("button");
-    btn.innerHTML = `<i class="fa-solid fa-plus"></i>`;
-    btn.classList.add(
-      "condition__plus-btn",
-      "condition__edit-element",
-      "symbol-btn",
-      "disabled"
-    );
+    let btn = new PlusBtn(["disabled"], this.element).btn;
     btn.addEventListener("click", () => this.onPlusBtnClick());
-    this.element.appendChild(btn);
     return btn;
   }
 
