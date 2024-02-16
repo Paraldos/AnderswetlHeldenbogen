@@ -2,17 +2,18 @@ import database from "../../data/database.js";
 import Section from "../../templates/section.js";
 import ComplexConditionItem from "./ComplexConditionItem.js";
 import SimpleConditionItem from "./simpleConditionItem.js";
-import Tempo from "./tempoItem.js";
+import SchicksalItem from "./schicksalItem.js";
+import TempoItem from "./tempoItem.js";
 
 export default class ConditionSection {
   constructor() {
     this.section = new Section("Merkmale", "condition");
     new ComplexConditionItem("ap", this.section);
     new ComplexConditionItem("lp", this.section);
-    // new ComplexConditionItem("sp", this.section);
+    new SchicksalItem(this.section);
     new SimpleConditionItem("ep", this.section);
     new SimpleConditionItem("stufe", this.section);
-    new Tempo(this.section);
+    new TempoItem(this.section);
     document.addEventListener("updateConditionsHeader", () => {
       this.updateHeader();
     });

@@ -42,7 +42,7 @@ class Talents {
     });
     this.sort();
     document.dispatchEvent(new Event("resetTalents"));
-    document.dispatchEvent(new Event("resetStates"));
+    document.dispatchEvent(new Event("updateConditions"));
     database.saveHero();
   }
 
@@ -50,7 +50,7 @@ class Talents {
     if (database.hero.talents[index].level >= 5) return;
     database.hero.talents[index].level += 1;
     document.dispatchEvent(new Event("resetTalents"));
-    document.dispatchEvent(new Event("resetStates"));
+    document.dispatchEvent(new Event("updateConditions"));
     database.saveHero();
   }
 
