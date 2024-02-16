@@ -66,7 +66,7 @@ export default class ComplexConditionItem {
     let btn = document.createElement("button");
     btn.innerHTML = `<i class="fa-solid fa-minus"></i>`;
     btn.classList.add("condition__minus-btn", "symbol-btn");
-    if (this.section.editToggle) {
+    if (!this.section.editToggle) {
       btn.classList.add("condition__btn--alternative");
     }
     btn.addEventListener("click", () => {
@@ -95,7 +95,7 @@ export default class ComplexConditionItem {
     let btn = document.createElement("button");
     btn.innerHTML = `<i class="fa-solid fa-plus"></i>`;
     btn.classList.add("condition__plus-btn", "symbol-btn");
-    if (this.section.editToggle) {
+    if (!this.section.editToggle) {
       btn.classList.add("condition__btn--alternative");
     }
     btn.addEventListener("click", () => {
@@ -129,11 +129,11 @@ export default class ComplexConditionItem {
     let plusBtn = this.element.querySelector(`.condition__plus-btn`);
     minusBtn.classList.toggle(
       "condition__btn--alternative",
-      this.section.editToggle
+      !this.section.editToggle
     );
     plusBtn.classList.toggle(
       "condition__btn--alternative",
-      this.section.editToggle
+      !this.section.editToggle
     );
   }
 }

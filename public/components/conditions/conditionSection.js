@@ -9,7 +9,7 @@ export default class ConditionSection {
     this.section = new Section("Merkmale", "condition");
     new ComplexConditionItem("ap", this.section);
     new ComplexConditionItem("lp", this.section);
-    // new ComplexCondition("sp", this.section);
+    // new ComplexConditionItem("sp", this.section);
     new SimpleConditionItem("ep", this.section);
     new SimpleConditionItem("stufe", this.section);
     new Tempo(this.section);

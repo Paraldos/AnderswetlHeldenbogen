@@ -65,10 +65,9 @@ export default class SimpleConditionItem {
     if (database.hero.conditions[this.id] <= 0) return;
     if (this.id == "stufe") {
       database.hero.conditions.ep += 5;
-      document.dispatchEvent(new Event("updateConditions"));
     }
     database.hero.conditions[this.id]--;
-    this.updateMainBtn();
+    document.dispatchEvent(new Event("updateConditions"));
     database.saveHero();
   }
 
@@ -90,10 +89,9 @@ export default class SimpleConditionItem {
   onPlusBtnClick() {
     if (this.id == "stufe") {
       database.hero.conditions.ep -= 5;
-      document.dispatchEvent(new Event("updateConditions"));
     }
     database.hero.conditions[this.id]++;
-    this.updateMainBtn();
+    document.dispatchEvent(new Event("updateConditions"));
     database.saveHero();
   }
 
