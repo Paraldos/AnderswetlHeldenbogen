@@ -2,25 +2,23 @@ import database from "../../data/database.js";
 import Section from "../section/section.js";
 import AttributsSectionItem from "./attributsSectionItem.js";
 
-export default class AttributsSection {
+export default class AttributsSection extends Section {
   constructor() {
-    this.section = new Section("Attribute", "attributs");
-    this.createAttributs();
-    document.addEventListener("updateAttributsHeader", () => {
-      this.updateSectionHeader();
-    });
-    document.addEventListener("toggleEdit", () => this.updateSectionHeader());
-  }
-
-  createAttributs() {
+    super("Attribute", "attributs");
     Object.keys(database.attributs).map(
-      (key) => new AttributsSectionItem(key, this.section)
+      (key) => new AttributsSectionItem(key, this)
     );
+    document.addEventListener("updateAttributsHeader", () => this.update());
   }
 
-  updateSectionHeader() {
-    const visible = this.section.editToggle ? "" : "disabled";
-    this.section.header.innerHTML = `Attribute <span class="${visible}">(${this.getAttributsSum()})</span>`;
+  onToggleEdit() {
+    super.onToggleEdit();
+    this.update();
+  }
+
+  update() {
+    const visible = this.editToggle ? "" : "disabled";
+    this.header.innerHTML = `Attribute <span class="${visible}">(${this.getAttributsSum()})</span>`;
   }
 
   getAttributsSum() {

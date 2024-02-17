@@ -27,9 +27,9 @@ export default class CharacterSheet {
   }
 
   createHero() {
+    new SkillsSection();
     new BasicsInformationSection();
     new AttributsSection();
-    new SkillsSection();
     new TalentsSection();
     new FlawsSection();
     new ConditionSection();
