@@ -5,27 +5,31 @@ import SimpleConditionItem from "./simpleConditionItem.js";
 import SchicksalItem from "./schicksalItem.js";
 import TempoItem from "./tempoItem.js";
 
-export default class ConditionSection {
+export default class ConditionSection extends Section {
   constructor() {
-    this.section = new Section("Merkmale", "condition");
-    new ComplexConditionItem("ap", this.section);
-    new ComplexConditionItem("lp", this.section);
-    new SchicksalItem(this.section);
-    new SimpleConditionItem("ep", this.section);
-    new SimpleConditionItem("stufe", this.section);
-    new TempoItem(this.section);
+    super("Merkmale", "condition");
+    new ComplexConditionItem("ap", this);
+    new ComplexConditionItem("lp", this);
+    new SchicksalItem(this);
+    new SimpleConditionItem("ep", this);
+    new SimpleConditionItem("stufe", this);
+    new TempoItem(this);
     document.addEventListener("updateConditionsHeader", () => {
-      this.updateHeader();
+      this.update();
     });
-    document.addEventListener("toggleEdit", () => this.updateHeader());
   }
 
-  updateHeader() {
-    const visible = this.section.editToggle ? "" : "disabled";
-    this.section.header.innerHTML = `Merkmale <span class="${visible}">(${this.getStatesSum()})</span>`;
+  onToggleEdit() {
+    super.onToggleEdit();
+    this.update();
   }
 
-  getStatesSum() {
+  update() {
+    const visible = this.editToggle ? "" : "disabled";
+    this.header.innerHTML = `Merkmale <span class="${visible}">(${this.getConditionsSum()})</span>`;
+  }
+
+  getConditionsSum() {
     let sum = -14;
     sum += database.hero.conditions.ap.max;
     sum += database.hero.conditions.lp.max;
