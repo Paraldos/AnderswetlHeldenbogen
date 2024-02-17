@@ -4,8 +4,9 @@ import ListOfTalents from "./listOfTalents.js";
 import TalentsSectionItem from "./talentsSectionItem.js";
 import talents from "../../data/talents.js";
 
-export default class TalentsSection {
+export default class TalentsSection extends Section {
   constructor() {
+    super("Talente", "talents", true);
     this.types = [
       ["Allgemein", "allgemein"],
       ["Kampf", "kampf"],
@@ -13,20 +14,23 @@ export default class TalentsSection {
       ["Übernatürlich", "uebernatuerlich"],
       ["Zauber", "zauber"],
     ];
-    this.section = new Section("Talente", "talents", true);
     this.initSection();
-    this.section.plusBtn.addEventListener("click", () => this.onPlusBtnClick());
+    this.plusBtn.addEventListener("click", () => this.onPlusBtnClick());
     document.addEventListener("resetTalents", () => this.initSection());
-    document.addEventListener("toggleEdit", () => this.updateHeader());
-    document.addEventListener("resetTalentHeader", () => this.updateHeader());
+    document.addEventListener("resetTalentHeader", () => this.update());
+  }
+
+  onToggleEdit() {
+    super.onToggleEdit();
+    this.update();
   }
 
   initSection() {
-    this.section.content.innerHTML = "";
+    this.content.innerHTML = "";
     this.initContainer();
     this.initTalents();
     this.updateVisibility();
-    this.updateHeader();
+    this.update();
   }
 
   initContainer() {
@@ -34,14 +38,14 @@ export default class TalentsSection {
       let newElement = document.createElement("div");
       newElement.className = `talents__container talents__${id}`;
       newElement.innerHTML = `<h3>${name}</h3>`;
-      this.section.content.appendChild(newElement);
+      this.content.appendChild(newElement);
     }
   }
 
   initTalents() {
     if (!database.hero.talents) return;
     database.hero.talents.map(
-      (talent, index) => new TalentsSectionItem(talent.id, index, this.section)
+      (talent, index) => new TalentsSectionItem(talent.id, index, this)
     );
   }
 
@@ -49,16 +53,14 @@ export default class TalentsSection {
     new ListOfTalents(this.types);
   }
 
-  updateHeader() {
-    this.section.editToggle
-      ? (this.section.header.innerHTML = `Talente <span>(${talents.getSum()})</span>`)
-      : (this.section.header.innerHTML = `Talente`);
+  update() {
+    this.editToggle
+      ? (this.header.innerHTML = `Talente <span>(${talents.getSum()})</span>`)
+      : (this.header.innerHTML = `Talente`);
   }
 
   updateVisibility() {
-    const containers = this.section.content.querySelectorAll(
-      ".talents__container"
-    );
+    const containers = this.content.querySelectorAll(".talents__container");
     for (const container of containers) {
       container.classList.toggle("disabled", container.childElementCount <= 1);
     }
