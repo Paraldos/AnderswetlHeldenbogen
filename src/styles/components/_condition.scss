@@ -11,10 +11,6 @@
     display: flex;
     gap: 10px;
   }
-
-  &__btn--alternative {
-    background-color: var(--color__btn-background--alternative);
-  }
 }
 
 @media (max-width: $breakpoint-lg) {

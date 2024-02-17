@@ -7,3 +7,18 @@ button {
   margin: 20px 0;
   gap: 20px;
 }
+
+.symbol-btn {
+  height: 100%;
+  width: auto;
+  aspect-ratio: 1/1;
+  padding: 0;
+
+  &--alternative {
+    background-color: var(--color__btn-background--alternative);
+  }
+
+  i {
+    @include display-flex-center;
+  }
+}
