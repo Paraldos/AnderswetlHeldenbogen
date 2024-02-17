@@ -9,8 +9,8 @@ export default class DefaultControllElement {
     this.minusBtn = this.createMinusBtn();
     this.plusBtn = this.createPlusBtn();
     this.mainBtn.addEventListener("click", () => this.onMainBtnClick());
-    this.minusBtn.addEventListener("click", () => this.onMinusBtnclick());
-    this.plusBtn.addEventListener("click", () => this.onPlusBtnclick());
+    this.minusBtn.addEventListener("click", () => this.onMinusBtnClick());
+    this.plusBtn.addEventListener("click", () => this.onPlusBtnClick());
   }
 
   createWrapper() {
@@ -40,6 +40,6 @@ export default class DefaultControllElement {
   }
 
   onMainBtnClick() {}
-  onMinusBtnclick() {}
-  onPlusBtnclick() {}
+  onMinusBtnClick() {}
+  onPlusBtnClick() {}
 }

@@ -11,15 +11,9 @@ export default class ComplexConditionItem extends DefaultControllElement {
     this.dbEntry = database.conditions[id];
     this.heroEntry = database.hero.conditions[id];
     section.content.appendChild(this.wrapper);
-    this.updateMainBtn();
-    document.addEventListener("toggleEdit", () => {
-      this.updateMainBtn();
-      this.updateBtnClasses();
-    });
-    document.addEventListener("updateConditions", () => {
-      this.updateMainBtn();
-      this.updateBtnClasses();
-    });
+    this.update();
+    document.addEventListener("toggleEdit", () => this.update());
+    document.addEventListener("updateConditions", () => this.update());
   }
 
   // ======================= events
@@ -27,7 +21,7 @@ export default class ComplexConditionItem extends DefaultControllElement {
     new DescriptionModal(this.dbEntry);
   }
 
-  onMinusBtnclick() {
+  onMinusBtnClick() {
     this.section.editToggle ? this.onMinusMax() : this.onMinusCurrent();
     database.saveHero();
     this.updateMainBtn();
@@ -45,7 +39,7 @@ export default class ComplexConditionItem extends DefaultControllElement {
     this.heroEntry.current--;
   }
 
-  onPlusBtnclick() {
+  onPlusBtnClick() {
     this.section.editToggle ? this.onPlusMax() : this.onPlusCurrent();
     database.saveHero();
     this.updateMainBtn();
@@ -64,18 +58,15 @@ export default class ComplexConditionItem extends DefaultControllElement {
   }
 
   // ======================= update
-  updateMainBtn() {
+  update() {
     this.mainBtn.innerText = this.getMainBtnTxt();
     document.dispatchEvent(new CustomEvent("updateConditionsHeader"));
-  }
-
-  updateBtnClasses() {
     this.minusBtn.classList.toggle(
-      "condition__btn--alternative",
+      "symbol-btn--alternative",
       !this.section.editToggle
     );
     this.plusBtn.classList.toggle(
-      "condition__btn--alternative",
+      "symbol-btn--alternative",
       !this.section.editToggle
     );
   }

@@ -6,25 +6,23 @@ export default class TempoItem {
   constructor(section) {
     this.section = section;
     this.container = section.content;
-    this.item = this.createElement();
-    document.addEventListener("updateConditions", () => this.updateMainBtn());
+    this.btn = this.createBtn();
+    document.addEventListener("updateConditions", () => this.update());
   }
 
-  createElement() {
-    let element = document.createElement("li");
-    element.classList.add("states__list-item");
-    element.innerHTML = `<button class="states__main-btn">Tempo: ${this.getValue()}</button>`;
-    element.addEventListener(
+  createBtn() {
+    let btn = document.createElement("button");
+    btn.innerHTML = `Tempo: ${this.getValue()}`;
+    btn.addEventListener(
       "click",
       () => new DescriptionModal(database.conditions.tempo)
     );
-    this.container.appendChild(element);
-    return element;
+    this.container.appendChild(btn);
+    return btn;
   }
 
-  updateMainBtn() {
-    let btn = document.querySelector(".states__main-btn");
-    btn.innerText = `Tempo: ${this.getValue()}`;
+  update() {
+    this.btn.innerText = `Tempo: ${this.getValue()}`;
   }
 
   getValue() {

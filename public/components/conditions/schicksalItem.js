@@ -9,13 +9,12 @@ export default class SchicksalItem extends DefaultControllElement {
     super("condition");
     this.section = section;
     section.content.appendChild(this.wrapper);
-    this.updateMainBtn();
+    this.minusBtn.classList.add("symbol-btn--alternative");
+    this.plusBtn.classList.add("symbol-btn--alternative");
+    this.update();
     // events
-    document.addEventListener("updateConditions", () => {
-      this.updateMainBtn();
-      this.updateSymbolBtns();
-    });
-    document.addEventListener("toggleEdit", () => this.updateSymbolBtns());
+    document.addEventListener("updateConditions", () => this.update());
+    document.addEventListener("toggleEdit", () => this.update());
   }
 
   // ======================= events
@@ -23,7 +22,7 @@ export default class SchicksalItem extends DefaultControllElement {
     new DescriptionModal(database.conditions.sp);
   }
 
-  onMinusBtnclick() {
+  onMinusBtnClick() {
     if (this.getCurrent() > 0) {
       database.hero.conditions.sp.current--;
       database.saveHero();
@@ -31,7 +30,7 @@ export default class SchicksalItem extends DefaultControllElement {
     }
   }
 
-  onPlusBtnclick() {
+  onPlusBtnClick() {
     if (this.getCurrent() < this.getMax()) {
       database.hero.conditions.sp.current++;
       database.saveHero();
@@ -40,11 +39,8 @@ export default class SchicksalItem extends DefaultControllElement {
   }
 
   // ======================= update
-  updateMainBtn() {
+  update() {
     this.mainBtn.innerText = this.getMainBtnTxt();
-  }
-
-  updateSymbolBtns() {
     this.minusBtn.classList.toggle("disabled", this.section.editToggle);
     this.plusBtn.classList.toggle("disabled", this.section.editToggle);
   }
