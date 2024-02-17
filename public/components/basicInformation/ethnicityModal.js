@@ -1,3 +1,4 @@
+import database from "../../data/database.js";
 import Database from "../../data/database.js";
 import Modal from "../modal/modal.js";
 
@@ -6,13 +7,10 @@ export default class EthnicityModal {
     this.modal = new Modal();
     this.heroEthnicity = Database.hero.basicInformation.volk.value;
     this.dbEntry = Database.voelker[this.heroEthnicity];
-    this.initModal();
-  }
-
-  initModal() {
     this.modal.content.innerHTML = "<h1>Wähle ein Volk</h1>";
-    this.modal.content.appendChild(this.createSelect());
-    this.modal.content.appendChild(this.createDescription());
+    this.select = this.createSelect();
+    this.description = this.createDescription();
+    this.updateModalDescription();
   }
 
   createSelect() {
@@ -21,9 +19,10 @@ export default class EthnicityModal {
     select.innerHTML = `
       <option value="">...</option>
       ${this.createSelectOptions()}`;
-    select.addEventListener("change", (event) => {
-      this.onSelect(event.target.value);
-    });
+    select.addEventListener("change", (event) =>
+      this.onSelect(event.target.value)
+    );
+    this.modal.content.appendChild(select);
     return select;
   }
 
@@ -39,17 +38,29 @@ export default class EthnicityModal {
     return options;
   }
 
-  onSelect() {
-    console.log("ToDo: onSelect EthnicityModal");
-    // hero.changeEthnicity(event.target.value);
-    // this.heroEthnicity = Database.voelker[Database.hero.basicInformation.volk];
-    // this.updateModalDescription(modal);
+  onSelect(newEthnicity) {
+    database.changeEthnicity(newEthnicity);
+    this.updateModalDescription();
   }
 
   createDescription() {
     let description = document.createElement("p");
     description.classList.add("modal__description");
-    description.innerText = this.heroEthnicity ? this.dbEntry.description : "";
+    this.modal.content.appendChild(description);
     return description;
+  }
+
+  updateModalDescription() {
+    this.description.innerText = this.getDescritpion();
+  }
+
+  getEthnicity() {
+    return Database.hero.basicInformation.volk.value;
+  }
+
+  getDescritpion() {
+    return this.getEthnicity()
+      ? Database.voelker[this.getEthnicity()].description
+      : "";
   }
 }

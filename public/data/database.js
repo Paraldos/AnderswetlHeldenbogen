@@ -1,5 +1,7 @@
 import Hero from "./hero.js";
 import firebaseConfig from "./firebaseConfig.js";
+import talents from "./talents.js";
+import flaws from "./flaws.js";
 firebase.initializeApp(firebaseConfig);
 
 class Database {
@@ -17,6 +19,26 @@ class Database {
     this.conditions = null;
     // heros
     this.hero;
+  }
+
+  changeEthnicity(newEthnicity) {
+    this.hero.basicInformation.volk.value = newEthnicity;
+    // talents
+    talents.removeInnateTalents();
+    if (newEthnicity && this.voelker[newEthnicity].talents) {
+      talents.addInnateTalents(this.voelker[newEthnicity].talents);
+    }
+    // flaws
+    flaws.removeInnateFlaws();
+    if (newEthnicity && this.voelker[newEthnicity].flaws) {
+      flaws.addInnateFlaws(this.voelker[newEthnicity].flaws);
+    }
+    // events
+    document.dispatchEvent(new Event("resetFlaws"));
+    document.dispatchEvent(new Event("resetTalents"));
+    document.dispatchEvent(new Event("updateEthnecity"));
+    // save
+    this.saveHero();
   }
 
   async init() {

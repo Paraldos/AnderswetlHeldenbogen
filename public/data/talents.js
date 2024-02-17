@@ -65,18 +65,18 @@ class Talents {
   }
 
   // // =================================== innate
-  // removeInnateTalents() {
-  //   this.value = this.value.filter((el) => !el.innate);
-  // }
+  removeInnateTalents() {
+    if (!database.hero.talents) return;
+    database.hero.talents = database.hero.talents.filter((el) => !el.innate);
+  }
 
-  // addInnateTalents(dbEntry) {
-  //   this.addTalent("sprache", true);
-  //   if (dbEntry === undefined) return;
-  //   dbEntry.talents.forEach((id) => {
-  //     if (this.findTalent(id)) this.findTalent(id).innate = true;
-  //     else this.addTalent(id, true);
-  //   });
-  // }
+  addInnateTalents(listOfTalents) {
+    this.addTalent("sprache", true);
+    listOfTalents.forEach((talent) => {
+      if (this.findTalent(talent)) this.findTalent(talent).innate = true;
+      else this.addTalent(talent, true);
+    });
+  }
 }
 
 const talents = new Talents();

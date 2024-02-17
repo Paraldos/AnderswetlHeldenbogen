@@ -7,12 +7,10 @@ export default class EthnicityElement {
     this.heroEthnicity = Database.hero.basicInformation.volk;
     this.element = this.createElement();
     this.ethnicityBtn = this.element.querySelector(".basics__ethnicity-btn");
-    this.updateEthnicityBtn();
+    this.update();
     this.ethnicityBtn.addEventListener("click", () => new EthnicityModal());
     document.addEventListener("toggleEdit", () => this.onToggleEdit());
-    document.addEventListener("updateEthnecity", () =>
-      this.updateEthnicityBtn()
-    );
+    document.addEventListener("updateEthnecity", () => this.update());
   }
 
   createElement() {
@@ -26,7 +24,7 @@ export default class EthnicityElement {
     return element;
   }
 
-  updateEthnicityBtn() {
+  update() {
     this.ethnicityBtn.innerText = this.heroEthnicity.value
       ? Database.voelker[this.heroEthnicity.value].name
       : "...";

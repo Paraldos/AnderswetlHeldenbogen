@@ -57,14 +57,14 @@ class Flaws {
 
   // ============================== innate
   removeInnateFlaws() {
-    this.value = this.value.filter((el) => !el.innate);
+    if (!database.hero.flaws) return;
+    database.hero.flaws = database.hero.flaws.filter((el) => !el.innate);
   }
 
-  addInnateFlaws(dbEntry) {
-    if (dbEntry === undefined) return;
-    dbEntry.flaws.forEach((id) => {
-      if (this.findFlaw(id)) this.getFlaw(id).innate = true;
-      else this.addFlaw(id, true);
+  addInnateFlaws(listOfFlaws) {
+    listOfFlaws.forEach((flaw) => {
+      if (this.findFlaw(flaw)) this.findFlaw(flaw).innate = true;
+      else this.addFlaw(flaw, true);
     });
   }
 }
