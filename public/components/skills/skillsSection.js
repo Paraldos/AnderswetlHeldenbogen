@@ -7,7 +7,7 @@ export default class SkillsSection {
     this.section = new Section("Fertigkeiten", "skills");
     this.createContainer();
     this.skills = Object.keys(database.skills).map(
-      (key) => new SkillsSectionItem(key)
+      (key) => new SkillsSectionItem(key, this.section)
     );
     document.addEventListener("updateSkillsHeader", () =>
       this.updateSectionHeader()
