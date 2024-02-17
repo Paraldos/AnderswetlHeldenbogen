@@ -1,8 +1,8 @@
 import database from "../../data/database.js";
-import DescriptionModal from "../../templates/descriptionModal.js";
-import DefaultControllElement from "../defaultControllElement/defaultControllElement.js";
+import DescriptionModal from "../descriptionModal/descriptionModal.js";
+import ControllElement from "../defaultControllElement/defaultControllElement.js";
 
-export default class SimpleConditionItem extends DefaultControllElement {
+export default class SimpleConditionItem extends ControllElement {
   constructor(id, section) {
     super("condition");
     this.id = id;

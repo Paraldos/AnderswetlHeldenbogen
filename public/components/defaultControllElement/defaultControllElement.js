@@ -1,7 +1,7 @@
 import MinusBtn from "./minusBtn.js";
 import PlusBtn from "./plusBtn.js";
 
-export default class DefaultControllElement {
+export default class ControllElement {
   constructor(classPrefix) {
     this.classPrefix = classPrefix;
     this.wrapper = this.createWrapper();
@@ -16,6 +16,7 @@ export default class DefaultControllElement {
   createWrapper() {
     let wrapper = document.createElement("div");
     wrapper.classList.add(`${this.classPrefix}__wrapper`);
+    wrapper.classList.add(`controll-element__wrapper`);
     return wrapper;
   }
 
@@ -29,12 +30,14 @@ export default class DefaultControllElement {
 
   createMinusBtn() {
     let btn = new MinusBtn().btn;
+    btn.classList.add(`${this.classPrefix}__minus-btn`);
     this.wrapper.appendChild(btn);
     return btn;
   }
 
   createPlusBtn() {
     let btn = new PlusBtn().btn;
+    btn.classList.add(`${this.classPrefix}__plus-btn`);
     this.wrapper.appendChild(btn);
     return btn;
   }

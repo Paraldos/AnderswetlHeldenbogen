@@ -1,9 +1,9 @@
 import database from "../../data/database.js";
-import DescriptionModal from "../../templates/descriptionModal.js";
+import DescriptionModal from "../descriptionModal/descriptionModal.js";
 import talents from "../../data/talents.js";
-import DefaultControllElement from "../defaultControllElement/defaultControllElement.js";
+import ControllElement from "../defaultControllElement/defaultControllElement.js";
 
-export default class ComplexConditionItem extends DefaultControllElement {
+export default class ComplexConditionItem extends ControllElement {
   constructor(id, section) {
     super("condition");
     this.id = id;
@@ -24,7 +24,7 @@ export default class ComplexConditionItem extends DefaultControllElement {
   onMinusBtnClick() {
     this.section.editToggle ? this.onMinusMax() : this.onMinusCurrent();
     database.saveHero();
-    this.updateMainBtn();
+    this.update();
   }
 
   onMinusMax() {
@@ -42,7 +42,7 @@ export default class ComplexConditionItem extends DefaultControllElement {
   onPlusBtnClick() {
     this.section.editToggle ? this.onPlusMax() : this.onPlusCurrent();
     database.saveHero();
-    this.updateMainBtn();
+    this.update();
   }
 
   onPlusMax() {

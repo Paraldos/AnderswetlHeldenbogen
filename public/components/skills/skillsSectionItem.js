@@ -1,5 +1,5 @@
 import database from "../../data/database.js";
-import DescriptionModal from "../../templates/descriptionModal.js";
+import DescriptionModal from "../descriptionModal/descriptionModal.js";
 
 export default class SkillsSectionItem {
   constructor(key) {

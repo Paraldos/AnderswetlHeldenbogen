@@ -1,10 +1,10 @@
 import database from "../../data/database.js";
-import DescriptionModal from "../../templates/descriptionModal.js";
+import DescriptionModal from "../descriptionModal/descriptionModal.js";
 import talents from "../../data/talents.js";
 import flaws from "../../data/flaws.js";
-import DefaultControllElement from "../defaultControllElement/defaultControllElement.js";
+import ControllElement from "../defaultControllElement/defaultControllElement.js";
 
-export default class SchicksalItem extends DefaultControllElement {
+export default class SchicksalItem extends ControllElement {
   constructor(section) {
     super("condition");
     this.section = section;

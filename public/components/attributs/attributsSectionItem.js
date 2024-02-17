@@ -1,61 +1,18 @@
 import database from "../../data/database.js";
-import DescriptionModal from "../../templates/descriptionModal.js";
+import DescriptionModal from "../descriptionModal/descriptionModal.js";
 import veranlagung from "../../data/veranlagung.js";
+import ControllElement from "../defaultControllElement/defaultControllElement.js";
 
-export default class AttributsSectionItem {
-  constructor(key, container) {
+export default class AttributsSectionItem extends ControllElement {
+  constructor(key, section) {
+    super("attribut");
     this.key = key;
-    this.container = container;
+    this.section = section;
     this.dbEntry = database.attributs[key];
-    this.element = this.createElement();
-    // document.addEventListener("resetAttributs", () => this.updateElement());
-  }
-
-  createElement() {
-    const element = document.createElement("div");
-    element.classList.add("attribut");
-    element.append(
-      this.createMainBtn(),
-      this.createMinusBtn(),
-      this.createPlusBtn()
-    );
-    this.container.appendChild(element);
-    return element;
-  }
-
-  createButton(classes, innerHTML, clickHandler, toggleEdit = false) {
-    const btn = document.createElement("button");
-    btn.classList.add(...classes);
-    btn.innerHTML = innerHTML;
-    btn.addEventListener("click", clickHandler);
-    if (toggleEdit) {
-      document.addEventListener("toggleEdit", () => this.onToggleEdit(btn));
-    }
-    return btn;
-  }
-
-  createMainBtn() {
-    return this.createButton(["attribut__main-btn"], this.getMainBtnTxt(), () =>
-      this.onMainBtnClick()
-    );
-  }
-
-  createMinusBtn() {
-    return this.createButton(
-      ["attribut__minus-btn", "symbol-btn", "disabled"],
-      `<i class="fa-solid fa-minus"></i>`,
-      () => this.onMinusBtnClick(),
-      true
-    );
-  }
-
-  createPlusBtn() {
-    return this.createButton(
-      ["attribut__plus-btn", "symbol-btn", "disabled"],
-      `<i class="fa-solid fa-plus"></i>`,
-      () => this.onPlusBtnClick(),
-      true
-    );
+    section.content.appendChild(this.wrapper);
+    this.update();
+    document.addEventListener("resetAttributs", () => this.update());
+    document.addEventListener("toggleEdit", () => this.update());
   }
 
   // events
@@ -66,7 +23,7 @@ export default class AttributsSectionItem {
   onMinusBtnClick() {
     if (this.heroValue > 1) {
       this.heroValue -= 1;
-      this.updateElement();
+      this.update();
       database.saveHero();
     }
   }
@@ -74,7 +31,7 @@ export default class AttributsSectionItem {
   onPlusBtnClick() {
     if (this.heroValue < 5) {
       this.heroValue += 1;
-      this.updateElement();
+      this.update();
       database.saveHero();
     }
   }
@@ -100,9 +57,10 @@ export default class AttributsSectionItem {
     return `${this.dbEntry.name}: ${this.heroValue}`;
   }
 
-  updateElement() {
-    const mainBtn = this.element.querySelector(".attribut__main-btn");
-    mainBtn.innerHTML = this.getMainBtnTxt();
+  update() {
+    this.mainBtn.innerHTML = this.getMainBtnTxt();
+    this.minusBtn.classList.toggle("disabled", !this.section.editToggle);
+    this.plusBtn.classList.toggle("disabled", !this.section.editToggle);
     document.dispatchEvent(new Event("updateAttributsHeader"));
   }
 }

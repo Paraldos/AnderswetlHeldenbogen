@@ -1,6 +1,6 @@
 import database from "../../data/database.js";
 import talents from "../../data/talents.js";
-import DescriptionModal from "../../templates/descriptionModal.js";
+import DescriptionModal from "../descriptionModal/descriptionModal.js";
 
 export default class ListOfTalentsItem {
   constructor(key, modalContent) {

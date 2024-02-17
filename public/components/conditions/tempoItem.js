@@ -1,6 +1,6 @@
 import database from "../../data/database.js";
 import flaws from "../../data/flaws.js";
-import DescriptionModal from "../../templates/descriptionModal.js";
+import DescriptionModal from "../descriptionModal/descriptionModal.js";
 
 export default class TempoItem {
   constructor(section) {
