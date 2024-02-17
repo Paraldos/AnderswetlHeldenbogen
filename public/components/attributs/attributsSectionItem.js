@@ -1,7 +1,7 @@
 import database from "../../data/database.js";
 import DescriptionModal from "../descriptionModal/descriptionModal.js";
 import veranlagung from "../../data/veranlagung.js";
-import ControllElement from "../defaultControllElement/defaultControllElement.js";
+import ControllElement from "../controllElement/controllElement.js";
 
 export default class AttributsSectionItem extends ControllElement {
   constructor(key, section) {

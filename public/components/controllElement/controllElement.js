@@ -1,5 +1,5 @@
-import MinusBtn from "./minusBtn.js";
-import PlusBtn from "./plusBtn.js";
+import MinusBtn from "../symbolBtn/minusBtn.js";
+import PlusBtn from "../symbolBtn/plusBtn.js";
 
 export default class ControllElement {
   constructor(classPrefix) {

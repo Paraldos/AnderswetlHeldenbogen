@@ -1,7 +1,7 @@
 import database from "../../data/database.js";
 import DescriptionModal from "../descriptionModal/descriptionModal.js";
 import talents from "../../data/talents.js";
-import ControllElement from "../defaultControllElement/defaultControllElement.js";
+import ControllElement from "../controllElement/controllElement.js";
 
 export default class ComplexConditionItem extends ControllElement {
   constructor(id, section) {

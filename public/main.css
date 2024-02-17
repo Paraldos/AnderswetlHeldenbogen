@@ -518,10 +518,6 @@ button {
   grid-template-columns: repeat(3, 1fr);
   gap: 10px 40px; }
 
-.condition__wrapper, .condition__list-item {
-  display: flex;
-  gap: 10px; }
-
 @media (max-width: 992px) {
   .condition__content {
     grid-template-columns: 1fr 1fr; } }
