@@ -1,5 +1,5 @@
 import talents from "../../data/talents.js";
-import Modal from "../../templates/modal.js";
+import Modal from "../modal/modal.js";
 import ListOfTalentsItem from "./listOfTalentsItem.js";
 
 export default class ListOfTalents {

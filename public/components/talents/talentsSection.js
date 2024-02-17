@@ -1,5 +1,5 @@
 import database from "../../data/database.js";
-import Section from "../../templates/section.js";
+import Section from "../section/section.js";
 import ListOfTalents from "./listOfTalents.js";
 import TalentsSectionItem from "./talentsSectionItem.js";
 import talents from "../../data/talents.js";

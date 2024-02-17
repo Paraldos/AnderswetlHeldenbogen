@@ -1,5 +1,5 @@
 import database from "../../data/database.js";
-import Section from "../../templates/section.js";
+import Section from "../section/section.js";
 import flaws from "../../data/flaws.js";
 import ListOfFlaws from "./ListOfFlaws.js";
 import FlawSectionItem from "./flawsSectionItem.js";

@@ -1,4 +1,4 @@
-import Modal from "../../templates/modal.js";
+import Modal from "../modal/modal.js";
 import database from "../../data/database.js";
 
 export default class DeleteHeroModal {

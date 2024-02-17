@@ -1,6 +1,6 @@
 import database from "../../data/database.js";
 import veranlagung from "../../data/veranlagung.js";
-import Modal from "../../templates/modal.js";
+import Modal from "../modal/modal.js";
 
 export default class HeroTalent {
   constructor(dbEntry, index) {

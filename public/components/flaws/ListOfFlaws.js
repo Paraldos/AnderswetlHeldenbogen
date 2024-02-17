@@ -1,5 +1,5 @@
 import database from "../../data/database.js";
-import Modal from "../../templates/modal.js";
+import Modal from "../modal/modal.js";
 import flaws from "../../data/flaws.js";
 import ListOfFlawsItem from "./ListOfFlawsItem.js";
 

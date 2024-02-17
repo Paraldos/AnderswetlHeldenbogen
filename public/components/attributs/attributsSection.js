@@ -1,5 +1,5 @@
 import database from "../../data/database.js";
-import Section from "../../templates/section.js";
+import Section from "../section/section.js";
 import AttributsSectionItem from "./attributsSectionItem.js";
 
 export default class AttributsSection {

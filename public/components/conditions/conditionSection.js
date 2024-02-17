@@ -1,5 +1,5 @@
 import database from "../../data/database.js";
-import Section from "../../templates/section.js";
+import Section from "../section/section.js";
 import ComplexConditionItem from "./ComplexConditionItem.js";
 import SimpleConditionItem from "./simpleConditionItem.js";
 import SchicksalItem from "./schicksalItem.js";
