@@ -113,16 +113,6 @@ select {
 option {
   background-color: var(--color__select-background); }
 
-.symbol-btn {
-  height: 100%;
-  width: auto;
-  aspect-ratio: 1/1;
-  padding: 0; }
-  .symbol-btn i {
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-
 .overflow-hidden {
   overflow: hidden;
   padding-right: 20px; }
@@ -165,6 +155,18 @@ button {
   display: flex;
   margin: 20px 0;
   gap: 20px; }
+
+.symbol-btn {
+  height: 100%;
+  width: auto;
+  aspect-ratio: 1/1;
+  padding: 0; }
+  .symbol-btn--alternative {
+    background-color: var(--color__btn-background--alternative); }
+  .symbol-btn i {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
 
 .modal {
   display: flex;
@@ -523,9 +525,6 @@ button {
 .condition__wrapper, .condition__list-item {
   display: flex;
   gap: 10px; }
-
-.condition__btn--alternative {
-  background-color: var(--color__btn-background--alternative); }
 
 @media (max-width: 992px) {
   .condition__content {
