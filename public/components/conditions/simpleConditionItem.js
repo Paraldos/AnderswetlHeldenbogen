@@ -1,7 +1,7 @@
 import database from "../../data/database.js";
 import DescriptionModal from "../../templates/descriptionModal.js";
-import PlusBtn from "../../templates/plusBtn.js";
-import MinusBtn from "../../templates/minusBtn.js";
+import PlusBtn from "../defaultControllElement/plusBtn.js";
+import MinusBtn from "../defaultControllElement/minusBtn.js";
 
 export default class SimpleConditionItem {
   constructor(id, section) {

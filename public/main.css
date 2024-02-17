@@ -520,7 +520,7 @@ button {
   grid-template-columns: repeat(3, 1fr);
   gap: 10px 40px; }
 
-.condition__list-item {
+.condition__wrapper, .condition__list-item {
   display: flex;
   gap: 10px; }
 
