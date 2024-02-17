@@ -4,30 +4,29 @@ import flaws from "../../data/flaws.js";
 import ListOfFlaws from "./ListOfFlaws.js";
 import FlawSectionItem from "./flawsSectionItem.js";
 
-export default class FlawsSection {
+export default class FlawsSection extends Section {
   constructor() {
-    this.section = new Section("Schwächen", "flaws", true);
+    super("Schwächen", "flaws", true);
     this.onReset();
-    this.section.plusBtn.addEventListener("click", () => new ListOfFlaws());
-    document.addEventListener("toggleEdit", () => this.onToggleEdit());
+    this.plusBtn.addEventListener("click", () => new ListOfFlaws());
     document.addEventListener("resetFlaws", () => this.onReset());
+  }
+
+  onToggleEdit() {
+    super.onToggleEdit();
+    const spanVisibility = this.editToggle ? "disabled" : "";
+    this.header.innerHTML = `Schwächen <span class="${spanVisibility}">(${flaws.getSum()})</span>`;
   }
 
   addFlawSectionItem() {
     if (!database.hero.flaws) return [];
     return database.hero.flaws.map(
-      (el, index) => new FlawSectionItem(el.id, index, this.section)
+      (el, index) => new FlawSectionItem(el.id, index, this)
     );
   }
 
-  onToggleEdit() {
-    const spanVisibility = this.section.editToggle ? "" : "disabled";
-    this.section.header.innerHTML = `Schwächen <span class="${spanVisibility}">(${flaws.getSum()})</span>`;
-  }
-
   onReset() {
-    this.section.content.innerHTML = "";
+    this.content.innerHTML = "";
     this.flaws = this.addFlawSectionItem();
-    this.onToggleEdit();
   }
 }
