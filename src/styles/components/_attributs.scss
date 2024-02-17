@@ -6,11 +6,6 @@
   }
 }
 
-.attribut {
-  display: flex;
-  gap: 10px;
-}
-
 @media (max-width: $breakpoint-md) {
   .attributs {
     &__content {

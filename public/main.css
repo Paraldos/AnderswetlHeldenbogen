@@ -256,10 +256,6 @@ button {
   grid-template-columns: repeat(3, 1fr);
   gap: 10px 40px; }
 
-.attribut {
-  display: flex;
-  gap: 10px; }
-
 @media (max-width: 768px) {
   .attributs__content {
     grid-template-columns: repeat(2, 1fr); } }
@@ -585,3 +581,7 @@ button {
     .talents__container h3 {
       grid-column-start: 1;
       grid-column-end: 2; } }
+
+.controll-element__wrapper {
+  display: flex;
+  gap: 10px; }
