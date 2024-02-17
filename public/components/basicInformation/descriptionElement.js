@@ -1,8 +1,8 @@
 import Database from "../../data/database.js";
 
 export default class DescriptionElement {
-  constructor(section) {
-    this.section = section;
+  constructor(sectionContent) {
+    this.sectionContent = sectionContent;
     this.element = this.createElement();
     this.textArea = this.element.querySelector(".basics__description-text");
     this.textArea.addEventListener("input", () => this.onTxtChange());
@@ -16,7 +16,7 @@ export default class DescriptionElement {
         <label class="basics__label">${Database.hero.basicInformation.beschreibung.name}:</label>
         <textarea class="basics__description-text" disabled>${Database.hero.basicInformation.beschreibung.value}</textarea>`,
     });
-    this.section.content.appendChild(element);
+    this.sectionContent.appendChild(element);
     return element;
   }
 

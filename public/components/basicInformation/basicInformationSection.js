@@ -3,13 +3,13 @@ import SimpleElement from "./simpleElement.js";
 import EthnicityElement from "./ethnicityElement.js";
 import DescriptionElement from "./descriptionElement.js";
 
-export default class BasicsInformationSection {
+export default class BasicsInformationSection extends Section {
   constructor() {
-    this.section = new Section("Grundlagen", "basics");
-    new SimpleElement(this.section.content, "name");
-    new EthnicityElement(this.section.content);
-    new SimpleElement(this.section.content, "konzept");
-    new SimpleElement(this.section.content, "motive");
-    new DescriptionElement(this.section);
+    super("Grundlagen", "basics");
+    new SimpleElement(this.content, "name");
+    new EthnicityElement(this.content);
+    new SimpleElement(this.content, "konzept");
+    new SimpleElement(this.content, "motive");
+    new DescriptionElement(this.content);
   }
 }

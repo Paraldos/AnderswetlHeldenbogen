@@ -1,48 +1,29 @@
 import database from "../../data/database.js";
 import DescriptionModal from "../descriptionModal/descriptionModal.js";
 import flaws from "../../data/flaws.js";
+import ControllElement from "../controllElement/controllElement.js";
 
-export default class ListItem {
+export default class ListItem extends ControllElement {
   constructor(id, modal) {
+    super("flaw");
     this.id = id;
     this.modal = modal;
     this.dbEntry = database.flaws[id];
-    this.itemContainer = this.createItemContainer();
-    this.createMainBtn();
-    this.createPlusBtn();
-  }
-
-  createItemContainer() {
-    let el = document.createElement("div");
-    el.classList.add("flaws-modal__schwaeche");
-    this.modal.content.appendChild(el);
-    return el;
-  }
-
-  createMainBtn() {
-    let el = document.createElement("button");
-    el.classList.add("flaws-modal__main-btn");
-    el.innerHTML = this.dbEntry.name;
-    el.addEventListener("click", () => this.onMainBtnClick());
-    this.itemContainer.appendChild(el);
-    return el;
+    this.minusBtn.remove();
+    this.update();
+    this.modal.content.appendChild(this.wrapper);
   }
 
   onMainBtnClick() {
     new DescriptionModal(this.dbEntry);
   }
 
-  createPlusBtn() {
-    let el = document.createElement("button");
-    el.classList.add("flaws-modal__plus-btn", "symbol-btn");
-    el.innerHTML = `<i class="fa-solid fa-plus"></i>`;
-    el.addEventListener("click", () => this.onPlusBtnClick());
-    this.itemContainer.appendChild(el);
-    return el;
-  }
-
   onPlusBtnClick() {
     flaws.addFlaw(this.id);
     document.dispatchEvent(new Event("updateConditions"));
+  }
+
+  update() {
+    this.mainBtn.innerHTML = this.dbEntry.name;
   }
 }

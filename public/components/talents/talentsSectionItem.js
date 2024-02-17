@@ -38,13 +38,12 @@ export default class TalentsSectionItem extends ControllElement {
   // ============== Helper
   update() {
     this.mainBtn.innerHTML = this.getMainBtnText();
+    this.minusBtn.classList.toggle("disabled", !this.section.editToggle);
     if (this.dbEntry.max_level > 1) {
       this.plusBtn.classList.toggle("disabled", !this.section.editToggle);
-      this.minusBtn.classList.toggle("disabled", !this.section.editToggle);
       this.plusBtn.disabled = this.heroEntry.level >= this.dbEntry.max_level;
     } else {
       this.plusBtn.classList.add("disabled");
-      this.minusBtn.classList.add("disabled");
     }
   }
 

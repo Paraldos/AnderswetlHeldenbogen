@@ -1,8 +1,8 @@
 import database from "../../data/database.js";
 
 export default class SimpleElement {
-  constructor(container, key) {
-    this.container = container;
+  constructor(sectionContent, key) {
+    this.sectionContent = sectionContent;
     this.key = key;
     this.dbEntry = database.hero.basicInformation[key];
     this.createElement();
@@ -13,7 +13,7 @@ export default class SimpleElement {
     div.classList.add("basics__simple-element");
     div.appendChild(this.createLabel());
     div.appendChild(this.createInput());
-    this.container.appendChild(div);
+    this.sectionContent.appendChild(div);
   }
 
   createLabel() {

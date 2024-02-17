@@ -2,8 +2,8 @@ import Database from "../../data/database.js";
 import EthnicityModal from "./ethnicityModal.js";
 
 export default class EthnicityElement {
-  constructor(container) {
-    this.container = container;
+  constructor(sectionContent) {
+    this.sectionContent = sectionContent;
     this.heroEthnicity = Database.hero.basicInformation.volk;
     this.element = this.createElement();
     this.ethnicityBtn = this.element.querySelector(".basics__ethnicity-btn");
@@ -22,7 +22,7 @@ export default class EthnicityElement {
         <label class="basics__label">${this.heroEthnicity.name}:</label>
         <button class="basics__ethnicity-btn" disabled>placeholder</button>`,
     });
-    this.container.appendChild(element);
+    this.sectionContent.appendChild(element);
     return element;
   }
 
