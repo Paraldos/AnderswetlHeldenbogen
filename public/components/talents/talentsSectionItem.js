@@ -1,52 +1,26 @@
 import database from "../../data/database.js";
 import talents from "../../data/talents.js";
 import HeroTalent from "./heroTalent.js";
+import ControllElement from "../controllElement/controllElement.js";
 
-export default class TalentsSectionItem {
-  constructor(id, index, btnVisiblity) {
+export default class TalentsSectionItem extends ControllElement {
+  constructor(id, index, section) {
+    super("talents");
     this.index = index;
-    this.btnVisiblity = btnVisiblity;
     this.dbEntry = database.talents[id];
     this.heroEntry = database.hero.talents[index];
-    this.container = document.querySelector(`.talents__${this.dbEntry.type}`);
-    this.initSectionTalent();
+    this.section = section;
+    this.container = section.content.querySelector(
+      `.talents__${this.dbEntry.type}`
+    );
+    this.update();
+    this.container.appendChild(this.wrapper);
+    document.addEventListener("toggleEdit", () => this.update());
   }
 
-  initSectionTalent() {
-    const sectionTalent = document.createElement("div");
-    sectionTalent.className = "talent";
-    this.createMainBtn(sectionTalent);
-    this.createMinusBtn(sectionTalent);
-    this.createPlusBtn(sectionTalent);
-    this.container.appendChild(sectionTalent);
-  }
-
-  createMainBtn(sectionTalent) {
-    const el = document.createElement("button");
-    el.className = "talent__main-btn";
-    el.insertAdjacentHTML("beforeend", this.dbEntry.name);
-    if (this.heroEntry.comment) {
-      el.insertAdjacentHTML("beforeend", "*");
-    }
-    if (this.dbEntry.max_level > 1) {
-      el.insertAdjacentHTML("beforeend", ` (${this.heroEntry.level})`);
-    }
-    el.addEventListener("click", () => this.onMainBtnclick());
-    sectionTalent.appendChild(el);
-  }
-
-  onMainBtnclick() {
+  // ============== events
+  onMainBtnClick() {
     new HeroTalent(this.dbEntry, this.index);
-  }
-
-  createMinusBtn(sectionTalent) {
-    const btn = document.createElement("button");
-    btn.className = "talent__minus-btn symbol-btn";
-    this.btnVisiblity ? "" : btn.classList.add("disabled");
-    btn.innerHTML = `<i class="fa-solid fa-minus"></i>`;
-    btn.addEventListener("click", () => this.onMinusBtnClick());
-    document.addEventListener("toggleEdit", () => this.onToggleEdit(btn));
-    sectionTalent.appendChild(btn);
   }
 
   onMinusBtnClick() {
@@ -55,33 +29,33 @@ export default class TalentsSectionItem {
     document.dispatchEvent(new Event("updateConditions"));
   }
 
-  createPlusBtn(sectionTalent) {
-    const btn = document.createElement("button");
-    btn.className = "talent__plus-btn symbol-btn";
-    btn.innerHTML = `<i class="fa-solid fa-plus"></i>`;
-    this.btnVisiblity ? "" : btn.classList.add("disabled");
-    this.updatePlusBtnVisibility(btn);
-    btn.addEventListener("click", () => this.onPlusBtnClick());
-    document.addEventListener("toggleEdit", () => {
-      this.onToggleEdit(btn);
-      this.updatePlusBtnVisibility(btn);
-    });
-    sectionTalent.appendChild(btn);
-  }
-
-  updatePlusBtnVisibility(btn) {
-    if (this.heroEntry.level >= this.dbEntry.max_level) {
-      btn.classList.add("disabled");
-    }
-  }
-
   onPlusBtnClick() {
     talents.plusTalent(this.index);
     document.dispatchEvent(new Event("resetTalentHeader"));
     document.dispatchEvent(new Event("updateConditions"));
   }
 
-  onToggleEdit(btn) {
-    btn.classList.toggle("disabled");
+  // ============== Helper
+  update() {
+    this.mainBtn.innerHTML = this.getMainBtnText();
+    if (this.dbEntry.max_level > 1) {
+      this.plusBtn.classList.toggle("disabled", !this.section.editToggle);
+      this.minusBtn.classList.toggle("disabled", !this.section.editToggle);
+      this.plusBtn.disabled = this.heroEntry.level >= this.dbEntry.max_level;
+    } else {
+      this.plusBtn.classList.add("disabled");
+      this.minusBtn.classList.add("disabled");
+    }
+  }
+
+  getMainBtnText() {
+    let txt = this.dbEntry.name;
+    if (this.heroEntry.comment) {
+      txt += "*";
+    }
+    if (this.dbEntry.max_level > 1) {
+      txt += ` (${this.heroEntry.level})`;
+    }
+    return txt;
   }
 }

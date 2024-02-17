@@ -41,8 +41,7 @@ export default class TalentsSection {
   initTalents() {
     if (!database.hero.talents) return;
     database.hero.talents.map(
-      (talent, index) =>
-        new TalentsSectionItem(talent.id, index, this.section.editToggle)
+      (talent, index) => new TalentsSectionItem(talent.id, index, this.section)
     );
   }
 

@@ -1,46 +1,23 @@
 import database from "../../data/database.js";
 import flaws from "../../data/flaws.js";
 import HeroFlaw from "./heroFlaw.js";
+import ControllElement from "../controllElement/controllElement.js";
 
-export default class FlawSectionItem {
+export default class FlawSectionItem extends ControllElement {
   constructor(id, index, section) {
+    super("flaw");
     this.index = index;
     this.section = section;
     this.dbEntry = database.flaws[id];
     this.flaw = database.hero.flaws[this.index];
-    this.item = this.createItem();
-    this.createMainBtn();
-    this.createMinusBtn();
-  }
-
-  createItem() {
-    const el = document.createElement("div");
-    el.classList.add("flaw");
-    this.section.content.appendChild(el);
-    return el;
-  }
-
-  createMainBtn() {
-    const el = document.createElement("button");
-    el.classList.add("flaw__main-btn");
-    el.innerHTML = `${this.dbEntry.name}${this.flaw.comment ? "*" : ""}`;
-    el.addEventListener("click", () => this.onMainBtnClick());
-    this.item.appendChild(el);
+    this.plusBtn.remove();
+    this.update();
+    this.section.content.appendChild(this.wrapper);
+    document.addEventListener("toggleEdit", () => this.update());
   }
 
   onMainBtnClick() {
     new HeroFlaw(this.dbEntry, this.index);
-  }
-
-  createMinusBtn() {
-    const el = document.createElement("button");
-    el.classList.add("flaw__minus-btn", "symbol-btn");
-    el.disabled = this.flaw.innate ? true : false;
-    el.innerHTML = `<i class="fa-solid fa-minus"></i>`;
-    el.addEventListener("click", () => this.onMinusBtnClick());
-    document.addEventListener("toggleEdit", () => this.onToggleEdit(el));
-    this.onToggleEdit(el);
-    this.item.appendChild(el);
   }
 
   onMinusBtnClick() {
@@ -48,7 +25,10 @@ export default class FlawSectionItem {
     document.dispatchEvent(new Event("updateConditions"));
   }
 
-  onToggleEdit(btn) {
-    btn.classList.toggle("disabled", !this.section.editToggle);
+  update() {
+    this.mainBtn.innerHTML = `${this.dbEntry.name}${
+      this.flaw.comment ? "*" : ""
+    }`;
+    this.minusBtn.classList.toggle("disabled", !this.section.editToggle);
   }
 }

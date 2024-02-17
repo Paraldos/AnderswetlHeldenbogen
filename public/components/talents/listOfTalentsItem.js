@@ -1,49 +1,34 @@
 import database from "../../data/database.js";
 import talents from "../../data/talents.js";
 import DescriptionModal from "../descriptionModal/descriptionModal.js";
+import ControllElement from "../controllElement/controllElement.js";
 
-export default class ListOfTalentsItem {
+export default class ListOfTalentsItem extends ControllElement {
   constructor(key, modalContent) {
+    super("talent");
     this.key = key;
     this.dbEntry = database.talents[key];
     this.modalContent = modalContent;
     this.talentContainer = this.modalContent.querySelector(
       `.talents-modal__${this.dbEntry.type}`
     );
-    this.initTalent();
+    this.minusBtn.classList.add("disabled");
+    this.update();
+    this.talentContainer.appendChild(this.wrapper);
   }
 
-  initTalent() {
-    const element = document.createElement("div");
-    element.className = "talent";
-    this.createMainBtn(element);
-    this.createPlusBtn(element);
-    this.talentContainer.appendChild(element);
+  update() {
+    this.mainBtn.innerHTML =
+      this.dbEntry.max_level > 1
+        ? `${this.dbEntry.name} (1 bis ${this.dbEntry.max_level})`
+        : `${this.dbEntry.name}`;
   }
 
-  createMainBtn(container) {
-    let element = document.createElement("button");
-    element.className = "talent__main-btn";
-    this.dbEntry.max_level > 1
-      ? (element.innerHTML = `${this.dbEntry.name} (1 bis ${this.dbEntry.max_level})`)
-      : (element.innerHTML = `${this.dbEntry.name}`);
-    element.addEventListener("click", () => this.onClickMainBtn());
-    container.appendChild(element);
-  }
-
-  onClickMainBtn() {
+  onMainBtnClick() {
     new DescriptionModal(this.dbEntry);
   }
 
-  createPlusBtn(container) {
-    let element = document.createElement("button");
-    element.className = "talent__plus-btn symbol-btn";
-    element.innerHTML = `<i class="fa-solid fa-plus"></i>`;
-    element.addEventListener("click", () => this.onClickPlusBtn());
-    container.appendChild(element);
-  }
-
-  onClickPlusBtn() {
+  onPlusBtnClick() {
     talents.addTalent(this.key);
     document.dispatchEvent(new Event("updateConditions"));
   }
