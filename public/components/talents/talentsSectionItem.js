@@ -39,6 +39,7 @@ export default class TalentsSectionItem extends ControllElement {
   update() {
     this.mainBtn.innerHTML = this.getMainBtnText();
     this.minusBtn.classList.toggle("disabled", !this.section.editToggle);
+    this.minusBtn.disabled = this.heroEntry.level <= 1 && this.heroEntry.innate;
     if (this.dbEntry.max_level > 1) {
       this.plusBtn.classList.toggle("disabled", !this.section.editToggle);
       this.plusBtn.disabled = this.heroEntry.level >= this.dbEntry.max_level;

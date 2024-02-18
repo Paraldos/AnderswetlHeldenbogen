@@ -30,5 +30,8 @@ export default class FlawSectionItem extends ControllElement {
       this.flaw.comment ? "*" : ""
     }`;
     this.minusBtn.classList.toggle("disabled", !this.section.editToggle);
+    if (this.flaw.innate) {
+      this.minusBtn.disabled = true;
+    }
   }
 }
