@@ -5,7 +5,7 @@ import SkillsSection from "../skills/skillsSection.js";
 import TalentsSection from "../talents/talentsSection.js";
 import FlawsSection from "../flaws/flawsSection.js";
 import ConditionSection from "../conditions/conditionSection.js";
-// import InventorySection from "../inventory/inventorySection.js";
+import InventorySection from "../inventory/inventorySection.js";
 
 export default class CharacterSheet {
   constructor() {
@@ -27,13 +27,13 @@ export default class CharacterSheet {
   }
 
   createHero() {
+    new InventorySection();
     new BasicsInformationSection();
     new AttributsSection();
     new SkillsSection();
     new TalentsSection();
     new FlawsSection();
     new ConditionSection();
-    // new InventorySection();
   }
 
   createPlaceholder() {
