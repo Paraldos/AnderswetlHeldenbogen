@@ -1,18 +1,27 @@
 .money {
-  display: flex;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 
-  &__value {
-    width: 50%;
+  &__first-row {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+  }
+
+  &__second-row {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+  }
+
+  &__btn {
+    height: 33px;
   }
 }
 
 @media (max-width: $breakpoint-md) {
   .money {
     grid-template-columns: 1fr;
-
-    &__value {
-      text-align: center;
-    }
   }
 }

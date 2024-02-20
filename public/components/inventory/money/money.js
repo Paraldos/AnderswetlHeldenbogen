@@ -5,6 +5,8 @@ export default class Money {
   constructor(section) {
     this.section = section;
     this.wrapper = this.createWrapper();
+    this.firstRow = this.createRow("first-row");
+    this.secondRow = this.createRow("second-row");
     this.gold = this.createCoin();
     this.silver = this.createCoin();
     this.copper = this.createCoin();
@@ -12,27 +14,27 @@ export default class Money {
     this.input = this.createInput();
     this.plusBtn = this.createPlusBtn();
     this.minusBtn = this.createMinusBtn();
-    // this.moneyValue = this.container.querySelector(".money__values");
-    // this.moneyChange = this.container.querySelector(".money__change");
-    // this.moneyPlus = this.container.querySelector(".money__plus-btn");
-    // this.moneyMinus = this.container.querySelector(".money__minus-btn");
-    // events
-    // this.moneyPlus.addEventListener("click", () => this.onMoneyPlusClick());
-    // this.moneyMinus.addEventListener("click", () => this.onMoneyMinusClick());
   }
 
   // ================== init
   createWrapper() {
     let el = document.createElement("div");
-    el.classList.add("money");
+    el.classList.add(`money`);
     this.section.content.appendChild(el);
+    return el;
+  }
+
+  createRow(name) {
+    let el = document.createElement("div");
+    el.classList.add(`money__${name}`);
+    this.wrapper.appendChild(el);
     return el;
   }
 
   createCoin() {
     let el = document.createElement("p");
     el.classList.add("money__value");
-    this.wrapper.appendChild(el);
+    this.firstRow.appendChild(el);
     return el;
   }
 
@@ -48,40 +50,44 @@ export default class Money {
     el.classList.add("money__input");
     el.type = "number";
     el.value = 0;
-    this.wrapper.appendChild(el);
+    this.secondRow.appendChild(el);
     return el;
   }
 
   createPlusBtn() {
     let el = document.createElement("button");
-    el.classList.add("money__plus-btn", "symbol-btn");
+    el.classList.add("money__btn", "money__plus-btn", "symbol-btn");
     el.innerHTML = `<i class="fa-solid fa-plus"></i>`;
     el.addEventListener("click", () => this.onPlusBtnClick());
-    this.wrapper.appendChild(el);
+    this.secondRow.appendChild(el);
     return el;
   }
 
   createMinusBtn() {
     let el = document.createElement("button");
-    el.classList.add("money__minus-btn", "symbol-btn");
+    el.classList.add("money__btn", "money__minus-btn", "symbol-btn");
     el.innerHTML = `<i class="fa-solid fa-minus"></i>`;
     el.addEventListener("click", () => this.onMinusBtnClick());
-    this.wrapper.appendChild(el);
+    this.secondRow.appendChild(el);
     return el;
   }
 
   // ================== events
   onPlusBtnClick() {
-    hero.money += parseFloat(this.moneyChange.value);
-    this.moneyChange.value = 0;
-    hero.saveHero();
-    this.moneyValue.innerHTML = this.getMoney();
+    database.hero.money += parseFloat(this.input.value);
+    database.saveHero();
+    this.input.value = 0;
+    this.updateCoins();
   }
 
   onMinusBtnClick() {
-    hero.money -= parseFloat(this.moneyChange.value);
-    hero.saveHero();
-    this.moneyValue.innerHTML = this.getMoney();
+    database.hero.money -= parseFloat(this.input.value);
+    if (database.hero.money < 0) {
+      database.hero.money = 0;
+    }
+    database.saveHero();
+    this.input.value = 0;
+    this.updateCoins();
   }
 
   // ================== helper
