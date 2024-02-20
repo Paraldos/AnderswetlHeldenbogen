@@ -7,7 +7,7 @@ import Other from "./other/other.js";
 export default class InventorySection {
   constructor() {
     this.section = new Section("Inventar", "inventory");
-    this.container = this.section.contentContainer;
+    this.container = this.section.content;
     this.editToggle = false;
     new Money(this.container);
     new Items(this.container);
