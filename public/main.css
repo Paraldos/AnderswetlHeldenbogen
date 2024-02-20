@@ -262,12 +262,15 @@ button {
     display: flex;
     gap: 10px;
     justify-content: space-between; }
-  .money__btn {
-    height: 33px; }
+  .money__value {
+    width: 100%; }
 
 @media (max-width: 768px) {
   .money {
-    grid-template-columns: 1fr; } }
+    grid-template-columns: 1fr;
+    gap: 20px; }
+    .money__value {
+      text-align: center; } }
 
 .consumables {
   display: flex;

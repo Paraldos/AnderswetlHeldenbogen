@@ -15,13 +15,18 @@
     justify-content: space-between;
   }
 
-  &__btn {
-    height: 33px;
+  &__value {
+    width: 100%;
   }
 }
 
 @media (max-width: $breakpoint-md) {
   .money {
     grid-template-columns: 1fr;
+    gap: 20px;
+
+    &__value {
+      text-align: center;
+    }
   }
 }

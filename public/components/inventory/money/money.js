@@ -1,5 +1,4 @@
 import database from "../../../data/database.js";
-import hero from "../../../data/hero.js";
 
 export default class Money {
   constructor(section) {
