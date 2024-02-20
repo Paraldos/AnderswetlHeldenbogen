@@ -212,29 +212,6 @@ button {
     text-align: center;
     margin: auto; }
 
-.consumables {
-  display: flex;
-  flex-direction: column;
-  gap: 10px; }
-  .consumables__plus-btn {
-    width: 35px; }
-  .consumables__body {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px 40px; }
-  .consumables__item {
-    display: flex;
-    gap: 10px; }
-  .consumables__item-value {
-    margin-right: 15px;
-    white-space: nowrap;
-    display: flex;
-    align-items: center; }
-
-@media (max-width: 768px) {
-  .consumables__body {
-    grid-template-columns: 1fr; } }
-
 .flaws-modal {
   display: grid;
   gap: 10px; }
@@ -272,6 +249,41 @@ button {
   display: flex;
   justify-content: space-between;
   margin-top: 20px; }
+
+.money {
+  display: flex;
+  gap: 10px; }
+  .money__value {
+    width: 50%; }
+
+@media (max-width: 768px) {
+  .money {
+    grid-template-columns: 1fr; }
+    .money__value {
+      text-align: center; } }
+
+.consumables {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; }
+  .consumables__plus-btn {
+    width: 35px; }
+  .consumables__body {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 40px; }
+  .consumables__item {
+    display: flex;
+    gap: 10px; }
+  .consumables__item-value {
+    margin-right: 15px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center; }
+
+@media (max-width: 768px) {
+  .consumables__body {
+    grid-template-columns: 1fr; } }
 
 .items__body {
   display: grid;
@@ -325,23 +337,6 @@ button {
     .sign-in__button p {
       font-size: 1.3rem;
       font-weight: 500; }
-
-.money {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px; }
-  .money__values {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); }
-  .money__change-container {
-    display: flex;
-    gap: 10px; }
-
-@media (max-width: 768px) {
-  .money {
-    grid-template-columns: 1fr; }
-    .money__value {
-      text-align: center; } }
 
 .navbar {
   display: flex;
