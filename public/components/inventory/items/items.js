@@ -1,4 +1,4 @@
-import hero from "../../../data/hero.js";
+import database from "../../../data/database.js";
 import Item from "./item.js";
 
 export default class Items {
@@ -52,7 +52,7 @@ export default class Items {
     this.editToggle = !this.editToggle;
     this.plusBtn.classList.toggle("invisible", !this.editToggle);
     this.labels.classList.toggle("items__labels--edit", this.editToggle);
-    this.updateLabelVisibility();
+    // this.updateLabelVisibility();
   }
 
   onPlusBtnClick() {
@@ -62,18 +62,18 @@ export default class Items {
   }
 
   resetItems() {
-    this.updateLabelVisibility();
+    // this.updateLabelVisibility();
     this.body.innerHTML = "";
     hero.items.forEach((item, index) => {
       new Item(item, index, this.body, this.editToggle);
     });
   }
 
-  updateLabelVisibility() {
-    if (hero.items.length <= 0) {
-      this.header.classList.toggle("invisible", !this.editToggle);
-    }
-    this.labels.classList.toggle("invisible", hero.items.length <= 0);
-    this.body.classList.toggle("invisible", hero.items.length <= 0);
-  }
+  // updateLabelVisibility() {
+  //   if (database.hero.items && database.hero.items.length <= 0) {
+  //     this.header.classList.toggle("invisible", !this.editToggle);
+  //   }
+  //   this.labels.classList.toggle("invisible", hero.items.length <= 0);
+  //   this.body.classList.toggle("invisible", hero.items.length <= 0);
+  // }
 }
