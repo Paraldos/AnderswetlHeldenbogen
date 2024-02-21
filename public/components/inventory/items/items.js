@@ -2,8 +2,8 @@ import database from "../../../data/database.js";
 import Item from "./item.js";
 
 export default class Items {
-  constructor(container) {
-    this.container = container;
+  constructor(section) {
+    this.section = section;
     this.editToggle = false;
     // init
     this.header = this.initHeader();
@@ -24,7 +24,7 @@ export default class Items {
     element.innerHTML = `
       <h3>Werkzeuge</h3>
       <button class="items__plus-btn symbol-btn invisible"><i class="fa-solid fa-plus"></i></button>`;
-    this.container.appendChild(element);
+    this.section.content.appendChild(element);
     return element;
   }
 
@@ -36,14 +36,14 @@ export default class Items {
       <li>Bonus</li>
       <li>Pool</li>
       <li class="items__description-label">Beschreibung</li>`;
-    this.container.appendChild(element);
+    this.section.content.appendChild(element);
     return element;
   }
 
   initBody() {
     let element = document.createElement("div");
     element.className = "items__body";
-    this.container.appendChild(element);
+    this.section.content.appendChild(element);
     return element;
   }
 

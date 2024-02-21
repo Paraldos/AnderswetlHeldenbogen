@@ -8,7 +8,7 @@ export default class InventorySection extends Section {
   constructor() {
     super("Inventar", "inventory");
     new Money(this);
-    // new Items(this.container);
+    new Items(this);
     // new ConsumablesContainer(this.container);
     // new Other(this.container);
   }
