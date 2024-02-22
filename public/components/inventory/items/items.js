@@ -50,9 +50,9 @@ export default class Items {
     this.itemsContainer.innerHTML = "";
     this.updateLabelVisibility();
     if (!database.hero.items) return;
-    database.hero.items.forEach((item, index) => {
-      new Item(item, index, this.section, this.itemsContainer);
-    });
+    database.hero.items.forEach(
+      (item, index) => new Item(item, index, this.section, this.itemsContainer)
+    );
   }
 
   updateLabelVisibility() {
