@@ -6,74 +6,61 @@ export default class Items {
     this.section = section;
     this.editToggle = false;
     // init
-    this.header = this.initHeader();
-    this.labels = this.initLabels();
-    this.body = this.initBody();
-    this.plusBtn = this.header.querySelector(".items__plus-btn");
+    this.element = this.createElement();
+    this.headerBtn = this.element.querySelector(".items__plus-btn");
+    this.header = this.element.querySelector(".items__header");
+    this.labels = this.element.querySelector(".items__labels");
+    this.itemsContainer = this.element.querySelector(".items__body");
+    this.headerBtn.addEventListener("click", () => this.onHeaderBtnclick());
     // events
-    this.plusBtn.addEventListener("click", () => this.onPlusBtnClick());
     document.addEventListener("resetItems", () => this.resetItems());
+    document.addEventListener("toggleEdit", () => this.updateLabelVisibility());
     this.resetItems();
-    document.addEventListener("toggleEdit", () => this.onToggleEdit());
   }
 
-  // ================== init
-  initHeader() {
-    let element = document.createElement("div");
-    element.className = "inventory__header";
-    element.innerHTML = `
-      <h3>Werkzeuge</h3>
-      <button class="items__plus-btn symbol-btn invisible"><i class="fa-solid fa-plus"></i></button>`;
-    this.section.content.appendChild(element);
-    return element;
-  }
-
-  initLabels() {
-    let element = document.createElement("ul");
-    element.className = "items__labels";
-    element.innerHTML = `
-      <li>Name</li>
-      <li>Bonus</li>
-      <li>Pool</li>
-      <li class="items__description-label">Beschreibung</li>`;
-    this.section.content.appendChild(element);
-    return element;
-  }
-
-  initBody() {
-    let element = document.createElement("div");
-    element.className = "items__body";
+  createElement() {
+    let element = Object.assign(document.createElement("div"), {
+      className: "items",
+      innerHTML: `
+        <div class="items__header">
+          <h3>Werkzeuge</h3>
+          <button class="items__plus-btn symbol-btn"><i class="fa-solid fa-plus"></i></button>
+        </div>
+        <ul class="items__labels">
+          <li>Name</li>
+          <li>Bonus</li>
+          <li>Pool</li>
+          <li>Beschreibung</li>
+        </ul>
+        <div class="items__body"></div>`,
+    });
     this.section.content.appendChild(element);
     return element;
   }
 
   // ================== events
-  onToggleEdit() {
-    this.editToggle = !this.editToggle;
-    this.plusBtn.classList.toggle("invisible", !this.editToggle);
-    this.labels.classList.toggle("items__labels--edit", this.editToggle);
-    // this.updateLabelVisibility();
-  }
-
-  onPlusBtnClick() {
-    hero.items.push({ name: "", description: "", bonus: 0, pool: 0 });
-    hero.saveHero();
+  onHeaderBtnclick() {
+    if (!database.hero.items) database.hero.items = [];
+    database.hero.items.push({ name: "", description: "", bonus: 0, pool: 0 });
+    database.saveHero();
     this.resetItems();
   }
 
   resetItems() {
-    // this.updateLabelVisibility();
-    this.body.innerHTML = "";
-    hero.items.forEach((item, index) => {
-      new Item(item, index, this.body, this.editToggle);
+    this.itemsContainer.innerHTML = "";
+    this.updateLabelVisibility();
+    if (!database.hero.items) return;
+    database.hero.items.forEach((item, index) => {
+      new Item(item, index, this.section, this.itemsContainer);
     });
   }
 
-  // updateLabelVisibility() {
-  //   if (database.hero.items && database.hero.items.length <= 0) {
-  //     this.header.classList.toggle("invisible", !this.editToggle);
-  //   }
-  //   this.labels.classList.toggle("invisible", hero.items.length <= 0);
-  //   this.body.classList.toggle("invisible", hero.items.length <= 0);
-  // }
+  updateLabelVisibility() {
+    const heroHasItems = database.hero.items && database.hero.items.length > 0;
+    const itemsAreEditable = heroHasItems && this.section.editToggle;
+    this.element.classList.toggle("disabled", itemsAreEditable);
+    this.labels.classList.toggle("disabled", !heroHasItems);
+    this.labels.classList.toggle("items__labels--edit", itemsAreEditable);
+    this.itemsContainer.classList.toggle("disabled", !heroHasItems);
+  }
 }

@@ -1,11 +1,11 @@
-import hero from "../../../data/hero.js";
+import database from "../../../data/database.js";
 
 export default class Item {
-  constructor(item, index, container, editToggle) {
+  constructor(item, index, section, itemsContainer) {
     this.item = item;
     this.index = index;
-    this.container = container;
-    this.editToggle = !editToggle;
+    this.itemsContainer = itemsContainer;
+    this.editToggle = section.editToggle;
     // init
     this.element = this.initElement();
     this.name = this.element.querySelector(".items__item-name");
@@ -32,12 +32,11 @@ export default class Item {
     this.pool.disabled = !this.editToggle;
     this.description.disabled = !this.editToggle;
     this.element.classList.toggle("items__item--edit", this.editToggle);
-    this.deleteBtn.classList.toggle("invisible", !this.editToggle);
+    this.deleteBtn.classList.toggle("disabled", !this.editToggle);
   }
 
-  // ================== init
   initElement() {
-    let visibility = this.editToggle ? "" : "invisible";
+    let visibility = this.editToggle ? "" : "disabled";
     let item = Object.assign(document.createElement("div"), {
       className: "items__item",
       innerHTML: `
@@ -47,34 +46,34 @@ export default class Item {
         <input class="items__item-description" type="text" value="${this.item.description}" />
         <button class="items__item-delete-btn ${visibility}"><i class="fa-solid fa-x"></i></button>`,
     });
-    this.container.appendChild(item);
+    this.itemsContainer.appendChild(item);
     return item;
   }
 
   // ================== events
   onNameChange() {
     this.item.name = this.name.value;
-    hero.saveHero();
+    database.saveHero();
   }
 
   onBonusChange() {
     this.item.bonus = this.bonus.value;
-    hero.saveHero();
+    database.saveHero();
   }
 
   onPoolChange() {
     this.item.pool = this.pool.value;
-    hero.saveHero();
+    database.saveHero();
   }
 
   onDescriptionChange() {
     this.item.description = this.description.value;
-    hero.saveHero();
+    database.saveHero();
   }
 
   onDeleteBtnClick() {
-    hero.items.splice(this.index, 1);
-    hero.saveHero();
+    database.hero.items.splice(this.index, 1);
+    database.saveHero();
     document.dispatchEvent(new Event("resetItems"));
   }
 }

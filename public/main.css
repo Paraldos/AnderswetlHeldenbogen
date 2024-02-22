@@ -295,6 +295,13 @@ button {
   .consumables__body {
     grid-template-columns: 1fr; } }
 
+.items__header {
+  display: flex;
+  justify-content: space-between; }
+
+.items__plus-btn {
+  width: 33px; }
+
 .items__body {
   display: grid;
   grid-template-columns: 1fr;

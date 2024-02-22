@@ -1,4 +1,13 @@
 .items {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__plus-btn {
+    width: 33px;
+  }
+
   &__body {
     display: grid;
     grid-template-columns: 1fr;
