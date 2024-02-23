@@ -9,7 +9,7 @@ export default class InventorySection extends Section {
     super("Inventar", "inventory");
     new Money(this);
     new Items(this);
-    // new ConsumablesContainer(this.container);
+    new ConsumablesContainer(this.container);
     // new Other(this.container);
   }
 }

@@ -1,4 +1,4 @@
-import hero from "../../../data/hero.js";
+import database from "../../../data/database.js";
 import SingleConsumable from "./singleConsumable.js";
 
 export default class ConsumablesContainer {
