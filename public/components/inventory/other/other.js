@@ -1,51 +1,41 @@
-import hero from "../../../data/hero.js";
+import database from "../../../data/database.js";
 
 export default class Other {
-  constructor(container) {
-    this.container = container;
-    this.editToggle = false;
-    // init
-    this.header = this.initHeader();
-    this.body = this.initBody();
-    this.updateVisibility();
-    // events
-    this.body.addEventListener("input", () => this.onBodyInput());
-    document.addEventListener("toggleEdit", () => this.onToggleEdit());
+  constructor(section) {
+    this.section = section;
+
+    this.other = this.createOther();
+    this.header = this.other.querySelector(".inventory__header");
+    this.text = this.other.querySelector(".inventory__text-area");
+    this.update();
+
+    this.text.addEventListener("input", () => this.onTextInput());
+    document.addEventListener("toggleEdit", () => this.update());
   }
 
-  // ============================ events
-  onBodyInput() {
-    hero.otherInventory = this.body.value;
-    hero.saveHero();
-  }
-
-  onToggleEdit() {
-    this.editToggle = !this.editToggle;
-    this.body.disabled = !this.editToggle;
-    this.updateVisibility();
-  }
-
-  // ============================ init
-  initHeader() {
+  createOther() {
     let element = document.createElement("div");
-    element.className = "inventory__header";
-    element.innerHTML = `<h3>Sonstiges</h3>`;
-    this.container.appendChild(element);
+    element.className = "inventory__other";
+    element.innerHTML = `
+      <div class="inventory__header">
+        <h3>Sonstiges</h3>
+      </div>
+      <textarea class="inventory__text-area" disabled>${database.hero.otherInventory}</textarea>
+    `;
+    this.section.content.appendChild(element);
     return element;
   }
 
-  initBody() {
-    let element = document.createElement("textarea");
-    element.className = "other__body";
-    element.disabled = !this.editToggle;
-    element.value = hero.otherInventory;
-    this.container.appendChild(element);
-    return element;
+  onTextInput() {
+    database.hero.otherInventory = this.text.value;
+    database.saveHero();
   }
 
-  updateVisibility() {
-    const isInvisible = hero.otherInventory === "" && !this.editToggle;
-    this.body.classList.toggle("invisible", isInvisible);
-    this.header.classList.toggle("invisible", isInvisible);
+  update() {
+    const isInvisible =
+      database.hero.otherInventory === "" && !this.section.editToggle;
+    this.text.disabled = !this.section.editToggle;
+    this.header.classList.toggle("disabled", isInvisible);
+    this.text.classList.toggle("disabled", isInvisible);
   }
 }
