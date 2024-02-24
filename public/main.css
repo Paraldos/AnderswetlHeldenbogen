@@ -245,10 +245,13 @@ button {
   grid-template-columns: 1fr;
   gap: 10px; }
 
-.inventory__header {
+.inventory__sub-header {
   display: flex;
   justify-content: space-between;
   margin-top: 20px; }
+
+.inventory__plus-btn {
+  width: 35px; }
 
 .money {
   display: grid;
@@ -272,28 +275,25 @@ button {
     .money__value {
       text-align: center; } }
 
-.consumables {
+.inventory__consumables {
   display: flex;
   flex-direction: column;
   gap: 10px; }
-  .consumables__plus-btn {
-    width: 35px; }
-  .consumables__body {
+  .inventory__consumables .inventory__container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px 40px; }
-  .consumables__item {
+  .inventory__consumables .inventory__item {
     display: flex;
     gap: 10px; }
-  .consumables__item-value {
+  .inventory__consumables .inventory__item-value {
     margin-right: 15px;
     white-space: nowrap;
     display: flex;
     align-items: center; }
-
-@media (max-width: 768px) {
-  .consumables__body {
-    grid-template-columns: 1fr; } }
+  @media (max-width: 768px) {
+    .inventory__consumables .consumables__body {
+      grid-template-columns: 1fr; } }
 
 .items__header {
   display: flex;
