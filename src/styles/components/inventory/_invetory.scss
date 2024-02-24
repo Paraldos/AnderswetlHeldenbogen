@@ -5,9 +5,13 @@
     gap: 10px;
   }
 
-  &__header {
+  &__sub-header {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+  }
+
+  &__plus-btn {
+    width: 35px;
   }
 }
