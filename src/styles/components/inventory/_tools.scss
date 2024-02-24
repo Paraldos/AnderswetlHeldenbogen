@@ -1,41 +1,26 @@
-.items {
-  &__header {
-    display: flex;
-    justify-content: space-between;
-  }
+.inventory__tools {
+  .inventory {
+    &__labels {
+      list-style: none;
 
-  &__plus-btn {
-    width: 33px;
-  }
-
-  &__body {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px 40px;
-  }
-
-  &__labels {
-    list-style: none;
-
-    li {
-      font-size: 0.6rem;
+      li {
+        font-size: 0.6rem;
+      }
     }
-  }
 
-  &__labels,
-  &__item {
-    display: grid;
-    grid-template-columns: 4fr 1fr 1fr 7fr;
-    gap: 10px;
-    flex-wrap: wrap;
-
-    &--edit {
+    &__labels,
+    &__item {
+      display: grid;
       grid-template-columns: 4fr 1fr 1fr 7fr 35px;
+      gap: 10px;
+      flex-wrap: wrap;
     }
-  }
 
-  &__items-plus-btn {
-    width: 35px;
+    &__container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px 40px;
+    }
   }
 }
 

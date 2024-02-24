@@ -275,6 +275,38 @@ button {
     .money__value {
       text-align: center; } }
 
+.inventory__tools .inventory__labels {
+  list-style: none; }
+  .inventory__tools .inventory__labels li {
+    font-size: 0.6rem; }
+
+.inventory__tools .inventory__labels, .inventory__tools .inventory__item {
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr 7fr 35px;
+  gap: 10px;
+  flex-wrap: wrap; }
+
+.inventory__tools .inventory__container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px 40px; }
+
+@media (max-width: 768px) {
+  .items__labels, .items__item {
+    grid-template-columns: 4fr 1fr 1fr; }
+    .items__labels-description, .items__item-description {
+      grid-column: 1 / span 3; }
+    .items__labels--edit, .items__item--edit {
+      grid-template-columns: 4fr 1fr 1fr; }
+      .items__labels--edit .items__item-description, .items__item--edit .items__item-description {
+        grid-column: 1 / span 2; }
+  .items__description-label {
+    display: none; }
+  .items__item-delete-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center; } }
+
 .inventory__consumables {
   display: flex;
   flex-direction: column;
@@ -294,50 +326,6 @@ button {
   @media (max-width: 768px) {
     .inventory__consumables .consumables__body {
       grid-template-columns: 1fr; } }
-
-.items__header {
-  display: flex;
-  justify-content: space-between; }
-
-.items__plus-btn {
-  width: 33px; }
-
-.items__body {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px 40px; }
-
-.items__labels {
-  list-style: none; }
-  .items__labels li {
-    font-size: 0.6rem; }
-
-.items__labels, .items__item {
-  display: grid;
-  grid-template-columns: 4fr 1fr 1fr 7fr;
-  gap: 10px;
-  flex-wrap: wrap; }
-  .items__labels--edit, .items__item--edit {
-    grid-template-columns: 4fr 1fr 1fr 7fr 35px; }
-
-.items__items-plus-btn {
-  width: 35px; }
-
-@media (max-width: 768px) {
-  .items__labels, .items__item {
-    grid-template-columns: 4fr 1fr 1fr; }
-    .items__labels-description, .items__item-description {
-      grid-column: 1 / span 3; }
-    .items__labels--edit, .items__item--edit {
-      grid-template-columns: 4fr 1fr 1fr; }
-      .items__labels--edit .items__item-description, .items__item--edit .items__item-description {
-        grid-column: 1 / span 2; }
-  .items__description-label {
-    display: none; }
-  .items__item-delete-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center; } }
 
 .sign-in {
   position: fixed;
