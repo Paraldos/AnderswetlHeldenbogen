@@ -3,75 +3,37 @@ import database from "../../../data/database.js";
 export default class Money {
   constructor(section) {
     this.section = section;
-    this.wrapper = this.createWrapper();
-    this.firstRow = this.createRow("first-row");
-    this.secondRow = this.createRow("second-row");
-    this.gold = this.createCoin();
-    this.silver = this.createCoin();
-    this.copper = this.createCoin();
+    this.money = this.createMoney();
+    this.gold = this.money.querySelector(".money__gold");
+    this.silver = this.money.querySelector(".money__silver");
+    this.copper = this.money.querySelector(".money__copper");
+    this.input = this.money.querySelector(".money__input");
+    this.plusBtn = this.money.querySelector(".money__plus-btn");
+    this.minusBtn = this.money.querySelector(".money__minus-btn");
     this.updateCoins();
-    this.input = this.createInput();
-    this.plusBtn = this.createPlusBtn();
-    this.minusBtn = this.createMinusBtn();
+    this.plusBtn.addEventListener("click", this.onPlusBtnClick.bind(this));
+    this.minusBtn.addEventListener("click", this.onMinusBtnClick.bind(this));
   }
 
-  // ================== init
-  createWrapper() {
-    let el = document.createElement("div");
-    el.classList.add(`money`);
-    this.section.content.appendChild(el);
-    return el;
+  createMoney() {
+    let element = document.createElement("div");
+    element.className = "money";
+    element.innerHTML = `
+      <div class="money__first-row">
+        <p class="money__gold">Gold: ${database.hero.money.gold}</p>
+        <p class="money__silver">Silber: ${database.hero.money.silver}</p>
+        <p class="money__copper">Kupfer: ${database.hero.money.copper}</p>
+      </div>
+      <div class="money__second-row">
+        <input class="money__input" type="number" value="0">
+        <button class="money__btn money__minus-btn symbol-btn"><i class="fa-solid fa-minus"></i></button>
+        <button class="money__btn money__plus-btn symbol-btn"><i class="fa-solid fa-plus"></i></button>
+      </div>
+    `;
+    this.section.content.appendChild(element);
+    return element;
   }
 
-  createRow(name) {
-    let el = document.createElement("div");
-    el.classList.add(`money__${name}`);
-    this.wrapper.appendChild(el);
-    return el;
-  }
-
-  createCoin() {
-    let el = document.createElement("p");
-    el.classList.add("money__value");
-    this.firstRow.appendChild(el);
-    return el;
-  }
-
-  updateCoins() {
-    let coins = this.getCoins();
-    this.gold.innerHTML = `Gold: ${coins.gold}`;
-    this.silver.innerHTML = `Silber: ${coins.silver}`;
-    this.copper.innerHTML = `Kupfer: ${coins.copper}`;
-  }
-
-  createInput() {
-    let el = document.createElement("input");
-    el.classList.add("money__input");
-    el.type = "number";
-    el.value = 0;
-    this.secondRow.appendChild(el);
-    return el;
-  }
-
-  createPlusBtn() {
-    let el = document.createElement("button");
-    el.classList.add("money__btn", "money__plus-btn", "symbol-btn");
-    el.innerHTML = `<i class="fa-solid fa-plus"></i>`;
-    el.addEventListener("click", () => this.onPlusBtnClick());
-    this.secondRow.appendChild(el);
-    return el;
-  }
-
-  createMinusBtn() {
-    let el = document.createElement("button");
-    el.classList.add("money__btn", "money__minus-btn", "symbol-btn");
-    el.innerHTML = `<i class="fa-solid fa-minus"></i>`;
-    el.addEventListener("click", () => this.onMinusBtnClick());
-    this.secondRow.appendChild(el);
-    return el;
-  }
-
-  // ================== events
   onPlusBtnClick() {
     database.hero.money += parseFloat(this.input.value);
     database.saveHero();
@@ -89,7 +51,13 @@ export default class Money {
     this.updateCoins();
   }
 
-  // ================== helper
+  updateCoins() {
+    let coins = this.getCoins();
+    this.gold.innerHTML = `Gold: ${coins.gold}`;
+    this.silver.innerHTML = `Silber: ${coins.silver}`;
+    this.copper.innerHTML = `Kupfer: ${coins.copper}`;
+  }
+
   getCoins() {
     let money = database.hero.money;
     let coins = {};
