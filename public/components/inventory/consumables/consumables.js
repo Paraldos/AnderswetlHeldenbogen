@@ -4,17 +4,15 @@ import ConsumableItem from "./consumableItem.js";
 export default class Consumables {
   constructor(section) {
     this.section = section;
-
     this.consumables = this.createConsumables();
     this.header = this.consumables.querySelector(".inventory__sub-header");
     this.plusBtn = this.consumables.querySelector(".inventory__plus-btn");
     this.container = this.consumables.querySelector(".inventory__container");
     this.reset();
-    this.onToggleEdit();
-
+    this.update();
     this.plusBtn.addEventListener("click", () => this.onPlusBtnClick());
     document.addEventListener("resetConsumables", () => this.reset());
-    document.addEventListener("toggleEdit", () => this.onToggleEdit());
+    document.addEventListener("toggleEdit", () => this.update());
   }
 
   createConsumables() {
@@ -32,16 +30,6 @@ export default class Consumables {
     return consumables;
   }
 
-  onToggleEdit() {
-    this.consumables.classList.toggle(
-      "disabled",
-      database.hero.consumables &&
-        database.hero.consumables <= 0 &&
-        this.section.editToggle
-    );
-    this.plusBtn.classList.toggle("disabled", !this.section.editToggle);
-  }
-
   onPlusBtnClick() {
     if (!database.hero.consumables) database.hero.consumables = [];
     database.hero.consumables.push({ name: "", value: 0 });
@@ -53,7 +41,15 @@ export default class Consumables {
     this.container.innerHTML = "";
     if (!database.hero.consumables) return;
     database.hero.consumables.forEach((consumable, index) => {
-      new ConsumableItem(consumable, index, this.container, this.editToggle);
+      new ConsumableItem(consumable, index, this.container, this.section);
     });
+  }
+
+  update() {
+    const heroHasItems =
+      database.hero.consumables && database.hero.consumables.length > 0;
+    const editToggle = this.section.editToggle;
+    this.consumables.classList.toggle("disabled", !heroHasItems && !editToggle);
+    this.plusBtn.classList.toggle("disabled", !this.section.editToggle);
   }
 }

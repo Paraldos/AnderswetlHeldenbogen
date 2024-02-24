@@ -1,11 +1,11 @@
 import database from "../../../data/database.js";
 
 export default class ConsumableItem {
-  constructor(consumable, index, container, edditToggle) {
+  constructor(consumable, index, container, section) {
     this.consumable = consumable;
     this.index = index;
     this.container = container;
-    this.edditToggle = edditToggle;
+    this.section = section;
 
     this.element = this.initElement();
     this.value = this.element.querySelector(".inventory__item-value");
@@ -13,10 +13,12 @@ export default class ConsumableItem {
     this.plsBtn = this.element.querySelector(".inventory__item-plus-btn");
     this.minusBtn = this.element.querySelector(".inventory__item-minus-btn");
     this.updateValue();
+    this.onToggleEdit();
 
     this.name.addEventListener("change", () => this.onNameChange());
     this.plsBtn.addEventListener("click", () => this.onPlsBtnClick());
     this.minusBtn.addEventListener("click", () => this.onMinusBtnClick());
+    document.addEventListener("toggleEdit", () => this.onToggleEdit());
   }
 
   initElement() {
@@ -43,6 +45,7 @@ export default class ConsumableItem {
   }
 
   onMinusBtnClick() {
+    if (this.consumable.value <= 0 && !this.section.editToggle) return;
     this.consumable.value--;
     this.value.innerHTML = this.consumable.value;
     if (this.consumable.value < 0) {
@@ -55,5 +58,9 @@ export default class ConsumableItem {
 
   updateValue() {
     this.value.innerHTML = `${this.consumable.value} x`;
+  }
+
+  onToggleEdit() {
+    this.name.disabled = this.section.editToggle ? false : true;
   }
 }
