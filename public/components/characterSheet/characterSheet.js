@@ -27,13 +27,13 @@ export default class CharacterSheet {
   }
 
   createHero() {
-    new InventorySection();
     new BasicsInformationSection();
     new AttributsSection();
     new SkillsSection();
     new TalentsSection();
     new FlawsSection();
     new ConditionSection();
+    new InventorySection();
   }
 
   createPlaceholder() {

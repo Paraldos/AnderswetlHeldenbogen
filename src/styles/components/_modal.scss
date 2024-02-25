@@ -33,11 +33,21 @@
     transform: translateX(110vw);
   }
 
+  &__horizontal-list {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 10px 0;
+  }
+
   &__content {
     padding: 0 15px 20px 15px;
     height: fit-content;
     max-height: 70vh;
     overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
   &__x-btn {

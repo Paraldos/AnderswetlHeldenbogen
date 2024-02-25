@@ -2,8 +2,10 @@
   .inventory {
     &__labels {
       list-style: none;
+      margin-bottom: 5px;
 
       li {
+        padding-left: 2px;
         font-size: 0.6rem;
       }
     }
@@ -14,43 +16,32 @@
       grid-template-columns: 4fr 1fr 1fr 7fr 35px;
       gap: 10px;
       flex-wrap: wrap;
+
+      @media (max-width: $breakpoint-md) {
+        grid-template-columns: 4fr 1fr 1fr 35px;
+      }
     }
 
     &__container {
       display: grid;
       grid-template-columns: 1fr;
       gap: 10px 40px;
+
+      @media (max-width: $breakpoint-md) {
+        gap: 10px 20px;
+      }
     }
-  }
-}
 
-@media (max-width: $breakpoint-md) {
-  .items {
-    &__labels,
-    &__item {
-      grid-template-columns: 4fr 1fr 1fr;
-
-      &-description {
+    &__description {
+      @media (max-width: $breakpoint-md) {
         grid-column: 1 / span 3;
       }
+    }
 
-      &--edit {
-        grid-template-columns: 4fr 1fr 1fr;
-
-        .items__item-description {
-          grid-column: 1 / span 2;
-        }
+    &__labels :nth-child(3) {
+      @media (max-width: $breakpoint-md) {
+        display: none;
       }
-    }
-
-    &__description-label {
-      display: none;
-    }
-
-    &__item-delete-btn {
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
   }
 }

@@ -6,7 +6,6 @@ firebase.initializeApp(firebaseConfig);
 
 class Database {
   constructor() {
-    // database
     this.database = firebase.database();
     this.userId = null;
     // infos

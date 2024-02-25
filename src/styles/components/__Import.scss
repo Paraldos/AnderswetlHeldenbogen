@@ -1,14 +1,24 @@
-@import "./attributs";
-@import "./basicsInformation";
-@import "./charackterSheet";
-@import "./flaws";
-@import "./inventory/_import";
 @import "./login";
 @import "./navbar";
-@import "./other";
-@import "./skills";
-@import "./condition";
-@import "./talents";
-@import "./controllElement";
-@import "./modal";
+
+@import "./charackterSheet";
 @import "./section";
+@import "./modal";
+@import "./controllElement";
+
+@import "./basicsInformation";
+
+@import "./attributs";
+
+@import "./skills";
+
+@import "./talents";
+
+@import "./flaws";
+
+@import "./condition";
+
+@import "./inventory/invetory";
+@import "./inventory/consumables";
+@import "./inventory/money";
+@import "./inventory/tools";

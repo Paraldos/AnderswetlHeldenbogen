@@ -3,6 +3,11 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
   &__first-row {
     display: flex;
     gap: 10px;
@@ -17,15 +22,8 @@
 
   &__value {
     width: 100%;
-  }
-}
 
-@media (max-width: $breakpoint-md) {
-  .money {
-    grid-template-columns: 1fr;
-    gap: 20px;
-
-    &__value {
+    @media (max-width: $breakpoint-md) {
       text-align: center;
     }
   }
