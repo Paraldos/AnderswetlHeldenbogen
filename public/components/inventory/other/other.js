@@ -17,7 +17,7 @@ export default class Other {
     let element = document.createElement("div");
     element.className = "inventory__other";
     element.innerHTML = `
-      <div class="inventory__header">
+      <div class="inventory__sub-header">
         <h3>Sonstiges</h3>
       </div>
       <textarea class="inventory__text-area" disabled>${database.hero.otherInventory}</textarea>
@@ -32,10 +32,6 @@ export default class Other {
   }
 
   update() {
-    const isInvisible =
-      database.hero.otherInventory === "" && !this.section.editToggle;
     this.text.disabled = !this.section.editToggle;
-    this.header.classList.toggle("disabled", isInvisible);
-    this.text.classList.toggle("disabled", isInvisible);
   }
 }

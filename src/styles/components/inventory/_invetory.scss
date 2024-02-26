@@ -1,14 +1,17 @@
 .inventory {
+  &__container:empty {
+    display: none !important;
+  }
+
   &__content {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 20px;
   }
 
   &__sub-header {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
   }
 
   &__plus-btn {

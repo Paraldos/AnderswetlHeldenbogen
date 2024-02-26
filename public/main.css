@@ -36,42 +36,6 @@
   --zIndex__navbar: 500;
   --zIndex__modal: 1000; }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-size: 20px;
-  scroll-behavior: smooth; }
-
-body {
-  background-color: var(--color__background);
-  color: var(--color__text);
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; }
-
-h1,
-h2,
-h3 {
-  text-transform: uppercase;
-  font-weight: 400;
-  margin-bottom: 10px; }
-
-h1,
-h2 {
-  background-color: var(--color__heading--background);
-  color: var(--color__heading--text);
-  padding: 2px; }
-
-h1 {
-  font-size: 1.3rem; }
-
-h2 {
-  font-size: 1.1rem; }
-
-.disabled {
-  display: none !important; }
-
 textarea,
 input,
 select {
@@ -131,6 +95,20 @@ option {
 ::-webkit-scrollbar-thumb:hover {
   background-color: var(--color__scrollbar-thumb--hover); }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  scroll-behavior: smooth; }
+
+body {
+  background-color: var(--color__background);
+  color: var(--color__text);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; }
+
 button {
   --transition-time: 0.2s;
   width: 100%;
@@ -162,6 +140,32 @@ button {
     display: flex;
     justify-content: center;
     align-items: center; }
+
+h1,
+h2,
+h3 {
+  text-transform: uppercase;
+  font-weight: 400; }
+
+h1,
+h2 {
+  color: var(--color__heading--text);
+  padding: 2px; }
+
+h1 {
+  font-size: 1.3rem;
+  margin-bottom: 20px; }
+
+h2 {
+  font-size: 1.2rem;
+  margin-bottom: 20px; }
+
+h3 {
+  font-size: 1.1rem;
+  margin-bottom: 5px; }
+
+.disabled {
+  display: none !important; }
 
 .sign-in {
   position: fixed;
@@ -495,15 +499,17 @@ button {
   .condition__content {
     grid-template-columns: 1fr; } }
 
+.inventory__container:empty {
+  display: none !important; }
+
 .inventory__content {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 10px; }
+  gap: 20px; }
 
 .inventory__sub-header {
   display: flex;
-  justify-content: space-between;
-  margin-top: 20px; }
+  justify-content: space-between; }
 
 .inventory__plus-btn {
   width: 35px; }
