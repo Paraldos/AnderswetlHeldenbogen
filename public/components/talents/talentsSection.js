@@ -23,6 +23,7 @@ export default class TalentsSection extends Section {
   onToggleEdit() {
     super.onToggleEdit();
     this.update();
+    this.updateVisibility();
   }
 
   initSection() {
@@ -64,5 +65,9 @@ export default class TalentsSection extends Section {
     for (const container of containers) {
       container.classList.toggle("disabled", container.childElementCount <= 1);
     }
+    this.section.classList.toggle(
+      "disabled",
+      !this.editToggle && (!database.hero.talents || database.hero.talents <= 0)
+    );
   }
 }
