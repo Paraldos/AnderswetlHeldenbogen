@@ -3,8 +3,14 @@ import Modal from "../modal/modal.js";
 import ListOfTalentsItem from "./listOfTalentsItem.js";
 
 export default class ListOfTalents {
-  constructor(types) {
-    this.types = types;
+  constructor() {
+    this.types = [
+      ["Allgemein", "allgemein"],
+      ["Kampf", "kampf"],
+      ["Manöver", "manoever"],
+      ["Übernatürlich", "uebernatuerlich"],
+      ["Zauber", "zauber"],
+    ];
     this.modal = new Modal();
     this.initModal();
     document.addEventListener("resetTalents", () => this.initModal());

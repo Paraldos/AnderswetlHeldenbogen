@@ -51,7 +51,7 @@ export default class TalentsSection extends Section {
   }
 
   onPlusBtnClick() {
-    new ListOfTalents(this.types);
+    new ListOfTalents();
   }
 
   update() {
