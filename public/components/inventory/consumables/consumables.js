@@ -1,4 +1,4 @@
-import database from "../../../data/database.js";
+import ConsumablesController from "../../../data/ConsumablesController.js";
 import ConsumableItem from "./consumableItem.js";
 
 export default class Consumables {
@@ -31,21 +31,19 @@ export default class Consumables {
   }
 
   onPlusBtnClick() {
-    database.addConsumable();
+    ConsumablesController.add();
   }
 
   reset() {
     this.container.innerHTML = "";
-    if (!database.hero.consumables) return;
-    database.hero.consumables.forEach((consumable, index) => {
+    ConsumablesController.getHeroList().forEach((consumable, index) => {
       new ConsumableItem(consumable, index, this.container, this.section);
     });
     this.update();
   }
 
   update() {
-    const heroHasItems =
-      database.hero.consumables && database.hero.consumables.length > 0;
+    const heroHasItems = ConsumablesController.getHeroList().length > 0;
     const editToggle = this.section.editToggle;
     this.consumables.classList.toggle("disabled", !heroHasItems && !editToggle);
     this.plusBtn.classList.toggle("disabled", !this.section.editToggle);

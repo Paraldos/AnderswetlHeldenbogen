@@ -1,4 +1,4 @@
-import database from "../../../data/database.js";
+import ConsumablesController from "../../../data/ConsumablesController.js";
 
 export default class ConsumableItem {
   constructor(consumable, index, container, section) {
@@ -38,19 +38,19 @@ export default class ConsumableItem {
   }
 
   onNameChange() {
-    database.changeConsumableName(this.index, this.name.value);
+    ConsumablesController.changeName(this.index, this.name.value);
   }
 
   onXBtnClick() {
-    database.removeConsumable(this.index);
+    ConsumablesController.remove(this.index);
   }
 
   onPlsBtnClick() {
-    database.increaseConsumable(this.index);
+    ConsumablesController.increase(this.index);
   }
 
   onMinusBtnClick() {
-    database.reduceConsumable(this.index);
+    ConsumablesController.reduce(this.index);
   }
 
   update() {

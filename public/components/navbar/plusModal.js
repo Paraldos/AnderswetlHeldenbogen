@@ -1,7 +1,8 @@
 import Modal from "../modal/modal.js";
 import ListOfTalents from "../talents/listOfTalents.js";
-import ListOfFlaws from "../flaws/listOfFlaws.js";
+import ListOfFlaws from "../flaws/ListOfFlaws.js";
 import database from "../../data/database.js";
+import ConsumablesController from "../../data/ConsumablesController.js";
 
 export default class PlusModal extends Modal {
   constructor() {
@@ -44,7 +45,7 @@ export default class PlusModal extends Modal {
   }
 
   onConsumableBtn() {
-    database.addConsumable();
+    ConsumablesController.add();
     this.destroyModal();
   }
 }

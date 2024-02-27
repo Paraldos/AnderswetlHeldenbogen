@@ -136,39 +136,6 @@ class Database {
     this.saveHero();
     document.dispatchEvent(new Event("resetItems"));
   }
-
-  addConsumable() {
-    if (!this.hero.consumables) this.hero.consumables = [];
-    this.hero.consumables.push({ name: "", value: 0 });
-    this.saveHero();
-    document.dispatchEvent(new Event("resetConsumables"));
-  }
-
-  increaseConsumable(index) {
-    this.hero.consumables[index].value++;
-    this.saveHero();
-    document.dispatchEvent(new Event("updateConsumables"));
-  }
-
-  reduceConsumable(index) {
-    this.hero.consumables[index].value = Math.max(
-      0,
-      this.hero.consumables[index].value - 1
-    );
-    this.saveHero();
-    document.dispatchEvent(new Event("updateConsumables"));
-  }
-
-  changeConsumableName(index, newName) {
-    this.hero.consumables[index].name = newName;
-    this.saveHero();
-  }
-
-  removeConsumable(index) {
-    this.hero.consumables.splice(index, 1);
-    this.saveHero();
-    document.dispatchEvent(new Event("resetConsumables"));
-  }
 }
 
 let database = new Database();
