@@ -31,10 +31,7 @@ export default class Consumables {
   }
 
   onPlusBtnClick() {
-    if (!database.hero.consumables) database.hero.consumables = [];
-    database.hero.consumables.push({ name: "", value: 0 });
-    database.saveHero();
-    this.reset();
+    database.addConsumable();
   }
 
   reset() {
@@ -43,6 +40,7 @@ export default class Consumables {
     database.hero.consumables.forEach((consumable, index) => {
       new ConsumableItem(consumable, index, this.container, this.section);
     });
+    this.update();
   }
 
   update() {

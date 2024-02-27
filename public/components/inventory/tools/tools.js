@@ -39,7 +39,7 @@ export default class Tools {
 
   // ================== events
   onHeaderBtnclick() {
-    database.addNewTool();
+    database.addTool();
   }
 
   resetItems() {

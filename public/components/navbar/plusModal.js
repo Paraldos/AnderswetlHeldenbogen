@@ -14,6 +14,7 @@ export default class PlusModal extends Modal {
     this.talentBtn.addEventListener("click", () => this.onTalentBtn());
     this.flawBtn.addEventListener("click", () => this.onFlawBtn());
     this.toolBtn.addEventListener("click", () => this.onToolBtn());
+    this.consumableBtn.addEventListener("click", () => this.onConsumableBtn());
   }
 
   createContent() {
@@ -38,7 +39,12 @@ export default class PlusModal extends Modal {
   }
 
   onToolBtn() {
-    database.addNewTool();
+    database.addTool();
+    this.destroyModal();
+  }
+
+  onConsumableBtn() {
+    database.addConsumable();
     this.destroyModal();
   }
 }

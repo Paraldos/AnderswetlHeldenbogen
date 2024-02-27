@@ -10,15 +10,18 @@ export default class ConsumableItem {
     this.element = this.initElement();
     this.value = this.element.querySelector(".inventory__item-value");
     this.name = this.element.querySelector(".inventory__item-name");
+    this.xBtn = this.element.querySelector(".inventory__item-x-btn");
     this.plsBtn = this.element.querySelector(".inventory__item-plus-btn");
     this.minusBtn = this.element.querySelector(".inventory__item-minus-btn");
-    this.updateValue();
+    this.update();
     this.onToggleEdit();
 
     this.name.addEventListener("change", () => this.onNameChange());
+    this.xBtn.addEventListener("click", () => this.onXBtnClick());
     this.plsBtn.addEventListener("click", () => this.onPlsBtnClick());
     this.minusBtn.addEventListener("click", () => this.onMinusBtnClick());
     document.addEventListener("toggleEdit", () => this.onToggleEdit());
+    document.addEventListener("updateConsumables", () => this.update());
   }
 
   initElement() {
@@ -27,40 +30,42 @@ export default class ConsumableItem {
     element.innerHTML = `
         <p class="inventory__item-value">placeholder</p>
         <input class="inventory__item-name" type="text" value="${this.consumable.name}" />
-        <button class="inventory__item-minus-btn symbol-btn"><i class="fa-solid fa-minus"></i></button>
-        <button class="inventory__item-plus-btn symbol-btn"><i class="fa-solid fa-plus"></i></button>`;
+        <button class="inventory__item-x-btn symbol-btn"><i class="fa-solid fa-x"></i></button>
+        <button class="inventory__item-minus-btn symbol-btn symbol-btn--alternative"><i class="fa-solid fa-minus"></i></button>
+        <button class="inventory__item-plus-btn symbol-btn symbol-btn--alternative"><i class="fa-solid fa-plus"></i></button>`;
     this.container.appendChild(element);
     return element;
   }
 
   onNameChange() {
-    this.consumable.name = this.name.value;
-    database.saveHero();
+    database.changeConsumableName(this.index, this.name.value);
+  }
+
+  onXBtnClick() {
+    database.removeConsumable(this.index);
   }
 
   onPlsBtnClick() {
-    this.consumable.value++;
-    database.saveHero();
-    this.updateValue();
+    database.increaseConsumable(this.index);
   }
 
   onMinusBtnClick() {
-    if (this.consumable.value <= 0 && !this.section.editToggle) return;
-    this.consumable.value--;
-    this.value.innerHTML = this.consumable.value;
-    if (this.consumable.value < 0) {
-      database.hero.consumables.splice(this.index, 1);
-      document.dispatchEvent(new Event("resetConsumables"));
-    }
-    this.updateValue();
-    database.saveHero();
+    database.reduceConsumable(this.index);
   }
 
-  updateValue() {
+  update() {
     this.value.innerHTML = `${this.consumable.value} x`;
+
+    this.xBtn.classList.toggle("disabled", !this.section.editToggle);
+    this.minusBtn.classList.toggle("disabled", this.section.editToggle);
+    this.plsBtn.classList.toggle("disabled", this.section.editToggle);
+
+    this.minusBtn.disabled =
+      this.consumable.value <= 0 && !this.section.editToggle;
   }
 
   onToggleEdit() {
     this.name.disabled = this.section.editToggle ? false : true;
+    this.update();
   }
 }
