@@ -1,4 +1,4 @@
-import ConsumablesController from "../../../data/ConsumablesController.js";
+import ConsumablesController from "../../../javascript/consumablesController.js";
 
 export default class ConsumableItem {
   constructor(consumable, index, container, section) {

@@ -1,4 +1,4 @@
-import database from "./database.js";
+import database from "../data/database.js";
 
 class ConsumablesController {
   getHeroList() {

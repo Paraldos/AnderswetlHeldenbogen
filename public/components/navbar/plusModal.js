@@ -2,7 +2,7 @@ import Modal from "../modal/modal.js";
 import ListOfTalents from "../talents/listOfTalents.js";
 import ListOfFlaws from "../flaws/ListOfFlaws.js";
 import database from "../../data/database.js";
-import ConsumablesController from "../../data/ConsumablesController.js";
+import consumablesController from "../../javascript/consumablesController.js";
 
 export default class PlusModal extends Modal {
   constructor() {
