@@ -1,6 +1,7 @@
 import Modal from "../modal/modal.js";
 import ListOfTalents from "../talents/listOfTalents.js";
 import ListOfFlaws from "../flaws/listOfFlaws.js";
+import database from "../../data/database.js";
 
 export default class PlusModal extends Modal {
   constructor() {
@@ -8,8 +9,11 @@ export default class PlusModal extends Modal {
     this.createContent();
     this.talentBtn = this.content.querySelector(".talent-btn");
     this.flawBtn = this.content.querySelector(".flaw-btn");
+    this.toolBtn = this.content.querySelector(".tool-btn");
+    this.consumableBtn = this.content.querySelector(".consumable-btn");
     this.talentBtn.addEventListener("click", () => this.onTalentBtn());
     this.flawBtn.addEventListener("click", () => this.onFlawBtn());
+    this.toolBtn.addEventListener("click", () => this.onToolBtn());
   }
 
   createContent() {
@@ -31,5 +35,10 @@ export default class PlusModal extends Modal {
 
   onFlawBtn() {
     new ListOfFlaws();
+  }
+
+  onToolBtn() {
+    database.addNewTool();
+    this.destroyModal();
   }
 }

@@ -70,8 +70,6 @@ export default class ToolsItem {
   }
 
   onDeleteBtnClick() {
-    database.hero.items.splice(this.index, 1);
-    database.saveHero();
-    document.dispatchEvent(new Event("resetItems"));
+    database.removeTool(this.index);
   }
 }

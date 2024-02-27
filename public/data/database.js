@@ -123,6 +123,19 @@ class Database {
     value = value.replace(/ü/g, "ue");
     return value;
   }
+
+  addNewTool() {
+    if (!this.hero.items) this.hero.items = [];
+    this.hero.items.push({ name: "", description: "", bonus: 0, pool: 0 });
+    this.saveHero();
+    document.dispatchEvent(new Event("resetItems"));
+  }
+
+  removeTool(index) {
+    this.hero.items.splice(index, 1);
+    this.saveHero();
+    document.dispatchEvent(new Event("resetItems"));
+  }
 }
 
 let database = new Database();

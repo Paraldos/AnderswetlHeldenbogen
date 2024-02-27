@@ -39,10 +39,7 @@ export default class Tools {
 
   // ================== events
   onHeaderBtnclick() {
-    if (!database.hero.items) database.hero.items = [];
-    database.hero.items.push({ name: "", description: "", bonus: 0, pool: 0 });
-    database.saveHero();
-    this.resetItems();
+    database.addNewTool();
   }
 
   resetItems() {
