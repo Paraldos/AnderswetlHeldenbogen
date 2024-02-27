@@ -1,4 +1,4 @@
-import database from "../../../data/database.js";
+import toolsController from "../../../javascript/toolsController.js";
 import ToolsItem from "./toolsItem.js";
 
 export default class Tools {
@@ -39,20 +39,19 @@ export default class Tools {
 
   // ================== events
   onHeaderBtnclick() {
-    database.addTool();
+    toolsController.add();
   }
 
   resetItems() {
     this.container.innerHTML = "";
     this.update();
-    if (!database.hero.items) return;
-    database.hero.items.forEach(
-      (item, index) => new ToolsItem(item, index, this.section, this.container)
-    );
+    toolsController.getHeroList().forEach((item, index) => {
+      new ToolsItem(index, this.section, this.container);
+    });
   }
 
   update() {
-    const heroHasItems = database.hero.items && database.hero.items.length > 0;
+    const heroHasItems = toolsController.getHeroList().length > 0;
     const editToggle = this.section.editToggle;
     this.tools.classList.toggle("disabled", !heroHasItems && !editToggle);
     this.headerBtn.classList.toggle("disabled", !editToggle);

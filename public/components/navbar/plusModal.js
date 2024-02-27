@@ -1,7 +1,7 @@
 import Modal from "../modal/modal.js";
 import ListOfTalents from "../talents/listOfTalents.js";
 import ListOfFlaws from "../flaws/ListOfFlaws.js";
-import database from "../../data/database.js";
+import toolsController from "../../javascript/toolsController.js";
 import consumablesController from "../../javascript/consumablesController.js";
 
 export default class PlusModal extends Modal {
@@ -40,12 +40,12 @@ export default class PlusModal extends Modal {
   }
 
   onToolBtn() {
-    database.addTool();
+    toolsController.add();
     this.destroyModal();
   }
 
   onConsumableBtn() {
-    ConsumablesController.add();
+    consumablesController.add();
     this.destroyModal();
   }
 }

@@ -1,8 +1,8 @@
-import database from "../../../data/database.js";
+import toolsController from "../../../javascript/toolsController.js";
 
 export default class ToolsItem {
-  constructor(item, index, section, container) {
-    this.item = item;
+  constructor(index, section, container) {
+    this.item = toolsController.getHeroItem(index);
     this.index = index;
     this.section = section;
     this.container = container;
@@ -50,26 +50,22 @@ export default class ToolsItem {
 
   // ================== events
   onNameChange() {
-    this.item.name = this.name.value;
-    database.saveHero();
+    toolsController.changeName(this.index, this.name.value);
   }
 
   onBonusChange() {
-    this.item.bonus = this.bonus.value;
-    database.saveHero();
+    toolsController.changeBonus(this.index, this.bonus.value);
   }
 
   onPoolChange() {
-    this.item.pool = this.pool.value;
-    database.saveHero();
+    toolsController.changePool(this.index, this.pool.value);
   }
 
   onDescriptionChange() {
-    this.item.description = this.description.value;
-    database.saveHero();
+    toolsController.changeDescription(this.index, this.description.value);
   }
 
   onDeleteBtnClick() {
-    database.removeTool(this.index);
+    toolsController.remove(this.index);
   }
 }
