@@ -1,4 +1,3 @@
-import database from "./database.js";
 import talents from "./talents.js";
 
 class Veranlagung {
@@ -29,6 +28,14 @@ class Veranlagung {
   setVeranlagung(id) {
     let talent = talents.findTalent("veranlagung");
     talent.selected = id;
+    this.dispatchEvents();
+  }
+
+  dispatchEvents() {
+    document.dispatchEvent(new Event("resetAttributs"));
+    document.dispatchEvent(new Event("updateAttributsHeader"));
+    document.dispatchEvent(new Event("resetFlaws"));
+    document.dispatchEvent(new Event("resetTalents"));
   }
 }
 

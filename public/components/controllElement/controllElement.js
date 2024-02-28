@@ -5,7 +5,7 @@ export default class ControllElement {
   constructor(classPrefix) {
     this.classPrefix = classPrefix;
     this.wrapper = this.createWrapper();
-    this.mainBtn = this.createMainBtn();
+    this.mainBtn = this.wrapper.querySelector(`.${this.classPrefix}__main-btn`);
     this.minusBtn = this.createMinusBtn();
     this.plusBtn = this.createPlusBtn();
     this.mainBtn.addEventListener("click", () => this.onMainBtnClick());
@@ -17,15 +17,8 @@ export default class ControllElement {
     let wrapper = document.createElement("div");
     wrapper.classList.add(`${this.classPrefix}__wrapper`);
     wrapper.classList.add(`controll-element__wrapper`);
+    wrapper.innerHTML = `<button class="${this.classPrefix}__main-btn">Placeholder</button>`;
     return wrapper;
-  }
-
-  createMainBtn() {
-    let btn = document.createElement("button");
-    btn.classList.add(`${this.classPrefix}__main-btn`);
-    btn.innerText = "Placeholder";
-    this.wrapper.appendChild(btn);
-    return btn;
   }
 
   createMinusBtn() {
