@@ -1,6 +1,5 @@
-import database from "../../data/database.js";
+import attributsController from "../../javascript/attributesController.js";
 import DescriptionModal from "../descriptionModal/descriptionModal.js";
-import veranlagung from "../../data/veranlagung.js";
 import ControllElement from "../controllElement/controllElement.js";
 
 export default class AttributsSectionItem extends ControllElement {
@@ -8,53 +7,27 @@ export default class AttributsSectionItem extends ControllElement {
     super("attribut");
     this.key = key;
     this.section = section;
-    this.dbEntry = database.attributs[key];
+    this.dbEntry = attributsController.getDBEntry(this.key);
     section.content.appendChild(this.wrapper);
     this.update();
     document.addEventListener("resetAttributs", () => this.update());
     document.addEventListener("toggleEdit", () => this.update());
   }
 
-  // events
   onMainBtnClick() {
     new DescriptionModal(this.dbEntry);
   }
 
   onMinusBtnClick() {
-    if (this.heroValue > 1) {
-      this.heroValue -= 1;
-      this.update();
-      database.saveHero();
-    }
+    attributsController.reduce(this.key);
   }
 
   onPlusBtnClick() {
-    if (this.heroValue < 5) {
-      this.heroValue += 1;
-      this.update();
-      database.saveHero();
-    }
-  }
-
-  onToggleEdit(btn) {
-    btn.classList.toggle("disabled");
-  }
-
-  // Helper
-  get heroValue() {
-    let value = database.hero.attributs[this.key].value;
-    if (veranlagung.getSelectedAttribut() == this.key) {
-      value += 1;
-    }
-    return value;
-  }
-
-  set heroValue(value) {
-    database.hero.attributs[this.key].value = value;
+    attributsController.increase(this.key);
   }
 
   getMainBtnTxt() {
-    return `${this.dbEntry.name}: ${this.heroValue}`;
+    return `${this.dbEntry.name}: ${attributsController.getValue(this.key)}`;
   }
 
   update() {
