@@ -1,5 +1,5 @@
 import database from "../data/database.js";
-import veranlagung from "../data/veranlagung.js";
+import veranlagungsController from "./veranlagungsController.js";
 
 class AttributsController {
   getHeroList() {
@@ -20,7 +20,7 @@ class AttributsController {
 
   getValue(id) {
     let value = database.hero.attributs[id].value;
-    if (veranlagung.getSelectedAttribut() == id) {
+    if (veranlagungsController.getSelectedAttribut() == id) {
       value += 1;
     }
     return value;

@@ -1,6 +1,6 @@
-import talents from "./talents.js";
+import talents from "../data/talents.js";
 
-class Veranlagung {
+class VeranlagungsController {
   getSelectedAttribut() {
     let talent = talents.findTalent("veranlagung");
     if (talent) return talent.selected;
@@ -23,6 +23,7 @@ class Veranlagung {
     if (talent) {
       talent.selected = "";
     }
+    this.dispatchEvents();
   }
 
   setVeranlagung(id) {
@@ -39,5 +40,5 @@ class Veranlagung {
   }
 }
 
-const veranlagung = new Veranlagung();
-export default veranlagung;
+const veranlagungsController = new VeranlagungsController();
+export default veranlagungsController;

@@ -1,5 +1,5 @@
 import database from "../../data/database.js";
-import veranlagung from "../../data/veranlagung.js";
+import veranlagungsController from "../../javascript/veranlagungsController.js";
 import Modal from "../modal/modal.js";
 
 export default class HeroTalent {
@@ -37,7 +37,7 @@ export default class HeroTalent {
   }
 
   onChangeSelect(event) {
-    veranlagung.setVeranlagung(event.target.value);
+    veranlagungsController.setVeranlagung(event.target.value);
     database.saveHero();
     document.dispatchEvent(new Event("resetAttributs"));
     document.dispatchEvent(new Event("resetTalents"));
