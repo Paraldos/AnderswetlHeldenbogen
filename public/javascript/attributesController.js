@@ -32,7 +32,6 @@ class AttributsController {
       database.hero.attributs[id].value = 5;
     }
     database.saveHero();
-    document.dispatchEvent(new Event("resetAttributs"));
     document.dispatchEvent(new Event("updateAttributsHeader"));
   }
 
@@ -42,7 +41,6 @@ class AttributsController {
       database.hero.attributs[id].value = 1;
     }
     database.saveHero();
-    document.dispatchEvent(new Event("resetAttributs"));
     document.dispatchEvent(new Event("updateAttributsHeader"));
   }
 }

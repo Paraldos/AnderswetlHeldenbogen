@@ -20,10 +20,12 @@ export default class AttributsSectionItem extends ControllElement {
 
   onMinusBtnClick() {
     attributsController.reduce(this.key);
+    this.update();
   }
 
   onPlusBtnClick() {
     attributsController.increase(this.key);
+    this.update();
   }
 
   getMainBtnTxt() {
@@ -34,6 +36,5 @@ export default class AttributsSectionItem extends ControllElement {
     this.mainBtn.innerHTML = this.getMainBtnTxt();
     this.minusBtn.classList.toggle("disabled", !this.section.editToggle);
     this.plusBtn.classList.toggle("disabled", !this.section.editToggle);
-    document.dispatchEvent(new Event("updateAttributsHeader"));
   }
 }

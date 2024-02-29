@@ -8,16 +8,19 @@ export default class AttributsSection extends Section {
     Object.keys(attributsController.getHeroList()).map(
       (key) => new AttributsSectionItem(key, this)
     );
-    document.addEventListener("updateAttributsHeader", () => this.update());
+    document.addEventListener("updateAttributsHeader", () =>
+      this.onUpdateAttributsHeader()
+    );
   }
 
   onToggleEdit() {
     super.onToggleEdit();
-    this.update();
+    this.onUpdateAttributsHeader();
   }
 
-  update() {
-    const visible = this.editToggle ? "" : "disabled";
-    this.header.innerHTML = `Attribute <span class="${visible}">(${attributsController.getHeroSum()})</span>`;
+  onUpdateAttributsHeader() {
+    const heroSum = attributsController.getHeroSum();
+    const disabled = this.editToggle ? "" : "disabled";
+    this.header.innerHTML = `Attribute <span class="${disabled}">(${heroSum})</span>`;
   }
 }
