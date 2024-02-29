@@ -1,5 +1,11 @@
 .attributs {
   &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px 40px;
+  }
+
+  &__container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px 40px;
@@ -9,7 +15,13 @@
 @media (max-width: $breakpoint-md) {
   .attributs {
     &__content {
+      display: grid;
       grid-template-columns: repeat(2, 1fr);
+    }
+
+    &__container {
+      display: flex;
+      flex-direction: column;
     }
   }
 }
@@ -17,7 +29,8 @@
 @media (max-width: $breakpoint-sm) {
   .attributs {
     &__content {
-      grid-template-columns: 1fr;
+      display: flex;
+      flex-direction: column;
     }
   }
 }

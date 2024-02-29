@@ -17,10 +17,13 @@ export default class AbilitiesSectionItem extends ControllElement {
 
   addElement() {
     if (this.abilityType === "skills") {
-      this.container = document.querySelector(`.skills__${this.dbEntry.type}`);
-      this.container.appendChild(this.wrapper);
+      const container = document.querySelector(`.skills__${this.dbEntry.type}`);
+      container.appendChild(this.wrapper);
     } else {
-      this.section.content.appendChild(this.wrapper);
+      const container = document.querySelector(
+        `.attributs__${this.dbEntry.type}`
+      );
+      container.appendChild(this.wrapper);
     }
   }
 

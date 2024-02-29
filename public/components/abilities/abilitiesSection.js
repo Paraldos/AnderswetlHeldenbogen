@@ -1,6 +1,7 @@
 import Section from "../section/section.js";
 import abilitiesController from "../../javascript/abilitiesController.js";
 import AbilitiesSectionItem from "./abilitiesSectionItem.js";
+import database from "../../data/database.js";
 
 export default class AbilitiesSection extends Section {
   constructor(name, abilityType) {
@@ -15,15 +16,20 @@ export default class AbilitiesSection extends Section {
   }
 
   addContainer() {
-    if (this.abilityType != "skills") return;
-    this.content.innerHTML = `
+    if (this.abilityType == "skills") {
+      this.content.innerHTML = `
         <div class="skills__container skills__geistig"><h3>Geistig</h3></div>
         <div class="skills__container skills__koerperlich"><h3>Körperlich</h3></div>
         <div class="skills__container skills__sozial"><h3>Sozial</h3></div>`;
+    } else {
+      this.content.innerHTML = `
+        <div class="attributs__container attributs__mental"></div>
+        <div class="attributs__container attributs__physical"></div>`;
+    }
   }
 
   addElements() {
-    const heroList = abilitiesController.getHeroList(this.abilityType);
+    let heroList = abilitiesController.getHeroList(this.abilityType);
     Object.keys(heroList).map(
       (key) => new AbilitiesSectionItem(key, this, this.abilityType)
     );
