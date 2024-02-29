@@ -1,4 +1,4 @@
-import database from "../../data/database.js";
+import skillsController from "../../javascript/skillsController.js";
 import Section from "../section/section.js";
 import SkillsSectionItem from "./skillsSectionItem.js";
 
@@ -6,13 +6,12 @@ export default class SkillsSection extends Section {
   constructor() {
     super("Fertigkeiten", "skills");
     this.createContainer();
-    Object.keys(database.skills).map((key) => new SkillsSectionItem(key, this));
-    document.addEventListener("updateSkillsHeader", () => this.update());
-  }
-
-  onToggleEdit() {
-    super.onToggleEdit();
-    this.update();
+    Object.keys(skillsController.getHeroList()).map(
+      (key) => new SkillsSectionItem(key, this)
+    );
+    document.addEventListener("updateSkillsHeader", () =>
+      this.onUpdateSkillsHeader()
+    );
   }
 
   createContainer() {
@@ -22,16 +21,14 @@ export default class SkillsSection extends Section {
         <div class="skills__container skills__sozial"><h3>Sozial</h3></div>`;
   }
 
-  update() {
-    const visible = this.editToggle ? "" : "disabled";
-    this.header.innerHTML = `Fertigkeiten <span class="${visible}">(${this.getSkillsSum()})</span>`;
+  onToggleEdit() {
+    super.onToggleEdit();
+    this.onUpdateSkillsHeader();
   }
 
-  getSkillsSum() {
-    let sum = -16;
-    for (let key in database.hero.skills) {
-      sum += database.hero.skills[key].value;
-    }
-    return sum;
+  onUpdateSkillsHeader() {
+    const heroSum = skillsController.getHeroSum();
+    const disabled = this.editToggle ? "" : "disabled";
+    this.header.innerHTML = `Fertigkeiten <span class="${disabled}">(${heroSum})</span>`;
   }
 }
