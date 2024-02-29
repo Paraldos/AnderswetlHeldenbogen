@@ -33,7 +33,7 @@ class VeranlagungsController {
   }
 
   dispatchEvents() {
-    document.dispatchEvent(new Event("resetAttributs"));
+    document.dispatchEvent(new Event("resetAbilities"));
     document.dispatchEvent(new Event("updateAttributsHeader"));
     document.dispatchEvent(new Event("resetFlaws"));
     document.dispatchEvent(new Event("resetTalents"));

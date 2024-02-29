@@ -1,7 +1,6 @@
 import database from "../../data/database.js";
 import BasicsInformationSection from "../basicInformation/basicInformationSection.js";
-import AttributsSection from "../attributs/attributsSection.js";
-import SkillsSection from "../skills/skillsSection.js";
+import AbilitiesSection from "../abilities/abilitiesSection.js";
 import TalentsSection from "../talents/talentsSection.js";
 import FlawsSection from "../flaws/flawsSection.js";
 import ConditionSection from "../conditions/conditionSection.js";
@@ -28,8 +27,8 @@ export default class CharacterSheet {
 
   createHero() {
     new BasicsInformationSection();
-    new AttributsSection();
-    new SkillsSection();
+    new AbilitiesSection("Attribute", "attributs");
+    new AbilitiesSection("Fertigkeiten", "skills");
     new TalentsSection();
     new FlawsSection();
     new ConditionSection();

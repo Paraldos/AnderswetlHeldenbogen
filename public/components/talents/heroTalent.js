@@ -39,7 +39,7 @@ export default class HeroTalent {
   onChangeSelect(event) {
     veranlagungsController.setVeranlagung(event.target.value);
     database.saveHero();
-    document.dispatchEvent(new Event("resetAttributs"));
+    document.dispatchEvent(new Event("resetAbilities"));
     document.dispatchEvent(new Event("resetTalents"));
   }
 
