@@ -16,8 +16,9 @@ class VeranlagungsController {
 
   getVeranlagungLimits() {
     const volkID = database.hero.basicInformation.volk.value;
-    let volk = database.voelker[volkID];
-    return volk.limits ? volk.limits : Object.keys(database.attributs);
+    return volkID && database.voelker[volkID].limits
+      ? database.voelker[volkID].limits
+      : Object.keys(database.attributs);
   }
 
   resetVeranlagung() {
