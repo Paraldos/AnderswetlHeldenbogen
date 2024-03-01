@@ -27,7 +27,7 @@ export default class HeroTalent {
   }
 
   createSelectItems(select) {
-    for (const attKey in database.attributs) {
+    for (const attKey of veranlagungsController.getVeranlagungLimits()) {
       let newSelectItem = document.createElement("option");
       newSelectItem.value = attKey;
       newSelectItem.innerText = database.attributs[attKey].name;

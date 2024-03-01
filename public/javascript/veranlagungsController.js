@@ -1,4 +1,5 @@
 import talents from "../data/talents.js";
+import database from "../data/database.js";
 
 class VeranlagungsController {
   getSelectedAttribut() {
@@ -14,8 +15,9 @@ class VeranlagungsController {
   }
 
   getVeranlagungLimits() {
-    let volk = db.voelker[this.hero.grundlagen.volk];
-    return volk.limits ? volk.limits : Object.keys(db.attributs);
+    const volkID = database.hero.basicInformation.volk.value;
+    let volk = database.voelker[volkID];
+    return volk.limits ? volk.limits : Object.keys(database.attributs);
   }
 
   resetVeranlagung() {
