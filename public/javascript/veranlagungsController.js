@@ -1,9 +1,9 @@
-import talents from "../data/talents.js";
+import talentsController from "./talentsController.js";
 import database from "../data/database.js";
 
 class VeranlagungsController {
   getSelectedAttribut() {
-    let talent = talents.findTalent("veranlagung");
+    let talent = talentsController.findTalent("veranlagung");
     if (talent) return talent.selected;
     else return false;
   }
@@ -30,7 +30,7 @@ class VeranlagungsController {
   }
 
   setVeranlagung(id) {
-    let talent = talents.findTalent("veranlagung");
+    let talent = talentsController.findTalent("veranlagung");
     talent.selected = id;
     this.dispatchEvents();
   }

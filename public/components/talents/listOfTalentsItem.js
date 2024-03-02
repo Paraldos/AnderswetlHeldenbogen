@@ -1,5 +1,5 @@
 import database from "../../data/database.js";
-import talents from "../../data/talents.js";
+import talentsController from "../../javascript/talentsController.js";
 import DescriptionModal from "../descriptionModal/descriptionModal.js";
 import ControllElement from "../controllElement/controllElement.js";
 
@@ -29,7 +29,7 @@ export default class ListOfTalentsItem extends ControllElement {
   }
 
   onPlusBtnClick() {
-    talents.addTalent(this.key);
+    talentsController.addTalent(this.key);
     document.dispatchEvent(new Event("updateConditions"));
   }
 }

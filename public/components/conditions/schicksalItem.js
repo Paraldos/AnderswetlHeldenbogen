@@ -1,6 +1,6 @@
 import database from "../../data/database.js";
 import DescriptionModal from "../descriptionModal/descriptionModal.js";
-import talents from "../../data/talents.js";
+import talentsController from "../../javascript/talentsController.js";
 import flaws from "../../data/flaws.js";
 import ControllElement from "../controllElement/controllElement.js";
 
@@ -56,7 +56,7 @@ export default class SchicksalItem extends ControllElement {
 
   getMax() {
     let value = database.hero.conditions.sp.max;
-    if (talents.findTalent("glueck")) value++;
+    if (talentsController.findTalent("glueck")) value++;
     if (flaws.findFlaw("pech")) value--;
     return value;
   }

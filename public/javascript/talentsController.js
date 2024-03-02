@@ -1,6 +1,6 @@
-import database from "./database.js";
+import database from "../data/database.js";
 
-class Talents {
+class TalentsController {
   getUnusedTalents() {
     let unusedTalents = [];
     Object.keys(database.talents).map((el) => {
@@ -79,5 +79,5 @@ class Talents {
   }
 }
 
-const talents = new Talents();
-export default talents;
+const talentsController = new TalentsController();
+export default talentsController;

@@ -1,6 +1,6 @@
 import database from "../../data/database.js";
 import DescriptionModal from "../descriptionModal/descriptionModal.js";
-import talents from "../../data/talents.js";
+import talentsController from "../../javascript/talentsController.js";
 import ControllElement from "../controllElement/controllElement.js";
 
 export default class ComplexConditionItem extends ControllElement {
@@ -82,7 +82,7 @@ export default class ComplexConditionItem extends ControllElement {
 
   getConditionMaxValue() {
     let max = this.heroEntry.max;
-    if (this.id == "lp" && talents.findTalent("huene")) {
+    if (this.id == "lp" && talentsController.findTalent("huene")) {
       max += 2;
     }
     return max;

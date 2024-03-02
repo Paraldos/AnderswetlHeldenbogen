@@ -1,6 +1,6 @@
 import Hero from "./hero.js";
 import firebaseConfig from "./firebaseConfig.js";
-import talents from "./talents.js";
+import talentsController from "../javascript/talentsController.js";
 import flaws from "./flaws.js";
 firebase.initializeApp(firebaseConfig);
 
@@ -23,9 +23,9 @@ class Database {
   changeEthnicity(newEthnicity) {
     this.hero.basicInformation.volk.value = newEthnicity;
     // talents
-    talents.removeInnateTalents();
+    talentsController.removeInnateTalents();
     if (newEthnicity && this.voelker[newEthnicity].talents) {
-      talents.addInnateTalents(this.voelker[newEthnicity].talents);
+      talentsController.addInnateTalents(this.voelker[newEthnicity].talents);
     }
     // flaws
     flaws.removeInnateFlaws();

@@ -1,4 +1,4 @@
-import talents from "../../data/talents.js";
+import talentsController from "../../javascript/talentsController.js";
 import Modal from "../modal/modal.js";
 import ListOfTalentsItem from "./listOfTalentsItem.js";
 
@@ -33,7 +33,7 @@ export default class ListOfTalents {
   }
 
   createTalents() {
-    talents
+    talentsController
       .getUnusedTalents()
       .map((talentKey) => new ListOfTalentsItem(talentKey, this.modal.content));
   }
