@@ -11,6 +11,10 @@ class TalentsController {
     ];
   }
 
+  getDBEntry(key) {
+    return database.talents[key];
+  }
+
   heroHasTalents() {
     return database.hero.talents && database.hero.talents.length > 0;
   }

@@ -1,5 +1,5 @@
 import Modal from "../modal/modal.js";
-import ListOfTalents from "../talents/listOfTalents.js";
+import SelectTalentModal from "../talents/selectTalentModal.js";
 import ListOfFlaws from "../flaws/ListOfFlaws.js";
 import toolsController from "../../javascript/toolsController.js";
 import consumablesController from "../../javascript/consumablesController.js";
@@ -32,7 +32,7 @@ export default class PlusModal extends Modal {
   }
 
   onTalentBtn() {
-    new ListOfTalents();
+    new SelectTalentModal();
   }
 
   onFlawBtn() {

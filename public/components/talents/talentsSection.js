@@ -1,6 +1,6 @@
 import talentsController from "../../javascript/talentsController.js";
 import Section from "../section/section.js";
-import ListOfTalents from "./listOfTalents.js";
+import ListOfTalents from "./selectTalentModal.js";
 import TalentsSectionItem from "./talentsSectionItem.js";
 
 export default class TalentsSection extends Section {

@@ -1,8 +1,9 @@
 import talentsController from "../../javascript/talentsController.js";
 import Modal from "../modal/modal.js";
-import ListOfTalentsItem from "./listOfTalentsItem.js";
+import ControllElement from "../controllElement/controllElement.js";
+import DescriptionModal from "../descriptionModal/descriptionModal.js";
 
-export default class ListOfTalents {
+export default class SelectTalentModal {
   constructor() {
     this.types = talentsController.types;
     this.modal = new Modal();
@@ -29,7 +30,7 @@ export default class ListOfTalents {
   createTalents() {
     talentsController
       .getUnusedTalents()
-      .map((talentKey) => new ListOfTalentsItem(talentKey, this.modal.content));
+      .map((talentKey) => new Item(talentKey, this.modal.content));
   }
 
   updateContainerVisbility() {
@@ -41,5 +42,35 @@ export default class ListOfTalents {
         ? el.classList.add("disabled")
         : el.classList.remove("disabled");
     });
+  }
+}
+
+class Item extends ControllElement {
+  constructor(key, modalContent) {
+    super("talent");
+    this.key = key;
+    this.dbEntry = talentsController.getDBEntry(key);
+    this.talentContainer = modalContent.querySelector(
+      `.talents-modal__${this.dbEntry.type}`
+    );
+    this.minusBtn.classList.add("disabled");
+    this.update();
+    this.talentContainer.appendChild(this.wrapper);
+  }
+
+  update() {
+    this.mainBtn.innerHTML =
+      this.dbEntry.max_level > 1
+        ? `${this.dbEntry.name} (1 bis ${this.dbEntry.max_level})`
+        : `${this.dbEntry.name}`;
+  }
+
+  onMainBtnClick() {
+    new DescriptionModal(this.dbEntry);
+  }
+
+  onPlusBtnClick() {
+    talentsController.addTalent(this.key);
+    document.dispatchEvent(new Event("updateConditions"));
   }
 }
