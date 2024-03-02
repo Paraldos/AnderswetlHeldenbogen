@@ -26,12 +26,16 @@ class TalentsController {
   getUnusedTalents() {
     let unusedTalents = [];
     Object.keys(database.talents).map((el) => {
-      this.findTalent(el) ? null : unusedTalents.push(el);
+      this.getTalent(el) ? null : unusedTalents.push(el);
     });
     return unusedTalents;
   }
 
-  findTalent(id) {
+  getTalentIndex(index) {
+    return database.hero.talents[index];
+  }
+
+  getTalent(id) {
     if (database.hero.talents) {
       return database.hero.talents.find((el) => el.id === id);
     }
@@ -95,7 +99,7 @@ class TalentsController {
   addInnateTalents(listOfTalents) {
     this.addTalent("sprache", true);
     listOfTalents.forEach((talent) => {
-      if (this.findTalent(talent)) this.findTalent(talent).innate = true;
+      if (this.getTalent(talent)) this.getTalent(talent).innate = true;
       else this.addTalent(talent, true);
     });
   }

@@ -82,7 +82,7 @@ export default class ComplexConditionItem extends ControllElement {
 
   getConditionMaxValue() {
     let max = this.heroEntry.max;
-    if (this.id == "lp" && talentsController.findTalent("huene")) {
+    if (this.id == "lp" && talentsController.getTalent("huene")) {
       max += 2;
     }
     return max;

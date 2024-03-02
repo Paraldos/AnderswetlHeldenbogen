@@ -56,7 +56,7 @@ export default class SchicksalItem extends ControllElement {
 
   getMax() {
     let value = database.hero.conditions.sp.max;
-    if (talentsController.findTalent("glueck")) value++;
+    if (talentsController.getTalent("glueck")) value++;
     if (flaws.findFlaw("pech")) value--;
     return value;
   }

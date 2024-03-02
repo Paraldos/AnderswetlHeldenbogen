@@ -3,13 +3,13 @@ import database from "../data/database.js";
 
 class VeranlagungsController {
   getSelectedAttribut() {
-    let talent = talentsController.findTalent("veranlagung");
+    let talent = talentsController.getTalent("veranlagung");
     if (talent) return talent.selected;
     else return false;
   }
 
   getVeranlagungName() {
-    let talent = this.hero.talents.findTalent("veranlagung");
+    let talent = this.hero.talents.getTalent("veranlagung");
     if (talent.selected) return db.attributs[talent.selected].name;
     else return false;
   }
@@ -22,7 +22,7 @@ class VeranlagungsController {
   }
 
   resetVeranlagung() {
-    let talent = this.hero.talents.findTalent("veranlagung");
+    let talent = this.hero.talents.getTalent("veranlagung");
     if (talent) {
       talent.selected = "";
     }
@@ -30,7 +30,7 @@ class VeranlagungsController {
   }
 
   setVeranlagung(id) {
-    let talent = talentsController.findTalent("veranlagung");
+    let talent = talentsController.getTalent("veranlagung");
     talent.selected = id;
     this.dispatchEvents();
   }
