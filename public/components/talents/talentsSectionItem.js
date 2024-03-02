@@ -1,4 +1,5 @@
 import database from "../../data/database.js";
+import talentsController from "../../javascript/talentsController.js";
 import HeroTalent from "./heroTalent.js";
 import ControllElement from "../controllElement/controllElement.js";
 
@@ -23,13 +24,13 @@ export default class TalentsSectionItem extends ControllElement {
   }
 
   onMinusBtnClick() {
-    talents.minusTalent(this.index);
+    talentsController.minusTalent(this.index);
     document.dispatchEvent(new Event("resetTalentHeader"));
     document.dispatchEvent(new Event("updateConditions"));
   }
 
   onPlusBtnClick() {
-    talents.plusTalent(this.index);
+    talentsController.plusTalent(this.index);
     document.dispatchEvent(new Event("resetTalentHeader"));
     document.dispatchEvent(new Event("updateConditions"));
   }

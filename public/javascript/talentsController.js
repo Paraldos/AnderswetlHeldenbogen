@@ -1,6 +1,24 @@
 import database from "../data/database.js";
 
 class TalentsController {
+  constructor() {
+    this.types = [
+      ["Allgemein", "allgemein"],
+      ["Kampf", "kampf"],
+      ["Manöver", "manoever"],
+      ["Übernatürlich", "uebernatuerlich"],
+      ["Zauber", "zauber"],
+    ];
+  }
+
+  heroHasTalents() {
+    return database.hero.talents && database.hero.talents.length > 0;
+  }
+
+  getHeroTalents() {
+    return database.hero.talents ? database.hero.talents : [];
+  }
+
   getUnusedTalents() {
     let unusedTalents = [];
     Object.keys(database.talents).map((el) => {

@@ -1,4 +1,4 @@
-import database from "../../data/database.js";
+import talentsController from "../../javascript/talentsController.js";
 import Section from "../section/section.js";
 import ListOfTalents from "./listOfTalents.js";
 import TalentsSectionItem from "./talentsSectionItem.js";
@@ -6,13 +6,7 @@ import TalentsSectionItem from "./talentsSectionItem.js";
 export default class TalentsSection extends Section {
   constructor() {
     super("Talente", "talents", true);
-    this.types = [
-      ["Allgemein", "allgemein"],
-      ["Kampf", "kampf"],
-      ["Manöver", "manoever"],
-      ["Übernatürlich", "uebernatuerlich"],
-      ["Zauber", "zauber"],
-    ];
+    this.types = talentsController.types;
     this.initSection();
     this.plusBtn.addEventListener("click", () => this.onPlusBtnClick());
     document.addEventListener("resetTalents", () => this.initSection());
@@ -43,10 +37,11 @@ export default class TalentsSection extends Section {
   }
 
   initTalents() {
-    if (!database.hero.talents) return;
-    database.hero.talents.map(
-      (talent, index) => new TalentsSectionItem(talent.id, index, this)
-    );
+    talentsController
+      .getHeroTalents()
+      .forEach(
+        (talent, index) => new TalentsSectionItem(talent.id, index, this)
+      );
   }
 
   onPlusBtnClick() {
@@ -55,7 +50,7 @@ export default class TalentsSection extends Section {
 
   update() {
     this.editToggle
-      ? (this.header.innerHTML = `Talente <span>(${talents.getSum()})</span>`)
+      ? (this.header.innerHTML = `Talente <span>(${talentsController.getSum()})</span>`)
       : (this.header.innerHTML = `Talente`);
   }
 
@@ -66,7 +61,7 @@ export default class TalentsSection extends Section {
     }
     this.section.classList.toggle(
       "disabled",
-      !this.editToggle && (!database.hero.talents || database.hero.talents <= 0)
+      !this.editToggle && !talentsController.heroHasTalents()
     );
   }
 }

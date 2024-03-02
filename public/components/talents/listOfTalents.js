@@ -4,13 +4,7 @@ import ListOfTalentsItem from "./listOfTalentsItem.js";
 
 export default class ListOfTalents {
   constructor() {
-    this.types = [
-      ["Allgemein", "allgemein"],
-      ["Kampf", "kampf"],
-      ["Manöver", "manoever"],
-      ["Übernatürlich", "uebernatuerlich"],
-      ["Zauber", "zauber"],
-    ];
+    this.types = talentsController.types;
     this.modal = new Modal();
     this.initModal();
     document.addEventListener("resetTalents", () => this.initModal());
