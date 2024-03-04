@@ -1,5 +1,6 @@
 import database from "../data/database.js";
 import veranlagungsController from "./veranlagungsController.js";
+import moneyController from "./moneyController.js";
 
 class AbilitiesController {
   getHeroList(abilityType) {

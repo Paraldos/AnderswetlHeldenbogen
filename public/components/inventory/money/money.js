@@ -1,4 +1,4 @@
-import database from "../../../data/database.js";
+import moneyController from "../../../javascript/moneyController.js";
 
 export default class Money {
   constructor(section) {
@@ -20,9 +20,9 @@ export default class Money {
     element.className = "money";
     element.innerHTML = `
       <div class="money__first-row">
-        <p class="money__gold">Gold: ${database.hero.money.gold}</p>
-        <p class="money__silver">Silber: ${database.hero.money.silver}</p>
-        <p class="money__copper">Kupfer: ${database.hero.money.copper}</p>
+        <p class="money__gold">Gold: 0</p>
+        <p class="money__silver">Silber: 0</p>
+        <p class="money__copper">Kupfer: 0</p>
       </div>
       <div class="money__second-row">
         <input class="money__input" type="number" value="0">
@@ -35,37 +35,21 @@ export default class Money {
   }
 
   onPlusBtnClick() {
-    database.hero.money += parseFloat(this.input.value);
-    database.saveHero();
+    moneyController.addMoney(this.input.value);
     this.input.value = 0;
     this.updateCoins();
   }
 
   onMinusBtnClick() {
-    database.hero.money -= parseFloat(this.input.value);
-    if (database.hero.money < 0) {
-      database.hero.money = 0;
-    }
-    database.saveHero();
+    moneyController.removeMoney(this.input.value);
     this.input.value = 0;
     this.updateCoins();
   }
 
   updateCoins() {
-    let coins = this.getCoins();
+    let coins = moneyController.getCoins();
     this.gold.innerHTML = `Gold: ${coins.gold}`;
     this.silver.innerHTML = `Silber: ${coins.silver}`;
     this.copper.innerHTML = `Kupfer: ${coins.copper}`;
-  }
-
-  getCoins() {
-    let money = database.hero.money;
-    let coins = {};
-    coins.gold = Math.floor(money / 100);
-    money %= 100;
-    coins.silver = Math.floor(money / 10);
-    money %= 10;
-    coins.copper = money;
-    return coins;
   }
 }
