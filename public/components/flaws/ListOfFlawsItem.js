@@ -1,6 +1,6 @@
 import database from "../../data/database.js";
 import DescriptionModal from "../descriptionModal/descriptionModal.js";
-import flaws from "../../data/flaws.js";
+import flawsController from "../../javascript/flawsController.js";
 import ControllElement from "../controllElement/controllElement.js";
 
 export default class ListItem extends ControllElement {
@@ -19,7 +19,7 @@ export default class ListItem extends ControllElement {
   }
 
   onPlusBtnClick() {
-    flaws.addFlaw(this.id);
+    flawsController.addFlaw(this.id);
     document.dispatchEvent(new Event("updateConditions"));
   }
 

@@ -1,5 +1,5 @@
 import database from "../../data/database.js";
-import flaws from "../../data/flaws.js";
+import flawsController from "../../javascript/flawsController.js";
 import HeroFlaw from "./heroFlaw.js";
 import ControllElement from "../controllElement/controllElement.js";
 
@@ -21,7 +21,7 @@ export default class FlawSectionItem extends ControllElement {
   }
 
   onMinusBtnClick() {
-    flaws.removeFlaw(this.index);
+    flawsController.removeFlaw(this.index);
     document.dispatchEvent(new Event("updateConditions"));
   }
 

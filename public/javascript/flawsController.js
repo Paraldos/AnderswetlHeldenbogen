@@ -1,6 +1,6 @@
-import database from "./database.js";
+import database from "../data/database.js";
 
-class Flaws {
+class FlawsController {
   constructor(hero) {
     this.hero = hero;
     this.value = [];
@@ -69,5 +69,5 @@ class Flaws {
   }
 }
 
-const flaws = new Flaws();
-export default flaws;
+const flawsController = new FlawsController();
+export default flawsController;

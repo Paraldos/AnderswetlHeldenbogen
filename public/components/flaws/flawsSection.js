@@ -1,6 +1,6 @@
 import database from "../../data/database.js";
 import Section from "../section/section.js";
-import flaws from "../../data/flaws.js";
+import flawsController from "../../javascript/flawsController.js";
 import ListOfFlaws from "./ListOfFlaws.js";
 import FlawSectionItem from "./flawsSectionItem.js";
 

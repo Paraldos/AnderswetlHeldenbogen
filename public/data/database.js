@@ -1,7 +1,7 @@
 import Hero from "./hero.js";
 import firebaseConfig from "./firebaseConfig.js";
 import talentsController from "../javascript/talentsController.js";
-import flaws from "./flaws.js";
+import flaws from "../javascript/flawsController.js";
 firebase.initializeApp(firebaseConfig);
 
 class Database {

@@ -1,5 +1,5 @@
 import database from "../../data/database.js";
-import flaws from "../../data/flaws.js";
+import flawsController from "../../javascript/flawsController.js";
 import DescriptionModal from "../descriptionModal/descriptionModal.js";
 
 export default class TempoItem {
@@ -27,7 +27,7 @@ export default class TempoItem {
 
   getValue() {
     let value = database.hero.conditions.tempo;
-    if (flaws.findFlaw("lahm")) value -= 2;
+    if (flawsController.findFlaw("lahm")) value -= 2;
     return value;
   }
 }

@@ -1,6 +1,6 @@
 import database from "../../data/database.js";
 import Modal from "../modal/modal.js";
-import flaws from "../../data/flaws.js";
+import flawsController from "../../javascript/flawsController.js";
 import ListOfFlawsItem from "./ListOfFlawsItem.js";
 
 export default class ListOfFlaws {
@@ -18,7 +18,7 @@ export default class ListOfFlaws {
 
   addFlaws() {
     for (let id in database.flaws) {
-      if (flaws.findFlaw(id)) continue;
+      if (flawsController.findFlaw(id)) continue;
       else new ListOfFlawsItem(id, this.modal);
     }
   }
