@@ -24,7 +24,7 @@ export default class PlusModal extends Modal {
         <ul>
             <button class="">Stufe</button>
             <button class="talent-btn">Talent</button>
-            <button class="flaw-btn">Nachteil</button>
+            <button class="flaw-btn">Schwäche</button>
             <button class="tool-btn">Werkzeug</button>
             <button class="consumable-btn">Verbrauchsgegenstand</button>
         </ul>
